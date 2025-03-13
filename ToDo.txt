@@ -1,0 +1,5 @@
+Bruk python 3.11.9 med venv.
+
+Raid check funker ikke, offline-check funker ikke..
+
+Meste må på plass, men ikke glem alt må gjøres async.. og bruk riktige async-metoder.
