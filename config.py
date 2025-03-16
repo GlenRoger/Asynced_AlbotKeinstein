@@ -20,4 +20,4 @@ CHANNEL = "CoolingenWasTaken"
 BOT_USERNAME = "AlbertKeinstein"
 
 # Path to the file containing the OAuth token
-OAUTH_TOKEN_FILE = "../../ToAblertK.txt"
+OAUTH_TOKEN_FILE = "../ToAblertK.txt"
