@@ -1,0 +1,18 @@
+2025-03-19 21:23:23,538 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-19 21:23:23,539 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-19 21:23:24,659 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-19 21:23:25,117 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-19 21:23:25,155 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-19 21:23:38,307 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :Hi
+
+2025-03-19 21:23:45,196 - twitch_bot - INFO - Bot stopped by user
