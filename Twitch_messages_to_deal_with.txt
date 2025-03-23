@@ -1,0 +1,39 @@
+#Typical written by the logger: 
+#"2025-03-19 21:23:38,307 - twitch_bot - INFO - Received: "
+#"2025-03-19 21:23:38,307 - twitch_bot - INFO - "
+
+2025-03-20 22:38:01,060 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 22:38:01,060 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 22:38:02,145 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 22:38:02,575 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+
+#These should be ignored
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 22:38:02,618 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+
+
+#Ping from twitch.tv, taken care of!
+2025-03-20 22:44:37,913 - twitch_bot - INFO - Received: PING :tmi.twitch.tv
+
+
+#Messages about logging on AlbotKeinstein or messages from AlbotKeinstein - should be ignored.
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+#Messages from users trying to start a command
+2025-03-20 22:38:11,235 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+
+#Normal message from a user, not trying to invoke a command
+2025-03-20 22:38:11,235 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+
+
+#Finner chat meldinger og parser ved bruk av split får:
+#[':coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv', 'PRIVMSG', '#coolingenwastaken', ':%hei\r\n']

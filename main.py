@@ -8,6 +8,7 @@ import asyncio
 import logging
 import websockets
 import os
+import re
 
 
 
@@ -17,6 +18,7 @@ import os
 
 #Importing files made for AlbotKeinstein
 import config
+import commands.command_handler as ch
 # from utils.twitch_connection import TwitchConnection
 # from utils.command_handler import CommandHandler
 # from utils.event_sub import EventSubHandler
@@ -67,6 +69,7 @@ async def connect_to_twitch(token):
     """Connect to Twitch IRC via WebSocket"""
     # uri = f"wss://irc-ws.chat.twitch.tv:443"
     uri = f"{config.TWITCH_IRC_SERVER}:{config.TWITCH_IRC_PORT}"
+    logger.info(f"######################## STARTING BOT ####################")
     logger.info(f"Connecting to Twitch IRC: {uri}")
     
     async with websockets.connect(uri) as websocket:
@@ -79,16 +82,53 @@ async def connect_to_twitch(token):
         
         logger.info(f"Joined channel: #{config.CHANNEL}")
         
-        # Main message loop
+        # Main message loop #LOOOOOOOOOP
         try:
             while True:
                 message = await websocket.recv()
                 logger.info(f"Received: {message}")
-                
+
+
+            #For an overview over messages to deal with -> see file Twitch-Messages_to_deal_with.txt
+
+
+
                 # Respond to PING with PONG to keep the connection alive
                 if message.startswith("PING"):
                     await websocket.send("PONG :tmi.twitch.tv")
                     logger.info("Responded to PING")
+                #Not important messages or info about albotkeinstein's log on
+                elif message.startswith(":tmi.twitch.tv") or message.startswith(":albotkeinstein"):
+                    logger.info(f"Ignoring/Not treating this message: {message}")
+                else:
+
+
+                    #Split gir oss: #[':coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv', 'PRIVMSG', '#coolingenwastaken', ':%hei\r\n']
+                    split_chat = message.split(' ')
+
+
+                    is_PRIVMSG = split_chat[1] == "PRIVMSG"
+                    is_command = split_chat[3].startswith(':%')
+
+                    if is_PRIVMSG and is_command:
+                        split_chat[3] = split_chat[3][2:]
+                        split_chat[-1] = split_chat[-1].rstrip()
+                        command_rebuild = (' ').join(split_chat[3:])
+
+                        username_sending_message = split_chat[2][1:]
+                        print(username_sending_message)
+                        # ptrn = r"^[a-zA-Z_+-øæåÆØÅ ]+$"
+
+                        if ch.is_safe_message(command_rebuild, username_sending_message) and ch.is_safe_command(command_rebuild):
+                            logger.info(f"Considered safe to check if it is a valid command: {message}")
+                            ch.command_handler(command_rebuild)
+                        else:
+                            logger.info(f"I don't dare run this command: {message}")
+
+                    elif is_PRIVMSG:
+                        logger.info(f"Just a chat message: {message}")
+                    else:
+                        logger.info(f"In 'else' in main loop. This message came through.. why? {message}")
         
         except websockets.exceptions.ConnectionClosed:
             logger.error("Connection closed")

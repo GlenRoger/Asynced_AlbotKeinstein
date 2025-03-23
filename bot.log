@@ -16,3 +16,791 @@
 2025-03-19 21:23:38,307 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :Hi
 
 2025-03-19 21:23:45,196 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 22:38:01,060 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 22:38:01,060 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 22:38:02,145 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 22:38:02,575 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 22:38:02,618 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 22:38:11,235 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 22:38:17,500 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 22:39:59,378 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 22:39:59,379 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 22:40:00,276 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 22:40:00,731 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 22:40:00,755 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 22:44:37,913 - twitch_bot - INFO - Received: PING :tmi.twitch.tv
+
+2025-03-20 22:44:37,913 - twitch_bot - INFO - Responded to PING
+2025-03-20 22:47:02,813 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 22:52:40,623 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 22:52:40,623 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 22:52:41,463 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 22:52:41,888 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 22:52:41,889 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 22:52:41,918 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 22:52:41,918 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 22:52:57,766 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 22:55:34,836 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 22:55:34,836 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 22:55:34,836 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 22:55:35,678 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 22:55:36,107 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 22:55:36,108 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 22:55:36,131 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 22:55:36,131 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 22:55:40,644 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 22:57:27,454 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 22:57:27,455 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 22:57:27,455 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 22:57:28,279 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 22:57:28,696 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 22:57:28,697 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 22:57:28,721 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 22:57:28,721 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 22:57:35,627 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 22:57:35,628 - twitch_bot - INFO - In 'else' in main loop. This message came through.. why? :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 22:57:42,848 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:08:14,165 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:08:14,166 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:08:14,166 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:08:15,005 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:08:15,425 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:08:15,425 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:08:15,464 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:08:15,465 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:08:25,533 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 23:08:25,715 - twitch_bot - ERROR - Error in main function: name 'split' is not defined
+2025-03-20 23:09:52,990 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:09:52,991 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:09:52,991 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:09:53,823 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:09:54,237 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:09:54,237 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:09:54,262 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:09:54,262 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:10:00,422 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 23:10:00,423 - twitch_bot - INFO - Just a chat message: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 23:10:03,882 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:10:03,882 - twitch_bot - INFO - Just a chat message: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:10:06,468 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:11:05,391 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:11:05,392 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:11:05,392 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:11:06,228 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:11:06,639 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:11:06,639 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:11:06,664 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:11:06,665 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:11:12,796 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 23:11:12,797 - twitch_bot - INFO - Just a chat message: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 23:11:14,628 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:11:14,628 - twitch_bot - INFO - Just a chat message: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:11:16,675 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:12:06,332 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:12:06,332 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:12:06,332 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:12:07,180 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:12:07,605 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:12:07,605 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:12:07,634 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:12:07,635 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:12:10,983 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:12:10,983 - twitch_bot - INFO - Just a chat message: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:12:12,565 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 23:12:12,566 - twitch_bot - INFO - Just a chat message: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 23:12:29,235 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:14:16,762 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:14:16,762 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:14:16,763 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:14:17,615 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:14:18,049 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:14:18,049 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:14:18,073 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:14:18,073 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:14:21,467 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 23:14:21,649 - twitch_bot - ERROR - Error in main function: module 'commands.comand_handler' has no attribute 'comand_handler'
+2025-03-20 23:16:38,591 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:16:38,591 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:16:38,591 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:16:39,441 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:16:39,868 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:16:39,868 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:16:39,898 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:16:39,898 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:16:43,379 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
+
+2025-03-20 23:16:45,480 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:16:45,480 - twitch_bot - INFO - Just a chat message: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:16:48,340 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:19:36,130 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:19:36,130 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:19:36,131 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:19:36,969 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:19:37,387 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:19:37,388 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:19:37,424 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:19:37,424 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:19:48,825 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei på deg
+
+2025-03-20 23:20:01,778 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%heifoadifj%
+
+2025-03-20 23:20:13,676 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:21:07,359 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:21:07,360 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:21:07,360 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:21:08,201 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:21:08,619 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:21:08,620 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:21:08,649 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:21:08,650 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:21:17,908 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei hei
+
+2025-03-20 23:21:18,089 - twitch_bot - ERROR - Error in main function: 'list' object has no attribute 'join'
+2025-03-20 23:21:58,460 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:21:58,460 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:21:58,461 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:21:59,329 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:21:59,738 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:21:59,738 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:21:59,765 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:21:59,765 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:22:06,339 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei hei
+
+2025-03-20 23:22:06,516 - twitch_bot - ERROR - Error in main function: name 'join' is not defined
+2025-03-20 23:22:21,172 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:22:21,173 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:22:21,173 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:22:21,998 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:22:22,407 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:22:22,408 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:22:22,432 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+
+2025-03-20 23:22:22,433 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+
+2025-03-20 23:22:22,434 - twitch_bot - INFO - Received: :albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:22:22,434 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:22:30,368 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei hei
+
+2025-03-20 23:22:38,873 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:23:25,394 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:23:25,394 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:23:25,394 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:23:26,223 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:23:26,642 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:23:26,642 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:23:26,670 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:23:26,670 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:23:29,751 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei hei
+
+2025-03-20 23:23:34,379 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%heeeeei
+
+2025-03-20 23:23:40,265 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei hei hei hadof
+
+2025-03-20 23:23:45,566 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:28:52,883 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:28:52,884 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:28:52,884 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:28:53,773 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:28:54,230 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:28:54,230 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:28:54,256 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:28:54,257 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:29:02,502 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei hei
+
+2025-03-20 23:29:02,502 - twitch_bot - INFO - I don't dare run this command. Contains other characters than [a-zA-Z_+-øæåÆØÅ]: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei hei
+
+2025-03-20 23:29:12,517 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hdi&
+
+2025-03-20 23:29:12,517 - twitch_bot - INFO - I don't dare run this command. Contains other characters than [a-zA-Z_+-øæåÆØÅ]: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hdi&
+
+2025-03-20 23:29:17,941 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:33:30,157 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:33:30,157 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:33:30,157 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:33:30,990 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:33:31,411 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:33:31,411 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:33:31,442 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:33:31,442 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:33:37,856 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei på deg
+
+2025-03-20 23:33:37,861 - twitch_bot - INFO - I don't dare run this command. Contains other characters than [a-zA-Z_+-øæåÆØÅ]: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei på deg
+
+2025-03-20 23:33:58,159 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:35:50,084 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:35:50,085 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:35:50,085 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:35:50,907 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:35:51,326 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:35:51,326 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:35:51,355 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:35:51,355 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:35:57,411 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei på deg
+
+2025-03-20 23:35:57,589 - twitch_bot - ERROR - Error in main function: name 'ptnr' is not defined
+2025-03-20 23:36:33,446 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:36:33,446 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:36:33,446 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:36:34,278 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:36:34,686 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:36:34,687 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:36:34,719 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:36:34,720 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:36:43,276 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg
+
+2025-03-20 23:36:43,277 - twitch_bot - INFO - Considered safe to check if is a real command, only contains these characters ^[a-zA-Z_+-øæåÆØÅ ]+$: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg
+
+2025-03-20 23:36:59,766 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei\
+
+2025-03-20 23:36:59,767 - twitch_bot - INFO - Considered safe to check if is a real command, only contains these characters ^[a-zA-Z_+-øæåÆØÅ ]+$: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei\
+
+2025-03-20 23:38:25,031 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:41:07,064 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:41:07,064 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:41:07,064 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:41:07,897 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:41:08,314 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:41:08,314 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:41:08,340 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:41:08,340 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:41:16,043 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei på deg /
+
+2025-03-20 23:41:16,044 - twitch_bot - INFO - Considered safe to check if is a real command, only contains these characters ^[a-zA-Z_+-øæåÆØÅ ]+$: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei på deg /
+
+2025-03-20 23:41:32,533 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei på deg & meg
+
+2025-03-20 23:41:32,533 - twitch_bot - INFO - I don't dare run this command. Contains other characters than ^[a-zA-Z_+-øæåÆØÅ ]+$: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei på deg & meg
+
+2025-03-20 23:45:29,047 - twitch_bot - INFO - Received: PING :tmi.twitch.tv
+
+2025-03-20 23:45:29,048 - twitch_bot - INFO - Responded to PING
+2025-03-20 23:47:19,982 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:47:21,296 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:47:21,297 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:47:21,297 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:47:22,142 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:47:22,574 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:47:22,574 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:47:22,604 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:47:22,604 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:47:29,726 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:47:29,726 - twitch_bot - INFO - Just a chat message: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :hei
+
+2025-03-20 23:47:36,948 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei
+
+2025-03-20 23:47:36,948 - twitch_bot - INFO - Considere safe to check if it is a valid command: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei
+
+2025-03-20 23:47:41,881 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei\
+
+2025-03-20 23:47:42,063 - twitch_bot - ERROR - Error in main function: name 'logger' is not defined
+2025-03-20 23:51:10,266 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:51:10,266 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:51:10,266 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:51:11,158 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:51:11,605 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:51:11,605 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:51:11,629 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:51:11,629 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:51:19,628 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei\
+
+2025-03-20 23:51:19,629 - command_handler - INFO - Command rejected. Disallowed characters found: '\' in: Hei på deg gamle blei\
+2025-03-20 23:51:19,629 - twitch_bot - INFO - I don't dare run this command: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei\
+
+2025-03-20 23:51:27,033 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei
+
+2025-03-20 23:51:27,034 - twitch_bot - INFO - Considere safe to check if it is a valid command: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei
+
+2025-03-20 23:51:32,421 - twitch_bot - INFO - Bot stopped by user
+2025-03-20 23:59:24,848 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-20 23:59:24,849 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-20 23:59:24,849 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-20 23:59:25,734 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-20 23:59:26,179 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:59:26,180 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-20 23:59:26,213 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+
+2025-03-20 23:59:26,214 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+
+2025-03-20 23:59:26,214 - twitch_bot - INFO - Received: :albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:59:26,214 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-20 23:59:37,864 - twitch_bot - INFO - Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei
+
+2025-03-20 23:59:37,864 - twitch_bot - INFO - Considered safe to check if it is a valid command: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei
+
+2025-03-20 23:59:49,385 - twitch_bot - INFO - Bot stopped by user

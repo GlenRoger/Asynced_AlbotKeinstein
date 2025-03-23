@@ -1,5 +1,55 @@
-Bruk python 3.11.9 med venv.
+DONE! Bruk python 3.11.9 med venv.
 
 Raid check funker ikke, offline-check funker ikke..
 
 Meste må på plass, men ikke glem alt må gjøres async.. og bruk riktige async-metoder.
+
+
+
+
+
+Bruk python 3.11.9 med venv. DONE!
+
+Raid check funker ikke, offline-check funker ikke..
+
+Meste må på plass, men ikke glem alt må gjøres async.. og bruk riktige async-metoder.
+
+
+Mer sikkerhet!!!!
+Message Length Limits
+
+Set a maximum length for commands and arguments to prevent buffer overflow or resource exhaustion
+Example: if len(command_rebuild) > 500: return False  # Too long
+
+
+Rate Limiting
+
+Track how many commands each user is sending in a given time period
+Implement cooldowns for specific users or commands that are being spammed
+
+
+Input Sanitization
+
+Validate all numeric inputs (using isdigit() checks)
+Consider using type conversion with error handling for numeric arguments
+Be careful with any inputs that might be used in file operations
+
+
+Command Flood Protection
+
+Track the total number of commands processed in a short time frame
+If too many commands come in at once, enter a cooldown mode
+
+
+URL/Link Checking
+
+If your commands can include URLs, consider checking them against known patterns
+You might want to reject or require higher permissions for commands with URLs
+
+
+Special Character Sequences
+
+Watch for control characters, null bytes, or Unicode shenanigans
+Check for attempts to inject ANSI escape codes or other terminal control sequences
+
+Husk "safety-shell" også!
