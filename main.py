@@ -3,12 +3,19 @@
 # main.py - Main entry point for the AlbertKeinstein Twitch bot
 
 
+# 3rd milestone:
+# No runaway bot! If the twitch channel starts a raid, the bot should be shut down.
+# If the twitch channel goes offline the bot is to be shut down. Implement a maximum
+# of messages that the bot can send before it sets itself in a "cool-down". This
+# limit will be stricter than the Twitch's limit - because we don't want the Twitch 1 hour
+# of ignore penalty.
+
+
 #Importing libraries
 import asyncio
 import logging
 import websockets
 import os
-import re
 
 
 
@@ -89,8 +96,28 @@ async def connect_to_twitch(token):
                 logger.info(f"Received: {message}")
 
 
-            #For an overview over messages to deal with -> see file Twitch-Messages_to_deal_with.txt
 
+            #HAVE TO CHECK IF THIS MESSAGE OF RAID IS BEING CAUGHT
+                #For an overview over messages to deal with -> see file Twitch-Messages_to_deal_with.txt
+                if "USERNOTICE" in message and "msg-id=raid" in message:
+                    logger.warning("Raid detected! Shutting down...")
+                    #####await disconnect("Channel started a raid")
+                    return
+
+            #HAVE TO CHECK IF THIS MESSAGE OF RAID IS BEING CAUGHT
+                # Look for channel offline notice
+                if "NOTICE" in message and "This channel is now hosting" in message:
+                    logger.warning("Channel started hosting! Shutting down...")
+                    #####await self.disconnect("Channel started hosting")
+                    return
+
+            #HAVE TO CHECK IF THIS MESSAGE OF CHANNEL GOING OFFLINE IS BEING CAUGHT
+            #MOST LIKELY NOT!
+                if "NOTICE" in message and "This room is no longer in slow mode" in message:
+                    # This is just one possible indication of going offline, might need adjustment
+                    self.logger.warning("Channel may have gone offline! Shutting down...")
+                    await self.disconnect("Channel may have gone offline")
+                    return
 
 
                 # Respond to PING with PONG to keep the connection alive

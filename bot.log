@@ -804,3 +804,32 @@
 2025-03-20 23:59:37,864 - twitch_bot - INFO - Considered safe to check if it is a valid command: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%Hei på deg gamle blei
 
 2025-03-20 23:59:49,385 - twitch_bot - INFO - Bot stopped by user
+2025-03-26 22:14:26,128 - twitch_bot - INFO - OAuth token loaded from file
+2025-03-26 22:14:26,129 - twitch_bot - INFO - ######################## STARTING BOT ####################
+2025-03-26 22:14:26,129 - twitch_bot - INFO - Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-03-26 22:14:27,461 - twitch_bot - INFO - Joined channel: #CoolingenWasTaken
+2025-03-26 22:14:27,920 - twitch_bot - INFO - Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-26 22:14:27,921 - twitch_bot - INFO - Ignoring/Not treating this message: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-03-26 22:14:27,968 - twitch_bot - INFO - Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-26 22:14:27,969 - twitch_bot - INFO - Ignoring/Not treating this message: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #coolingenwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #coolingenwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #coolingenwastaken :End of /NAMES list
+
+2025-03-26 22:15:08,621 - twitch_bot - INFO - Bot stopped by user

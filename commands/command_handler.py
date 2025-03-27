@@ -26,9 +26,12 @@ def is_safe_message(message, user_id):
     return True
 
 
-
+#If a command is safe and can be considered as a command
 def command_handler(msg):
     print(f"In command handler, recieved:{msg}")
+
+
+
 
 
 def is_safe_command(command_text):
