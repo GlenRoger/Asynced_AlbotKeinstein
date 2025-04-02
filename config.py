@@ -3,6 +3,9 @@
 #Set who can do some certain commands to Albert Keinstein
 STREAMERS_ONLY = True
 STREAMERS = ["thestreamteamwastaken", "coolingenwastaken", "kyllingpews", "nurseiplier", "dad__76", "themonkeytea", "krishli", "raivdaiv"]
+MODS      = ["phextheflex"]
+VIPS      = [""]
+
 
 PREFIX_FOR_BOT_TO_READ = '%'
 
@@ -25,3 +28,5 @@ BOT_USERNAME = "AlbertKeinstein"
 
 # Path to the file containing the OAuth token
 OAUTH_TOKEN_FILE = "../ToAblertK.txt"
+
+

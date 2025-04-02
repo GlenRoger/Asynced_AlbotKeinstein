@@ -3,6 +3,8 @@
 # main.py - Main entry point for the AlbertKeinstein Twitch bot
 
 
+#PROB! Sender ikke lenger! :(
+
 # 3rd milestone:
 # No runaway bot! If the twitch channel starts a raid, the bot should be shut down.
 # If the twitch channel goes offline the bot is to be shut down. Implement a maximum
@@ -26,6 +28,9 @@ import os
 #Importing files made for AlbotKeinstein
 import config
 import commands.command_handler as ch
+import utils.send_message as sm
+
+
 # from utils.twitch_connection import TwitchConnection
 # from utils.command_handler import CommandHandler
 # from utils.event_sub import EventSubHandler
@@ -34,7 +39,7 @@ import commands.command_handler as ch
 # # Setup logging
 # logger = setup_logger(__name__)
 
-### FROM HERE ON THERE WILLB E PROGRAMMING ##
+### FROM HERE ON THERE WILL BE PROGRAMMING ##
 
 
 
@@ -89,6 +94,15 @@ async def connect_to_twitch(token):
         
         logger.info(f"Joined channel: #{config.CHANNEL}")
         
+
+        #Saying hello - up and running:
+        print("\n\n\n")
+        send_message = sm.Message_sending_central(websocket, config.CHANNEL)
+        await send_message.send_message("Aaaah! Up and running, AlbertKeinstein here! <3")
+        print("\n\n\n")
+
+
+
         # Main message loop #LOOOOOOOOOP
         try:
             while True:
@@ -148,7 +162,13 @@ async def connect_to_twitch(token):
 
                         if ch.is_safe_message(command_rebuild, username_sending_message) and ch.is_safe_command(command_rebuild):
                             logger.info(f"Considered safe to check if it is a valid command: {message}")
-                            ch.command_handler(command_rebuild)
+                            response = ch.command_handler(command_rebuild, username_sending_message)
+                            if response[0] == "respond":
+                                await send_message.send_message(response[1])
+                            elif response[0] == "shutdown":
+                                await send_message.send_message(response[1])
+                                return
+
                         else:
                             logger.info(f"I don't dare run this command: {message}")
 

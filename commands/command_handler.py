@@ -1,7 +1,9 @@
 import logging
+import config
 
 
 logger = logging.getLogger("command_handler")
+
 
 
 
@@ -27,10 +29,30 @@ def is_safe_message(message, user_id):
 
 
 #If a command is safe and can be considered as a command
-def command_handler(msg):
+def command_handler(msg, user_id):
     print(f"In command handler, recieved:{msg}")
 
 
+
+    #COMMANDS FOR STREAMERS
+    if msg.upper() == "ALBOTREST":
+        if user_id.lower() in config.STREAMERS:
+            return ["shutdown", f"Allright! I'll head to bed then, @{user_id}! Good night everybody! <3 <3 "]
+        return ["respond", f"But I'm not tired yet, @{user_id}!"]
+
+
+    #COMMANDS FOR STREAMERS and MODS
+   #if ...... and (user_id.lower() in config.STREAMERS or user_id.lower() in config.MODS):
+
+
+   #COMMANDS FOR STREAMERS, MODS and VIPS
+   #if ...... and (user_id.lower() in config.STREAMERS or user_id.lower() in config.MODS or user_id.lower() in config.VIPS):
+
+
+    #COMMANDS FOR EVERYONE!
+    if msg.upper() == "HOWDY":
+        return ["respond", f"Howdy! How are you, @{user_id}?"]
+    
 
 
 
