@@ -3,19 +3,13 @@
 #Set who can do some certain commands to Albert Keinstein
 STREAMERS_ONLY = True
 STREAMERS = ["thestreamteamwastaken", "coolingenwastaken", "kyllingpews", "nurseiplier", "dad__76", "themonkeytea", "krishli", "raivdaiv"]
-MODS      = ["phextheflex"]
-VIPS      = [""]
-
 
 PREFIX_FOR_BOT_TO_READ = '%'
 
 
 # Twitch IRC server
-# TWITCH_IRC_SERVER = "irc.chat.twitch.tv"
-# TWITCH_IRC_PORT = 6667
 TWITCH_IRC_SERVER   =   "wss://irc-ws.chat.twitch.tv"
 TWITCH_IRC_PORT     =   443
-
 
 
 # Twitch channel to connect to
