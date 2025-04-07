@@ -19,6 +19,7 @@ class Command_central:
     #These can also be saved in a file, though need extra programming in TwitchConnection.py
     def advanced_commands(self, sender, cmd):
         current_log_prefix = self.logger_prefix + "advanced_commands:"
+        self.logger.info(f"{self.logger_prefix}Got {cmd} from {sender}")
 
         if not sender in config.STREAMERS:
             self.logger.info(f"{current_log_prefix}User {sender} not permitted to use command - STREAMERS only! {cmd}")
@@ -46,8 +47,10 @@ class Command_central:
             self.logger.info(f"{self.logger_prefix}Command ALBOTREST/SHUTDOWN/QUIT received!")
             return ['cmd', "QUIT", "See you later everybody! Bye-bye! <3"]
 
+        if cmd.upper() == 'HOWDY' or cmd.upper() == 'HOWDY!':
+            return ["RE", "AHOY!", ""]
 
-        self.logger.info(f"{current_log_prefix}Not a ADVANCED command!")
+        self.logger.info(f"{current_log_prefix}Not an ADVANCED command!")
         return ["", "", ""]
 
     def check_valid_commands(self, sender, cmd):

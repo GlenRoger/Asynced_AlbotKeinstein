@@ -13,7 +13,7 @@ class Message_sending_central:
 
         # self.running = False
         self.message_id = 0 #incremental per new message sent
-        self.count_messages = 0
+        self.count_messages = 58
         self.max_messages = max_messages_per_minute  # Maximum messages before cooldown
         self.cooldown_time = cooldown_duration  # Cooldown time in seconds
         self.inCooldownMode = False
@@ -83,11 +83,12 @@ class Message_sending_central:
         current_log_prefix = self.logger_prefix + "track_messages_sent:"
         self.count_messages += 1
         self.message_id     += 1
-        self.logger.info(f"{current_log_prefix}Tracking another message, this is number #{self.message_id}")
+        cur_message_id = self.message_id
+        self.logger.info(f"{current_log_prefix}Tracking another message, this is number #{cur_message_id}")
 
         await asyncio.sleep(60)  # Need to await here
 
-        self.logger.info(f"{current_log_prefix}Tracking on message removed for message number #{self.message_id}")
+        self.logger.info(f"{current_log_prefix}Tracking on message removed for message number #{cur_message_id}")
         self.logger.info(f"{current_log_prefix}Popping: {self.message_sent_tasks_list[0]}")
         self.message_sent_tasks_list.pop(0)  #Task done pop it out from list! Always the first element, fifo-queue.
         self.count_messages -= 1
@@ -109,9 +110,25 @@ class Message_sending_central:
     async def startCooldownMode(self):
         self.inCooldownMode = True
         await asyncio.sleep(60)  # Need to await here
-        self.inCooldownMode = False
 
+        #Time to catch up on the message-pile, when it's empty we can go on as normal.
+        if len(self.message_pile) == 0:
+            self.inCooldownMode = False
 
+    #Put priorities on the message pile before getting back to normal.
+    def check_message_pile(self):
+        current_log_prefix = self.logger_prefix + "check_message_pile:"
+
+        self.logger.info(f"{current_log_prefix}Messages left in message-pile: {len(self.message_pile)}.")
+
+        if len(self.message_pile) == 0 and self.count_messages <= self.max_messages and not self.inCooldownMode:
+            self.logger.info(f"{current_log_prefix}Message-pile empty => #{len(self.message_pile)} messages left.")
+            self.inCooldownMode = True
+            return []
+
+        if len(self.message_pile) != 0 and self.count_messages <= self.max_messages and not self.inCooldownMode:
+            self.logger.info(f"{current_log_prefix}Emptying another message from the message-pile.")
+            return self.message_pile.pop(0)
 
 
     ########################################################################

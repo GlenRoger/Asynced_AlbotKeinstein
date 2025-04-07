@@ -100,6 +100,10 @@ class TwitchConnection:
 
             try:
                 while self.run_loop:
+
+                    message_pile_item = self.send_messsage.check_message_pile()
+                    print(f"Message_pile_item:{message_pile_item}")
+                    
                     # self.logger.info(f"{current_log_prefix}Inside while loop.. active.")
 
                     message = await self.websocket.recv()
@@ -111,6 +115,9 @@ class TwitchConnection:
 
                     #Check for raid messages
                     if await self.raid_starting(message):
+                        break
+
+                    if await self.channel_went_offline(message):
                         break
 
                     message = message.rstrip(" \n")
@@ -135,14 +142,15 @@ class TwitchConnection:
                             # [can_be_sent, message_to_send] = self.send_messsage.check_if_can_be_sent(self.alternative_respond)
                             await self.sending_msg_to_chat(self.alternative_respond)
 
-                            
                     elif self.isNotSilenced:
                         if command_reponse[0] == 'RE':
                             # [can_be_sent, message_to_send] = self.send_messsage.check_if_can_be_sent(command_reponse[1])
                             await self.sending_msg_to_chat(command_reponse[1])
 
-                            if can_be_sent:
-                                await self.sending_msg_to_chat(message_to_send)
+                    message_pile_item = self.send_messsage.check_message_pile()
+                    print(f"Message_pile_item:{message_pile_item}")
+                    if message_pile_item:
+                        await self.sending_msg_to_chat(message_pile_item)
 
             except websockets.exceptions.ConnectionClosed:
                 self.logger.error(f"{current_log_prefix}Connection closed")
@@ -178,6 +186,22 @@ class TwitchConnection:
             self.logger.info(f"{current_log_prefix}Couldn't send the message(s).")
 
 
+    #Sjekke om kanalen er offline.... at least I tried...
+    async def channel_went_offline(self, message):
+        """Check if the message indicates that the channel went offline"""
+        current_log_prefix = self.logger_prefix + "channel_went_offline:"
+        
+        # Look for Twitch notices about the channel going offline
+        if "NOTICE" in message and "Channel is currently offline" in message:
+            self.logger.info(f"{current_log_prefix}Channel {config.CHANNEL} is OFFLINE. Shutting down bot...")
+            return True
+            
+        # Alternatively, you can look for the channel's stream status in the roomstate
+        if "ROOMSTATE" in message and ":offline=1" in message:
+            self.logger.info(f"{current_log_prefix}Channel {config.CHANNEL} detected as OFFLINE. Shutting down bot...")
+            return True
+            
+        return False
 
     # Check for raid messages
     async def raid_starting(self, message):
