@@ -12,11 +12,12 @@ import utils.TwitchConnection as TC
 
 async def main():
     abot = AB.AlbotBrain()
-    message_task = await abot.start()
+    tasks = await abot.start()
     
+    print(f"Gotten {tasks}")
     # This will keep the program running until the task completes
     # or until interrupted with Ctrl+C
-    await message_task
+    await asyncio.gather(*tasks)
 
 if __name__ == '__main__':
     try:

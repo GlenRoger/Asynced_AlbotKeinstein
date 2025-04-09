@@ -1,0 +1,120 @@
+2025-04-09 23:11:40,572 - twitch_bot - INFO - ALBOTKEINSTEIN INITIALIZING ANEW!
+###############################################################################
+2025-04-09 23:11:40,572 - twitch_bot - INFO - commands/command_handler.Command_central=>Command_central successfully initialized!
+2025-04-09 23:11:40,573 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2025-04-09 23:11:40,573 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2025-04-09 23:11:40,573 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000002244246FA90>
+2025-04-09 23:11:40,573 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000002244246F9D0>
+2025-04-09 23:11:40,574 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x00000224424AD9D0>
+2025-04-09 23:11:40,574 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x00000224424AD550>
+2025-04-09 23:11:40,574 - twitch_bot - INFO - AlbotBrain:start:Created 2 tasks
+2025-04-09 23:11:40,574 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-04-09 23:11:40,575 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file
+2025-04-09 23:11:41,377 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Joined channel: #TheStreamTeamWasTaken
+2025-04-09 23:11:41,378 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Going to send 33 characters.
+2025-04-09 23:11:41,378 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Received AlbotKeinstein up and running! <3 characters.
+2025-04-09 23:11:41,378 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:AlbotKeinstein sending chat message:AlbotKeinstein up and running! <3
+2025-04-09 23:11:41,378 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file
+2025-04-09 23:11:41,379 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:ClientID loaded from file.
+2025-04-09 23:13:50,148 - twitch_bot - INFO - ALBOTKEINSTEIN INITIALIZING ANEW!
+###############################################################################
+2025-04-09 23:13:50,148 - twitch_bot - INFO - commands/command_handler.Command_central=>Command_central successfully initialized!
+2025-04-09 23:13:50,148 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2025-04-09 23:13:50,149 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2025-04-09 23:13:50,149 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x00000197D89BFAD0>
+2025-04-09 23:13:50,149 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x00000197D89D4A50>
+2025-04-09 23:13:50,150 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x00000197D89FD250>
+2025-04-09 23:13:50,150 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x00000197D89FD610>
+2025-04-09 23:13:50,150 - twitch_bot - INFO - AlbotBrain:start:Created 2 tasks
+2025-04-09 23:13:50,150 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-04-09 23:13:50,151 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file
+2025-04-09 23:13:50,975 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Joined channel: #TheStreamTeamWasTaken
+2025-04-09 23:13:50,975 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Going to send 33 characters.
+2025-04-09 23:13:50,975 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Received AlbotKeinstein up and running! <3 characters.
+2025-04-09 23:13:50,976 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:AlbotKeinstein sending chat message:AlbotKeinstein up and running! <3
+2025-04-09 23:13:50,976 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file
+2025-04-09 23:13:50,977 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:ClientID loaded from file.
+2025-04-09 23:14:39,141 - twitch_bot - INFO - ALBOTKEINSTEIN INITIALIZING ANEW!
+###############################################################################
+2025-04-09 23:14:39,142 - twitch_bot - INFO - commands/command_handler.Command_central=>Command_central successfully initialized!
+2025-04-09 23:14:39,142 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2025-04-09 23:14:39,142 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2025-04-09 23:14:39,143 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000001BCB83BFC90>
+2025-04-09 23:14:39,143 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000001BCB83D8DD0>
+2025-04-09 23:14:39,143 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000001BCB83FD990>
+2025-04-09 23:14:39,143 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000001BCB83FDC10>
+2025-04-09 23:14:39,143 - twitch_bot - INFO - AlbotBrain:start:Created 2 tasks
+2025-04-09 23:14:39,143 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-04-09 23:14:39,144 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file
+2025-04-09 23:14:39,954 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Joined channel: #TheStreamTeamWasTaken
+2025-04-09 23:14:39,954 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Going to send 33 characters.
+2025-04-09 23:14:39,954 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Received AlbotKeinstein up and running! <3 characters.
+2025-04-09 23:14:39,954 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:AlbotKeinstein sending chat message:AlbotKeinstein up and running! <3
+2025-04-09 23:14:39,956 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file
+2025-04-09 23:14:39,956 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:ClientID loaded from file.
+2025-04-09 23:15:58,423 - twitch_bot - INFO - ALBOTKEINSTEIN INITIALIZING ANEW!
+###############################################################################
+2025-04-09 23:15:58,424 - twitch_bot - INFO - commands/command_handler.Command_central=>Command_central successfully initialized!
+2025-04-09 23:15:58,424 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2025-04-09 23:15:58,424 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2025-04-09 23:15:58,424 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000001DA0DB3FE10>
+2025-04-09 23:15:58,425 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000001DA0DB3FD50>
+2025-04-09 23:15:58,425 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000001DA0DB7D610>
+2025-04-09 23:15:58,425 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added:<commands.command_handler.Albot_Command object at 0x000001DA0DB7D9D0>
+2025-04-09 23:15:58,425 - twitch_bot - INFO - AlbotBrain:start:Created 2 tasks
+2025-04-09 23:15:58,426 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-04-09 23:15:58,426 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file
+2025-04-09 23:15:59,242 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Joined channel: #TheStreamTeamWasTaken
+2025-04-09 23:15:59,242 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Going to send 33 characters.
+2025-04-09 23:15:59,242 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Received AlbotKeinstein up and running! <3 characters.
+2025-04-09 23:15:59,242 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:AlbotKeinstein sending chat message:AlbotKeinstein up and running! <3
+2025-04-09 23:15:59,669 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages::tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+
+2025-04-09 23:15:59,669 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+2025-04-09 23:15:59,669 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Not a PRIVMSG-message - not for us::tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+2025-04-09 23:15:59,669 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Not a command: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+2025-04-09 23:15:59,670 - twitch_bot - INFO -  SENT NOT SAFE COMMAND?? See earlier in log!
+2025-04-09 23:15:59,694 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages::albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+
+2025-04-09 23:15:59,695 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+2025-04-09 23:15:59,695 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Not a PRIVMSG-message - not for us::albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+2025-04-09 23:15:59,695 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Not a command: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+2025-04-09 23:15:59,695 - twitch_bot - INFO -  SENT NOT SAFE COMMAND?? See earlier in log!
+2025-04-09 23:16:04,703 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Twitch-chat-loop terminated.
+2025-04-09 23:16:04,703 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Shutting down Twitch-chat-loop
+2025-04-09 23:16:04,703 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Disconnecting from Twitch chat..
+2025-04-09 23:16:04,703 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Cleaning up message-tasks-lists
+2025-04-09 23:16:04,703 - twitch_bot - INFO - utils/send_message.Message_sending_central=>clean_up_message_sent_tasks_list:Cleaning up messages-tasks-list. Number of tasks cancelled: 0
+2025-04-09 23:16:04,704 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Successfully disconnected from Twitch

@@ -17,14 +17,25 @@ class AlbotBrain:
 
 
     async def start(self):
+        current_log_prefix = self.logger_prefix + "start:"
         print("There's work to be done!")
 
         #The analysing of Twich chat is going on in the background
         try:
-            self.message_task = asyncio.create_task(self.TwitchConnector.start_messsage_loop())
-            return self.message_task
+
+            self.message_task                   = asyncio.create_task(self.TwitchConnector.start_messsage_loop())
+            self.message_pile_queue_organizer   = asyncio.create_task(self.TwitchConnector.commands_to_check_list_divide_into_queues())
+            self.message_pile_queue_handler     = asyncio.create_task(self.TwitchConnector.run_commands_according_to_priority())
+
+            tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler]
+            tasks = [self.message_task, self.message_pile_queue_organizer]
+            self.logger.info(f"{current_log_prefix}Created {len(tasks)} tasks")
+            
+            return tasks
+
+            # return [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler]
             #await self.TwitchConnector.start_messsage_loop()
         except Exception as e:
-            self.logger.error(f"{self.current_log_prefix}Bot stopped due to an unexpected error -> /{e}/")
+            self.logger.error(f"{current_log_prefix}Bot stopped due to an unexpected error -> /{e}/")
 
         #Other things needed to be done?

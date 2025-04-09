@@ -13,14 +13,14 @@ TWITCH_IRC_PORT     =   443
 
 
 # Twitch channel to connect to
-# CHANNEL = "TheStreamTeamWasTaken"
+CHANNEL = "TheStreamTeamWasTaken"
 # CHANNEL = "TheStreamTeamWasTesting"
-CHANNEL = "CoolingenWasTaken"
+# CHANNEL = "CoolingenWasTaken"
 
 # Bot's Twitch username
-BOT_USERNAME = "AlbertKeinstein"
+BOT_USERNAME = "AlBotKeinStein"
 
 # Path to the file containing the OAuth token
 OAUTH_TOKEN_FILE = "../ToAblertK.txt"
 
-
+CLIENT_ID_FILE   = "../ToAlbotC.txt"

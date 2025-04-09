@@ -4,6 +4,7 @@ import websockets
 import os
 import utils.send_message as sm
 import commands.command_handler as ch
+import requests
 
 class TwitchConnection:
 
@@ -19,9 +20,57 @@ class TwitchConnection:
 
         self.alternative_respond = ""
 
+        #Analyse commands in a different thread
+        self.commands_to_check = []
+        self.normal_priority_queue = []
+        self.high_priority_queue = []
+
+        
+
         #If true respond to all commands, if not just repsond to advanced ones!
         self.isNotSilenced = True
         
+        self.subscribers = ""
+
+        
+
+    async def get_subscribers_list(self):
+
+        access_token = await self.get_oauth_token()
+        client_id = await self.get_client_id()
+
+       
+        headers = {"Authorization": f"Bearer {access_token}", "Client-ID": client_id}
+        response = requests.get(f"https://api.twitch.tv/helix/users?login=streamername", headers=headers)
+        channel_id = response.json()["data"][0]["id"]
+
+
+        headers = {"Authorization": f"Bearer {access_token}", "Client-ID": client_id}
+        response = requests.get(f"https://api.twitch.tv/helix/subscriptions?broadcaster_id={channel_id}", headers=headers)
+        rep = response.json()
+        print(rep)
+        self.subscribers = response.json()["data"]
+
+        print(f"Here: {self.subscribers}")
+
+
+    async def get_client_id(self):
+        """Read get_client_id from file or prompt user if not found"""
+
+        current_log_prefix = self.logger_prefix + "get_client_id:"
+
+        if os.path.exists(config.CLIENT_ID_FILE):
+            with open(config.CLIENT_ID_FILE, 'r') as f:
+                clientid = f.read().strip()
+                self.logger.info(f"{current_log_prefix}ClientID loaded from file.")
+                return clientid
+        else:
+            # Exit gracefully
+            self.logger.error(f"{current_log_prefix}ClientID file not found: {config.OAUTH_TOKEN_FILE}")
+            raise SystemExit(1)
+
+
+
     async def get_oauth_token(self):
         """Read OAuth token from file or prompt user if not found"""
 
@@ -96,17 +145,26 @@ class TwitchConnection:
             
             self.logger.info(f"{current_log_prefix}Joined channel: #{config.CHANNEL}")
 
-            await self.sending_msg_to_chat("AlbotKeinstein up and running! <3")
+            # await self.sending_msg_to_chat("AlbotKeinstein up and running! <3")
+            await self.albot_msg_to_chat("AlbotKeinstein up and running! <3")
+
+
+            # await self.get_subscribers_list()
+            # print("Here we go!!")
+            # print(f"{self.subscribers}")
+
+
+
 
             try:
                 while self.run_loop:
+                    print("While in while....")
 
-                    message_pile_item = self.send_messsage.check_message_pile()
-                    print(f"Message_pile_item:{message_pile_item}")
-                    
                     # self.logger.info(f"{current_log_prefix}Inside while loop.. active.")
 
                     message = await self.websocket.recv()
+
+                    self.logger.info(f"{current_log_prefix}Catch-all-messages:{message}")
 
                     # Respond to PING with PONG to keep the connection alive
                     if message.startswith("PING"):
@@ -129,28 +187,32 @@ class TwitchConnection:
 
                     #Returns empty if we're going to ignore this message
                     if not safe_command:
+                        self.logger.info(f"{sender} SENT NOT SAFE COMMAND?? See earlier in log!")
                         continue
 
-                    #Check if it really is a command
-                    command_reponse = self.commands.check_valid_commands(sender, safe_command)
+                    #Sjekkes i annen asyncio.task
+                    self.commands_to_check.append(f"{sender}:{safe_command}")
 
-                    if command_reponse[0] and command_reponse[0] == 'cmd':
-                        if self.commanded_change(command_reponse[1]):
-                            # [can_be_sent, message_to_send] = self.send_messsage.check_if_can_be_sent(command_reponse[2])
-                            await self.sending_msg_to_chat(command_reponse[2])
-                        else:
-                            # [can_be_sent, message_to_send] = self.send_messsage.check_if_can_be_sent(self.alternative_respond)
-                            await self.sending_msg_to_chat(self.alternative_respond)
 
-                    elif self.isNotSilenced:
-                        if command_reponse[0] == 'RE':
-                            # [can_be_sent, message_to_send] = self.send_messsage.check_if_can_be_sent(command_reponse[1])
-                            await self.sending_msg_to_chat(command_reponse[1])
 
-                    message_pile_item = self.send_messsage.check_message_pile()
-                    print(f"Message_pile_item:{message_pile_item}")
-                    if message_pile_item:
-                        await self.sending_msg_to_chat(message_pile_item)
+
+                    # #Check if it really is a command
+                    # command_reponse = self.commands.check_valid_commands(sender, safe_command)
+
+                    # if command_reponse[0] and command_reponse[0] == 'cmd':
+                    #     if self.commanded_change(command_reponse[1]):
+                    #         # [can_be_sent, message_to_send] = self.send_messsage.check_if_can_be_sent(command_reponse[2])
+                    #         await self.sending_msg_to_chat(command_reponse[2])
+                    #     else:
+                    #         # [can_be_sent, message_to_send] = self.send_messsage.check_if_can_be_sent(self.alternative_respond)
+                    #         await self.sending_msg_to_chat(self.alternative_respond)
+
+                    # elif self.isNotSilenced:
+                    #     if command_reponse[0] == 'RE':
+                    #         # [can_be_sent, message_to_send] = self.send_messsage.check_if_can_be_sent(command_reponse[1])
+                    #         await self.sending_msg_to_chat(command_reponse[1])
+
+
 
             except websockets.exceptions.ConnectionClosed:
                 self.logger.error(f"{current_log_prefix}Connection closed")
@@ -162,6 +224,53 @@ class TwitchConnection:
                 #Cleanup code and exit gracfully
                 self.logger.info(f"{current_log_prefix}Twitch-chat-loop terminated.")
                 await self.disconnect()
+
+
+    def check_message_piles(self):
+        return self.send_messsage.get_item_from_message_pile()
+
+    async def empty_message_piles(self):
+        current_log_prefix = self.logger_prefix + "empty_message_piles:"
+        message_pile_item = self.send_messsage.get_item_from_message_pile()
+        await self.sending_priority_from_message_pile(message_pile_item)
+
+              
+    async def continues_messsage_piles_check(self):
+        current_log_prefix = self.logger_prefix + "continues_messsage_piles_check:"
+
+        while self.run_loop:
+            if not self.send_messsage.is_message_piles_empty():
+                self.logger.info(f"{current_log_prefix} trying to empty message pile by one message - sleep 1 sec")
+                await self.empty_message_piles()
+                await asyncio.sleep(1)
+            else:
+                self.logger.info(f"{current_log_prefix} No messages in message piles - sleep 5 sec")
+                await asyncio.sleep(5)
+
+
+    async def sending_priority_from_message_pile(self, msg_to_chat):
+
+        current_log_prefix = self.logger_prefix + "sending_priority_from_message_pile:"
+        self.logger.info(f"{current_log_prefix}PRIORITY to send {len(msg_to_chat)} characters.")
+        self.logger.info(f"{current_log_prefix}Amount of characters to be sent {msg_to_chat}.")
+
+        msg_to_chat_list = ""
+
+        #Checking if message is larger than 480 characters, if it is, then split it.
+        #After this changed outgoing_chat_msg into a list.
+        if len(msg_to_chat) < 485:
+            msg_to_chat_list = self.send_messsage.split_large_message(msg_to_chat)
+        else:
+            msg_to_chat_list = [msg_to_chat]
+
+
+        try:
+            for msg_to_send in msg_to_chat_list:
+                self.logger.info(f"{current_log_prefix}AlbotKeinstein sending PRIORITY chat message:{msg_to_send}")
+                await self.websocket.send(f"PRIVMSG #{config.CHANNEL} :{msg_to_send}")
+        except Exception as e:
+            self.logger.info(f"{current_log_prefix}Tried to send to Twitch chat:{msg_to_send}, but failed due to /{e}/")
+
 
 
     async def sending_msg_to_chat(self, msg_to_chat):
@@ -183,7 +292,7 @@ class TwitchConnection:
             except Exception as e:
                 self.logger.info(f"{current_log_prefix}Tried to send to Twitch chat:{msg_to_send}, but failed due to /{e}/")
         else:
-            self.logger.info(f"{current_log_prefix}Couldn't send the message(s).")
+            self.logger.info(f"{current_log_prefix}Couldn't send the message(s) (Reason->can_be_sent:{can_be_sent})")
 
 
     #Sjekke om kanalen er offline.... at least I tried...
@@ -256,3 +365,125 @@ class TwitchConnection:
             # Reset connection state variables
             self.is_connected = False
             self.connection = None
+
+
+
+
+
+    #DISSE GJELDER FRA NÅ AV!
+    async def commands_to_check_list_divide_into_queues(self):
+
+        current_log_prefix = self.logger_prefix + "commands_to_check_list_divide_into_queues:"
+
+        while self.run_loop:
+
+
+            #If the commands_to_check list is not empty
+            if self.commands_to_check:
+
+                cmd_entry = self.commands_to_check.pop(0)
+
+                self.logger.info(f"{current_log_prefix}Processing command: {cmd_entry}")
+
+                sender, cmd = cmd_entry.split(':', 1)
+                self.logger.info(f"{current_log_prefix}Divided cmd_entry into sender:{sender} and cmd:{cmd}")
+
+
+                cmd_rated = self.commands.rate_priority_commands(cmd)
+
+                self.logger.info(f"{current_log_prefix}Cmd:{cmd} got rated {cmd_rated}")
+
+                if cmd_rated == 'high':
+                    self.high_priority_queue.append(cmd_entry)
+                elif cmd_rated == 'normal':
+                    self.normal_priority_queue.append(cmd_entry)
+                else:
+                    self.logger.error(f"{current_log_prefix}What Am I going to to with this? Couldn't rate it!")
+
+            await asyncio.sleep(1)
+               
+
+
+
+    def get_cmd_object(self, pri_list):
+
+        current_log_prefix = self.logger_prefix + "run_commands_according_to_priority:"
+
+        cur_cmd = pri_list.pop(0)
+
+        self.logger.info(f"{current_log_prefix}There are commands to deal with:{cur_cmd}")
+
+        sender, cmd = cur_cmd.split(':')
+
+        self.logger.info(f"{current_log_prefix}Divided cmd_entry into sender:{sender} and cmd:{cmd}")
+
+        #IKKE ALLE ADVANCED COMMANDS ER HIGH PRI...
+        cmd_obj = self.commands.get_command_instructions(sender, cmd)
+
+        return cmd_obj
+
+
+    async def run_commands_according_to_priority(self):
+
+        current_log_prefix = self.logger_prefix + "run_commands_according_to_priority:"
+
+        while self.run_loop:
+
+
+            #FØRSTE SJEKK BURDE VÆRE OM VI FAKTISK KAN SENDE EN  MELDING PER FØR VI PRØVER Å HÅNDTERE EN!
+
+            #ANDRE SJEKK HAR VI EN COMMAND Å VURDERE?
+            if self.high_priority_queue:
+
+
+                cmd_obj = self.get_cmd_object(self.high_priority_queue)
+
+                # cur_high_cmd = self.high_priority_queue.pop(0)
+
+                # self.logger.info(f"{current_log_prefix}There are high priority commands to deal with:{cur_high_cmd}")
+
+                # high_sender, high_cmd = cur_high_cmd.split(':')
+
+                # self.logger.info(f"{current_log_prefix}Divided cmd_entry into sender:{high_sender} and cmd:{high_cmd}")
+
+                # #IKKE ALLE ADVANCED COMMANDS ER HIGH PRI...
+                # cmd_obj = self.commands.get_command_instructions(high_sender, high_cmd)
+
+                #If we actually got something back
+                if cmd_obj:
+
+                    #Do something! Hard coded action
+                    if cmd_obj.cmd_type == 'cmd':
+                        pass
+
+
+                    self.logger.info(f"{current_log_prefix}Going to send:{cmd_obj.response}")
+                    await self.albot_msg_to_chat(cmd_obj.response)
+
+                    
+
+
+            elif self.normal_priority_queue:
+                print(f"Normal pri: {self.normal_priority_queue}")
+
+            else:
+                print("No commands to execute!")
+
+
+            await asyncio.sleep(1)
+
+
+    async def albot_msg_to_chat(self, msg_to_chat):
+        # await websocket.send(f"PRIVMSG #{channel_name} :{message}")
+        current_log_prefix = self.logger_prefix + "albot_msg_to_chat:"
+
+        self.logger.info(f"{current_log_prefix}Going to send {len(msg_to_chat)} characters.")
+        self.logger.info(f"{current_log_prefix}Received {msg_to_chat} characters.")
+
+        try:
+            # for msg_to_send in msg_to_chat_list:
+            self.logger.info(f"{current_log_prefix}AlbotKeinstein sending chat message:{msg_to_chat}")
+            await self.websocket.send(f"PRIVMSG #{config.CHANNEL} :{msg_to_chat}")
+            # await self.send_messsage.message_sent()
+        except Exception as e:
+            self.logger.info(f"{current_log_prefix}Tried to send to Twitch chat:{msg_to_send}, but failed due to /{e}/")

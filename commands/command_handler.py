@@ -2,6 +2,19 @@
 import importlib
 import config
 
+
+class Albot_Command:
+
+    def __init__(self, cmd_calling, cmd_type, allowed_users_list, response):
+        self.cmd_calling        = cmd_calling
+        self.cmd_type           = cmd_type
+        self.allowed_users_list = allowed_users_list
+        self.response           = response
+
+
+
+
+
 class Command_central:
 
 
@@ -10,6 +23,19 @@ class Command_central:
         self.logger = logger
 
         self.logger.info(f"{self.logger_prefix}Command_central successfully initialized!")
+
+
+        self.command_files_path = "./commands/command_files/"
+        self.advanced_cmd_file    = "Advanced_commands.csv"
+        self.normal_cmd_file    = "Normal_commands.csv"
+
+        self.command_files = [self.normal_cmd_file, self.advanced_cmd_file]
+
+        self.all_commands = {}
+
+
+        self.read_commands_from_files()
+
 
     def collect_commands(self):
         pass
@@ -81,6 +107,97 @@ class Command_central:
     def add_valid_commands(self, dictionary_to_be_added):
         #Careful not to overwrite existing commands!
         pass
+    
+
+    def rate_priority_commands(self, cmd):
+        current_log_prefix = self.logger_prefix +"rate_priority_commands:"
+        self.logger.info(f"{self.logger_prefix}Rating /{cmd}/")
+
+        if cmd.upper() in ("SLEEP", "SILENCE", "WAKEUP", "AWAKE", "REPEAT", "ALBOTREST", "SHUTDOWN", "QUIT"):
+            return "high"
+        else:
+            return "normal"
+
+
+
+    def read_commands_from_files(self):
+        current_log_prefix = self.logger_prefix +"read_commands_from_files:"
+
+        for file in self.command_files:
+
+            self.logger.info(f"{self.logger_prefix}Reading {self.command_files_path}{file}")
+
+            with open (f"{self.command_files_path}{file}", 'r', encoding='utf-8') as fopen:
+                for line in fopen:
+
+                    if line[0] == '#':
+                        continue
+
+                    cmd_line = line.rstrip()
+
+                    line_list = cmd_line.split(';')
+
+                    if len(line_list) != 4:
+                        self.logger.info(f"{self.logger_prefix}Not correct amount of elements. 4 required got  {len(line_list)}")
+                        continue
+
+                    cmd_callings    = line_list[0].split(',')
+                    cmd_type        = line_list[1]
+                    cmd_users       = line_list[2].split(',')
+                    cmd_response    = line_list[3][1:-1]  #Fjerner første og siste "-tegn
+
+                    for cmd_call in cmd_callings:
+                        new_cmd = Albot_Command(cmd_call, cmd_type, cmd_users, cmd_response)
+                        self.all_commands[cmd_call.upper()] = new_cmd
+
+                        self.logger.info(f"{self.logger_prefix}New command added:{new_cmd}") 
+
+
+    def check_sender_is_allowed_to_use_this_command(self, sender, lists_to_check):
+        current_log_prefix = self.logger_prefix +"check_sender_is_allowed_to_use_this_command:"
+        self.logger.info(f"{self.logger_prefix}Have to check if {sender} is in one of these lists:{lists_to_check}") 
+
+        pass
+
+
+
+    def get_command_instructions(self, sender, cmd_call):
+        current_log_prefix = self.logger_prefix +"get_command_instructions:"
+        self.logger.info(f"{self.logger_prefix}Got that {sender} sent:{cmd_call}") 
+
+        cmd_call = cmd_call.upper()
+
+        if cmd_call in self.all_commands.keys():
+
+            cmd_obj = self.all_commands[cmd_call.upper()]
+
+            #DETTE MÅ ENDRES!!!!!!!!!!! mÅ SJEKK MOT LISTENE I CONFIG.PY!
+            if sender not in cmd_obj.allowed_users_list:
+                self.logger.info(f"{self.logger_prefix}{sender} is allowed to use command:{cmd_call}")
+                return cmd_obj
+            else:
+                self.logger.info(f"{self.logger_prefix}{sender} is NOT allowed to use command:{cmd_call}")
+        else:
+            self.logger.info(f"{self.logger_prefix}Could not find call: {cmd_call}") 
+
+
+        #             print(line)
+
+
+
+        # print(self.all_commands)
+        # print(self.all_commands['SLEEP'])
+        # print(self.all_commands['SLEEP'].cmd_calling)
+        # print(self.all_commands['SLEEP'].cmd_type)
+        # print(self.all_commands['SLEEP'].allowed_users_list)
+        # print(self.all_commands['SLEEP'].response)
+
+
+
+
+#all_commands
+
+
 
 # def is_safe_message(message, user_id):
 #     # Length check

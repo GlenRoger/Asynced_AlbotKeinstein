@@ -13,9 +13,11 @@ class Message_sending_central:
 
         # self.running = False
         self.message_id = 0 #incremental per new message sent
-        self.count_messages = 58
+        self.count_messages = 55
         self.max_messages = max_messages_per_minute  # Maximum messages before cooldown
         self.cooldown_time = cooldown_duration  # Cooldown time in seconds
+        self.cooldown_time = 15
+        self.message_sent_sleep = self.cooldown_time
         self.inCooldownMode = False
 
         #For every message we create an asyncio-task on cooldown. Need to clean up when bot shuts down.
@@ -36,6 +38,11 @@ class Message_sending_central:
     #Check if the message is more than 500 characters, if so then split it. 
     #Returning [True/False, [a list]].
     def check_if_can_be_sent(self, outgoing_chat_msg):
+        current_log_prefix = "utils/send_message.check_if_can_be_sent=>"
+        self.logger.info(f"{current_log_prefix}Check are we in cooldown:{self.inCooldownMode}")
+        self.logger.info(f"{current_log_prefix}Amount of messages past minute:{self.count_messages}")
+        self.logger.info(f"{current_log_prefix}Amount of messages in pile:{len(self.message_pile)}")
+
 
         #Checking if message is larger than 480 characters, if it is, then split it.
         #After this changed outgoing_chat_msg into a list.
@@ -44,15 +51,18 @@ class Message_sending_central:
 
         #We are already in quarantine for sending too many messages
         #put message in the message pile and send it later.
-        if self.inCooldownMode:
+        if self.inCooldownMode or not self.is_message_piles_empty:
             for msgs in outgoing_chat_msg:
                 self.message_pile.append(msgs)
+                self.logger.info(f"{current_log_prefix}Message not sent, we're in cooldown mode {self.inCooldownMode} - added to the pile.")
             return [False, []]
 
         #We're not in cooldown for sending too many messages -
         #so check we should be or not, if we should be we start the cooldown task.
-        elif self.count_messages >= self.max_messages:
+        elif self.count_messages >= self.max_messages and not self.inCooldownMode:
+            self.logger.info(f"{current_log_prefix}Too many messages sent past minute, should we start cooldown mode?")
             asyncio.create_task(self.startCooldownMode())
+            return [False, []]
 
         #We're not in cooldown, so we can send the messsage, now the message
         #is a list of message chunks. Biggest size 485.
@@ -77,6 +87,7 @@ class Message_sending_central:
 
     #Call this one when a new message has been sent
     async def message_sent(self):
+        current_log_prefix = self.logger_prefix + "message_sent:"
         self.message_sent_tasks_list.append(asyncio.create_task(self.track_messages_sent()))
 
     async def track_messages_sent(self):
@@ -86,10 +97,10 @@ class Message_sending_central:
         cur_message_id = self.message_id
         self.logger.info(f"{current_log_prefix}Tracking another message, this is number #{cur_message_id}")
 
-        await asyncio.sleep(60)  # Need to await here
+        await asyncio.sleep(self.message_sent_sleep)  # Need to await here
 
         self.logger.info(f"{current_log_prefix}Tracking on message removed for message number #{cur_message_id}")
-        self.logger.info(f"{current_log_prefix}Popping: {self.message_sent_tasks_list[0]}")
+#        self.logger.info(f"{current_log_prefix}Popping: {self.message_sent_tasks_list[0]}")
         self.message_sent_tasks_list.pop(0)  #Task done pop it out from list! Always the first element, fifo-queue.
         self.count_messages -= 1
 
@@ -108,26 +119,39 @@ class Message_sending_central:
 
 
     async def startCooldownMode(self):
-        self.inCooldownMode = True
-        await asyncio.sleep(60)  # Need to await here
+        current_log_prefix = self.logger_prefix + "startCooldownMode:"
+        self.logger.info(f"{current_log_prefix}Starting cooldownmode!")
 
-        #Time to catch up on the message-pile, when it's empty we can go on as normal.
+        self.inCooldownMode = True
+        await asyncio.sleep(self.cooldown_time)  # Need to await here
+
+        self.inCooldownMode = False
+
+    def is_message_piles_empty(self):
+        current_log_prefix = self.logger_prefix + "is_message_piles_empty:"
+        self.logger.info(f"{current_log_prefix}So.. is it empty? {len(self.message_pile) == 0}")
+
         if len(self.message_pile) == 0:
-            self.inCooldownMode = False
+            return True
+        else:
+            return False
 
     #Put priorities on the message pile before getting back to normal.
-    def check_message_pile(self):
-        current_log_prefix = self.logger_prefix + "check_message_pile:"
-
+    def get_item_from_message_pile(self):
+        current_log_prefix = self.logger_prefix + "get_item_from_message_pile:"
         self.logger.info(f"{current_log_prefix}Messages left in message-pile: {len(self.message_pile)}.")
 
-        if len(self.message_pile) == 0 and self.count_messages <= self.max_messages and not self.inCooldownMode:
-            self.logger.info(f"{current_log_prefix}Message-pile empty => #{len(self.message_pile)} messages left.")
-            self.inCooldownMode = True
+        if self.count_messages >= self.max_messages:
             return []
 
-        if len(self.message_pile) != 0 and self.count_messages <= self.max_messages and not self.inCooldownMode:
-            self.logger.info(f"{current_log_prefix}Emptying another message from the message-pile.")
+        if len(self.message_pile) == 0:
+            self.logger.info(f"{current_log_prefix}Message-pile empty => #{len(self.message_pile)} messages left.")
+            return []
+
+        if len(self.message_pile) != 0:
+            self.logger.info(f"{current_log_prefix}Emptying another message from the message-pile. Keeping the cooldown status")
+            # self.inCooldownMode = True #Keep cooldown till message-pile is empty  => Finne bedre løsning?
+            self.logger.info(f"{current_log_prefix}Message-pile empty => #{len(self.message_pile)} messages left. Popping out {self.message_pile[0]}")
             return self.message_pile.pop(0)
 
 
