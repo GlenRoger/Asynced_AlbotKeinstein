@@ -7,6 +7,7 @@ import utils.TwitchConnection as TC
 #Sette opp testing av alle funksjoner og slikt, mocking, unit ... you name it...
 #Test cooldown funker
 #Milestone 4 osv.
+#Fiks innlesing av koreanske bokstaver.. en følger som har det..  - Det klarer vi! :D
 
 
 
@@ -25,5 +26,5 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print("Bot stopped by user - KEYBOARDINTERUPT! CTRL+C ?")
     except Exception as e:
-        print(f"Bot stopped unexpectedly.. Did you remember to start he virtual environment? Exception saying: /{e}/")
+        print(f"Bot stopped unexpectedly.. Did you remember to start the virtual environment? Exception saying: /{e}/")
 

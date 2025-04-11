@@ -28,7 +28,7 @@ class AlbotBrain:
             self.message_pile_queue_handler     = asyncio.create_task(self.TwitchConnector.run_commands_according_to_priority())
 
             tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler]
-            tasks = [self.message_task, self.message_pile_queue_organizer]
+#            tasks = [self.message_task, self.message_pile_queue_organizer]
             self.logger.info(f"{current_log_prefix}Created {len(tasks)} tasks")
             
             return tasks
