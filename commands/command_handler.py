@@ -11,9 +11,18 @@ class Albot_Command:
         self.allowed_users_list = allowed_users_list
         self.response           = response
 
+    def get_cmd_calling(self):
+        return self.cmd_calling
+    
+    def get_cmd_type(self):
+        return self.cmd_type
 
+    def get_allowed_users_list(self):
+        return self.allowed_users_list
 
-
+    def get_response(self):
+        return self.response
+    
 
 class Command_central:
 
@@ -24,7 +33,6 @@ class Command_central:
 
         self.logger.info(f"{self.logger_prefix}Command_central successfully initialized!")
 
-
         self.command_files_path = "./commands/command_files/"
         self.advanced_cmd_file    = "Advanced_commands.csv"
         self.normal_cmd_file    = "Normal_commands.csv"
@@ -33,13 +41,8 @@ class Command_central:
 
         self.all_commands = {}
 
-
         self.read_commands_from_files()
 
-
-    def collect_commands(self):
-        pass
-        
 
     #ADD ADVANCED COMMANDS HERE AND ADD THEM TO THE COLLECT_COMMANDS MANUALLY
     #These can also be saved in a file, though need extra programming in TwitchConnection.py
@@ -101,13 +104,25 @@ class Command_central:
     def reread_commands(self):
         pass
 
-
-
     #For games or something maybe - adding their instructions here.
     def add_valid_commands(self, dictionary_to_be_added):
         #Careful not to overwrite existing commands!
         pass
     
+
+    def is_command(self, cmd):
+        current_log_prefix = self.logger_prefix +"is_command:"
+        self.logger.info(f"{self.logger_prefix}Does this command exist: /{cmd}/")
+
+        if cmd.upper() in self.all_commands.keys():
+            self.logger.info(f"{self.logger_prefix}It does exist!")
+            return True
+        elif cmd.upper().startswith("SO "):
+            self.logger.info(f"{self.logger_prefix}It does exist!")
+            return True
+
+        self.logger.info(f"{self.logger_prefix}It does NOT exist!")
+        return False
 
     def rate_priority_commands(self, cmd):
         current_log_prefix = self.logger_prefix +"rate_priority_commands:"
@@ -115,9 +130,10 @@ class Command_central:
 
         if cmd.upper() in ("SLEEP", "SILENCE", "WAKEUP", "AWAKE", "REPEAT", "ALBOTREST", "SHUTDOWN", "QUIT"):
             return "high"
+        elif cmd.upper().startswith("SO "):
+            return "shoutout"
         else:
             return "normal"
-
 
 
     def read_commands_from_files(self):
@@ -138,7 +154,7 @@ class Command_central:
                     line_list = cmd_line.split(';')
 
                     if len(line_list) != 4:
-                        self.logger.info(f"{self.logger_prefix}Not correct amount of elements. 4 required got  {len(line_list)}")
+                        self.logger.info(f"{self.logger_prefix}Not correct amount of elements. 4 required got {len(line_list)}")
                         continue
 
                     cmd_callings    = line_list[0].split(',')
@@ -150,93 +166,23 @@ class Command_central:
                         new_cmd = Albot_Command(cmd_call, cmd_type, cmd_users, cmd_response)
                         self.all_commands[cmd_call.upper()] = new_cmd
 
-                        self.logger.info(f"{self.logger_prefix}New command added:{new_cmd}") 
-
-
-    def check_sender_is_allowed_to_use_this_command(self, sender, lists_to_check):
-        current_log_prefix = self.logger_prefix +"check_sender_is_allowed_to_use_this_command:"
-        self.logger.info(f"{self.logger_prefix}Have to check if {sender} is in one of these lists:{lists_to_check}") 
-
-        pass
+                        self.logger.info(f"{self.logger_prefix}New command added: calling='{new_cmd.cmd_calling}', type='{new_cmd.cmd_type}', allowed_users={new_cmd.allowed_users_list}, response='{new_cmd.response}'")
 
 
 
-    def get_command_instructions(self, sender, cmd_call):
+    def get_command_object(self, cmd_call):
         current_log_prefix = self.logger_prefix +"get_command_instructions:"
-        self.logger.info(f"{self.logger_prefix}Got that {sender} sent:{cmd_call}") 
+        self.logger.info(f"{self.logger_prefix}Looking into what the command:{cmd_call} can do.") 
 
         cmd_call = cmd_call.upper()
 
         if cmd_call in self.all_commands.keys():
-
             cmd_obj = self.all_commands[cmd_call.upper()]
-
-            #DETTE MÅ ENDRES!!!!!!!!!!! mÅ SJEKK MOT LISTENE I CONFIG.PY!
-            if sender not in cmd_obj.allowed_users_list:
-                self.logger.info(f"{self.logger_prefix}{sender} is allowed to use command:{cmd_call}")
-                return cmd_obj
-            else:
-                self.logger.info(f"{self.logger_prefix}{sender} is NOT allowed to use command:{cmd_call}")
-        else:
-            self.logger.info(f"{self.logger_prefix}Could not find call: {cmd_call}") 
+            return cmd_obj
+        elif cmd_call.upper().startswith('SO '):
+            return Albot_Command("SHOUTOUT","RE",["STREAMERS", "MODS", "VIPS"], cmd_call)
 
 
-        #             print(line)
+        self.logger.info(f"{self.logger_prefix}Could not find call: {cmd_call}") 
+        return ""
 
-
-
-        # print(self.all_commands)
-        # print(self.all_commands['SLEEP'])
-        # print(self.all_commands['SLEEP'].cmd_calling)
-        # print(self.all_commands['SLEEP'].cmd_type)
-        # print(self.all_commands['SLEEP'].allowed_users_list)
-        # print(self.all_commands['SLEEP'].response)
-
-
-
-
-#all_commands
-
-
-
-# def is_safe_message(message, user_id):
-#     # Length check
-#     if len(message) > 500:
-#         logger.warning(f"Message from {user_id} rejected: too long ({len(message)} chars)")
-#         return False
-        
-#     # Check for command rate limiting (implementation depends on how you track users)
-#     # if is_user_rate_limited(user_id):
-#     #     logger.warning(f"Message from {user_id} rejected: rate limited")
-#     #     return False
-    
-#     # Add other checks as needed
-    
-#     return True
-
-
-# #If a command is safe and can be considered as a command
-# def command_handler(msg):
-#     print(f"In command handler, recieved:{msg}")
-
-
-
-
-
-# def is_safe_command(command_text):
-#     # Define explicitly what characters are allowed
-#     allowed_chars = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_+- øæåÆØÅ')
-    
-#     # Check each character in the command
-#     disallowed_found = []
-#     for char in command_text:
-#         if char not in allowed_chars:
-#             disallowed_found.append(char)
-    
-#     # If we found any disallowed characters
-#     if disallowed_found:
-#         disallowed_str = ', '.join([f"'{c}'" for c in set(disallowed_found)])
-#         logger.info(f"Command rejected. Disallowed characters found: {disallowed_str} in: {command_text}")
-#         return False
-    
-#     return True  

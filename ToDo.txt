@@ -1,3 +1,80 @@
+Albot må kunne informere om hvilke roller en bruker har (everybody) kan bruke denne
+Albot må kunne informere om kommandoer en bruker kan bruke og hva de gjør
+
+
+FAST-API
+
+Ting å fikse per 2025-04-19 - GR-liste
+#Sette opp testing av alle funksjoner og slikt, mocking, unit ... you name it...
+ - testing av input-verdier   def func_name(tall:int)->None:  => Eller hvordan det gjøres, tall skal være int og funksjon returnerer None.
+#Milestone 4 osv.
+
+
+(SKIP?) #Test cooldown funker (Trengs dette? Vi kommer aldri til å kunne sende for mange meldinger med dagens løsning likevel :)  )
+
+(FIXED!) Fiks innlesing av koreanske bokstaver.. en følger som har det..  - Det klarer vi! :D  
+=> DONE! Ingen endringer trengs.Det kommer litt stygt når det leses inn, men leses inn likevel.
+=> Oppdatert logg-fillagring til å være utf-8.
+
+-> Lagt til at AlbotKeinstein kan skrive kun til mods i chatten - meldinger som ikke andre ser.
+##################
+
+
+Ting å fikse per 2025-04-19 - Claude-liste: (Fixed 2/13)
+I've examined the code files you've shared, and there are several issues that should be addressed. Let me highlight the most important ones:
+
+1. **Command Handling Logic Issues**
+   - In `command_handler.py`, the `check_sender_is_allowed_to_use_this_command` method is defined but never properly used.
+   - In the same file, there's a reversed logic in the permission check: 
+     ```python
+     if sender not in cmd_obj.allowed_users_list:
+         # This says sender IS allowed, but the condition checks if they're NOT in the list
+     ```
+
+2. **User Permission Hierarchy Implementation**
+   - The hierarchy described in your bot-goals.txt (streamers->Mods->VIPS->subs->everyone) isn't fully implemented in the code.
+   - The command permission system doesn't properly utilize the hierarchical lists you're fetching from Twitch.
+
+3. **Asynchronous Task Management**
+   - In `TwitchConnection.py`, tasks like `commands_to_check_list_divide_into_queues` and `run_commands_according_to_priority` continue running even after disconnect is called, as they check `self.run_loop`.
+(FIXED!)   - The disconnect method sets `self.run_loop = True` when it should probably be setting it to `False`.
+
+4. **Error Handling Gaps**
+   - There's minimal error handling around the API calls to Twitch.
+   - Several async functions don't have proper exception handling.
+
+5. **Command File Parsing**  (FIXED!)
+   - The command file parsing code in `read_commands_from_files` appears to have some issues - it's logging the command object directly without proper string formatting.
+
+6. **Message Queue Management**
+   - The normal priority queue gets checked but nothing happens with those commands.
+   - In `run_commands_according_to_priority`, there's commented-out code that was probably meant to be replaced with the `get_cmd_object` method call.
+
+7. **Potential Race Conditions**
+   - Multiple async tasks are manipulating shared lists (like `commands_to_check`, `high_priority_queue`, etc.) without any synchronization mechanism.
+
+8. **Debug Print Statements**
+   - There are numerous print statements mixed with proper logging calls, which should be standardized.
+
+These issues could affect the stability and functionality of your bot, especially related to command permissions and response handling. Would you like me to elaborate on any specific issue in more detail?
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################
+
+
+
+
 DONE! Bruk python 3.11.9 med venv.
 
 Raid check funker ikke, offline-check funker ikke..

@@ -3,6 +3,7 @@
 #Set who can do some certain commands to Albert Keinstein
 STREAMERS_ONLY = True
 STREAMERS = ["thestreamteamwastaken", "coolingenwastaken", "kyllingpews", "nurseiplier", "dad__76", "themonkeytea", "krishli", "raivdaiv"]
+AUTOMATIC_SHOUTOUT_LIST = ["coolingenwastaken"]
 
 PREFIX_FOR_BOT_TO_READ = '%'
 

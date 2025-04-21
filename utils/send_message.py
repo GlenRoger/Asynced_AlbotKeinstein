@@ -159,7 +159,7 @@ class Message_sending_central:
     ############### CHECKING IF INCOMMING CHAT MESSAGE IS OKAY #############
     ########################################################################    
 
-    def analyse_message_and_check_if_okay(self, chat_msg):
+    def analyse_message_and_check_if_okay(self, sender, chat_msg):
         """Checks amessage step by step if is a command or something to reply to and if the sender
         is allowed to use this command. Returns a list of messages for response. Has to be a list,
         because a response can be more then 500 characters long and therefor needed to be split ut.
@@ -170,23 +170,20 @@ class Message_sending_central:
         current_log_prefix = self.logger_prefix + "analyse_message_and_check_if_okay:"
         
 
-        #Checking for messages starting with %
-        [sender, chat_msg_sent] = self.find_msg_and_sender(chat_msg)
-
         if sender == config.BOT_USERNAME:
             self.logger.info(f"{current_log_prefix}AlbotKeinstein wrote this itself (ignoring it): {chat_msg}") #chat_msg_sent is empty if check fails, use chat_msg
-            return ["", ""]
+            return ""
 
-        if not chat_msg_sent:
-            self.logger.info(f"{current_log_prefix}Not a command: {chat_msg}") #chat_msg_sent is empty if check fails, use chat_msg
-            return ["", ""]
+        if not chat_msg:
+            self.logger.info(f"{current_log_prefix}Not a command: {chat_msg}") #chat_msg_sent is empty if check fails, use chat_msg to show more info
+            return ""
 
         self.logger.info(f"{current_log_prefix}Passed start with '%' and not empty-check:{chat_msg}")
 
         #Checking for illegal characters that can be used for code injections
-        if not self.is_safe_command(chat_msg_sent):
-            self.logger.info(f"{current_log_prefix}Not a analysed any further:/{chat_msg_sent}/")
-            return ["", ""]
+        if not self.is_safe_command(chat_msg):
+            self.logger.info(f"{current_log_prefix}Not a analysed any further:/{chat_msg}/")
+            return ""
 
         self.logger.info(f"{current_log_prefix}Passed safety - legal characters-check:{chat_msg}")
 
@@ -194,7 +191,7 @@ class Message_sending_central:
 
         self.logger.info(f"{current_log_prefix}So far so good on this one:{chat_msg}")
 
-        return[sender, chat_msg_sent]
+        return chat_msg
 
 
     #STEP 1 - Splitting the message into sender and message
@@ -205,11 +202,17 @@ class Message_sending_central:
 
         split_chat = chat_msg.split(' ')
 
+
+        print(f"Message split: {split_chat}")
+
         is_PRIVMSG = split_chat[1] == "PRIVMSG"
+
+        #Format :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv - want the first coolingenwastaken
+        username_sending_message = split_chat[0][1:].split('!')[0]
 
         if not is_PRIVMSG:
             self.logger.info(f"{current_log_prefix}Not a PRIVMSG-message - not for us:{chat_msg}")
-            return["",""]
+            return[username_sending_message,""]
 
 
         is_command = split_chat[3].startswith(f":{config.PREFIX_FOR_BOT_TO_READ}")
@@ -218,11 +221,13 @@ class Message_sending_central:
             split_chat[3] = split_chat[3][2:]
             split_chat[-1] = split_chat[-1].rstrip()
             command_rebuild = (' ').join(split_chat[3:])
-            username_sending_message = split_chat[2][1:]
+
+            self.logger.info(f"{current_log_prefix}Command rebuilt! Let's get it up and running: /{command_rebuild}/")
             return([username_sending_message, command_rebuild])
         else:
             self.logger.info(f"{current_log_prefix}Doesn't start with:/{config.PREFIX_FOR_BOT_TO_READ}/:{chat_msg}")
-            return["",""]
+            return[username_sending_message,""]
+        
 
     #STEP 2 - Checking if the sent message contains any characters not allowed?
     #Don't want code-injections!
@@ -246,63 +251,25 @@ class Message_sending_central:
         
         return True  
 
-
-    # def can_send_message(self):
-    #     """Check if a message can be sent based on rate limits"""
-    #     # First check if we're in cooldown
-    #     if self.in_cooldown:
-    #         return False
-        
-    #     # Check if we're at the message limit
-    #     if self.message_counter >= self.max_messages_per_minute:
-    #         self.start_cooldown()
-    #         return False
-        
-    #     return True
-
-
-    # async def start_message_cooldown(self):
-    #     """Increment counter, wait one minute, then decrement counter"""
-    #     self.message_counter += 1
-    #     await asyncio.sleep(60)  # Sleep for 1 minute
-    #     self.message_counter -= 1
-
-
-    # def split_large_message(self, large_message):
-    #     print("\n\n\nThis is not implemented yet - UTILS/SEND_MESSAGE.PY -> DEF SPLIT_LARGE_MESSAGE\n\n\n")
-
-    # #We got a cooldown, let's cool down before more messages is sent to chat, to avoid Twitch
-    # #starts to ignore the bot.
-    # async def end_cooldown(self):
-    #     await asyncio.sleep(self.cooldown_time)
-    #     self.in_cooldown = False
-    #     self.logger.info("Cooldown ended.")
-
-
-    # async def send_message(self, message: str):
-    #     if self.in_cooldown:
-    #         self.logger.info(f"Not sending message during cooldown: {message}. Saving it for later!"))
-    #         self.message_pile.append(message)
-    #         return
-
-
-    # # async def send_message(self, irc_connection, channel, message):
-    # #     """Send a message if rate limits allow"""
-    # #     if self.can_send_message():
-    # #         try:
-    # #             irc_connection.PRIVMSG(channel, message)
-    # #             # Start the cooldown task for this message
-    # #             asyncio.create_task(self.start_message_cooldown())
-    # #             return True
-    # #         except Exception as e:
-    # #             print(f"Error sending message: {e}")
-    # #             return False
-    # #     else:
-    # #         print("Cannot send message: rate limit reached or in cooldown")
-    # #         return False
-
-
-
-
-    # def empty_pile(self):
-    #     pass
+#IF WE LATER ON WANT TO CHECK THE REVERSE - CHECKING FOR UNSAFE LETTERS, IN THIS CASE SUCH AS KOREAN AND JAPANESE LETTERS
+#CAN ALSO PASS THROUGH. We don't have commands for other languages per now any way - so not a issue for the forseeable future.
+# def is_safe_command(self, chat_msg_sent):
+#     current_log_prefix = self.logger_prefix + "is_safe_command:"
+    
+#     # Define explicitly what characters are NOT allowed
+#     # This blocks common injection attempts while allowing all Unicode characters
+#     disallowed_chars = set('{}[]()<>|\\;\'"`&$%^!*')
+    
+#     # Check for any disallowed characters
+#     disallowed_found = []
+#     for char in chat_msg_sent:
+#         if char in disallowed_chars:
+#             disallowed_found.append(char)
+    
+#     # If we found any disallowed characters
+#     if disallowed_found:
+#         disallowed_str = ', '.join([f"'{c}'" for c in set(disallowed_found)])
+#         self.logger.info(f"{current_log_prefix}Command rejected. Disallowed characters found: {disallowed_str} in: {chat_msg_sent}")
+#         return False
+    
+#     return True

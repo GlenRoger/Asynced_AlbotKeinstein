@@ -1,8 +1,13 @@
 #If you want to respond to user, write (USER)
 #cmd1,cmd2,....,cmdn;type_command_like;who_can_run_this_command;Repsonse
 #type_command_like is cmd for command, re for response,
-#who_can_run_this_command: streamers, mods, vips, subs or combinations, streamers, mods, subs
+#
+#who_can_run_this_command, groups to choose between: streamers, mods, vips, subs, followers, everyone or combinations, streamers, mods, subs
+#You can have more than one group, just add a comma between.
+#
 #howdy;E;"How are you doing, (USER)!?"
 #ADVANCED Have extra actions, but that is hard programmed...
+#
 SLEEP,SILENCE;cmd;STREAMERS;"I'll go and relax for now! Be back later! <3"
 AWAKE,WAKEUP;cmd;STREAMERS;"Ah! I'm back again. Missed me? :D"
+ALBOTREST,SHUTDOWN,QUIT;CMD;STREAMERS;"Alright, I'm outta here! Have a great time everyone! Miss you! <3"

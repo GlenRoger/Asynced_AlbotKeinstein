@@ -3,14 +3,6 @@ import AlbotBrain as AB
 import utils.TwitchConnection as TC
 
 
-
-#Sette opp testing av alle funksjoner og slikt, mocking, unit ... you name it...
-#Test cooldown funker
-#Milestone 4 osv.
-#Fiks innlesing av koreanske bokstaver.. en følger som har det..  - Det klarer vi! :D
-
-
-
 async def main():
     abot = AB.AlbotBrain()
     tasks = await abot.start()
@@ -27,4 +19,3 @@ if __name__ == '__main__':
         print("Bot stopped by user - KEYBOARDINTERUPT! CTRL+C ?")
     except Exception as e:
         print(f"Bot stopped unexpectedly.. Did you remember to start the virtual environment? Exception saying: /{e}/")
-
