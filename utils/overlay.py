@@ -1,0 +1,195 @@
+import sys
+from PySide6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
+from PySide6.QtCore import Qt, QTimer
+from PySide6.QtGui import QFont, QMovie
+from PySide6.QtMultimedia import QSoundEffect
+from PySide6.QtCore import QUrl
+import os
+
+class OverlayWindow(QWidget):
+    def __init__(self, logger, bridge=None):
+        super().__init__()
+        self.logger = logger
+        self.logger_prefix = "utils/OverlayWindow=>"
+        self.logger.info(f"{self.logger_prefix}Initializing overlay window")
+        
+        # Store bridge reference if provided
+        self.bridge = bridge
+        self.bridge.set_overlay_ready_flag(True)
+        
+        # Set window properties for transparency and always on top
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+        
+        # Set up the layout
+        layout = QVBoxLayout()
+        self.setLayout(layout)
+        
+        # Create greeting label
+        self.greeting_label = QLabel("Hi there!")
+        self.greeting_label.setAlignment(Qt.AlignCenter)
+        self.greeting_label.setStyleSheet("color: white; background-color: rgba(0, 0, 0, 120); padding: 20px; border-radius: 10px;")
+        self.greeting_label.setFont(QFont("Arial", 24, QFont.Bold))
+        
+        # Add to layout
+        layout.addWidget(self.greeting_label)
+        
+        # Create a label for GIFs
+        self.gif_label = QLabel()
+        self.gif_label.setAlignment(Qt.AlignCenter)
+        self.gif_label.hide()
+        layout.addWidget(self.gif_label)
+        
+        # Set up sound effect player
+        self.sound_player = QSoundEffect()
+        
+        # Set up timer for auto-hiding elements
+        self.hide_timer = QTimer()
+        self.hide_timer.setSingleShot(True)
+        self.hide_timer.timeout.connect(self.hide_current_display)
+
+        # Set initial window size and position
+        self.resize(400, 200)
+        self.move(100, 100)  # You can adjust this to position on screen
+        
+        # Create cache directory if it doesn't exist
+        self.cache_dir = os.path.join(os.getcwd(), "cache")
+        if not os.path.exists(self.cache_dir):
+            os.makedirs(self.cache_dir)
+            
+        self.current_display = None  # Tracks what's currently showing
+        
+        self.logger.info(f"{self.logger_prefix}Overlay window initialized")
+
+
+        self.gif_dict = {}
+
+        
+    def connect_bridge(self, bridge):
+        """Connect to signals from the bridge"""
+        self.bridge = bridge
+        
+        # Connect signals to slots
+        self.bridge.show_message_signal.connect(self.show_message)
+        self.bridge.show_streamer_greeting_signal.connect(self.show_streamer_greeting)
+        self.bridge.play_sound_signal.connect(self.play_sound)
+        self.bridge.show_gif_signal.connect(self.show_gif)
+        self.bridge.show_full_greeting_signal.connect(self.show_full_greeting)
+        self.bridge.hide_overlay_signal.connect(self.hide)
+        
+        
+        self.logger.info(f"{self.logger_prefix}Bridge connected")
+    
+    def show_message(self, message, duration=5000, run_alone = True):
+        """Update the greeting label with a new message"""
+        self.logger.info(f"{self.logger_prefix}Showing message: {message} for {duration}ms")
+        
+        if run_alone:
+            self.hide_current_display()
+        
+        self.greeting_label.setText(message)
+        self.greeting_label.show()
+        self.current_display = "message"
+        self.show()
+        
+        # Auto-hide after 5 seconds
+        self.hide_timer.start(duration)
+        
+    def show_streamer_greeting(self, streamer_name):
+        """Show a greeting for a streamer"""
+        self.logger.info(f"{self.logger_prefix}Showing greeting for: {streamer_name}")
+        # For now, just show a simple greeting
+        self.show_message(f"Welcome to the stream, {streamer_name}!")
+        # In the future, this could show custom graphics/animations
+        
+    def play_sound(self, sound_file):
+        """Play a sound file"""
+        self.logger.info(f"{self.logger_prefix}Playing sound: {sound_file}")
+        
+        # Make sure we have an absolute path
+        if not os.path.isabs(sound_file):
+            sound_file = os.path.join(os.getcwd(), sound_file)
+            
+        self.sound_player.setSource(QUrl.fromLocalFile(sound_file))
+        self.sound_player.play()
+
+    #Look locally in gif_dict first,   gif_dict[URL] = file_path
+    #if gif is there use gif-viewer to show that local file
+    #else download file, update gif_dict and give path to new file
+    def get_gif(self, gif_url):
+        pass
+        
+    def show_gif(self, gif_url, duration=5000, run_alone = True):
+        """Show a GIF for the specified duration"""
+        self.logger.info(f"{self.logger_prefix}Showing GIF: {gif_url} for {duration}ms")
+
+        if run_alone:
+            self.hide_current_display()
+        
+        # For this basic example, assuming gif_url is a local file path
+        movie = QMovie(gif_url)
+        self.gif_label.setMovie(movie)
+        movie.start()
+        
+        self.gif_label.show()
+        self.current_display = "gif"
+        self.show()
+        
+        # Auto-hide after the specified duration
+        self.hide_timer.start(duration)
+        
+    def hide_current_display(self):
+        """Hide whatever is currently displayed"""
+        if self.current_display == "message" or self.current_display == "full_greeting":
+            self.greeting_label.hide()
+        if self.current_display == "gif" or self.current_display == "full_greeting":
+            if self.gif_label.movie():
+                self.gif_label.movie().stop()
+            self.gif_label.hide()
+
+        self.current_display = None
+
+
+    def show_full_greeting(self, streamer_name, greeting_text=None, gif_path=None, sound_path=None, duration=8000):
+        """
+        Show a complete greeting with text, GIF, and sound simultaneously.
+        
+        Args:
+            streamer_name: Name of the streamer to greet
+            greeting_text: Custom text to display (if None, a default is generated)
+            gif_path: Path to the GIF file (if None, a default is used)
+            sound_path: Path to the sound file (if None, a default is used)
+            duration: How long to show the greeting in milliseconds
+        """
+        self.logger.info(f"{self.logger_prefix}Showing full greeting for: {streamer_name}")
+        self.hide_current_display()
+        
+        # Set up default values if not provided
+        if greeting_text is None:
+            greeting_text = f"Welcome to the stream, {streamer_name}!"
+        else:
+            greeting_text = f"{greeting_text} {streamer_name}!"
+        
+        if gif_path is None:
+            gif_path = os.path.join(os.getcwd(), "assets", "gifs", "default_greeting.gif")
+        
+        if sound_path is None:
+            sound_path = os.path.join(os.getcwd(), "overlay_media", "sounds", "Alarm01.wav")
+        
+        # Use existing methods to show message, GIF, and play sound
+
+        self.show_gif(gif_path, duration, run_alone=False)
+        self.show_message(greeting_text, duration, run_alone=False)
+        self.play_sound(sound_path)
+        
+        # Update the current display state
+        self.current_display = "full_greeting"
+        
+        # We don't need to call self.show() since show_message and show_gif already do that
+        # The hide timer is already started by show_gif with the specified duration
+
+    def hide_message(self):
+        """Hide the overlay window"""
+        self.logger.info(f"{self.logger_prefix}Hiding overlay window")
+        self.hide_current_display()
+        self.hide()

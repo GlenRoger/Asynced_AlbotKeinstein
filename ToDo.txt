@@ -2,7 +2,13 @@ Albot må kunne informere om hvilke roller en bruker har (everybody) kan bruke d
 Albot må kunne informere om kommandoer en bruker kan bruke og hva de gjør
 
 
-FAST-API
+Fiks overlay-appen, slik at den ikke spiller flere lyder, gif og har tekst oppå hverandre. Disse må bli ferdige før neste kan spilles.
+-> spes utfordring med lyd!
+
+Fikse API-tilgang for giphy og tenor ved bruk av e-mail-adr til tstwt.
+
+Sette opp enkelt opplegg for andre brukere å sette opp custom-greeting for mods osv.. pass på at de ikke kan skrive I andres filer!
+
 
 Ting å fikse per 2025-04-19 - GR-liste
 #Sette opp testing av alle funksjoner og slikt, mocking, unit ... you name it...

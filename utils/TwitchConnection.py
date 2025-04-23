@@ -50,10 +50,9 @@ class TwitchConnection:
 
         self.shout_out_given    = []
 
-        self.overlay_connection = ""
+        # Reference to the overlay bridge - to be set by AlbotBrain
+        self.overlay_bridge = None
 
-    def add_overlay_connection(self, overlay_ref):
-        self.overlay_connection = overlay_ref
 
 
     #Henter ut alle VIPs
@@ -373,12 +372,13 @@ class TwitchConnection:
                     #Venter på at noe skal skje i chatten
                     message = await self.websocket.recv()
 
-                    self.logger.info(f"{current_log_prefix}Catch-all-messages:{message}")
+                    self.logger.info(f"{current_log_prefix}Catch-all-messages:/{message}/")
 
                     # Respond to PING with PONG to keep the connection alive
                     if message.startswith("PING"):
                         await self.websocket.send("PONG :tmi.twitch.tv")
                         self.logger.info("Responded to PING")
+                        continue
 
                     #Check for raid messages
                     if await self.raid_starting(message):
@@ -665,6 +665,27 @@ class TwitchConnection:
         return False
 
 
+    #Sender is the person who wrote the command
+    def handle_overlay_commands(self, sender, overview_cmd):
+
+
+        if overview_cmd.upper().startswith('OVERLAY '):
+            parts = overview_cmd.split(' ', 2)  # Split into 3 parts: 'OVERLAY', action, [params]
+            if len(parts) >= 2:
+                action = parts[1].upper()
+                
+                if action == 'MESSAGE':
+                    self.overlay_bridge.show_message(' '.join(parts[2:]))
+                elif action == 'SOUND':
+                    self.overlay_bridge.play_sound("./overlay_media/sounds/Alarm01.wav")
+                elif action == 'GIF':
+                    self.overlay_bridge.show_gif("./overlay_media/gifs/temp_gif.gif")
+                elif action == 'GREETINGS':
+                    self.overlay_bridge.show_full_greeting(sender, greeting_text='Howdy,', gif_path="./overlay_media/gifs/temp_gif.gif", sound_path="./overlay_media/sounds/Alarm01.wav")
+                elif action == 'HIDE':
+                    self.overlay_bridge.hide_overlay()
+
+
     async def commands_to_check_list_divide_into_queues(self):
 
         current_log_prefix = self.logger_prefix + "commands_to_check_list_divide_into_queues:"
@@ -697,6 +718,8 @@ class TwitchConnection:
                         self.normal_priority_queue.append(cmd_entry)
                     elif cmd_rated == 'shoutout':
                         await self.create_custom_shoutout(cmd.split(" ")[1])
+                    elif cmd_rated == 'overlay':
+                        self.overlay_queue.append(cmd_entry)
                     else:
                         #Logg it and "throw"/"trash" this command. Next..
                         self.logger.error(f"{current_log_prefix}What Am I going to to with this? Couldn't rate it!")
@@ -732,6 +755,12 @@ class TwitchConnection:
         while self.run_loop:
 
 
+            #Overlay har egentlig ingen minimum gifs, lyd og slik den kan kjøre, men vi må hindre at de ikke spilles av for fort og
+            #over hverandre.
+            self.handle_overlay_commands(sender, cmd)
+
+
+
             #FØRSTE SJEKK BURDE VÆRE OM VI FAKTISK KAN SENDE EN  MELDING PER FØR VI PRØVER Å HÅNDTERE EN!
 
             cur_cmd = ""
@@ -761,7 +790,7 @@ class TwitchConnection:
                         shout_out_message = self.shout_out_queue.pop(0)
                         await self.albot_msg_to_chat(shout_out_message)
 
-                        await self.overlay_connection.update_text(f"SHOUTING OUT {shout_out_message.split(' ')[2]}!!")
+
 
                 else:
                     #If timestamp not made, make one and send shout out (1st time)

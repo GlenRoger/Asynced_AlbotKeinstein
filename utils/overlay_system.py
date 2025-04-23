@@ -10,25 +10,28 @@ import uvicorn
 
 class OverlaySystem:
     def __init__(self, logger, host="127.0.0.1", port=8000):
-        self.logger_prefix = "utils/OverlaySystem=>"
-        self.logger = logger
-        self.host = host
-        self.port = port
-        self.app = FastAPI()
-        self.server_task = None
-        self.current_text = "Green Screen Overlay Working!"
+
+        pass
+
+        # self.logger_prefix = "utils/OverlaySystem=>"
+        # self.logger = logger
+        # self.host = host
+        # self.port = port
+        # self.app = FastAPI()
+        # self.server_task = None
+        # self.current_text = "Green Screen Overlay Working!"
         
-        # Create directory for static files if it doesn't exist
-        os.makedirs("overlay_static", exist_ok=True)
+        # # Create directory for static files if it doesn't exist
+        # os.makedirs("overlay_static", exist_ok=True)
         
-        # Set up templates folder
-        os.makedirs("overlay_templates", exist_ok=True)
-        self.templates = Jinja2Templates(directory="overlay_templates")
+        # # Set up templates folder
+        # os.makedirs("overlay_templates", exist_ok=True)
+        # self.templates = Jinja2Templates(directory="overlay_templates")
         
-        # Create template files if they don't exist
-        self.create_default_files()
+        # # Create template files if they don't exist
+        # self.create_default_files()
         
-        self.setup_routes()
+        # self.setup_routes()
     
     def create_default_files(self, show_text):
         """Create default template and CSS files for the overlay"""
@@ -106,12 +109,14 @@ class OverlaySystem:
             )
     
     async def update_text(self, new_text):
+        pass
+
         """Update the text displayed on the overlay"""
-        current_log_prefix = self.logger_prefix + "update_text:"
+        # current_log_prefix = self.logger_prefix + "update_text:"
 
-        self.logger.info(f"{current_log_prefix}Updating overlay text to: {new_text}")
+        # self.logger.info(f"{current_log_prefix}Updating overlay text to: {new_text}")
 
-        self.current_text = new_text
+        # self.current_text = new_text
 
     
     async def start_server(self):

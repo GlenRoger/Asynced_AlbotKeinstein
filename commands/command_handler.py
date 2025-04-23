@@ -79,6 +79,20 @@ class Command_central:
         if cmd.upper() == 'HOWDY' or cmd.upper() == 'HOWDY!':
             return ["RE", "AHOY!", ""]
 
+        # Overlay test commands
+        if cmd.upper().startswith('OVERLAY '):
+            return ["OVERLAY", "", ""]
+            # parts = cmd.split(' ', 2)  # Split into 3 parts: 'OVERLAY', action, [params]
+            # if len(parts) >= 2:
+            #     action = parts[1].upper()
+                
+            #     if action == 'MESSAGE' and len(parts) >= 3:
+            #         return ["OVERLAY", "MESSAGE", parts[2]]
+            #     elif action == 'GREETING' and len(parts) >= 3:
+            #         return ["OVERLAY", "GREETING", parts[2]]
+            #     elif action == 'HIDE':
+            #         return ["OVERLAY", "HIDE", ""]        
+
         self.logger.info(f"{current_log_prefix}Not an ADVANCED command!")
         return ["", "", ""]
 
@@ -120,7 +134,10 @@ class Command_central:
         elif cmd.upper().startswith("SO "):
             self.logger.info(f"{self.logger_prefix}It does exist!")
             return True
-
+        elif cmd.upper().startswith("OVERLAY "):
+            self.logger.info(f"{self.logger_prefix}It does exist!")
+            return True
+        
         self.logger.info(f"{self.logger_prefix}It does NOT exist!")
         return False
 
@@ -132,6 +149,8 @@ class Command_central:
             return "high"
         elif cmd.upper().startswith("SO "):
             return "shoutout"
+        elif cmd.upper().startswith("OVERLAY "):
+            return "overlay"
         else:
             return "normal"
 
