@@ -5,6 +5,7 @@ from PySide6.QtGui import QFont, QMovie
 from PySide6.QtMultimedia import QSoundEffect
 from PySide6.QtCore import QUrl
 import os
+from utils.overlay_animations import AnimatedLabel, AnimationManager
 
 class OverlayWindow(QWidget):
     def __init__(self, logger, bridge=None):
@@ -15,7 +16,6 @@ class OverlayWindow(QWidget):
         
         # Store bridge reference if provided
         self.bridge = bridge
-        self.bridge.set_overlay_ready_flag(True)
         
         # Set window properties for transparency and always on top
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
@@ -33,7 +33,10 @@ class OverlayWindow(QWidget):
         
         # Add to layout
         layout.addWidget(self.greeting_label)
-        
+
+        #Set up animation manager
+        self.animation_manager = AnimationManager(logger)
+
         # Create a label for GIFs
         self.gif_label = QLabel()
         self.gif_label.setAlignment(Qt.AlignCenter)
@@ -76,32 +79,70 @@ class OverlayWindow(QWidget):
         self.bridge.show_gif_signal.connect(self.show_gif)
         self.bridge.show_full_greeting_signal.connect(self.show_full_greeting)
         self.bridge.hide_overlay_signal.connect(self.hide)
+        self.bridge.animate_message_signal.connect(self.animate_message)
         
         
         self.logger.info(f"{self.logger_prefix}Bridge connected")
-    
-    def show_message(self, message, duration=5000, run_alone = True):
+
+
+    def show_message(self, message, run_alone = True,  animation_type=None, duration = 5000):
         """Update the greeting label with a new message"""
-        self.logger.info(f"{self.logger_prefix}Showing message: {message} for {duration}ms")
-        
+        self.logger.info(f"{self.logger_prefix}Showing message: {message}")
+
+
         if run_alone:
-            self.hide_current_display()
+            self.hide_current_display()        
         
         self.greeting_label.setText(message)
         self.greeting_label.show()
         self.current_display = "message"
         self.show()
         
+        # Apply animation if specified
+        if animation_type:
+            self.animate_message(animation_type)
+        
         # Auto-hide after 5 seconds
         self.hide_timer.start(duration)
+
+    # def show_message(self, message, duration=5000, run_alone = True):
+    #     """Update the greeting label with a new message"""
+    #     self.logger.info(f"{self.logger_prefix}Showing message: {message} for {duration}ms")
         
-    def show_streamer_greeting(self, streamer_name):
-        """Show a greeting for a streamer"""
+    #     if run_alone:
+    #         self.hide_current_display()
+        
+    #     self.greeting_label.setText(message)
+    #     self.greeting_label.show()
+    #     self.current_display = "message"
+    #     self.show()
+        
+    #     # Auto-hide after 5 seconds
+    #     self.hide_timer.start(duration)
+        
+    # def show_streamer_greeting(self, streamer_name):
+    #     """Show a greeting for a streamer"""
+    #     self.logger.info(f"{self.logger_prefix}Showing greeting for: {streamer_name}")
+    #     # For now, just show a simple greeting
+    #     self.show_message(f"Welcome to the stream, {streamer_name}!")
+    #     # In the future, this could show custom graphics/animations
+        
+    
+    def animate_message(self, animation_type, **kwargs):
+        """Apply an animation to the current message"""
+        self.logger.info(f"{self.logger_prefix}Animating message with: {animation_type}")
+        
+        if self.current_display == "message":
+            self.animation_manager.apply_animation(self.greeting_label, animation_type, **kwargs)
+    
+    def show_streamer_greeting(self, streamer_name, animation_type="bounce"):
+        """Show a greeting for a streamer with animation"""
         self.logger.info(f"{self.logger_prefix}Showing greeting for: {streamer_name}")
-        # For now, just show a simple greeting
+        # For now, just show a simple greeting with animation
         self.show_message(f"Welcome to the stream, {streamer_name}!")
-        # In the future, this could show custom graphics/animations
-        
+        self.animate_message(animation_type)
+
+
     def play_sound(self, sound_file):
         """Play a sound file"""
         self.logger.info(f"{self.logger_prefix}Playing sound: {sound_file}")
@@ -150,7 +191,7 @@ class OverlayWindow(QWidget):
         self.current_display = None
 
 
-    def show_full_greeting(self, streamer_name, greeting_text=None, gif_path=None, sound_path=None, duration=8000):
+    def show_full_greeting(self, streamer_name, greeting_text=None, gif_path=None, sound_path=None, show_duration=8000):
         """
         Show a complete greeting with text, GIF, and sound simultaneously.
         
@@ -168,20 +209,23 @@ class OverlayWindow(QWidget):
         if greeting_text is None:
             greeting_text = f"Welcome to the stream, {streamer_name}!"
         else:
-            greeting_text = f"{greeting_text} {streamer_name}!"
+            greeting_text = f"{greeting_text}!"
         
         if gif_path is None:
-            gif_path = os.path.join(os.getcwd(), "assets", "gifs", "default_greeting.gif")
+            gif_path = os.path.join(os.getcwd(), "overlay_media", "gifs", "temp_gif.gif")
         
         if sound_path is None:
             sound_path = os.path.join(os.getcwd(), "overlay_media", "sounds", "Alarm01.wav")
         
         # Use existing methods to show message, GIF, and play sound
 
-        self.show_gif(gif_path, duration, run_alone=False)
-        self.show_message(greeting_text, duration, run_alone=False)
+        do_run_alone = False
+
+        self.show_gif(gif_path, show_duration, run_alone = do_run_alone)
+        self.show_message(greeting_text, do_run_alone, None, show_duration)
         self.play_sound(sound_path)
         
+
         # Update the current display state
         self.current_display = "full_greeting"
         

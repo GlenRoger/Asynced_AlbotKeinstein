@@ -327,6 +327,9 @@ class TwitchConnection:
 
         current_log_prefix = self.logger_prefix +"start_messsage_loop:"
 
+        self.logger.info(f"{current_log_prefix}OAuth check complete!")
+
+
         uri = f"{config.TWITCH_IRC_SERVER}:{config.TWITCH_IRC_PORT}"
 
         self.logger.info(f"{current_log_prefix}Connecting to Twitch IRC: {uri}")
@@ -337,7 +340,9 @@ class TwitchConnection:
         await self.get_oauth_token_br()
         await self.get_client_id_br()
 
+
         async with websockets.connect(uri) as self.websocket:
+
             # Send authentication commands
             await self.websocket.send(f"PASS {self.access_token}")
             await self.websocket.send(f"NICK {config.BOT_USERNAME}")
@@ -354,7 +359,7 @@ class TwitchConnection:
             await self.get_MODs_list()
             await self.get_VIPs_list()
             await self.get_subscribers_list()
-            await self.get_followers_list()
+            # await self.get_followers_list()
             self.get_xfirst_follower(10)
 
             self.logger.info(f"{current_log_prefix}Found MODs: {self.MODs_list}")
@@ -667,7 +672,9 @@ class TwitchConnection:
 
     #Sender is the person who wrote the command
     def handle_overlay_commands(self, sender, overview_cmd):
+        current_log_prefix = self.logger_prefix + "handle_overlay_commands:"
 
+        self.logger.info(f"{current_log_prefix}Received sender:{sender} and overview_cmd:{overview_cmd}")
 
         if overview_cmd.upper().startswith('OVERLAY '):
             parts = overview_cmd.split(' ', 2)  # Split into 3 parts: 'OVERLAY', action, [params]
@@ -681,10 +688,37 @@ class TwitchConnection:
                 elif action == 'GIF':
                     self.overlay_bridge.show_gif("./overlay_media/gifs/temp_gif.gif")
                 elif action == 'GREETINGS':
-                    self.overlay_bridge.show_full_greeting(sender, greeting_text='Howdy,', gif_path="./overlay_media/gifs/temp_gif.gif", sound_path="./overlay_media/sounds/Alarm01.wav")
+                    self.overlay_bridge.show_full_greeting(streamer_name=sender, greeting_text=f'Howdy,{sender}', gif_path="./overlay_media/gifs/temp_gif.gif", sound_path="./overlay_media/sounds/Alarm01.wav")
                 elif action == 'HIDE':
                     self.overlay_bridge.hide_overlay()
 
+            
+            # Animation commands
+            elif action == 'ANIMATE' and len(parts) >= 3:
+                anim_parts = parts[2].split(' ', 1)
+                anim_type = anim_parts[0].lower()
+                
+                # Get message if provided, otherwise use default
+                message = anim_parts[1] if len(anim_parts) > 1 else f"Animation by {sender}!"
+                
+                # Show message with the specified animation
+                self.overlay_bridge.show_message(message, anim_type)
+                
+            # Specific animation shortcuts
+            elif action == 'BOUNCE' and len(parts) >= 3:
+                self.overlay_bridge.show_message(' '.join(parts[2:]), "bounce")
+            elif action == 'SPIN' and len(parts) >= 3:
+                self.overlay_bridge.show_message(' '.join(parts[2:]), "spin")
+            elif action == 'ROLL' and len(parts) >= 3:
+                self.overlay_bridge.show_message(' '.join(parts[2:]), "roll")
+            elif action == 'SHAKE' and len(parts) >= 3:
+                self.overlay_bridge.show_message(' '.join(parts[2:]), "shake")
+            elif action == 'WAVE' and len(parts) >= 3:
+                self.overlay_bridge.show_message(' '.join(parts[2:]), "wave")
+            elif action == 'PULSE' and len(parts) >= 3:
+                self.overlay_bridge.show_message(' '.join(parts[2:]), "pulse")
+            elif action == 'FADE' and len(parts) >= 3:
+                self.overlay_bridge.show_message(' '.join(parts[2:]), "fade")
 
     async def commands_to_check_list_divide_into_queues(self):
 
@@ -757,7 +791,13 @@ class TwitchConnection:
 
             #Overlay har egentlig ingen minimum gifs, lyd og slik den kan kjøre, men vi må hindre at de ikke spilles av for fort og
             #over hverandre.
-            self.handle_overlay_commands(sender, cmd)
+            if self.overlay_queue:
+                cur_ovrl_cmd = self.overlay_queue.pop(0)
+
+                sender, cmd = cur_ovrl_cmd.split(':')
+                
+                self.logger.info(f"{current_log_prefix}This command has Overlay priority: /{cur_ovrl_cmd}/.")
+                self.handle_overlay_commands(sender, cmd)
 
 
 

@@ -12,6 +12,8 @@ class OverlayBridge(QObject):
     show_gif_signal = Signal(str, int)  # URL, duration
     show_full_greeting_signal = Signal(str, object, object, object, int)
     hide_overlay_signal = Signal()
+    animate_message_signal = Signal(str, object)  # animation_type, kwargs
+
     
     def __init__(self, logger):
         super().__init__()
@@ -19,7 +21,10 @@ class OverlayBridge(QObject):
         self.logger_prefix = "utils/OverlayBridge=>"
         self.logger.info(f"{self.logger_prefix}Initializing overlay bridge")
 
-        self.overlay_ready_flag = False
+        self.overlay_ready_for_new_action = False
+
+        
+
 
     def set_overlay_ready_flag(self, bool_value):
         self.overlay_ready_for_new_action = bool_value
@@ -28,20 +33,41 @@ class OverlayBridge(QObject):
     def overlay_ready_for_new_action(self):
         return self.overlay_ready_for_new_action
     
-    def show_message(self, message):
-        """Send a message to be displayed on the overlay"""
+
+    def show_message(self, message, animation_type=None, run_alone = True):
+        """Send a message to be displayed on the overlay, optionally with animation"""
         self.logger.info(f"{self.logger_prefix}Emitting show_message_signal: {message}")
-
-        self.overlay_ready_for_new_action = False
         self.show_message_signal.emit(message)
+        
+        if animation_type:
+            self.animate_message(animation_type)
     
-    def show_streamer_greeting(self, streamer_name):
-        """Send a signal to show a greeting for a streamer"""
+    def show_streamer_greeting(self, streamer_name, animation_type="bounce"):
+        """Send a signal to show a greeting for a streamer with animation"""
         self.logger.info(f"{self.logger_prefix}Emitting show_streamer_greeting_signal: {streamer_name}")
-
-        self.overlay_ready_for_new_action = False
         self.show_streamer_greeting_signal.emit(streamer_name)
+        
+        # Apply default animation for streamer greetings
+        self.animate_message(animation_type)
+
+
+#     OLD
+#     def show_message(self, message):
+#         """Send a message to be displayed on the overlay"""
+#         self.logger.info(f"{self.logger_prefix}Emitting show_message_signal: {message}")
+
+#         self.overlay_ready_for_new_action = False
+#         self.show_message_signal.emit(message)
     
+#     def show_streamer_greeting(self, streamer_name):
+#         """Send a signal to show a greeting for a streamer"""
+#         self.logger.info(f"{self.logger_prefix}Emitting show_streamer_greeting_signal: {streamer_name}")
+
+#         self.overlay_ready_for_new_action = False
+#         self.show_streamer_greeting_signal.emit(streamer_name)
+
+# 
+
     def play_sound(self, sound_file):
         """Send a signal to play a sound"""
         self.logger.info(f"{self.logger_prefix}Emitting play_sound_signal: {sound_file}")
@@ -49,7 +75,7 @@ class OverlayBridge(QObject):
         self.overlay_ready_for_new_action = False
         self.play_sound_signal.emit(sound_file)
     
-    def show_gif(self, gif_url, duration=5000):
+    def show_gif(self, gif_url, duration=5000, run_alone = True):
         """Send a signal to show a GIF for the specified duration (ms)"""
         self.logger.info(f"{self.logger_prefix}Emitting show_gif_signal: {gif_url}, duration: {duration}ms")
 
@@ -62,6 +88,11 @@ class OverlayBridge(QObject):
 
         self.overlay_ready_for_new_action = False
         self.show_full_greeting_signal.emit(streamer_name, greeting_text, gif_path, sound_path, duration)
+
+    def animate_message(self, animation_type, **kwargs):
+        """Send a signal to animate the current message"""
+        self.logger.info(f"{self.logger_prefix}Emitting animate_message_signal: {animation_type}")
+        self.animate_message_signal.emit(animation_type, kwargs)
 
     def hide_overlay(self):
         """Send a signal to hide the overlay"""

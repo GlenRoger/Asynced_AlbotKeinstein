@@ -1,6 +1,5 @@
 import utils.logger as logger
 import utils.TwitchConnection as TC
-from utils.overlay_system import OverlaySystem
 import asyncio
 
 import sys
@@ -59,7 +58,7 @@ class AlbotBrain:
             self.message_task                   = asyncio.create_task(self.TwitchConnector.start_messsage_loop())
             self.message_pile_queue_organizer   = asyncio.create_task(self.TwitchConnector.commands_to_check_list_divide_into_queues())
             self.message_pile_queue_handler     = asyncio.create_task(self.TwitchConnector.run_commands_according_to_priority())
-            # self.overlay_task                   = asyncio.create_task(self.overlay.start_server())
+            # self.overlay_task_old                   = asyncio.create_task(self.overlay.start_server())
 
             # Add overlay processing task - PySide6
             self.overlay_task = asyncio.create_task(self.process_qt_events())
@@ -67,6 +66,7 @@ class AlbotBrain:
 
             tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler, self.overlay_task]
 
+            # tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler]
 
             # tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler, self.overlay_task]
             self.logger.info(f"{current_log_prefix}Created {len(tasks)} tasks")
