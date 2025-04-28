@@ -1,0 +1,12 @@
+#Fill out this order
+#ID_OR_URL;OWNER;GIFNAME
+#ID_OR_URL is the gif's ID or entire URL
+#OWNER is the domain it's gotten from, preferable one we have API key for like Tenor
+#GIFNAME - just make up one, but it needs to be unique! In case it needs to be downloaded, this is the name of the file as well.
+#Gifs are saved in the overlay_media/gifs
+15488998239354870297;TENOR;SO_CUTE
+9933565;TENOR;GIRL_IN_CAR_DOING_ROCK_SIGNS
+https://tenor.com/view/mandalorian-baby-yoda-hello-gif-3537608705824910678;TENOR;BABY-YODA_WATCHU_DOIN
+13465713;TENOR;FULL_HOUSE_BABY_BLOWING_KISS
+https://tenor.com/view/moon-cake-final-space-spin-gif-11487728;TENOR;MOON_CAKE_CHAOS
+https://tenor.com/view/confetti-style-gif-19616552;TENOR;SERIOUS_CONFETTI_GUY

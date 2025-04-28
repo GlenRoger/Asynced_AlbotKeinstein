@@ -6,6 +6,8 @@ import utils.send_message as sm
 import commands.command_handler as ch
 import requests
 import time
+import utils.GifHandler as GH
+
 
 class TwitchConnection:
 
@@ -53,6 +55,7 @@ class TwitchConnection:
         # Reference to the overlay bridge - to be set by AlbotBrain
         self.overlay_bridge = None
 
+        self.gif_handler    = GH.GifHandler(logger)
 
 
     #Henter ut alle VIPs
@@ -339,6 +342,8 @@ class TwitchConnection:
 
         await self.get_oauth_token_br()
         await self.get_client_id_br()
+
+        await self.gif_handler.setup()
 
 
         async with websockets.connect(uri) as self.websocket:
@@ -686,9 +691,9 @@ class TwitchConnection:
                 elif action == 'SOUND':
                     self.overlay_bridge.play_sound("./overlay_media/sounds/Alarm01.wav")
                 elif action == 'GIF':
-                    self.overlay_bridge.show_gif("./overlay_media/gifs/temp_gif.gif")
+                    self.overlay_bridge.show_gif("./overlay_media/gifs/MOON_CAKE_CHAOS.gif")
                 elif action == 'GREETINGS':
-                    self.overlay_bridge.show_full_greeting(streamer_name=sender, greeting_text=f'Howdy,{sender}', gif_path="./overlay_media/gifs/temp_gif.gif", sound_path="./overlay_media/sounds/Alarm01.wav")
+                    self.overlay_bridge.show_full_greeting(streamer_name=sender, greeting_text=f'Howdy,{sender}', gif_path="./overlay_media/gifs/MOON_CAKE_CHAOS.gif", sound_path="./overlay_media/sounds/Alarm01.wav")
                 elif action == 'HIDE':
                     self.overlay_bridge.hide_overlay()
 

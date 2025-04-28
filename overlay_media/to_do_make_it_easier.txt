@@ -1,0 +1,5 @@
+en fil hver person for å legge til streamers_to_shout_out, greetings, osv.
+
+main -> leser og limer i sammen innholdet av filene til hovedfilene i de kategoriene.
+
+Karoline og jeg står for designet

@@ -3,7 +3,7 @@
 #Set who can do some certain commands to Albert Keinstein
 STREAMERS_ONLY = True
 STREAMERS = ["thestreamteamwastaken", "coolingenwastaken", "kyllingpews", "nurseiplier", "dad__76", "themonkeytea", "krishli", "raivdaiv"]
-AUTOMATIC_SHOUTOUT_LIST = ["coolingenwastaken"]
+AUTOMATIC_SHOUTOUT_LIST = ["coolingenwastaken", "nurseiplier"]
 
 PREFIX_FOR_BOT_TO_READ = '%'
 
@@ -28,3 +28,12 @@ CLIENT_ID_FILE   = "../ToAlbotC.txt"
 
 OAUTH_TOKEN_FILE_2 = "../toTSTWT.txt"
 CLIENT_ID_FILE_2   = "../toTSTWTC.txt"
+
+#Media storage
+MEDIA_FOLDER        = "overlay_media/"
+MEDIA_FOLDER_GIF    = "overlay_media/gifs/"
+MEDIA_FOLDER_SOUNDS = "overlay_media/SOUNDS/"
+
+#Tenor gif
+TENOR_API_KEY       = "../TenorApiKey.txt"
+TENOR_CLIENT_NAME   = "AlBotKeinStein"
