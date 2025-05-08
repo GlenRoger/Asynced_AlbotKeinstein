@@ -24,8 +24,6 @@ class OverlayBridge(QObject):
         self.overlay_ready_for_new_action = False
 
         
-
-
     def set_overlay_ready_flag(self, bool_value):
         self.overlay_ready_for_new_action = bool_value
 
@@ -82,7 +80,7 @@ class OverlayBridge(QObject):
         self.overlay_ready_for_new_action = False
         self.show_gif_signal.emit(gif_url, duration)
 
-    def show_full_greeting(self, streamer_name, greeting_text=None, gif_path=None, sound_path=None, duration=10000):
+    def show_full_greeting(self, streamer_name, greeting_text=None, gif_path=None, sound_path=None, duration=10000, animation_type="bounce"):
         """Send a signal to show a full greeting, may contain GIF, text, sound and duration for the specified duration (ms)"""
         self.logger.info(f"{self.logger_prefix}Emitting show_full_greeting_signal: {streamer_name}, {greeting_text}, {gif_path}, {sound_path}, duration: {duration}ms")
 

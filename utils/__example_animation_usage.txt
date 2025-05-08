@@ -1,0 +1,175 @@
+"""
+Example usage of the overlay animation system with various configurations.
+This demonstrates how to use the animate_message method with custom parameters.
+"""
+
+# Examples of how you would call animations with kwargs from your code:
+
+# 1. Bounce animation with custom height and bounce count
+def bounce_examples(overlay_bridge):
+    # Default bounce
+    overlay_bridge.show_message("Default Bounce Animation!", "bounce")
+    
+    # Gentle small bounce
+    overlay_bridge.show_message("Small Gentle Bounce!")
+    overlay_bridge.animate_message("bounce", height=20, bounce_count=2)
+    
+    # Extreme high bounce
+    overlay_bridge.show_message("Extreme Bounce!")
+    overlay_bridge.animate_message("bounce", height=100, bounce_count=5)
+
+# 2. Spin animation with custom settings
+def spin_examples(overlay_bridge):
+    # Default spin (360 degrees)
+    overlay_bridge.show_message("Default Spin Animation!")
+    overlay_bridge.animate_message("spin")
+    
+    # Multiple rotations
+    overlay_bridge.show_message("Multiple Spins!")
+    overlay_bridge.animate_message("spin", degrees=720, duration=3000)
+    
+    # Slow partial rotation
+    overlay_bridge.show_message("Slow Partial Spin!")
+    overlay_bridge.animate_message("spin", degrees=180, duration=4000)
+    
+    # Continuous spinning
+    overlay_bridge.show_message("Continuous Spinning!")
+    overlay_bridge.animate_message("spin", loops=-1)  # -1 means infinite loops
+
+# 3. Pulse animation with different scales
+def pulse_examples(overlay_bridge):
+    # Default pulse
+    overlay_bridge.show_message("Default Pulse Animation!")
+    overlay_bridge.animate_message("pulse")
+    
+    # Subtle pulse
+    overlay_bridge.show_message("Subtle Pulse!")
+    overlay_bridge.animate_message("pulse", min_scale=0.95, max_scale=1.05, pulse_count=3)
+    
+    # Dramatic pulse
+    overlay_bridge.show_message("Dramatic Pulse!")
+    overlay_bridge.animate_message("pulse", min_scale=0.5, max_scale=1.5, pulse_count=4, duration=3000)
+
+# 4. Shake animation variations
+def shake_examples(overlay_bridge):
+    # Default shake
+    overlay_bridge.show_message("Default Shake Animation!")
+    overlay_bridge.animate_message("shake")
+    
+    # Gentle shake
+    overlay_bridge.show_message("Gentle Shake!")
+    overlay_bridge.animate_message("shake", intensity=5, shake_count=3)
+    
+    # Violent shake
+    overlay_bridge.show_message("Violent Shake!")
+    overlay_bridge.animate_message("shake", intensity=20, shake_count=10, duration=2000)
+
+# 5. Roll animation with different directions and distances
+def roll_examples(overlay_bridge):
+    # Default roll (right)
+    overlay_bridge.show_message("Default Roll Animation!")
+    overlay_bridge.animate_message("roll")
+    
+    # Long roll right
+    overlay_bridge.show_message("Long Roll Right!")
+    overlay_bridge.animate_message("roll", distance=400, duration=3000)
+    
+    # Roll left
+    overlay_bridge.show_message("Roll Left!")
+    overlay_bridge.animate_message("roll", direction="left", distance=200)
+
+# 6. Fade animation examples
+def fade_examples(overlay_bridge):
+    # Default fade in
+    overlay_bridge.show_message("Default Fade Animation!")
+    overlay_bridge.animate_message("fade", start_opacity=0.0, end_opacity=1.0)
+    
+    # Fade out
+    overlay_bridge.show_message("Fade Out!")
+    overlay_bridge.animate_message("fade", start_opacity=1.0, end_opacity=0.0, duration=3000)
+    
+    # Fade in and out (using pulse technique)
+    overlay_bridge.show_message("Fade Pulse!")
+    overlay_bridge.animate_message("fade", start_opacity=1.0, end_opacity=0.3, duration=1000)
+    # You would need to chain animations to get a complete fade in/out effect
+
+# 7. Wave animation examples
+def wave_examples(overlay_bridge):
+    # Default wave
+    overlay_bridge.show_message("Default Wave Animation!")
+    overlay_bridge.animate_message("wave")
+    
+    # Gentle wave
+    overlay_bridge.show_message("Gentle Wave!")
+    overlay_bridge.animate_message("wave", amplitude=10, wave_count=3)
+    
+    # Dramatic wave
+    overlay_bridge.show_message("Dramatic Wave!")
+    overlay_bridge.animate_message("wave", amplitude=40, wave_count=5, duration=4000)
+
+# 8. Slide in animation with different directions
+def slide_examples(overlay_bridge):
+    # Default slide in (from right)
+    overlay_bridge.show_message("Default Slide Animation!")
+    overlay_bridge.animate_message("slide_in")
+    
+    # Slide from left
+    overlay_bridge.show_message("Slide from Left!")
+    overlay_bridge.animate_message("slide_in", direction="left")
+    
+    # Slide from top
+    overlay_bridge.show_message("Slide from Top!")
+    overlay_bridge.animate_message("slide_in", direction="top", duration=1500)
+    
+    # Slide from bottom (slow)
+    overlay_bridge.show_message("Slow Slide from Bottom!")
+    overlay_bridge.animate_message("slide_in", direction="bottom", duration=3000)
+
+# 9. Combining animations (note: would need modification to the animation system to support this properly)
+def combined_animation_example(overlay_bridge):
+    # This is conceptual - the current system doesn't directly support chained animations
+    # but could be extended to do so
+    overlay_bridge.show_message("Bounce then Spin!")
+    
+    # Conceptual approach - would need implementation
+    # overlay_bridge.animate_message_sequence([
+    #     {"type": "bounce", "height": 50, "duration": 1500},
+    #     {"type": "spin", "degrees": 360, "duration": 1500}
+    # ])
+
+# 10. Animation for streamer greetings with custom parameters
+def streamer_greeting_examples(overlay_bridge):
+    # Bouncy greeting
+    overlay_bridge.show_streamer_greeting("StreamerName", "bounce")
+    
+    # Spinning greeting
+    overlay_bridge.show_streamer_greeting("StreamerName", "spin")
+    
+    # Full greeting with custom animation
+    overlay_bridge.show_full_greeting(
+        "StreamerName",
+        greeting_text="Welcome",
+        animation_type="bounce",
+        duration=15000
+    )
+
+# How to use the above examples in Twitch bot commands:
+"""
+In your TwitchConnection.py handle_overlay_commands method, you could implement:
+
+# For custom bounce with parameters
+elif action == 'BIGBOUNCE' and len(parts) >= 3:
+    self.overlay_bridge.show_message(' '.join(parts[2:]))
+    self.overlay_bridge.animate_message("bounce", height=80, bounce_count=4)
+
+# For custom spin with parameters  
+elif action == 'SPINFAST' and len(parts) >= 3:
+    self.overlay_bridge.show_message(' '.join(parts[2:]))
+    self.overlay_bridge.animate_message("spin", degrees=1080, duration=2000)
+
+# For combined effects
+elif action == 'DRAMATIC' and len(parts) >= 3:
+    self.overlay_bridge.show_message(' '.join(parts[2:]))
+    self.overlay_bridge.animate_message("shake", intensity=15, shake_count=5)
+    # Additional animations would need to be timed or chained
+"""

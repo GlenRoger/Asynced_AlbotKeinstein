@@ -84,6 +84,9 @@ class AlbotBrain:
         self.logger.info(f"{self.logger_prefix}Sending delayed test message via bridge")
         self.overlay_bridge.show_message("Visuals active!")
 
+        await asyncio.sleep(1)  # Wait a bit for the message to display
+        self.overlay_bridge.animate_message("bounce")
+
     #PySide6 stuff
     async def process_qt_events(self):
         """Process Qt events in an asyncio-friendly way"""

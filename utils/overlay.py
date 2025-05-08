@@ -1,6 +1,6 @@
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
-from PySide6.QtCore import Qt, QTimer
+from PySide6.QtCore import Qt, QTimer, QPoint
 from PySide6.QtGui import QFont, QMovie
 from PySide6.QtMultimedia import QSoundEffect
 from PySide6.QtCore import QUrl
@@ -8,6 +8,7 @@ import os
 from utils.overlay_animations import AnimatedLabel, AnimationManager
 
 class OverlayWindow(QWidget):
+
     def __init__(self, logger, bridge=None):
         super().__init__()
         self.logger = logger
@@ -24,15 +25,22 @@ class OverlayWindow(QWidget):
         # Set up the layout
         layout = QVBoxLayout()
         self.setLayout(layout)
-        
+
+        # Set up animation manager first
+        self.animation_manager = AnimationManager(logger)
+
         # Create greeting label
-        self.greeting_label = QLabel("Hi there!")
+        # self.greeting_label = QLabel("Hi there!")
+        self.greeting_label = AnimatedLabel("Hi there!")
         self.greeting_label.setAlignment(Qt.AlignCenter)
         self.greeting_label.setStyleSheet("color: white; background-color: rgba(0, 0, 0, 120); padding: 20px; border-radius: 10px;")
         self.greeting_label.setFont(QFont("Arial", 24, QFont.Bold))
         
         # Add to layout
         layout.addWidget(self.greeting_label)
+
+        # Set a default center anchor point for animations
+        self.greeting_label.set_anchor_type(AnimatedLabel.CENTER)
 
         #Set up animation manager
         self.animation_manager = AnimationManager(logger)
@@ -92,8 +100,27 @@ class OverlayWindow(QWidget):
 
         if run_alone:
             self.hide_current_display()        
-        
+
+        # Ensure the anchor point is set to center for proper display
+        if hasattr(self.greeting_label, 'set_anchor_type'):
+            self.greeting_label.set_anchor_type(AnimatedLabel.CENTER)
+
+        # Reset scale to 1.0 to ensure we start from the base size
+        if hasattr(self.greeting_label, 'set_scale'):
+            self.greeting_label.set_scale(1.0)
+
+        # Set the message text
         self.greeting_label.setText(message)
+        
+        # Adjust the label size to fit the content
+        self.greeting_label.adjustSize()
+        
+        # Center the label in the window
+        center_x = (self.width() - self.greeting_label.width()) // 2
+        center_y = (self.height() - self.greeting_label.height()) // 2
+        self.greeting_label.move(center_x, center_y)
+        
+        # Show the label
         self.greeting_label.show()
         self.current_display = "message"
         self.show()
@@ -101,9 +128,25 @@ class OverlayWindow(QWidget):
         # Apply animation if specified
         if animation_type:
             self.animate_message(animation_type)
+            #applying bounce... isn't here..
         
-        # Auto-hide after 5 seconds
+        # Auto-hide after specified duration
         self.hide_timer.start(duration)
+
+        # self.greeting_label.setText(message)
+        # self.greeting_label.show()
+        # self.current_display = "message"
+        # self.show()
+        
+        # # Apply animation if specified
+        # if animation_type:
+        #     self.animate_message(animation_type)
+        
+        # # Auto-hide after 5 seconds
+        # self.hide_timer.start(duration)
+
+
+
 
     # def show_message(self, message, duration=5000, run_alone = True):
     #     """Update the greeting label with a new message"""
@@ -126,14 +169,26 @@ class OverlayWindow(QWidget):
     #     # For now, just show a simple greeting
     #     self.show_message(f"Welcome to the stream, {streamer_name}!")
     #     # In the future, this could show custom graphics/animations
-        
+
     
     def animate_message(self, animation_type, **kwargs):
         """Apply an animation to the current message"""
-        self.logger.info(f"{self.logger_prefix}Animating message with: {animation_type}")
-        
+
+        if kwargs is None:
+            kwargs = {}
+
+        self.logger.info(f"{self.logger_prefix}Animating message with: {animation_type}, kwargs: {kwargs}")
+
         if self.current_display == "message":
+            # Reset position to ensure animations start from a known state
+            if hasattr(self.greeting_label, 'set_pos'):
+                # Calculate center position in the parent window
+                center_x = (self.width() - self.greeting_label.width()) // 2
+                center_y = (self.height() - self.greeting_label.height()) // 2
+                self.greeting_label.set_pos(QPoint(center_x, center_y))
+                
             self.animation_manager.apply_animation(self.greeting_label, animation_type, **kwargs)
+    
     
     def show_streamer_greeting(self, streamer_name, animation_type="bounce"):
         """Show a greeting for a streamer with animation"""
@@ -191,7 +246,7 @@ class OverlayWindow(QWidget):
         self.current_display = None
 
 
-    def show_full_greeting(self, streamer_name, greeting_text=None, gif_path=None, sound_path=None, show_duration=8000):
+    def show_full_greeting(self, streamer_name, greeting_text=None, gif_path=None, sound_path=None, show_duration=8000, animation_type="bounce"):
         """
         Show a complete greeting with text, GIF, and sound simultaneously.
         
@@ -221,16 +276,43 @@ class OverlayWindow(QWidget):
 
         do_run_alone = False
 
-        self.show_gif(gif_path, show_duration, run_alone = do_run_alone)
+
         self.show_message(greeting_text, do_run_alone, None, show_duration)
+        # Apply animation after showing the message
+        if animation_type:
+            self.logger.info(f"{self.logger_prefix}We got an animation type, what is it?{animation_type}")
+            self.animate_message(animation_type)
+
+
+        self.show_gif(gif_path, show_duration, run_alone=do_run_alone)
+
         self.play_sound(sound_path)
         
-
         # Update the current display state
         self.current_display = "full_greeting"
         
-        # We don't need to call self.show() since show_message and show_gif already do that
-        # The hide timer is already started by show_gif with the specified duration
+
+
+
+        #Old version, working nice, why change?
+        # # Show the greeting text
+        # self.greeting_label.setText(greeting_text)
+        # self.greeting_label.show()
+        
+
+        # self.show_gif(gif_path, show_duration, run_alone = do_run_alone)
+        # # self.show_message(greeting_text, do_run_alone, None, show_duration)
+        # self.animation_manager.apply_animation(self.greeting_label, animation_type)
+
+
+        # self.play_sound(sound_path)
+        
+
+        # # Update the current display state
+        # self.current_display = "full_greeting"
+        
+        # # We don't need to call self.show() since show_message and show_gif already do that
+        # # The hide timer is already started by show_gif with the specified duration
 
     def hide_message(self):
         """Hide the overlay window"""

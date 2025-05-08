@@ -1,0 +1,119 @@
+"""
+Improved implementation for rotation animations using QGraphicsEffect
+
+Since the basic QLabel doesn't directly support rotation through the setRotation method,
+we need to use QGraphicsEffect or transform the label with QTransform.
+"""
+
+from PySide6.QtWidgets import QLabel, QGraphicsView, QGraphicsScene, QGraphicsProxyWidget
+from PySide6.QtCore import QPropertyAnimation, Property, QPointF, QTimer
+from PySide6.QtGui import QTransform
+
+class RotatableLabel(QLabel):
+    """QLabel that supports rotation using QTransform"""
+    
+    def __init__(self, text="", parent=None):
+        super().__init__(text, parent)
+        self._rotation = 0.0
+        self._center = QPointF(0, 0)
+        
+        # Animation for rotation
+        self.rotation_animation = QPropertyAnimation(self, b"rotation")
+        self.rotation_animation.setDuration(1000)
+    
+    def get_rotation(self):
+        return self._rotation
+    
+    def set_rotation(self, angle):
+        self._rotation = angle
+        
+        # Calculate the center of the label for rotation
+        self._center = QPointF(self.width() / 2, self.height() / 2)
+        
+        # Create transform for rotation around center
+        transform = QTransform()
+        transform.translate(self._center.x(), self._center.y())
+        transform.rotate(angle)
+        transform.translate(-self._center.x(), -self._center.y())
+        
+        # Apply the transform
+        self.setTransform(transform)
+    
+    # Define the rotation property for animation
+    rotation = Property(float, get_rotation, set_rotation)
+
+# Alternative approach using QGraphicsView for better rotation support
+class GraphicsViewLabel:
+    """
+    Creates a QGraphicsView setup that can rotate a QLabel smoothly.
+    This is a more complex but more flexible approach.
+    """
+    
+    def __init__(self, parent_widget, text=""):
+        # Create the label
+        self.label = QLabel(text)
+        
+        # Create graphics scene and view
+        self.scene = QGraphicsScene()
+        self.view = QGraphicsView(self.scene, parent_widget)
+        
+        # Add label to scene via proxy widget
+        self.proxy = self.scene.addWidget(self.label)
+        
+        # Center the label in the view
+        self.center_in_view()
+        
+        # Animation
+        self.rotation_animation = QPropertyAnimation(self.proxy, b"rotation")
+        self.rotation_animation.setDuration(1000)
+    
+    def center_in_view(self):
+        """Center the label in the view"""
+        # Set the rotation origin to center of item
+        self.proxy.setTransformOriginPoint(
+            self.label.width() / 2,
+            self.label.height() / 2
+        )
+        
+        # Fit scene in view
+        self.view.fitInView(self.scene.sceneRect())
+    
+    def animate_rotation(self, start_angle, end_angle, duration=1000, loops=1):
+        """Start a rotation animation"""
+        self.rotation_animation.setStartValue(start_angle)
+        self.rotation_animation.setEndValue(end_angle)
+        self.rotation_animation.setDuration(duration)
+        self.rotation_animation.setLoopCount(loops)
+        self.rotation_animation.start()
+
+# Code to update the AnimationManager's spin_animation method:
+"""
+def spin_animation(self, widget, duration=2000, degrees=360, loops=1):
+    '''Creates a spinning animation'''
+    # For better rotation, we need to use QTransform instead of directly
+    # manipulating the rotation property
+    
+    # Calculate the center point for rotation
+    center = QPointF(widget.width() / 2, widget.height() / 2)
+    
+    # Create a transform animation
+    transform_animation = QPropertyAnimation(widget, b"transform")
+    transform_animation.setDuration(duration)
+    
+    # Set up start transform (identity)
+    start_transform = QTransform()
+    transform_animation.setStartValue(start_transform)
+    
+    # Set up end transform (rotated)
+    end_transform = QTransform()
+    end_transform.translate(center.x(), center.y())
+    end_transform.rotate(degrees)
+    end_transform.translate(-center.x(), -center.y())
+    transform_animation.setEndValue(end_transform)
+    
+    # Loop settings
+    transform_animation.setLoopCount(loops)
+    
+    transform_animation.start()
+    return transform_animation
+"""

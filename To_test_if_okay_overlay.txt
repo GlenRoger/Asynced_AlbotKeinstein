@@ -1,0 +1,35 @@
+Basic message display:
+
+%overlay message Hello Twitch Chat!
+
+
+Basic animation types:
+
+%overlay bounce This text should bounce up and down!  (=> Seems good!)
+%overlay spin This text should rotate!  (=> WORKING!)... why is this one fading?)
+%overlay pulse This text should grow and shrink! (=> WORKING)
+%overlay shake This text should shake left and right!  (=> Should be more violent?)
+%overlay roll This text should roll across the screen! (=> Not sure what this is.. but something happens)
+%overlay wave This text should move like a wave!  (=> Something is happening..)
+%overlay fade This text should fade in and out! (Not working)
+
+
+Custom animation with parameters:
+
+%overlay animate bounce A custom bouncing message!   (=> Something is happening)
+
+
+Combined effects:
+
+%overlay greetings (This should show a full greeting with text, GIF, and sound)           (=> Why isn't text bouncing anymore)
+
+
+Individual media tests:
+
+%overlay gif (This should display your test GIF)
+%overlay sound (This should play a sound)
+
+
+Hide command:
+
+%overlay hide (This should hide any currently display
