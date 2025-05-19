@@ -12132,3 +12132,421 @@ Supported signatures:
 2025-05-07 23:14:08,103 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Cleaning up message-tasks-lists
 2025-05-07 23:14:08,104 - twitch_bot - INFO - utils/send_message.Message_sending_central=>clean_up_message_sent_tasks_list:Cleaning up messages-tasks-list. Number of tasks cancelled: 0
 2025-05-07 23:14:08,104 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Successfully disconnected from Twitch
+2025-05-15 19:01:30,840 - twitch_bot - INFO - ALBOTKEINSTEIN INITIALIZING ANEW!
+###############################################################################
+2025-05-15 19:01:30,892 - twitch_bot - INFO - utils/OverlayBridge=>Initializing overlay bridge
+2025-05-15 19:01:30,892 - twitch_bot - INFO - AlbotBrain:Overlay bridge created
+2025-05-15 19:01:30,893 - twitch_bot - INFO - utils/OverlayWindow=>Initializing overlay window
+2025-05-15 19:01:30,896 - twitch_bot - INFO - utils/AnimationManager=>Initializing animation manager
+2025-05-15 19:01:30,907 - twitch_bot - INFO - utils/AnimationManager=>Initializing animation manager
+2025-05-15 19:01:30,990 - twitch_bot - INFO - utils/OverlayWindow=>Overlay window initialized
+2025-05-15 19:01:30,990 - twitch_bot - INFO - utils/OverlayWindow=>Bridge connected
+2025-05-15 19:01:30,990 - twitch_bot - INFO - AlbotBrain:Overlay window created and connected to bridge
+2025-05-15 19:01:30,991 - twitch_bot - INFO - commands/command_handler.Command_central=>Command_central successfully initialized!
+2025-05-15 19:01:30,991 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2025-05-15 19:01:30,992 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2025-05-15 19:01:30,998 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SLEEP', type='cmd', allowed_users=['STREAMERS'], response='I'll go and relax for now! Be back later! <3'
+2025-05-15 19:01:30,998 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SILENCE', type='cmd', allowed_users=['STREAMERS'], response='I'll go and relax for now! Be back later! <3'
+2025-05-15 19:01:30,999 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='AWAKE', type='cmd', allowed_users=['STREAMERS'], response='Ah! I'm back again. Missed me? :D'
+2025-05-15 19:01:30,999 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='WAKEUP', type='cmd', allowed_users=['STREAMERS'], response='Ah! I'm back again. Missed me? :D'
+2025-05-15 19:01:30,999 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='ALBOTREST', type='CMD', allowed_users=['STREAMERS'], response='Alright, I'm outta here! Have a great time everyone! Miss you! <3'
+2025-05-15 19:01:30,999 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SHUTDOWN', type='CMD', allowed_users=['STREAMERS'], response='Alright, I'm outta here! Have a great time everyone! Miss you! <3'
+2025-05-15 19:01:31,000 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='QUIT', type='CMD', allowed_users=['STREAMERS'], response='Alright, I'm outta here! Have a great time everyone! Miss you! <3'
+2025-05-15 19:01:31,000 - twitch_bot - INFO - AlbotBrain:start:Created 4 tasks
+2025-05-15 19:01:31,000 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:OAuth check complete!
+2025-05-15 19:01:31,000 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-05-15 19:01:31,004 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file: /oauth:6bh6p4pfxr2ko7l4hxknbdq6htonz8/
+2025-05-15 19:01:31,006 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:Getting the ClientID...
+2025-05-15 19:01:31,006 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:File found...
+2025-05-15 19:01:31,011 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:File opened...
+2025-05-15 19:01:31,011 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:ClientID loaded from file. Ok!
+2025-05-15 19:01:31,016 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file: /oauth:zs3srear117c2w7dso6tnm161h2yx2/
+2025-05-15 19:01:32,458 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:Getting the ClientID_br...
+2025-05-15 19:01:32,459 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:File found...
+2025-05-15 19:01:32,465 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:File opened...
+2025-05-15 19:01:32,466 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:ClientID loaded from file. Ok!
+2025-05-15 19:01:32,466 - twitch_bot - INFO - utils/GifHandler=>setup:Setup running!
+2025-05-15 19:01:32,466 - twitch_bot - INFO - utils/GifHandler=>build_gif_owner_dicts:Building dictionaries for gif-owners
+2025-05-15 19:01:32,470 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:Checking known_gif.csv-file for gifs if we got them already
+2025-05-15 19:01:32,470 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/known_gifs.csv exists.
+2025-05-15 19:01:32,481 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SO_CUTE.gif exists already.
+2025-05-15 19:01:32,483 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/GIRL_IN_CAR_DOING_ROCK_SIGNS.gif exists already.
+2025-05-15 19:01:32,483 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/BABY-YODA_WATCHU_DOIN.gif exists already.
+2025-05-15 19:01:32,483 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FULL_HOUSE_BABY_BLOWING_KISS.gif exists already.
+2025-05-15 19:01:32,484 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOON_CAKE_CHAOS.gif exists already.
+2025-05-15 19:01:32,484 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SERIOUS_CONFETTI_GUY.gif exists already.
+2025-05-15 19:01:32,484 - twitch_bot - INFO - utils/GifHandler=>build_gif_greetings:Building special greetings
+2025-05-15 19:01:32,548 - twitch_bot - INFO - AlbotBrain:process_qt_events:Starting Qt event processing
+2025-05-15 19:01:33,258 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Joined channel: #TheStreamTeamWasTaken
+2025-05-15 19:01:33,259 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Going to send 33 characters.
+2025-05-15 19:01:33,259 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Received AlbotKeinstein up and running! <3 characters.
+2025-05-15 19:01:33,259 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:AlbotKeinstein sending chat message:AlbotKeinstein up and running! <3
+2025-05-15 19:01:33,259 - twitch_bot - INFO - utils/TwitchConnection=>get_MODs_list:Contacting server for logging in
+2025-05-15 19:01:33,444 - twitch_bot - INFO - utils/TwitchConnection=>get_MODs_list:Got channel ID: 180242719 for TheStreamTeamWasTaken
+2025-05-15 19:01:33,633 - twitch_bot - INFO - utils/TwitchConnection=>get_MODs_list:Found 20 MODs
+2025-05-15 19:01:33,633 - twitch_bot - INFO - utils/TwitchConnection=>get_VIPs_list:Contacting server for logging in
+2025-05-15 19:01:33,814 - twitch_bot - INFO - utils/TwitchConnection=>get_VIPs_list:Got channel ID: 180242719 for TheStreamTeamWasTaken
+2025-05-15 19:01:34,001 - twitch_bot - INFO - utils/TwitchConnection=>get_VIPs_list:Found 20 VIPs
+2025-05-15 19:01:34,002 - twitch_bot - INFO - utils/TwitchConnection=>get_subscribers_list:Contacting server for logging in
+2025-05-15 19:01:34,186 - twitch_bot - INFO - utils/TwitchConnection=>get_subscribers_list:Gotten the 180242719 for TheStreamTeamWasTaken
+2025-05-15 19:01:34,429 - twitch_bot - INFO - utils/TwitchConnection=>get_subscribers_list:Found 15 subscribers
+2025-05-15 19:01:34,429 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Found MODs: ['nurseiplier', 'kyllingpews', 'coolingenwastaken', 'Streamlabs', 'RaivDaiv', 'lokasoswede', 'StreamElements', 'lokasowastaken', 'smolkena', 'Dad__76', 'chessmax_ow', 'GozAndGailz', 'krishli', 'goztana', 'abygaiilz', 'PhexTheFlex', 'themonkeytea', 'balthasar97', 'balthazar_o_w', 'PheXataR']
+2025-05-15 19:01:34,429 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Found VIPs: ['QueenVegan', 'IAMYOURMOMMA94', 'syrinvakyrie02', 'woolfsy', 'verstoppel', 'madeinnorway123', 'Foxhoundoperator', 'oatsoatsoatsoats', 'Synoptichawk', 'DarkDucky4', 'CombatHR', 'lolslimjim', 'mtastic', 'MatteG0ld', 'Faxton', 'bluelishi', 'kxero2', 'Princess__Midna', 'STVNSgrunge', 'juanfrano']
+2025-05-15 19:01:34,429 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Found subscribers: ['Dad__76', 'pnkyfish', 'chessmax_ow', 'coolingenwastaken', 'flayrestarr', 'lokasoswede', 'SISTNOR', 'ennuigodoc', 'verstoppel', 'MattKing1993', 'JarlSpock', 'goztana', 'MUFFIN_no', 'Nindreaus', 'TheStreamTeamWasTaken']
+2025-05-15 19:01:34,429 - twitch_bot - INFO - AlbotBrain:Sending delayed test message via bridge
+2025-05-15 19:01:34,429 - twitch_bot - INFO - utils/OverlayBridge=>Emitting show_message_signal: Visuals active!
+2025-05-15 19:01:34,429 - twitch_bot - INFO - utils/OverlayWindow=>Showing message: Visuals active!
+2025-05-15 19:01:34,644 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+/
+2025-05-15 19:01:34,644 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+2025-05-15 19:01:34,644 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Not a PRIVMSG-message - not for us::tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+2025-05-15 19:01:34,644 - twitch_bot - INFO - Getting back sender: tmi.twitch.tv and // from find_msg_and_sender
+2025-05-15 19:01:34,644 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Checking privileges for tmi.twitch.tv..
+2025-05-15 19:01:34,646 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Already gotten a shoutout False or tmi.twitch.tv is not in auto-shoutout-list of streamers (False)
+2025-05-15 19:01:34,646 - twitch_bot - INFO - tmi.twitch.tv SENT NOT SAFE COMMAND?? See earlier in log!
+2025-05-15 19:01:34,698 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+/
+2025-05-15 19:01:34,698 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+2025-05-15 19:01:34,698 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Not a PRIVMSG-message - not for us::albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+2025-05-15 19:01:34,698 - twitch_bot - INFO - Getting back sender: albotkeinstein and // from find_msg_and_sender
+2025-05-15 19:01:34,698 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Checking privileges for albotkeinstein..
+2025-05-15 19:01:34,698 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Already gotten a shoutout False or albotkeinstein is not in auto-shoutout-list of streamers (False)
+2025-05-15 19:01:34,699 - twitch_bot - INFO - albotkeinstein SENT NOT SAFE COMMAND?? See earlier in log!
+2025-05-15 19:01:35,596 - twitch_bot - INFO - utils/OverlayBridge=>Emitting animate_message_signal: bounce
+2025-05-15 19:01:35,596 - twitch_bot - INFO - utils/OverlayWindow=>Animating message with: bounce, kwargs: {}
+2025-05-15 19:01:35,596 - twitch_bot - INFO - utils/AnimationManager=>Applying bounce animation to widget
+2025-05-15 19:01:40,048 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Twitch-chat-loop terminated.
+2025-05-15 19:01:40,048 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Shutting down Twitch-chat-loop
+2025-05-15 19:01:40,049 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Disconnecting from Twitch chat..
+2025-05-15 19:01:40,049 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Cleaning up message-tasks-lists
+2025-05-15 19:01:40,049 - twitch_bot - INFO - utils/send_message.Message_sending_central=>clean_up_message_sent_tasks_list:Cleaning up messages-tasks-list. Number of tasks cancelled: 0
+2025-05-15 19:01:40,049 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Successfully disconnected from Twitch
+2025-05-15 19:04:11,395 - twitch_bot - INFO - ALBOTKEINSTEIN INITIALIZING ANEW!
+###############################################################################
+2025-05-15 19:04:11,413 - twitch_bot - INFO - utils/OverlayBridge=>Initializing overlay bridge
+2025-05-15 19:04:11,413 - twitch_bot - INFO - AlbotBrain:Overlay bridge created
+2025-05-15 19:04:11,414 - twitch_bot - INFO - utils/OverlayWindow=>Initializing overlay window
+2025-05-15 19:04:11,414 - twitch_bot - INFO - utils/AnimationManager=>Initializing animation manager
+2025-05-15 19:04:11,416 - twitch_bot - INFO - utils/AnimationManager=>Initializing animation manager
+2025-05-15 19:04:11,463 - twitch_bot - INFO - utils/OverlayWindow=>Overlay window initialized
+2025-05-15 19:04:11,464 - twitch_bot - INFO - utils/OverlayWindow=>Bridge connected
+2025-05-15 19:04:11,464 - twitch_bot - INFO - AlbotBrain:Overlay window created and connected to bridge
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>Command_central successfully initialized!
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SLEEP', type='cmd', allowed_users=['STREAMERS'], response='I'll go and relax for now! Be back later! <3'
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SILENCE', type='cmd', allowed_users=['STREAMERS'], response='I'll go and relax for now! Be back later! <3'
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='AWAKE', type='cmd', allowed_users=['STREAMERS'], response='Ah! I'm back again. Missed me? :D'
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='WAKEUP', type='cmd', allowed_users=['STREAMERS'], response='Ah! I'm back again. Missed me? :D'
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='ALBOTREST', type='CMD', allowed_users=['STREAMERS'], response='Alright, I'm outta here! Have a great time everyone! Miss you! <3'
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SHUTDOWN', type='CMD', allowed_users=['STREAMERS'], response='Alright, I'm outta here! Have a great time everyone! Miss you! <3'
+2025-05-15 19:04:11,464 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='QUIT', type='CMD', allowed_users=['STREAMERS'], response='Alright, I'm outta here! Have a great time everyone! Miss you! <3'
+2025-05-15 19:04:11,465 - twitch_bot - INFO - AlbotBrain:start:Created 4 tasks
+2025-05-15 19:04:11,465 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:OAuth check complete!
+2025-05-15 19:04:11,465 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2025-05-15 19:04:11,466 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file: /oauth:6bh6p4pfxr2ko7l4hxknbdq6htonz8/
+2025-05-15 19:04:11,466 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:Getting the ClientID...
+2025-05-15 19:04:11,466 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:File found...
+2025-05-15 19:04:11,466 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:File opened...
+2025-05-15 19:04:11,466 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:ClientID loaded from file. Ok!
+2025-05-15 19:04:11,466 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded from file: /oauth:zs3srear117c2w7dso6tnm161h2yx2/
+2025-05-15 19:04:12,882 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:Getting the ClientID_br...
+2025-05-15 19:04:12,882 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:File found...
+2025-05-15 19:04:12,882 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:File opened...
+2025-05-15 19:04:12,882 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:ClientID loaded from file. Ok!
+2025-05-15 19:04:12,882 - twitch_bot - INFO - utils/GifHandler=>setup:Setup running!
+2025-05-15 19:04:12,882 - twitch_bot - INFO - utils/GifHandler=>build_gif_owner_dicts:Building dictionaries for gif-owners
+2025-05-15 19:04:12,883 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:Checking known_gif.csv-file for gifs if we got them already
+2025-05-15 19:04:12,883 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/known_gifs.csv exists.
+2025-05-15 19:04:12,884 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SO_CUTE.gif exists already.
+2025-05-15 19:04:12,884 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/GIRL_IN_CAR_DOING_ROCK_SIGNS.gif exists already.
+2025-05-15 19:04:12,884 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/BABY-YODA_WATCHU_DOIN.gif exists already.
+2025-05-15 19:04:12,884 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FULL_HOUSE_BABY_BLOWING_KISS.gif exists already.
+2025-05-15 19:04:12,884 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOON_CAKE_CHAOS.gif exists already.
+2025-05-15 19:04:12,884 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SERIOUS_CONFETTI_GUY.gif exists already.
+2025-05-15 19:04:12,884 - twitch_bot - INFO - utils/GifHandler=>build_gif_greetings:Building special greetings
+2025-05-15 19:04:12,904 - twitch_bot - INFO - AlbotBrain:process_qt_events:Starting Qt event processing
+2025-05-15 19:04:13,616 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Joined channel: #TheStreamTeamWasTaken
+2025-05-15 19:04:13,616 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Going to send 33 characters.
+2025-05-15 19:04:13,616 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Received AlbotKeinstein up and running! <3 characters.
+2025-05-15 19:04:13,616 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:AlbotKeinstein sending chat message:AlbotKeinstein up and running! <3
+2025-05-15 19:04:13,617 - twitch_bot - INFO - utils/TwitchConnection=>get_MODs_list:Contacting server for logging in
+2025-05-15 19:04:13,807 - twitch_bot - INFO - utils/TwitchConnection=>get_MODs_list:Got channel ID: 180242719 for TheStreamTeamWasTaken
+2025-05-15 19:04:13,989 - twitch_bot - INFO - utils/TwitchConnection=>get_MODs_list:Found 20 MODs
+2025-05-15 19:04:13,989 - twitch_bot - INFO - utils/TwitchConnection=>get_VIPs_list:Contacting server for logging in
+2025-05-15 19:04:14,168 - twitch_bot - INFO - utils/TwitchConnection=>get_VIPs_list:Got channel ID: 180242719 for TheStreamTeamWasTaken
+2025-05-15 19:04:14,349 - twitch_bot - INFO - utils/TwitchConnection=>get_VIPs_list:Found 20 VIPs
+2025-05-15 19:04:14,350 - twitch_bot - INFO - utils/TwitchConnection=>get_subscribers_list:Contacting server for logging in
+2025-05-15 19:04:14,528 - twitch_bot - INFO - utils/TwitchConnection=>get_subscribers_list:Gotten the 180242719 for TheStreamTeamWasTaken
+2025-05-15 19:04:14,753 - twitch_bot - INFO - utils/TwitchConnection=>get_subscribers_list:Found 15 subscribers
+2025-05-15 19:04:14,753 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Found MODs: ['nurseiplier', 'kyllingpews', 'coolingenwastaken', 'Streamlabs', 'RaivDaiv', 'lokasoswede', 'StreamElements', 'lokasowastaken', 'smolkena', 'Dad__76', 'chessmax_ow', 'GozAndGailz', 'krishli', 'goztana', 'abygaiilz', 'PhexTheFlex', 'themonkeytea', 'balthasar97', 'balthazar_o_w', 'PheXataR']
+2025-05-15 19:04:14,753 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Found VIPs: ['QueenVegan', 'IAMYOURMOMMA94', 'syrinvakyrie02', 'woolfsy', 'verstoppel', 'madeinnorway123', 'Foxhoundoperator', 'oatsoatsoatsoats', 'Synoptichawk', 'DarkDucky4', 'CombatHR', 'lolslimjim', 'mtastic', 'MatteG0ld', 'Faxton', 'bluelishi', 'kxero2', 'Princess__Midna', 'STVNSgrunge', 'juanfrano']
+2025-05-15 19:04:14,753 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Found subscribers: ['Dad__76', 'pnkyfish', 'chessmax_ow', 'coolingenwastaken', 'flayrestarr', 'lokasoswede', 'SISTNOR', 'ennuigodoc', 'verstoppel', 'MattKing1993', 'JarlSpock', 'goztana', 'MUFFIN_no', 'Nindreaus', 'TheStreamTeamWasTaken']
+2025-05-15 19:04:14,754 - twitch_bot - INFO - AlbotBrain:Sending delayed test message via bridge
+2025-05-15 19:04:14,754 - twitch_bot - INFO - utils/OverlayBridge=>Emitting show_message_signal: Visuals active!
+2025-05-15 19:04:14,754 - twitch_bot - INFO - utils/OverlayWindow=>Showing message: Visuals active!
+2025-05-15 19:04:14,959 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+/
+2025-05-15 19:04:14,959 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+2025-05-15 19:04:14,959 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Not a PRIVMSG-message - not for us::tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+2025-05-15 19:04:14,959 - twitch_bot - INFO - Getting back sender: tmi.twitch.tv and // from find_msg_and_sender
+2025-05-15 19:04:14,959 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Checking privileges for tmi.twitch.tv..
+2025-05-15 19:04:14,959 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Already gotten a shoutout False or tmi.twitch.tv is not in auto-shoutout-list of streamers (False)
+2025-05-15 19:04:14,959 - twitch_bot - INFO - tmi.twitch.tv SENT NOT SAFE COMMAND?? See earlier in log!
+2025-05-15 19:04:14,994 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+/
+2025-05-15 19:04:14,994 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+2025-05-15 19:04:14,994 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Not a PRIVMSG-message - not for us::albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+2025-05-15 19:04:14,994 - twitch_bot - INFO - Getting back sender: albotkeinstein and // from find_msg_and_sender
+2025-05-15 19:04:14,994 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Checking privileges for albotkeinstein..
+2025-05-15 19:04:14,995 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Already gotten a shoutout False or albotkeinstein is not in auto-shoutout-list of streamers (False)
+2025-05-15 19:04:14,995 - twitch_bot - INFO - albotkeinstein SENT NOT SAFE COMMAND?? See earlier in log!
+2025-05-15 19:04:15,809 - twitch_bot - INFO - utils/OverlayBridge=>Emitting animate_message_signal: bounce
+2025-05-15 19:04:15,809 - twitch_bot - INFO - utils/OverlayWindow=>Animating message with: bounce, kwargs: {}
+2025-05-15 19:04:15,809 - twitch_bot - INFO - utils/AnimationManager=>Applying bounce animation to widget
+2025-05-15 19:05:17,983 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%visual greetings
+/
+2025-05-15 19:05:17,984 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%visual greetings
+2025-05-15 19:05:17,984 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Command rebuilt! Let's get it up and running: /visual greetings/
+2025-05-15 19:05:17,984 - twitch_bot - INFO - Getting back sender: coolingenwastaken and /visual greetings/ from find_msg_and_sender
+2025-05-15 19:05:17,984 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed start with '%' and not empty-check:visual greetings
+2025-05-15 19:05:17,985 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed safety - legal characters-check:visual greetings
+2025-05-15 19:05:17,985 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:So far so good on this one:visual greetings
+2025-05-15 19:05:17,985 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Checking privileges for coolingenwastaken..
+2025-05-15 19:05:17,985 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Fellow streamer detected: coolingenwastaken => give shout out!
+2025-05-15 19:05:18,362 - twitch_bot - INFO - utils/TwitchConnection=>get_streamer_last_game:Found game for coolingenwastaken: 
+2025-05-15 19:05:18,363 - twitch_bot - INFO - utils/TwitchConnection=>create_custom_shoutout:Adding shoutout for coolingenwastaken to so-queue
+2025-05-15 19:05:18,759 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Processing command: coolingenwastaken:visual greetings
+2025-05-15 19:05:18,759 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Divided cmd_entry into sender:coolingenwastaken and cmd:visual greetings
+2025-05-15 19:05:18,759 - twitch_bot - INFO - commands/command_handler.Command_central=>Does this command exist: /visual greetings/
+2025-05-15 19:05:18,759 - twitch_bot - INFO - commands/command_handler.Command_central=>It does NOT exist!
+2025-05-15 19:05:18,759 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Going to send 97 characters.
+2025-05-15 19:05:18,759 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Received Check out coolingenwastaken at https://twitch.tv/coolingenwastaken - they're an awesome streamer! characters.
+2025-05-15 19:05:18,760 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:AlbotKeinstein sending chat message:Check out coolingenwastaken at https://twitch.tv/coolingenwastaken - they're an awesome streamer!
+2025-05-15 19:05:50,763 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%visual greeting
+/
+2025-05-15 19:05:50,763 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%visual greeting
+2025-05-15 19:05:50,763 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Command rebuilt! Let's get it up and running: /visual greeting/
+2025-05-15 19:05:50,764 - twitch_bot - INFO - Getting back sender: coolingenwastaken and /visual greeting/ from find_msg_and_sender
+2025-05-15 19:05:50,764 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed start with '%' and not empty-check:visual greeting
+2025-05-15 19:05:50,764 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed safety - legal characters-check:visual greeting
+2025-05-15 19:05:50,764 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:So far so good on this one:visual greeting
+2025-05-15 19:05:50,764 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Checking privileges for coolingenwastaken..
+2025-05-15 19:05:50,764 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Already gotten a shoutout True or coolingenwastaken is not in auto-shoutout-list of streamers (True)
+2025-05-15 19:05:51,753 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Processing command: coolingenwastaken:visual greeting
+2025-05-15 19:05:51,753 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Divided cmd_entry into sender:coolingenwastaken and cmd:visual greeting
+2025-05-15 19:05:51,753 - twitch_bot - INFO - commands/command_handler.Command_central=>Does this command exist: /visual greeting/
+2025-05-15 19:05:51,753 - twitch_bot - INFO - commands/command_handler.Command_central=>It does NOT exist!
+2025-05-15 19:06:12,737 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%visuals greeting
+/
+2025-05-15 19:06:12,737 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%visuals greeting
+2025-05-15 19:06:12,737 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Command rebuilt! Let's get it up and running: /visuals greeting/
+2025-05-15 19:06:12,737 - twitch_bot - INFO - Getting back sender: coolingenwastaken and /visuals greeting/ from find_msg_and_sender
+2025-05-15 19:06:12,737 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed start with '%' and not empty-check:visuals greeting
+2025-05-15 19:06:12,738 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed safety - legal characters-check:visuals greeting
+2025-05-15 19:06:12,738 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:So far so good on this one:visuals greeting
+2025-05-15 19:06:12,738 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Checking privileges for coolingenwastaken..
+2025-05-15 19:06:12,738 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Already gotten a shoutout True or coolingenwastaken is not in auto-shoutout-list of streamers (True)
+2025-05-15 19:06:12,756 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Processing command: coolingenwastaken:visuals greeting
+2025-05-15 19:06:12,756 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Divided cmd_entry into sender:coolingenwastaken and cmd:visuals greeting
+2025-05-15 19:06:12,756 - twitch_bot - INFO - commands/command_handler.Command_central=>Does this command exist: /visuals greeting/
+2025-05-15 19:06:12,756 - twitch_bot - INFO - commands/command_handler.Command_central=>It does NOT exist!
+2025-05-15 19:06:23,422 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%visual greetings
+/
+2025-05-15 19:06:23,423 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%visual greetings
+2025-05-15 19:06:23,423 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Command rebuilt! Let's get it up and running: /visual greetings/
+2025-05-15 19:06:23,423 - twitch_bot - INFO - Getting back sender: coolingenwastaken and /visual greetings/ from find_msg_and_sender
+2025-05-15 19:06:23,423 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed start with '%' and not empty-check:visual greetings
+2025-05-15 19:06:23,423 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed safety - legal characters-check:visual greetings
+2025-05-15 19:06:23,424 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:So far so good on this one:visual greetings
+2025-05-15 19:06:23,424 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Checking privileges for coolingenwastaken..
+2025-05-15 19:06:23,424 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Already gotten a shoutout True or coolingenwastaken is not in auto-shoutout-list of streamers (True)
+2025-05-15 19:06:23,764 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Processing command: coolingenwastaken:visual greetings
+2025-05-15 19:06:23,764 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Divided cmd_entry into sender:coolingenwastaken and cmd:visual greetings
+2025-05-15 19:06:23,764 - twitch_bot - INFO - commands/command_handler.Command_central=>Does this command exist: /visual greetings/
+2025-05-15 19:06:23,764 - twitch_bot - INFO - commands/command_handler.Command_central=>It does NOT exist!
+2025-05-15 19:08:01,661 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%overlay greetings
+/
+2025-05-15 19:08:01,661 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Received: :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :%overlay greetings
+2025-05-15 19:08:01,661 - twitch_bot - INFO - utils/send_message.Message_sending_central=>find_msg_and_sender:Command rebuilt! Let's get it up and running: /overlay greetings/
+2025-05-15 19:08:01,661 - twitch_bot - INFO - Getting back sender: coolingenwastaken and /overlay greetings/ from find_msg_and_sender
+2025-05-15 19:08:01,661 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed start with '%' and not empty-check:overlay greetings
+2025-05-15 19:08:01,661 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:Passed safety - legal characters-check:overlay greetings
+2025-05-15 19:08:01,662 - twitch_bot - INFO - utils/send_message.Message_sending_central=>analyse_message_and_check_if_okay:So far so good on this one:overlay greetings
+2025-05-15 19:08:01,662 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Checking privileges for coolingenwastaken..
+2025-05-15 19:08:01,662 - twitch_bot - INFO - utils/TwitchConnection=>check_sender_privileges:Already gotten a shoutout True or coolingenwastaken is not in auto-shoutout-list of streamers (True)
+2025-05-15 19:08:01,757 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Processing command: coolingenwastaken:overlay greetings
+2025-05-15 19:08:01,757 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Divided cmd_entry into sender:coolingenwastaken and cmd:overlay greetings
+2025-05-15 19:08:01,757 - twitch_bot - INFO - commands/command_handler.Command_central=>Does this command exist: /overlay greetings/
+2025-05-15 19:08:01,758 - twitch_bot - INFO - commands/command_handler.Command_central=>It does exist!
+2025-05-15 19:08:01,758 - twitch_bot - INFO - commands/command_handler.Command_central=>Rating /overlay greetings/
+2025-05-15 19:08:01,758 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:Cmd:overlay greetings got rated overlay
+2025-05-15 19:08:02,755 - twitch_bot - INFO - utils/TwitchConnection=>run_commands_according_to_priority:This command has Overlay priority: /coolingenwastaken:overlay greetings/.
+2025-05-15 19:08:02,755 - twitch_bot - INFO - utils/TwitchConnection=>handle_overlay_commands:Received sender:coolingenwastaken and overview_cmd:overlay greetings
+2025-05-15 19:08:02,755 - twitch_bot - INFO - utils/TwitchConnection=>handle_overlay_commands:Commando read:/OVERLAY GREETINGS/
+2025-05-15 19:08:02,755 - twitch_bot - INFO - utils/TwitchConnection=>handle_overlay_commands:It's an overlay!
+2025-05-15 19:08:02,755 - twitch_bot - INFO - utils/TwitchConnection=>handle_overlay_commands:-len >= 2: True and action understood as:/GREETINGS/
+2025-05-15 19:08:02,755 - twitch_bot - INFO - utils/OverlayBridge=>Emitting show_full_greeting_signal: coolingenwastaken, Howdy,coolingenwastaken, ./overlay_media/gifs/MOON_CAKE_CHAOS.gif, ./overlay_media/sounds/Alarm01.wav, duration: 10000ms
+2025-05-15 19:08:02,755 - twitch_bot - INFO - utils/OverlayWindow=>Showing full greeting for: coolingenwastaken
+2025-05-15 19:08:02,755 - twitch_bot - INFO - utils/OverlayWindow=>Showing message: Howdy,coolingenwastaken!
+2025-05-15 19:08:02,757 - twitch_bot - INFO - utils/OverlayWindow=>We got an animation type, what is it?bounce
+2025-05-15 19:08:02,757 - twitch_bot - INFO - utils/OverlayWindow=>Animating message with: bounce, kwargs: {}
+2025-05-15 19:08:02,757 - twitch_bot - INFO - utils/AnimationManager=>Applying bounce animation to widget
+2025-05-15 19:08:02,757 - twitch_bot - INFO - utils/OverlayWindow=>Showing GIF: ./overlay_media/gifs/MOON_CAKE_CHAOS.gif for 10000ms
+2025-05-15 19:08:02,774 - twitch_bot - INFO - utils/OverlayWindow=>Playing sound: ./overlay_media/sounds/Alarm01.wav
+2025-05-15 19:08:39,378 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:08:39,379 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:13:26,928 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:13:26,928 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:18:13,686 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:18:13,687 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:22:28,249 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:22:28,249 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:27:07,964 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:27:07,965 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:31:19,640 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:31:19,640 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:36:10,944 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:36:10,944 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:40:19,242 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:40:19,242 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:45:10,016 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:45:10,016 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:49:32,161 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:49:32,161 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:54:13,189 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:54:13,189 - twitch_bot - INFO - Responded to PING
+2025-05-15 19:59:12,150 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 19:59:12,150 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:03:22,421 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:03:22,421 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:07:54,583 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:07:54,584 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:12:48,309 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:12:48,309 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:17:27,299 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:17:27,300 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:21:29,263 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:21:29,263 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:26:22,564 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:26:22,565 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:30:37,425 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:30:37,425 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:35:03,939 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:35:03,939 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:39:59,624 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:39:59,624 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:44:06,940 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:44:06,940 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:48:12,834 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:48:12,835 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:52:54,837 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:52:54,837 - twitch_bot - INFO - Responded to PING
+2025-05-15 20:57:26,746 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 20:57:26,746 - twitch_bot - INFO - Responded to PING
+2025-05-15 21:01:50,277 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 21:01:50,278 - twitch_bot - INFO - Responded to PING
+2025-05-15 21:06:46,761 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 21:06:46,762 - twitch_bot - INFO - Responded to PING
+2025-05-15 21:11:09,878 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 21:11:09,878 - twitch_bot - INFO - Responded to PING
+2025-05-15 21:15:33,215 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 21:15:33,216 - twitch_bot - INFO - Responded to PING
+2025-05-15 21:20:18,050 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 21:20:18,050 - twitch_bot - INFO - Responded to PING
+2025-05-15 21:25:14,902 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 21:25:14,903 - twitch_bot - INFO - Responded to PING
+2025-05-15 21:29:19,521 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 21:29:19,522 - twitch_bot - INFO - Responded to PING
+2025-05-15 21:34:17,657 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv
+/
+2025-05-15 21:34:17,657 - twitch_bot - INFO - Responded to PING
+2025-05-15 21:37:26,315 - twitch_bot - ERROR - utils/TwitchConnection=>start_messsage_loop:Connection closed
+2025-05-15 21:37:26,324 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Twitch-chat-loop terminated.
+2025-05-15 21:37:26,333 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Shutting down Twitch-chat-loop
+2025-05-15 21:37:26,339 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Disconnecting from Twitch chat..
+2025-05-15 21:37:26,342 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Cleaning up message-tasks-lists
+2025-05-15 21:37:26,342 - twitch_bot - INFO - utils/send_message.Message_sending_central=>clean_up_message_sent_tasks_list:Cleaning up messages-tasks-list. Number of tasks cancelled: 0
+2025-05-15 21:37:26,342 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Successfully disconnected from Twitch
+2025-05-15 21:37:26,375 - twitch_bot - INFO - utils/TwitchConnection=>run_commands_according_to_priority:WHILE-LOOP STOPPED! (self.run_loop=False)
+2025-05-15 21:37:26,384 - twitch_bot - INFO - utils/TwitchConnection=>commands_to_check_list_divide_into_queues:WHILE-LOOP STOPPED! (self.run_loop=False)

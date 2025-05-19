@@ -36,10 +36,17 @@ class AlbotBrain:
         # Add bridge reference to TwitchConnection
         self.TwitchConnector.overlay_bridge = self.overlay_bridge
 
+        #A link back to be able to shut down entirely the program
+        self.TwitchConnector.set_albot_brain(self)
+
         #Make overlay - FastAPI-style delete later??
         # self.overlay = OverlaySystem(self.logger)
 
         # self.TwitchConnector.add_overlay_connection(self.overlay)
+
+        self.shutdown_requested = False  # Add this flag
+
+
 
     async def start(self):
         current_log_prefix = self.logger_prefix + "start:"
@@ -98,3 +105,38 @@ class AlbotBrain:
             self.app.processEvents()
             # Yield to other tasks
             await asyncio.sleep(0.1)  # 10ms is usually a good balance
+
+
+        
+    #Stopping entire program when flag i set
+    async def shutdown(self):
+        """Gracefully shut down the bot"""
+        current_log_prefix = self.logger_prefix + "shutdown:"
+        self.logger.info(f"{current_log_prefix}Shutdown requested, stopping all tasks...")
+        
+        self.shutdown_requested = True
+        
+        # Stop the TwitchConnection
+        if hasattr(self, 'TwitchConnector'):
+            await self.TwitchConnector.shutdown()
+        
+        # Close the overlay
+        if hasattr(self, 'overlay'):
+            self.overlay.close()
+        
+        # Cancel all running tasks
+        tasks_to_cancel = []
+        if hasattr(self, 'message_task'):
+            tasks_to_cancel.append(self.message_task)
+        # if hasattr(self, 'message_pile_queue_organizer'):
+        #     tasks_to_cancel.append(self.message_pile_queue_organizer)
+        # if hasattr(self, 'message_pile_queue_handler'):
+        #     tasks_to_cancel.append(self.message_pile_queue_handler)
+        # if hasattr(self, 'overlay_task'):
+        #     tasks_to_cancel.append(self.overlay_task)
+        
+        for task in tasks_to_cancel:
+            if not task.done():
+                task.cancel()
+                
+        self.logger.info(f"{current_log_prefix}All tasks cancelled, shutting down...")

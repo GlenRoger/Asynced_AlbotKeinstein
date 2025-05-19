@@ -9,5 +9,5 @@
 #ADVANCED Have extra actions, but that is hard programmed...
 #
 SLEEP,SILENCE;cmd;STREAMERS;"I'll go and relax for now! Be back later! <3"
-AWAKE,WAKEUP;cmd;STREAMERS;"Ah! I'm back again. Missed me? :D"
+AWAKE,WAKEUP,UNSLEEP;cmd;STREAMERS;"Ah! I'm back again. Missed me? :D"
 ALBOTREST,SHUTDOWN,QUIT;CMD;STREAMERS;"Alright, I'm outta here! Have a great time everyone! Miss you! <3"

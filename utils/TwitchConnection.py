@@ -55,8 +55,40 @@ class TwitchConnection:
         # Reference to the overlay bridge - to be set by AlbotBrain
         self.overlay_bridge = None
 
+         # Reference to the Albotbrain - to be set by AlbotBrain, to be able
+         # to shut down the program completely
+        self.albot_brain = None
+
         self.gif_handler    = GH.GifHandler(logger)
 
+    #To be able to shut down the program completely
+    def set_albot_brain(self, albot_brain):
+        """Set reference to AlbotBrain for shutdown purposes"""
+        self.albot_brain = albot_brain
+
+
+    def set_albot_brain(self, albot_brain):
+        """Set reference to AlbotBrain for shutdown purposes"""
+        self.albot_brain = albot_brain
+        
+    #Shutting down the bot all the way from Twitch chat to albotbrain
+    async def shutdown(self):
+        """Shutdown the Twitch connection cleanly"""
+        current_log_prefix = self.logger_prefix + "shutdown:"
+        self.logger.info(f"{current_log_prefix}Shutting down TwitchConnection...")
+        
+        self.run_loop = False
+        
+        # Send goodbye message if we're still connected
+        try:
+            if hasattr(self, 'websocket') and self.websocket:
+                await self.albot_msg_to_chat("See you later everybody! Bye-bye! <3")
+                # Give a moment for the message to send
+                await asyncio.sleep(1)
+        except Exception as e:
+            self.logger.warning(f"{current_log_prefix}Could not send goodbye message: {e}")
+            
+        await self.disconnect()
 
     #Henter ut alle VIPs
     async def get_VIPs_list(self):
@@ -293,7 +325,7 @@ class TwitchConnection:
                 alternative_respond = "AlbotKeinstein is already sleeping.. shhhh! ;)"
                 is_task_completed = False
 
-        elif change_this.upper() == 'WAKEUP':
+        elif change_this.upper() == 'WAKEUP' or change_this.upper() == 'AWAKE' or change_this.upper() == 'UNSLEEP':
             if not self.isNotSilenced:
                 self.isNotSilenced = True
                 self.logger.info(f"{current_log_prefix}SLEEP MODE DE-ACTIVATED!")
@@ -311,7 +343,17 @@ class TwitchConnection:
 
         elif change_this.upper() == 'ALBOTREST' or change_this.upper() == 'SHUTDOWN' or change_this.upper() == 'QUIT':
             self.logger.info(f"{current_log_prefix}SHUTTING DOWN!")
-            self.run_loop = False
+
+            # await self.albot_msg_to_chat(response)
+
+
+            # Request shutdown from AlbotBrain
+            if self.albot_brain:
+                asyncio.create_task(self.albot_brain.shutdown())
+            else:
+                # Fallback - just stop this connection
+                self.run_loop = False
+                
             is_task_completed = True
 
         #Alternative repsond should be more accurate... hopefully!
@@ -438,6 +480,7 @@ class TwitchConnection:
                 #Cleanup code and exit gracfully
                 self.logger.info(f"{current_log_prefix}Twitch-chat-loop terminated.")
                 await self.disconnect()
+
 
 
     def check_message_piles(self):
@@ -677,10 +720,17 @@ class TwitchConnection:
 
     #Sender is the person who wrote the command
     def handle_overlay_commands(self, sender, overview_cmd):
+
         current_log_prefix = self.logger_prefix + "handle_overlay_commands:"
 
         self.logger.info(f"{current_log_prefix}Received sender:{sender} and overview_cmd:{overview_cmd}")
         self.logger.info(f"{current_log_prefix}Commando read:/{overview_cmd.upper()}/")
+
+
+        if not self.isNotSilenced:
+            self.logger.info(f"{current_log_prefix}Couldn't complete.. Albot is sleeping! (status not silenced?:{self.isNotSilenced})/")
+            return ""
+
 
 
         if overview_cmd.upper().startswith('OVERLAY '):
