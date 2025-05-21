@@ -1,4 +1,4 @@
-en fil hver person for å legge til streamers_to_shout_out, greetings, osv.
+en fil hver person for å legge til AUTOMATIC_SHOUTOUT_LIST, greetings, osv.
 
 main -> leser og limer i sammen innholdet av filene til hovedfilene i de kategoriene.
 

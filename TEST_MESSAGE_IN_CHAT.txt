@@ -1,0 +1,5 @@
+#Albot logger på chatten
+albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+
+#Melding fra Twitch
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new

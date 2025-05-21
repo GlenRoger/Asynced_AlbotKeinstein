@@ -1,9 +1,9 @@
 # config.py
 
 #Set who can do some certain commands to Albert Keinstein
-STREAMERS_ONLY = True
-STREAMERS = ["thestreamteamwastaken", "coolingenwastaken", "kyllingpews", "nurseiplier", "dad__76", "themonkeytea", "krishli", "raivdaiv"]
-AUTOMATIC_SHOUTOUT_LIST = ["coolingenwastaken", "nurseiplier"]
+TSTWTMEMBERS_ONLY = True
+TSTWTMEMBERS = ["thestreamteamwastaken", "coolingenwastaken", "kyllingpews", "nurseiplier", "dad__76", "themonkeytea", "krishli", "raivdaiv"]
+AUTOMATIC_SHOUTOUT_LIST = ["PhexTheFlex", "JarlSpock", "verstoppel", "pnkyfisk", "Muffin_no"]
 
 PREFIX_FOR_BOT_TO_READ = '%'
 

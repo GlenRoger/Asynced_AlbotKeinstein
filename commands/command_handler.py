@@ -1,35 +1,54 @@
 #Checking if we really got a valid command by a user who is allowed to use it
 import importlib
 import config
+import asyncio
 
 
 class Albot_Command:
 
-    def __init__(self, cmd_calling, cmd_type, allowed_users_list, response):
+    def __init__(self, cmd_calling, cmd_type, privileges_to_run, response, priority='Normal', params = ""):
         self.cmd_calling        = cmd_calling
         self.cmd_type           = cmd_type
-        self.allowed_users_list = allowed_users_list
+        self.params             = params
+        self.privileges_to_run  = privileges_to_run
         self.response           = response
+        self.priority           = priority
 
+    #What is the commands name we can call it by (like "HOWDY")
     def get_cmd_calling(self):
         return self.cmd_calling
     
+    #Either CMD for command or RE for replay, SO for shout out
     def get_cmd_type(self):
         return self.cmd_type
 
-    def get_allowed_users_list(self):
-        return self.allowed_users_list
-
+    #List over roles that is needed to use this
+    def get_privileges_to_run(self):
+        return self.privileges_to_run
+    
     def get_response(self):
         return self.response
-    
+
+    def get_priority(self):
+        return self.priority
 
 class Command_central:
-
 
     def __init__(self, logger):
         self.logger_prefix = "commands/command_handler.Command_central=>"
         self.logger = logger
+
+        self.isAwake            = True
+
+        #For shutdown
+        self.albot_brain = ""
+
+        #For sjekk av privilegier rundt hvilke kommandoer kan kjøres
+        self.usermanagement = ""
+
+        self.msg_central    = ""
+        self.cmd_runner     = ""
+        self.overlay_runner = ""
 
         self.logger.info(f"{self.logger_prefix}Command_central successfully initialized!")
 
@@ -41,60 +60,215 @@ class Command_central:
 
         self.all_commands = {}
 
+        self.gotten_auto_shout_outs = []
+
         self.read_commands_from_files()
 
 
-    #ADD ADVANCED COMMANDS HERE AND ADD THEM TO THE COLLECT_COMMANDS MANUALLY
-    #These can also be saved in a file, though need extra programming in TwitchConnection.py
-    def advanced_commands(self, sender, cmd):
-        current_log_prefix = self.logger_prefix + "advanced_commands:"
-        self.logger.info(f"{self.logger_prefix}Got {cmd} from {sender}")
+    #To be able to shut down the program completely
+    def set_albot_brain(self, albot_brain):
+        """Set reference to AlbotBrain for shutdown purposes"""
+        self.albot_brain = albot_brain
 
-        if not sender in config.STREAMERS:
-            self.logger.info(f"{current_log_prefix}User {sender} not permitted to use command - STREAMERS only! {cmd}")
-            return ["", "", ""]
+    #For å sjekke privilegier rundt hvilke kommandoer du kan kjøre
+    def set_user_manager(self, um):
+        self.usermanagement = um
 
-        #SCARY ONE???
-        if cmd.upper() == 'READCONFIGAGAIN' or cmd.upper() == 'RECONFIG' or cmd.upper() == 'REEVALUATE':
-            self.logger.info(f"{self.logger_prefix}Command TO READ CONFIG ANEW received! SOLVED LOCALLY!")
-            importlib.reload(config)
-            return ["RE", "Reading config anew!", ""]
+    #Kun til bruk ved shutdown - som kjøres med en gang
+    def set_msg_central(self, mc):
+        self.msg_central = mc
 
-        if cmd.upper() == 'SLEEP' or cmd.upper() == 'SILENCE':
-            self.logger.info(f"{self.logger_prefix}Command SLEEP/SILENCE received!")
-            return ['cmd', 'SLEEP', "I'll go and relax for now! Be back later! <3"]
+    def set_cmd_runner(self, cmd_runner):
+        self.cmd_runner = cmd_runner
 
-        if cmd.upper() == 'WAKEUP' or cmd.upper() == 'AWAKE':
-            self.logger.info(f"{self.logger_prefix}Command WAKEUP received!")
-            return ['cmd', "WAKEUP", "Ah! I'm back again. Missed me? :D"]
+    def set_overlay_runner(self, overlay_runner):
+        self.overlay_runner = overlay_runner
+
+
+    async def check_auto_thanks_for_subscribers(self, username):
+
+        if not self.usermanagement.is_Subscriber(username):
+            return
+
+        # if username in config.TSTWTMEMBERS:
+        #     return
+
+        print("MAKE THIS FInISHED! THANK YOU FOR THE SUPPPORT!!")
+        self.overlay_runner.set_in_queue(f"{username}:Thank you")
+
+
+    #is_auto_so is boolean = True if automatic shout out is given, False if done by user-command
+    async def create_auto_shout_out(self, username, is_auto_so=False):
+        current_log_prefix = self.logger_prefix + "create_auto_shout_out:"
+        self.logger.info(f"{current_log_prefix}Try to create shout out for /{username}/")
+
+        #Check if we can give automatic so and if hasn't been done earlier this stream
+        if is_auto_so:
+            if username in self.gotten_auto_shout_outs:
+                return
+            
+            if username not in config.AUTOMATIC_SHOUTOUT_LIST:
+                return
+
+        message = ""
+
+        current_log_prefix = self.logger_prefix + "create_custom_shoutout:"
         
-        if cmd.upper() == 'REPEAT':
-            self.logger.info(f"{self.logger_prefix}Command REPEAT received!")
-            return ['cmd', "RESEND_MESSAGE"]
+        try:
 
-        if cmd.upper() == 'ALBOTREST' or cmd.upper() == 'SHUTDOWN' or cmd.upper() == 'QUIT':
-            self.logger.info(f"{self.logger_prefix}Command ALBOTREST/SHUTDOWN/QUIT received!")
-            return ['cmd', "QUIT", "See you later everybody! Bye-bye! <3"]
+            messsage = ""
 
-        if cmd.upper() == 'HOWDY' or cmd.upper() == 'HOWDY!':
-            return ["RE", "AHOY!", ""]
+            # Get what the streamer was last playing
+            game_name = await self.usermanagement.get_streamer_last_game(username)
+            
+            # Craft message based on available info
+            if game_name:
+                message = f"Check out {username} at https://twitch.tv/{username} - they were last playing {game_name}!"
+            else:
+                message = f"Check out {username} at https://twitch.tv/{username} - they're an awesome streamer!"
+            
+            self.shout_out_queue.append(message)
 
-        # Overlay test commands
-        if cmd.upper().startswith('OVERLAY '):
-            return ["OVERLAY", "", ""]
-            # parts = cmd.split(' ', 2)  # Split into 3 parts: 'OVERLAY', action, [params]
-            # if len(parts) >= 2:
-            #     action = parts[1].upper()
+            self.logger.info(f"{current_log_prefix}Adding shoutout for {username} to so-queue")
+            
+        except Exception as e:
+            self.logger.error(f"{current_log_prefix}Failed to send enhanced shoutout: {e}")
+
+
+        #Alright Buildin shout-out-command for user here
+        cmd_call        = "SO"
+        cmd_type        = "SO"
+        cmd_users       = ["TSTWTMEMBERS", "MODS"]
+        cmd_response    = message
+        priority        = "Normal"
+        cmd_obj = Albot_Command(cmd_call, cmd_type, cmd_users, cmd_response, priority)
+
+        self.cmd_runner.set_in_queue_normal_priority(cmd_obj)
+
+        self.gotten_auto_shout_outs.append(username)
+
+
+    async def check_command(self, sender, cmd, params):
+        current_log_prefix = self.logger_prefix + "check_command:"
+        self.logger.info(f"{current_log_prefix}Time to check if this a valid command: /{cmd}/")
+
+
+        #COMMANDS TO BE RUN IMMIDIATELY
+        if (cmd.upper() == 'ALBOTREST' or cmd.upper() == 'SHUTDOWN' or cmd.upper() == 'QUIT'):
+            if self.check_user_match_privileges_to_run_command(sender, ["TSTWTMEMBERS"]):
+                await self.albot_brain.shutdown()
+            else:
+                self.logger.info(f"{current_log_prefix}User:{sender} doesn't have necessary role (TSTWTMEMBERS) to run this command:/{cmd}/")
+
+
+        if (cmd.upper() == 'SLEEP' or cmd.upper() == 'SILENCE') and self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
+
+            if self.isAwake:
+                self.isAwake = False
+                self.cmd_runner.setAwake_status = self.isAwake
+                self.logger.info(f"{current_log_prefix}Command SLEEP/SILENCE received!")
+                await self.msg_central.albot_to_say("command_central.check_command", "I'll go and relax for now! Be back later! <3")
+                return
+            else:
+                self.isAwake = False
+                self.cmd_runner.setAwake_status = self.isAwake
+                self.logger.info(f"{current_log_prefix}Command SLEEP/SILENCE received.. but is already sleeping")
+                return
+
+
+        if (cmd.upper() == 'WAKEUP' or cmd.upper() == 'AWAKE') and self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
+            if not self.isAwake:
+                self.logger.info(f"{current_log_prefix}Command WAKEUP received!")
+                self.isAwake = True
+                self.cmd_runner.setAwake_status = self.isAwake
+                await self.msg_central.albot_to_say("command_central.check_command", "Ah! I'm back again. Missed me? :D")
+                return
+            else:
+                self.isAwake = True
+                self.cmd_runner.setAwake_status = self.isAwake
+                await self.msg_central.albot_to_say("command_central.check_command", "I'm not asleep - you're asleep! xD")
+                return
                 
-            #     if action == 'MESSAGE' and len(parts) >= 3:
-            #         return ["OVERLAY", "MESSAGE", parts[2]]
-            #     elif action == 'GREETING' and len(parts) >= 3:
-            #         return ["OVERLAY", "GREETING", parts[2]]
-            #     elif action == 'HIDE':
-            #         return ["OVERLAY", "HIDE", ""]        
 
-        self.logger.info(f"{current_log_prefix}Not an ADVANCED command!")
-        return ["", "", ""]
+        if cmd.upper() == 'SO':
+            if self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
+                await self.create_auto_shout_out(params, is_auto_so = False)
+                return
+            else:
+                self.logger.info(f"{self.logger_prefix}Does not have the right privileges to run the SO-command..")
+                return
+
+        #Other commands that isn't so urgent to be run
+
+        if cmd.upper() in self.all_commands.keys():
+
+            self.logger.info(f"{current_log_prefix}Command found!")
+            cmd_obj = self.all_commands[cmd.upper()]
+
+
+            if self.check_user_match_privileges_to_run_command(sender, cmd_obj.get_privileges_to_run()):
+
+
+                if cmd_obj.priority == 'HIGH':
+                    self.cmd_runner.set_in_queue_high_priority(cmd_obj)
+                else:
+                    self.cmd_runner.set_in_queue_normal_priority(cmd_obj)
+
+            else:
+                self.logger.info(f"{self.logger_prefix}Does not have the right privileges to run command..")
+        else:
+             self.logger.info(f"{self.logger_prefix}Not a known command:{cmd.upper()}")
+             print(f"{self.all_commands.keys()}")
+
+
+
+    #Her kjøres faktik kommandoene, som tidligere har blitt plassert i kø.
+    async def run_command(self, cmd_obj):
+
+        current_log_prefix = self.logger_prefix + "run_command:"
+        self.logger.info(f"{current_log_prefix}Run command:{cmd_obj.get_cmd_calling()}")
+
+        if cmd_obj.get_cmd_type() == "RE":
+            await self.msg_central.albot_to_say("Command_central.run_command", cmd_obj.get_response())
+        elif cmd_obj.get_cmd_type() == "SO":
+            await self.msg_central.albot_to_say("Command_central.run_command", cmd_obj.get_response())
+        else:
+            self.logger.info(f"{self.logger_prefix}Command to be made:{cmd_obj.get_cmd_type()}")
+
+
+
+    #Checking if list items is in another list.
+    def check_user_match_privileges_to_run_command(self, sender, privileges_to_match):
+
+        current_log_prefix = self.logger_prefix + "check_user_match_privileges_to_run_command:"
+
+
+        if privileges_to_match == [] or "EVERYBODY" in privileges_to_match:
+            self.logger.info(f"{current_log_prefix}Yes! Run command.. for everybody!")
+            return True
+
+        self.logger.info(f"{current_log_prefix}Do sender {sender} have the privileges to run command?")
+
+
+        user_roles = self.usermanagement.get_all_user_roles(sender)
+
+        self.logger.info(f"{current_log_prefix}Privileges for sender: {sender}, needed: {privileges_to_match}?")
+
+
+        if any(item in user_roles for item in privileges_to_match):
+            self.logger.info(f"{current_log_prefix}Yes! Run command!")
+            return True
+
+
+        self.logger.info(f"{current_log_prefix}No! Don't run command!")
+        return False
+
+
+    #Shutdown-kommandoene kjøres med en gang, andre commandoer som repeat, sleep, osv er høy pri
+    #resten er normal pri.
+    def get_cmd_priority(self, cmd):
+        pass
+
 
     def check_valid_commands(self, sender, cmd):
         current_log_prefix = self.logger_prefix + "check_valid_commands:"
@@ -172,21 +346,27 @@ class Command_central:
 
                     line_list = cmd_line.split(';')
 
-                    if len(line_list) != 4:
+                    if len(line_list) != 5:
                         self.logger.info(f"{self.logger_prefix}Not correct amount of elements. 4 required got {len(line_list)}")
                         continue
 
                     cmd_callings    = line_list[0].split(',')
                     cmd_type        = line_list[1]
-                    cmd_users       = line_list[2].split(',')
-                    cmd_response    = line_list[3][1:-1]  #Fjerner første og siste "-tegn
+                    cmd_users       = line_list[2].split(',')  #privileges_to_run
+                    cmd_response    = line_list[3]  #Fjerner første og siste "-tegn
+                    priority        = line_list[4][1:-1]  #Fjerner første og siste "-tegn
+
+                    if cmd_users == "EVERYBODY":
+                        cmd_users = ""
 
                     for cmd_call in cmd_callings:
-                        new_cmd = Albot_Command(cmd_call, cmd_type, cmd_users, cmd_response)
+                        new_cmd = Albot_Command(cmd_call, cmd_type, cmd_users, cmd_response, priority)
                         self.all_commands[cmd_call.upper()] = new_cmd
 
-                        self.logger.info(f"{self.logger_prefix}New command added: calling='{new_cmd.cmd_calling}', type='{new_cmd.cmd_type}', allowed_users={new_cmd.allowed_users_list}, response='{new_cmd.response}'")
+                        self.logger.info(f"{self.logger_prefix}New command added: calling='{new_cmd.cmd_calling}', type='{new_cmd.cmd_type}', allprivileges_to_run={new_cmd.privileges_to_run}, response='{new_cmd.response}', priority='{priority}")
 
+            print("Done reading commands from file!")
+            print(f"{self.all_commands}")
 
 
     def get_command_object(self, cmd_call):
@@ -199,7 +379,7 @@ class Command_central:
             cmd_obj = self.all_commands[cmd_call.upper()]
             return cmd_obj
         elif cmd_call.upper().startswith('SO '):
-            return Albot_Command("SHOUTOUT","RE",["STREAMERS", "MODS", "VIPS"], cmd_call)
+            return Albot_Command("SHOUTOUT","RE",["TSTWTMEMBERS", "MODS", "VIPS"], cmd_call)
 
 
         self.logger.info(f"{self.logger_prefix}Could not find call: {cmd_call}") 

@@ -382,6 +382,7 @@ class AnimationManager:
             opacity_anim_2 = self.fading_animation(0.0, 1.0)
 
             widget.sequential_group.addAnimation(opacity_anim_1)
+            
             # widget.sequential_group.addAnimation(opacity_anim_2)
 
             return widget.sequential_group

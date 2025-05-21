@@ -7,6 +7,14 @@ from utils.overlay import OverlayWindow
 from utils.overlay_bridge import OverlayBridge
 from PySide6.QtWidgets import QApplication
 
+from utils.UserRoleManager      import UserRoleManager
+from utils.Message_central      import Message_central
+from commands.command_handler   import Command_central
+from commands.command_runner    import Command_runner
+from utils.overlay_runner    import Overlay_runner
+
+# from commands.overlay_runner import 
+
 class AlbotBrain:
 
     def __init__(self):
@@ -33,11 +41,41 @@ class AlbotBrain:
         #Connect to Twitch chat
         self.TwitchConnector = TC.TwitchConnection(self.logger)
 
+        #Message central controls messages in and out
+        self.msg_central = Message_central(self.logger)
+
+        self.usermanagement = UserRoleManager(self.logger)
+        self.cmd_central = Command_central(self.logger)
+
+        self.cmd_runner = Command_runner(self.logger)
+        self.cmd_runner.set_command_handler(self.cmd_central)   #The cmd_central will execute commands
+
+        self.overlay_runner = Overlay_runner(self.logger)
+        self.overlay_runner.set_command_handler(self.cmd_central)   #The cmd_central will execute commands
+
+        self.cmd_central.set_overlay_runner(self.overlay_runner)
+   
+        self.cmd_central.set_albot_brain(self)      #For use of shutdown-command
+        self.cmd_central.set_cmd_runner(self.cmd_runner)
+
+        self.msg_central.set_tc(self.TwitchConnector)
+        self.msg_central.set_ch(self.cmd_central)
+
+        self.cmd_central.set_msg_central(self.msg_central)   #For use of shutdown-command last message
+        self.cmd_central.read_commands_from_files() #Setup commands that can be used
+    
+     
         # Add bridge reference to TwitchConnection
         self.TwitchConnector.overlay_bridge = self.overlay_bridge
 
         #A link back to be able to shut down entirely the program
         self.TwitchConnector.set_albot_brain(self)
+
+        self.TwitchConnector.set_msg_central(self.msg_central)               #For å kunne sende meldinger
+        self.TwitchConnector.set_user_manager(self.usermanagement)  #For å fylle på oauth-info til usermanager
+
+        self.cmd_central.set_user_manager(self.usermanagement)      #For å sjekke brukere/seere/chattere 's roller/privilegier.
+
 
         #Make overlay - FastAPI-style delete later??
         # self.overlay = OverlaySystem(self.logger)
@@ -63,15 +101,20 @@ class AlbotBrain:
         try:
 
             self.message_task                   = asyncio.create_task(self.TwitchConnector.start_messsage_loop())
-            self.message_pile_queue_organizer   = asyncio.create_task(self.TwitchConnector.commands_to_check_list_divide_into_queues())
-            self.message_pile_queue_handler     = asyncio.create_task(self.TwitchConnector.run_commands_according_to_priority())
+            self.run_commands                   = asyncio.create_task(self.cmd_runner.run_commands_from_queue())
+            self.run_overlays                   = asyncio.create_task(self.overlay_runner.run_commands_from_queue())
+            # self.message_pile_queue_organizer   = asyncio.create_task(self.TwitchConnector.commands_to_check_list_divide_into_queues())
+            # self.message_pile_queue_handler     = asyncio.create_task(self.TwitchConnector.run_commands_according_to_priority())
             # self.overlay_task_old                   = asyncio.create_task(self.overlay.start_server())
 
             # Add overlay processing task - PySide6
             self.overlay_task = asyncio.create_task(self.process_qt_events())
 
 
-            tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler, self.overlay_task]
+            #This is the complete one!
+            # tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler, self.overlay_task]
+
+            tasks = [self.message_task, self.run_commands, self.run_overlays, self.overlay_task]
 
             # tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler]
 

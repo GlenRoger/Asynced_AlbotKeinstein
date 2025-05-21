@@ -38,7 +38,7 @@ I've examined the code files you've shared, and there are several issues that sh
      ```
 
 2. **User Permission Hierarchy Implementation**
-   - The hierarchy described in your bot-goals.txt (streamers->Mods->VIPS->subs->everyone) isn't fully implemented in the code.
+   - The hierarchy described in your bot-goals.txt (TSTWTMEMBERS->Mods->VIPS->subs->everyone) isn't fully implemented in the code.
    - The command permission system doesn't properly utilize the hierarchical lists you're fetching from Twitch.
 
 3. **Asynchronous Task Management**

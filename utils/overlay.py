@@ -276,7 +276,7 @@ class OverlayWindow(QWidget):
 
         do_run_alone = False
 
-
+  
         self.show_message(greeting_text, do_run_alone, None, show_duration)
         # Apply animation after showing the message
         if animation_type:

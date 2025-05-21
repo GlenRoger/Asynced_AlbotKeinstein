@@ -29,9 +29,9 @@ from commands.command_handler import Albot_Command
 # def test_commanded_change_quit():
 
 
-#SLEEP,SILENCE;cmd;STREAMERS;"I'll go and relax for now! Be back later! <3"
-#AWAKE,WAKEUP,UNSLEEP;cmd;STREAMERS;"Ah! I'm back again. Missed me? :D"
-#ALBOTREST,SHUTDOWN,QUIT;CMD;STREAMERS;"Alright, I'm outta here! Have a great time everyone! Miss you! <3"
+#SLEEP,SILENCE;cmd;TSTWTMEMBERS;"I'll go and relax for now! Be back later! <3"
+#AWAKE,WAKEUP,UNSLEEP;cmd;TSTWTMEMBERS;"Ah! I'm back again. Missed me? :D"
+#ALBOTREST,SHUTDOWN,QUIT;CMD;TSTWTMEMBERS;"Alright, I'm outta here! Have a great time everyone! Miss you! <3"
 
 # Albot_Command
                     # cmd_callings    = line_list[0].split(',')
@@ -52,7 +52,7 @@ def sum_this():
     
 #     twitch_connection = TwitchConnection(logger)
 
-#     cmd_obj = Albot_Command(['SLEEP','SILENCE'], 'cmd', 'STREAMERS', "I'll go and relax for now! Be back later! <3")
+#     cmd_obj = Albot_Command(['SLEEP','SILENCE'], 'cmd', 'TSTWTMEMBERS', "I'll go and relax for now! Be back later! <3")
 
 #     result = twitch_connection.commanded_change(cmd_obj)
 
