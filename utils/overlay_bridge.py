@@ -1,4 +1,5 @@
 from PySide6.QtCore import QObject, Signal
+import config
 
 class OverlayBridge(QObject):
     """
@@ -13,6 +14,7 @@ class OverlayBridge(QObject):
     show_full_greeting_signal = Signal(str, object, object, object, int)
     hide_overlay_signal = Signal()
     animate_message_signal = Signal(str, object)  # animation_type, kwargs
+    length_of_show_timer_signal = Signal(int)
 
     
     def __init__(self, logger):
@@ -31,6 +33,26 @@ class OverlayBridge(QObject):
     def overlay_ready_for_new_action(self):
         return self.overlay_ready_for_new_action
     
+    def play_message(self, text_to_show = "", gif_to_show = "", sound_to_play = "", duration=5000):
+        current_prefix = self.logger_prefix + "play_message"
+        self.logger.info(f"{current_prefix}Going to play: text:{text_to_show}, gif:{gif_to_show}, sound:{sound_to_play}")
+
+        self.length_of_show_timer_signal.emit(duration)
+
+        if text_to_show != "":
+            self.logger.info(f"{current_prefix}Text sent!")
+            self.show_message_signal.emit(text_to_show)
+        if gif_to_show:
+            gif_path = gif_to_show
+            self.logger.info(f"{current_prefix} Gif sent:{gif_path}")
+            self.show_gif_signal.emit(gif_path, duration)
+        if sound_to_play:
+            sound_path = f"{config.MEDIA_FOLDER_SOUNDS}{sound_to_play}"
+            self.logger.info(f"{current_prefix} Sound sent: {sound_path}")
+            self.play_sound_signal.emit(sound_path)
+
+        
+
 
     def show_message(self, message, animation_type=None, run_alone = True):
         """Send a message to be displayed on the overlay, optionally with animation"""

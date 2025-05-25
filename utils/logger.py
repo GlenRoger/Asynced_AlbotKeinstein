@@ -26,5 +26,8 @@ class LogThis:
         )
         self.logger  = logging.getLogger("twitch_bot")
 
+    def info(sef):
+        pass
+
     def get_logger(self):
         return self.logger

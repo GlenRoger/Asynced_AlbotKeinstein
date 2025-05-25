@@ -6,13 +6,14 @@ import asyncio
 
 class Albot_Command:
 
-    def __init__(self, cmd_calling, cmd_type, privileges_to_run, response, priority='Normal', params = ""):
+    def __init__(self, cmd_calling, cmd_type, privileges_to_run, response, priority='Normal', params = "", sender = ""):
         self.cmd_calling        = cmd_calling
         self.cmd_type           = cmd_type
         self.params             = params
         self.privileges_to_run  = privileges_to_run
         self.response           = response
         self.priority           = priority
+        self.sender             = sender
 
     #What is the commands name we can call it by (like "HOWDY")
     def get_cmd_calling(self):
@@ -21,6 +22,9 @@ class Albot_Command:
     #Either CMD for command or RE for replay, SO for shout out
     def get_cmd_type(self):
         return self.cmd_type
+    
+    def get_params(self):
+        return self.params
 
     #List over roles that is needed to use this
     def get_privileges_to_run(self):
@@ -31,6 +35,9 @@ class Albot_Command:
 
     def get_priority(self):
         return self.priority
+
+    def get_sender(self):
+        return self.sender
 
 class Command_central:
 
@@ -49,8 +56,8 @@ class Command_central:
         self.msg_central    = ""
         self.cmd_runner     = ""
         self.overlay_runner = ""
-
-        self.logger.info(f"{self.logger_prefix}Command_central successfully initialized!")
+        self.gif_handler    = ""
+        
 
         self.command_files_path = "./commands/command_files/"
         self.advanced_cmd_file    = "Advanced_commands.csv"
@@ -61,8 +68,11 @@ class Command_central:
         self.all_commands = {}
 
         self.gotten_auto_shout_outs = []
+        self.gotten_auto_thanks     = []
 
         self.read_commands_from_files()
+
+        self.logger.info(f"{self.logger_prefix}Command_central successfully initialized!")
 
 
     #To be able to shut down the program completely
@@ -84,16 +94,23 @@ class Command_central:
     def set_overlay_runner(self, overlay_runner):
         self.overlay_runner = overlay_runner
 
+    def set_gifhandler(self, gif_handler):
+        self.gif_handler = gif_handler
 
     async def check_auto_thanks_for_subscribers(self, username):
 
         if not self.usermanagement.is_Subscriber(username):
             return
 
+        if username in self.gotten_auto_thanks:
+            return
+        
         # if username in config.TSTWTMEMBERS:
         #     return
 
-        print("MAKE THIS FInISHED! THANK YOU FOR THE SUPPPORT!!")
+
+        self.gotten_auto_thanks.append(username)
+
         self.overlay_runner.set_in_queue(f"{username}:Thank you")
 
 
@@ -148,9 +165,10 @@ class Command_central:
         self.gotten_auto_shout_outs.append(username)
 
 
-    async def check_command(self, sender, cmd, params):
-        current_log_prefix = self.logger_prefix + "check_command:"
-        self.logger.info(f"{current_log_prefix}Time to check if this a valid command: /{cmd}/")
+
+    async def run_if_instant_commands(self, sender, cmd, params):
+        current_log_prefix = self.logger_prefix + "run_if_instant_commands:"
+        self.logger.info(f"{current_log_prefix}Checking if it is a 'instant' command: /{cmd}/")
 
 
         #COMMANDS TO BE RUN IMMIDIATELY
@@ -159,56 +177,73 @@ class Command_central:
                 await self.albot_brain.shutdown()
             else:
                 self.logger.info(f"{current_log_prefix}User:{sender} doesn't have necessary role (TSTWTMEMBERS) to run this command:/{cmd}/")
+            return True
 
 
-        if (cmd.upper() == 'SLEEP' or cmd.upper() == 'SILENCE') and self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
+        elif (cmd.upper() == 'SLEEP' or cmd.upper() == 'SILENCE') and self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
 
             if self.isAwake:
+                await self.overlay_runner.setAwake_status(False)
                 self.isAwake = False
                 self.cmd_runner.setAwake_status = self.isAwake
                 self.logger.info(f"{current_log_prefix}Command SLEEP/SILENCE received!")
                 await self.msg_central.albot_to_say("command_central.check_command", "I'll go and relax for now! Be back later! <3")
-                return
+                
             else:
                 self.isAwake = False
                 self.cmd_runner.setAwake_status = self.isAwake
                 self.logger.info(f"{current_log_prefix}Command SLEEP/SILENCE received.. but is already sleeping")
-                return
+            return True
 
 
-        if (cmd.upper() == 'WAKEUP' or cmd.upper() == 'AWAKE') and self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
+        elif (cmd.upper() == 'WAKEUP' or cmd.upper() == 'AWAKE') and self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
             if not self.isAwake:
+                await self.overlay_runner.setAwake_status(True)
                 self.logger.info(f"{current_log_prefix}Command WAKEUP received!")
                 self.isAwake = True
                 self.cmd_runner.setAwake_status = self.isAwake
                 await self.msg_central.albot_to_say("command_central.check_command", "Ah! I'm back again. Missed me? :D")
-                return
             else:
                 self.isAwake = True
                 self.cmd_runner.setAwake_status = self.isAwake
                 await self.msg_central.albot_to_say("command_central.check_command", "I'm not asleep - you're asleep! xD")
-                return
+            return True
                 
 
-        if cmd.upper() == 'SO':
+        elif cmd.upper() == 'SO':
             if self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
                 await self.create_auto_shout_out(params, is_auto_so = False)
-                return
             else:
                 self.logger.info(f"{self.logger_prefix}Does not have the right privileges to run the SO-command..")
-                return
+            return True
+        return False
 
-        #Other commands that isn't so urgent to be run
+    async def check_command(self, sender, cmd, params):
+        current_log_prefix = self.logger_prefix + "check_command:"
+        self.logger.info(f"{current_log_prefix}Time to check if this a valid command: /{cmd}/")
+
 
         if cmd.upper() in self.all_commands.keys():
 
+            #Visual commands are handled elsewhere
+            if self.all_commands[cmd.upper()].get_cmd_type() == "OVERLAY":
+                self.logger.info(f"{current_log_prefix}Passing command {cmd} to Overlay-runner")
+                self.overlay_runner.set_in_queue(f"{sender}:{cmd}")
+                return
+
+            if await self.run_if_instant_commands(sender, cmd, params):
+                return
+
+             #Other commands that isn't so urgent to be run
             self.logger.info(f"{current_log_prefix}Command found!")
             cmd_obj = self.all_commands[cmd.upper()]
 
-
             if self.check_user_match_privileges_to_run_command(sender, cmd_obj.get_privileges_to_run()):
 
-
+                if cmd_obj.get_cmd_type() == 'ADVANCED':
+                    cmd_obj.params = params
+                    cmd_obj.sender = sender
+ 
                 if cmd_obj.priority == 'HIGH':
                     self.cmd_runner.set_in_queue_high_priority(cmd_obj)
                 else:
@@ -232,6 +267,49 @@ class Command_central:
             await self.msg_central.albot_to_say("Command_central.run_command", cmd_obj.get_response())
         elif cmd_obj.get_cmd_type() == "SO":
             await self.msg_central.albot_to_say("Command_central.run_command", cmd_obj.get_response())
+        elif cmd_obj.get_cmd_calling() == "FOLLOWNUMBER":
+            follow_nr = self.usermanagement.get_user_follower_nr(cmd_obj.get_sender())
+
+            if follow_nr != -1:
+                msg_back_to_sender = f"Dear @{cmd_obj.get_sender()} you are follower #{follow_nr} <3"
+            else:
+                msg_back_to_sender = f"Dear @{cmd_obj.get_sender()}.. are you sure you're following us? Maybe I need to refresh my followerlist again ':D"
+            await self.msg_central.albot_to_say("Command_central.run_command", msg_back_to_sender)
+
+        elif cmd_obj.get_cmd_calling() == "REFRESH":
+            
+            updated_list = False
+
+            if cmd_obj.get_params().upper() == 'MODS':
+                await self.usermanagement.buildlists('MODS')
+                updated_list = True
+            elif cmd_obj.get_params().upper() == 'SUBSCRIBERS':
+                await self.usermanagement.buildlists('SUBSCRIBERS')
+                updated_list = True
+            elif cmd_obj.get_params().upper() == 'VIPS':
+                await self.usermanagement.buildlists('VIPS')
+                updated_list = True
+            elif cmd_obj.get_params().upper() == 'FOLLOWERS':
+                await self.usermanagement.buildlists('FOLLOWERS')
+                updated_list = True
+            elif cmd_obj.get_params().upper() == 'CONFIG':
+                await self.logger.info(f"{current_log_prefix}REFRESH CONFIG: To be added!!")
+                updated_list = False
+            elif cmd_obj.get_params().upper() == 'GREETINGS':
+                self.gif_handler.build_gif_greetings()
+                updated_list = True
+            elif cmd_obj.get_params().upper() == 'GIFS':
+                self.gif_handler.arrange_gifs()
+                updated_list = True
+            else:
+                self.logger.info(f"{current_log_prefix}Don't know what to REFRESH? What is {cmd_obj.get_params().upper()}?")
+                updated_list = False
+
+            if updated_list:
+                await self.msg_central.albot_to_say("Command_central.run_command", f"Done! Refreshed the '{cmd_obj.get_params()}'-list!")
+            else:
+                await self.msg_central.albot_to_say("Command_central.run_command", f"Could not update.. what is this '{cmd_obj.get_params()}'?")
+
         else:
             self.logger.info(f"{self.logger_prefix}Command to be made:{cmd_obj.get_cmd_type()}")
 
@@ -243,7 +321,7 @@ class Command_central:
         current_log_prefix = self.logger_prefix + "check_user_match_privileges_to_run_command:"
 
 
-        if privileges_to_match == [] or "EVERYBODY" in privileges_to_match:
+        if privileges_to_match == [] or "EVERYBODY" in privileges_to_match or "EVERYONE" in privileges_to_match:
             self.logger.info(f"{current_log_prefix}Yes! Run command.. for everybody!")
             return True
 

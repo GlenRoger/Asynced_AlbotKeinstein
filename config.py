@@ -1,5 +1,12 @@
 # config.py
 
+OVERLAY_TEXT_HEIGHT = 80
+OVERLAY_GIF_HEIGHT  = 270
+
+OVERLAY_WIDTH       = 480
+OVERLAY_HEIGHT      = OVERLAY_TEXT_HEIGHT + OVERLAY_GIF_HEIGHT
+
+
 #Set who can do some certain commands to Albert Keinstein
 TSTWTMEMBERS_ONLY = True
 TSTWTMEMBERS = ["thestreamteamwastaken", "coolingenwastaken", "kyllingpews", "nurseiplier", "dad__76", "themonkeytea", "krishli", "raivdaiv"]

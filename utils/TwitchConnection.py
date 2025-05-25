@@ -3,9 +3,6 @@ import config
 import websockets
 import os
 import requests
-import time
-import utils.GifHandler as GH
-import sys
 
 
 
@@ -45,13 +42,12 @@ class TwitchConnection:
         self.usermanagement = ""
 
         # Reference to the overlay bridge - to be set by AlbotBrain
-        self.overlay_bridge = None
+        self.overlay_runner = None
 
          # Reference to the Albotbrain - to be set by AlbotBrain, to be able
          # to shut down the program completely
         self.albot_brain = None
 
-        self.gif_handler    = GH.GifHandler(logger)
 
     #To be able to shut down the program completely
     def set_albot_brain(self, albot_brain):
@@ -64,6 +60,9 @@ class TwitchConnection:
 
     def set_msg_central(self, mc):
         self.msg_central = mc
+
+    def set_overlay_runner(self, ob):
+        self.overlay_runner = ob
 
     #Shutting down the bot all the way from Twitch chat to albotbrain
     async def shutdown(self):
@@ -205,9 +204,6 @@ class TwitchConnection:
 
         await self.usermanagement.buildlists()
 
-        await self.gif_handler.setup()
-
-
         async with websockets.connect(uri) as self.websocket:
 
             # Send authentication commands
@@ -220,6 +216,7 @@ class TwitchConnection:
             self.logger.info(f"{current_log_prefix}Joined channel: #{config.CHANNEL}")
 
             await self.albot_msg_to_chat("TwitchConnection.start_message_loop", "AlbotKeinstein up and running! <3")
+            self.overlay_runner.set_in_queue(f"Albot up and running!:AlbotStartup")
 
             try:
                 while self.run_loop:
@@ -374,95 +371,95 @@ class TwitchConnection:
 
 #MOVE! command
     #Sender is the person who wrote the command
-    def handle_overlay_commands(self, sender, overview_cmd):
+    # def handle_overlay_commands(self, sender, overview_cmd):
 
-        current_log_prefix = self.logger_prefix + "handle_overlay_commands:"
+    #     current_log_prefix = self.logger_prefix + "handle_overlay_commands:"
 
-        self.logger.info(f"{current_log_prefix}Received sender:{sender} and overview_cmd:{overview_cmd}")
-        self.logger.info(f"{current_log_prefix}Commando read:/{overview_cmd.upper()}/")
-
-
-        if not self.isNotSilenced:
-            self.logger.info(f"{current_log_prefix}Couldn't complete.. Albot is sleeping! (status not silenced?:{self.isNotSilenced})/")
-            return ""
+    #     self.logger.info(f"{current_log_prefix}Received sender:{sender} and overview_cmd:{overview_cmd}")
+    #     self.logger.info(f"{current_log_prefix}Commando read:/{overview_cmd.upper()}/")
 
 
-
-        if overview_cmd.upper().startswith('OVERLAY '):
-
-            self.logger.info(f"{current_log_prefix}It's an overlay!")
-
-            parts = overview_cmd.split(' ', 2)  # Split into 3 parts: 'OVERLAY', action, [params]
-
-            if len(parts) >= 2:
-                action = parts[1].upper()
-
-                self.logger.info(f"{current_log_prefix}-len >= 2: True and action understood as:/{action}/")
+    #     if not self.isNotSilenced:
+    #         self.logger.info(f"{current_log_prefix}Couldn't complete.. Albot is sleeping! (status not silenced?:{self.isNotSilenced})/")
+    #         return ""
 
 
 
-                if action.upper() == 'MESSAGE' and len(parts) >= 3:
-                    self.overlay_bridge.show_message(' '.join(parts[2:]))
-                elif action.upper() == 'SOUND':
-                    self.overlay_bridge.play_sound("./overlay_media/sounds/Alarm01.wav")
-                elif action.upper() == 'GIF':
-                    self.overlay_bridge.show_gif("./overlay_media/gifs/MOON_CAKE_CHAOS.gif")
-                elif action.upper() == 'GREETINGS':
-                    self.overlay_bridge.show_full_greeting(streamer_name=sender, 
-                                                           greeting_text=f'Howdy,{sender}', 
-                                                           gif_path="./overlay_media/gifs/MOON_CAKE_CHAOS.gif", 
-                                                           sound_path="./overlay_media/sounds/Alarm01.wav")
-                elif action.upper() == 'HIDE':
-                    self.overlay_bridge.hide_overlay()
+    #     if overview_cmd.upper().startswith('OVERLAY '):
+
+    #         self.logger.info(f"{current_log_prefix}It's an overlay!")
+
+    #         parts = overview_cmd.split(' ', 2)  # Split into 3 parts: 'OVERLAY', action, [params]
+
+    #         if len(parts) >= 2:
+    #             action = parts[1].upper()
+
+    #             self.logger.info(f"{current_log_prefix}-len >= 2: True and action understood as:/{action}/")
+
+
+
+    #             if action.upper() == 'MESSAGE' and len(parts) >= 3:
+    #                 self.overlay_bridge.show_message(' '.join(parts[2:]))
+    #             elif action.upper() == 'SOUND':
+    #                 self.overlay_bridge.play_sound("./overlay_media/sounds/Alarm01.wav")
+    #             elif action.upper() == 'GIF':
+    #                 self.overlay_bridge.show_gif("./overlay_media/gifs/MOON_CAKE_CHAOS.gif")
+    #             elif action.upper() == 'GREETINGS':
+    #                 self.overlay_bridge.show_full_greeting(streamer_name=sender, 
+    #                                                        greeting_text=f'Howdy,{sender}', 
+    #                                                        gif_path="./overlay_media/gifs/MOON_CAKE_CHAOS.gif", 
+    #                                                        sound_path="./overlay_media/sounds/Alarm01.wav")
+    #             elif action.upper() == 'HIDE':
+    #                 self.overlay_bridge.hide_overlay()
             
-                # Animation commands
-                elif action.upper() == 'ANIMATE' and len(parts) >= 3:
-                    anim_parts = parts[2].split(' ', 1)
-                    anim_type = anim_parts[0].lower()
+    #             # Animation commands
+    #             elif action.upper() == 'ANIMATE' and len(parts) >= 3:
+    #                 anim_parts = parts[2].split(' ', 1)
+    #                 anim_type = anim_parts[0].lower()
                     
-                    # Get message if provided, otherwise use default
-                    message = anim_parts[1] if len(anim_parts) > 1 else f"Animation by {sender}!"
+    #                 # Get message if provided, otherwise use default
+    #                 message = anim_parts[1] if len(anim_parts) > 1 else f"Animation by {sender}!"
                     
-                    # Show message with the specified animation
-                    self.overlay_bridge.show_message(message, run_alone=True)
-                    self.overlay_bridge.animate_message(anim_type)
+    #                 # Show message with the specified animation
+    #                 self.overlay_bridge.show_message(message, run_alone=True)
+    #                 self.overlay_bridge.animate_message(anim_type)
 
-                # Combined fade-in/fade-out animation - show a message that fades in, stays visible, then fades out
-                elif action == 'FADE' and len(parts) >= 3:
-                    message = parts[2]
-                    self.logger.info(f"{current_log_prefix}Combined fade animation with message: {message}")
+    #             # Combined fade-in/fade-out animation - show a message that fades in, stays visible, then fades out
+    #             elif action == 'FADE' and len(parts) >= 3:
+    #                 message = parts[2]
+    #                 self.logger.info(f"{current_log_prefix}Combined fade animation with message: {message}")
                     
-                    # Show message with initially zero opacity
-                    self.overlay_bridge.show_message(message, run_alone=True)
+    #                 # Show message with initially zero opacity
+    #                 self.overlay_bridge.show_message(message, run_alone=True)
                     
-                    # Start the combined fade animation - default 6000ms total (2000ms fade-in, 2000ms display, 2000ms fade-out)
-                    self.overlay_bridge.animate_message("fade")
+    #                 # Start the combined fade animation - default 6000ms total (2000ms fade-in, 2000ms display, 2000ms fade-out)
+    #                 self.overlay_bridge.animate_message("fade")
 
 
 
-                # Specific animation shortcuts
-                elif action.upper() in ['BOUNCE', 'SPIN', 'ROLL', 'SHAKE', 'WAVE', 'PULSE'] and len(parts) >= 3:
-                    self.logger.info(f"{current_log_prefix}Action recognized as animation action:{action.upper()}")
-                    # First show the message
-                    self.overlay_bridge.show_message(parts[2], run_alone=True)
-                    # Then animate it
-                    self.overlay_bridge.animate_message(action.lower())
+    #             # Specific animation shortcuts
+    #             elif action.upper() in ['BOUNCE', 'SPIN', 'ROLL', 'SHAKE', 'WAVE', 'PULSE'] and len(parts) >= 3:
+    #                 self.logger.info(f"{current_log_prefix}Action recognized as animation action:{action.upper()}")
+    #                 # First show the message
+    #                 self.overlay_bridge.show_message(parts[2], run_alone=True)
+    #                 # Then animate it
+    #                 self.overlay_bridge.animate_message(action.lower())
 
-            # Specific animation shortcuts - Claude changed its mind? :S
-            # elif action == 'BOUNCE' and len(parts) >= 3:
-            #     self.overlay_bridge.show_message(' '.join(parts[2:]), "bounce")
-            # elif action == 'SPIN' and len(parts) >= 3:
-            #     self.overlay_bridge.show_message(' '.join(parts[2:]), "spin")
-            # elif action == 'ROLL' and len(parts) >= 3:
-            #     self.overlay_bridge.show_message(' '.join(parts[2:]), "roll")
-            # elif action == 'SHAKE' and len(parts) >= 3:
-            #     self.overlay_bridge.show_message(' '.join(parts[2:]), "shake")
-            # elif action == 'WAVE' and len(parts) >= 3:
-            #     self.overlay_bridge.show_message(' '.join(parts[2:]), "wave")
-            # elif action == 'PULSE' and len(parts) >= 3:
-            #     self.overlay_bridge.show_message(' '.join(parts[2:]), "pulse")
-            # elif action == 'FADE' and len(parts) >= 3:
-            #     self.overlay_bridge.show_message(' '.join(parts[2:]), "fade")
+    #         # Specific animation shortcuts - Claude changed its mind? :S
+    #         # elif action == 'BOUNCE' and len(parts) >= 3:
+    #         #     self.overlay_bridge.show_message(' '.join(parts[2:]), "bounce")
+    #         # elif action == 'SPIN' and len(parts) >= 3:
+    #         #     self.overlay_bridge.show_message(' '.join(parts[2:]), "spin")
+    #         # elif action == 'ROLL' and len(parts) >= 3:
+    #         #     self.overlay_bridge.show_message(' '.join(parts[2:]), "roll")
+    #         # elif action == 'SHAKE' and len(parts) >= 3:
+    #         #     self.overlay_bridge.show_message(' '.join(parts[2:]), "shake")
+    #         # elif action == 'WAVE' and len(parts) >= 3:
+    #         #     self.overlay_bridge.show_message(' '.join(parts[2:]), "wave")
+    #         # elif action == 'PULSE' and len(parts) >= 3:
+    #         #     self.overlay_bridge.show_message(' '.join(parts[2:]), "pulse")
+    #         # elif action == 'FADE' and len(parts) >= 3:
+    #         #     self.overlay_bridge.show_message(' '.join(parts[2:]), "fade")
 
 
 #MOVE? comand

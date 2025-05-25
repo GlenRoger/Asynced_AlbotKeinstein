@@ -1,9 +1,11 @@
 import sys
+import config
 from PySide6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PySide6.QtCore import Qt, QTimer, QPoint
-from PySide6.QtGui import QFont, QMovie
+from PySide6.QtGui import QFont, QMovie, QFontMetrics
 from PySide6.QtMultimedia import QSoundEffect
-from PySide6.QtCore import QUrl
+from PySide6.QtCore import QUrl, QSize
+
 import os
 from utils.overlay_animations import AnimatedLabel, AnimationManager
 
@@ -14,43 +16,78 @@ class OverlayWindow(QWidget):
         self.logger = logger
         self.logger_prefix = "utils/OverlayWindow=>"
         self.logger.info(f"{self.logger_prefix}Initializing overlay window")
-        
+
         # Store bridge reference if provided
         self.bridge = bridge
+
+        self.OVERLAY_WIDTH          = config.OVERLAY_WIDTH
+        self.OVERLAY_HEIGHT         = config.OVERLAY_HEIGHT
+        self.OVERLAY_GIF_HEIGHT     = config.OVERLAY_GIF_HEIGHT
+        self.OVERLAY_TEXT_HEIGHT    = config.OVERLAY_TEXT_HEIGHT
+
         
         # Set window properties for transparency and always on top
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
+
+        # Set fixed window size
+        self.setFixedSize(self.OVERLAY_WIDTH, self.OVERLAY_HEIGHT)
+
+        # # Set up the layout
+        # # layout = QVBoxLayout()
+        # # self.setLayout(layout)
+
+        # # Set up layout to stack text above GIF
+        # layout = QVBoxLayout()
+        # layout.setContentsMargins(0, 0, 0, 0)  # No margins
+        # layout.setSpacing(0)  # No spacing between elements
+
+        # # Text area (fixed height)
+        # self.greeting_label.setFixedHeight(self.TEXT_HEIGHT)
         
-        # Set up the layout
-        layout = QVBoxLayout()
-        self.setLayout(layout)
+        # # GIF area (remaining height)
+        # self.gif_label.setFixedHeight(self.GIF_HEIGHT)
 
-        # Set up animation manager first
-        self.animation_manager = AnimationManager(logger)
-
-        # Create greeting label
-        # self.greeting_label = QLabel("Hi there!")
-        self.greeting_label = AnimatedLabel("Hi there!")
-        self.greeting_label.setAlignment(Qt.AlignCenter)
-        self.greeting_label.setStyleSheet("color: white; background-color: rgba(0, 0, 0, 120); padding: 20px; border-radius: 10px;")
-        self.greeting_label.setFont(QFont("Arial", 24, QFont.Bold))
-        
-        # Add to layout
-        layout.addWidget(self.greeting_label)
-
-        # Set a default center anchor point for animations
-        self.greeting_label.set_anchor_type(AnimatedLabel.CENTER)
+        # Set initial window position
+        self.move(100, 100)
 
         #Set up animation manager
         self.animation_manager = AnimationManager(logger)
 
+        # Create greeting label with fixed height
+        self.greeting_label = AnimatedLabel("Hi there!")
+        self.greeting_label.setAlignment(Qt.AlignCenter)
+        self.greeting_label.setStyleSheet("color: white; background-color: rgba(0, 0, 0, 120); padding: 20px; border-radius: 10px;")
+        self.greeting_label.setFont(QFont("Arial", 24, QFont.Bold))
+        self.greeting_label.setFixedHeight(self.OVERLAY_TEXT_HEIGHT)
+        self.greeting_label.set_anchor_type(AnimatedLabel.CENTER)
+        
+        # Add to layout
+        # layout.addWidget(self.greeting_label)
+
+
         # Create a label for GIFs
         self.gif_label = QLabel()
         self.gif_label.setAlignment(Qt.AlignCenter)
+        self.gif_label.setFixedHeight(self.OVERLAY_GIF_HEIGHT)
+
+        # Enable transparency for GIF display
+        self.gif_label.setAttribute(Qt.WA_TranslucentBackground)
+        self.gif_label.setStyleSheet("background: transparent;")
+
         self.gif_label.hide()
+
+        # self.gif_label.hide()
+        # layout.addWidget(self.gif_label)
+
+        # Set up layout - stack text above GIF
+        layout = QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)  # No margins
+        layout.setSpacing(0)  # No spacing between elements
+        layout.addWidget(self.greeting_label)
         layout.addWidget(self.gif_label)
-        
+        self.setLayout(layout)
+
         # Set up sound effect player
         self.sound_player = QSoundEffect()
         
@@ -59,22 +96,29 @@ class OverlayWindow(QWidget):
         self.hide_timer.setSingleShot(True)
         self.hide_timer.timeout.connect(self.hide_current_display)
 
-        # Set initial window size and position
-        self.resize(400, 200)
-        self.move(100, 100)  # You can adjust this to position on screen
+        self.is_showing_message = False
+        self.is_showing_gif     = False
+        self.is_playing_sound   = False
+        self.is_ready_to_show   = True
+        self.current_display    = None  # Tracks what's currently showing
+
+        self.fontSize  = 24
+
+        # # Set initial window size and position
+        # self.resize(400, 200)
+        # self.move(100, 100)  # You can adjust this to position on screen
         
         # Create cache directory if it doesn't exist
         self.cache_dir = os.path.join(os.getcwd(), "cache")
         if not os.path.exists(self.cache_dir):
             os.makedirs(self.cache_dir)
             
-        self.current_display = None  # Tracks what's currently showing
         
-        self.logger.info(f"{self.logger_prefix}Overlay window initialized")
-
-
+        # GIF dictionary for caching
         self.gif_dict = {}
-
+        
+        self.logger.info(f"{self.logger_prefix}Overlay window initialized at {self.OVERLAY_WIDTH}x{self.OVERLAY_HEIGHT}")
+        self.logger.info(f"{self.logger_prefix}Text area: {self.OVERLAY_TEXT_HEIGHT}px, GIF area: {self.OVERLAY_GIF_HEIGHT}px")
         
     def connect_bridge(self, bridge):
         """Connect to signals from the bridge"""
@@ -88,18 +132,77 @@ class OverlayWindow(QWidget):
         self.bridge.show_full_greeting_signal.connect(self.show_full_greeting)
         self.bridge.hide_overlay_signal.connect(self.hide)
         self.bridge.animate_message_signal.connect(self.animate_message)
-        
+        self.bridge.length_of_show_timer_signal.connect(self.length_of_show_timer)
         
         self.logger.info(f"{self.logger_prefix}Bridge connected")
 
 
-    def show_message(self, message, run_alone = True,  animation_type=None, duration = 5000):
+    def ready_to_show_more(self):
+        return self.current_display is None
+        # if self.is_showing_message or self.is_showing_gif or self.is_playing_sound:
+        #     self.is_ready_to_show = False
+        # else:
+        #     self.is_ready_to_show = True
+
+        # return self.is_ready_to_show
+
+    def length_of_show_timer(self, duration=5000):
+        self.hide_timer.start(duration)
+
+
+    def stop_sound(self):
+        self.sound_player.stop()
+
+
+    #Regne ut størrelsen på text, som skal vises
+    #Calculate the largest font size (18-24) that fits the text
+    #Max character possible to show it 32 before it needs to be truncated!
+    def prepare_text_for_display(self, text):
+         
+        available_width = self.OVERLAY_WIDTH - 40  # Minus padding
+        
+        # if len(text) <= 23:
+        #     self.fontSize = 24
+        # elif len(text) <= 33:
+        #     self.fontSize = 23
+
+        # Try font sizes from 24 down to 18
+        for font_size in range(24, 17, -1):  # 24, 23, 22, 21, 20, 19, 18
+            font = QFont("Arial", font_size, QFont.Bold)
+            metrics = QFontMetrics(font)
+            text_width = metrics.horizontalAdvance(text)
+            
+            self.logger.info(f"{self.logger_prefix}Available-width:{available_width}. Font size tried {font_size} Got {len(text)} => '{text_width}'")
+
+            self.fontSize = font_size
+
+            if text_width <= available_width:
+                self.logger.info(f"{self.logger_prefix}Font size {font_size} fits text: '{text}'")
+                return text
+        
+        # If even size 18 doesn't fit, return 18 (we'll truncate)
+        truncated_text = text[0:28]+"..."
+        self.logger.info(f"{self.logger_prefix}Text too long even for size 18, will truncate: '{text}' to '{truncated_text}'")
+        return truncated_text
+
+    # def show_message(self, message, run_alone = True,  animation_type=None, duration = 5000):
+    def show_message(self, message,  animation_type=None, duration = 5000):
         """Update the greeting label with a new message"""
         self.logger.info(f"{self.logger_prefix}Showing message: {message}")
 
+        if message == "":
+            self.greeting_label = ""
+            return
+        
+        self.is_showing_message = True
 
-        if run_alone:
-            self.hide_current_display()        
+
+        message = self.prepare_text_for_display(message)
+
+        self.logger.info(f"{self.logger_prefix}Showing message: {message}")
+
+        # if run_alone:
+        #     self.hide_current_display()        
 
         # Ensure the anchor point is set to center for proper display
         if hasattr(self.greeting_label, 'set_anchor_type'):
@@ -108,6 +211,9 @@ class OverlayWindow(QWidget):
         # Reset scale to 1.0 to ensure we start from the base size
         if hasattr(self.greeting_label, 'set_scale'):
             self.greeting_label.set_scale(1.0)
+
+        font = QFont("Arial", self.fontSize, QFont.Bold)
+        self.greeting_label.setFont(font)
 
         # Set the message text
         self.greeting_label.setText(message)
@@ -131,7 +237,7 @@ class OverlayWindow(QWidget):
             #applying bounce... isn't here..
         
         # Auto-hide after specified duration
-        self.hide_timer.start(duration)
+        # self.hide_timer.start(duration)
 
         # self.greeting_label.setText(message)
         # self.greeting_label.show()
@@ -202,6 +308,12 @@ class OverlayWindow(QWidget):
         """Play a sound file"""
         self.logger.info(f"{self.logger_prefix}Playing sound: {sound_file}")
         
+        if sound_file == "":
+            self.logger.info(f"{self.logger_prefix}NOOT!")
+            return
+
+        self.is_playing_sound   = True
+
         # Make sure we have an absolute path
         if not os.path.isabs(sound_file):
             sound_file = os.path.join(os.getcwd(), sound_file)
@@ -215,15 +327,41 @@ class OverlayWindow(QWidget):
     def get_gif(self, gif_url):
         pass
         
-    def show_gif(self, gif_url, duration=5000, run_alone = True):
+    # def show_gif(self, gif_url, duration=5000, run_alone = False):
+    def show_gif(self, gif_url):
         """Show a GIF for the specified duration"""
-        self.logger.info(f"{self.logger_prefix}Showing GIF: {gif_url} for {duration}ms")
+        self.logger.info(f"{self.logger_prefix}Showing GIF: {gif_url}")
 
-        if run_alone:
-            self.hide_current_display()
+        if gif_url == "":
+            self.gif_label = ""
+            return
+        
+        self.is_showing_gif     = True
+
+        # if run_alone:
+        #     self.hide_current_display()
         
         # For this basic example, assuming gif_url is a local file path
         movie = QMovie(gif_url)
+
+        # self.logger.info(f"GIF supports transparency: {movie.supportsAnimation()}")
+        self.logger.info(f"GIF background color: {movie.backgroundColor()}")
+
+        #Ensure speed
+        movie.setCacheMode(QMovie.CacheAll)
+        movie.setSpeed(100)
+
+        # Scale to fit the GIF area (with some padding)
+        max_width = self.OVERLAY_WIDTH - 20   # 20px padding
+        max_height = self.OVERLAY_GIF_HEIGHT - 20
+        
+        movie.setScaledSize(QSize(max_width, max_height))
+        
+        # Enable transparency
+        self.gif_label.setAttribute(Qt.WA_TranslucentBackground)
+        self.gif_label.setStyleSheet("background: transparent;")
+    
+
         self.gif_label.setMovie(movie)
         movie.start()
         
@@ -232,16 +370,35 @@ class OverlayWindow(QWidget):
         self.show()
         
         # Auto-hide after the specified duration
-        self.hide_timer.start(duration)
+        # self.hide_timer.start(duration)
         
     def hide_current_display(self):
         """Hide whatever is currently displayed"""
-        if self.current_display == "message" or self.current_display == "full_greeting":
+        # if self.current_display == "message" or self.current_display == "full_greeting":
+        #     self.greeting_label.hide()
+        # if self.current_display == "gif" or self.current_display == "full_greeting":
+        #     if self.gif_label.movie():
+        #         self.gif_label.movie().stop()
+        #     self.gif_label.hide()
+
+        # if self.greeting_label != "" or self.greeting_label != None:
+        #     self.greeting_label.hide()
+
+        # if self.gif_label != "" or self.gif_label != None:
+        #     print(f"gif_label:{self.gif_label}")
+        #     self.gif_label.movie().stop()
+
+
+        if self.is_showing_message:
             self.greeting_label.hide()
-        if self.current_display == "gif" or self.current_display == "full_greeting":
-            if self.gif_label.movie():
-                self.gif_label.movie().stop()
+            self.is_showing_message = False
+
+        if self.is_showing_gif:
+            self.gif_label.movie().stop()
             self.gif_label.hide()
+            self.is_showing_gif = False
+        
+        self.is_ready_to_show   = True
 
         self.current_display = None
 

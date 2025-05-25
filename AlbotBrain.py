@@ -11,7 +11,9 @@ from utils.UserRoleManager      import UserRoleManager
 from utils.Message_central      import Message_central
 from commands.command_handler   import Command_central
 from commands.command_runner    import Command_runner
-from utils.overlay_runner    import Overlay_runner
+from utils.overlay_runner       import Overlay_runner
+import utils.GifHandler as GH
+
 
 # from commands.overlay_runner import 
 
@@ -31,6 +33,8 @@ class AlbotBrain:
         # Create overlay bridge
         self.overlay_bridge = OverlayBridge(self.logger)
         self.logger.info(f"{self.logger_prefix}Overlay bridge created")
+
+        self.gif_handler    = GH.GifHandler(self.logger)
 
         # Initialize overlay window with bridge
         self.overlay = OverlayWindow(self.logger)
@@ -52,7 +56,9 @@ class AlbotBrain:
 
         self.overlay_runner = Overlay_runner(self.logger)
         self.overlay_runner.set_command_handler(self.cmd_central)   #The cmd_central will execute commands
-
+        self.overlay_runner.set_gif_handler(self.gif_handler)
+        self.overlay_runner.set_overlay(self.overlay)  #Kun for feedback på når ledig for å kjøre neste command
+        
         self.cmd_central.set_overlay_runner(self.overlay_runner)
    
         self.cmd_central.set_albot_brain(self)      #For use of shutdown-command
@@ -63,10 +69,11 @@ class AlbotBrain:
 
         self.cmd_central.set_msg_central(self.msg_central)   #For use of shutdown-command last message
         self.cmd_central.read_commands_from_files() #Setup commands that can be used
-    
+        self.cmd_central.set_gifhandler(self.gif_handler)
      
         # Add bridge reference to TwitchConnection
-        self.TwitchConnector.overlay_bridge = self.overlay_bridge
+        self.TwitchConnector.set_overlay_runner(self.overlay_runner)
+        self.overlay_runner.set_overlay_bridge(self.overlay_bridge)
 
         #A link back to be able to shut down entirely the program
         self.TwitchConnector.set_albot_brain(self)
@@ -88,10 +95,15 @@ class AlbotBrain:
 
     async def start(self):
         current_log_prefix = self.logger_prefix + "start:"
+        self.logger.info(f"{current_log_prefix}Albot brain starting up!")
         print("There's work to be done!")
 
+        await self.overlay_runner.run_gif_setup()
+
+        self.logger.info(f"{current_log_prefix}Albot brain starting up!")
+
         # Try sending a message through the bridge AFTER delay
-        asyncio.create_task(self.delayed_test_message())
+        # asyncio.create_task(self.delayed_test_message())
 
         # Show the overlay with initial message via the bridge
         # self.overlay_bridge.show_message("Hi there!")
@@ -128,14 +140,19 @@ class AlbotBrain:
 
         #Other things needed to be done?
 
+    #Fjerne denne?
     async def delayed_test_message(self):
         """Send a test message after a delay to ensure everything is initialized"""
+        current_log_prefix = self.logger_prefix + "delayed_test_message:"
         await asyncio.sleep(3)  # Wait 3 seconds
-        self.logger.info(f"{self.logger_prefix}Sending delayed test message via bridge")
-        self.overlay_bridge.show_message("Visuals active!")
+        self.logger.info(f"{current_log_prefix}Sending delayed test message via bridge")
+        # self.overlay_bridge.show_message("Visuals active!")
+
+        self.overlay_bridge.play_message("Visuals active", duration = 5000)
+
 
         await asyncio.sleep(1)  # Wait a bit for the message to display
-        self.overlay_bridge.animate_message("bounce")
+        # self.overlay_bridge.animate_message("bounce")
 
     #PySide6 stuff
     async def process_qt_events(self):
@@ -147,7 +164,7 @@ class AlbotBrain:
             # Process Qt events
             self.app.processEvents()
             # Yield to other tasks
-            await asyncio.sleep(0.1)  # 10ms is usually a good balance
+            await asyncio.sleep(0.01)  # 10ms is usually a good balance
 
 
         

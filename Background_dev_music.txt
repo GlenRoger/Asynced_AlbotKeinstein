@@ -1,0 +1,27 @@
+Great call on splitting up `check_command` - handling instant commands separately is a smart refactoring move that makes the code flow clearer!
+
+For programming background music, here are some suggestions that many developers find helpful:
+
+**Electronic/Ambient:**
+- **Lofi Hip Hop** - The classic "lofi hip hop radio - beats to relax/study to" streams are popular for a reason
+- **Synthwave/Retrowave** - Artists like HOME, Com Truise, or the "Outrun" genre
+- **Ambient Electronic** - Carbon Based Lifeforms, Solar Fields, or Boards of Canada
+- **Chillstep** - Blackmill, Phaeleh, or CMA
+
+**Classical/Orchestral:**
+- **Minimalist Classical** - Max Richter, Ólafur Arnalds, or Nils Frahm
+- **Film Scores** - Hans Zimmer, Thomas Newman, or the Interstellar soundtrack
+- **Piano** - Ludovico Einaudi or Yiruma
+
+**Game Soundtracks:**
+- **Minecraft** - C418's soundtrack is surprisingly good for focus
+- **Civilization VI** - Excellent orchestral pieces
+- **Ori and the Blind Forest** - Beautiful and atmospheric
+- **FTL: Faster Than Light** - Great electronic soundtrack
+
+**Nature/White Noise:**
+- Rain sounds or thunderstorms
+- Coffee shop ambience
+- [Brain.fm](https://brain.fm) or [Noisli](https://www.noisli.com) for scientifically designed focus music
+
+The key is finding something without lyrics (or in a language you don't understand) that maintains a consistent energy level without being distracting. What kind of music do you usually gravitate toward?

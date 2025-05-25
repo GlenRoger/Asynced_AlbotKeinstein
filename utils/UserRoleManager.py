@@ -29,25 +29,34 @@ class UserRoleManager:
         self.cron_sorted_followers_names_only = []
 
 
-    async def buildlists(self):
+    async def buildlists(self, refresh_list = "all"):
         current_log_prefix = self.logger_prefix + "buildlists:"
 
         self.logger.info(f"\n\n#################### BUILDING LISTS START #########################\n{current_log_prefix}Bygger lister over MODs, VIPs, subscribers og followers.")
 
-        await self.get_MODs_list()
-        # print(f"MODs list:{self.MODs_list}")
-        await self.get_VIPs_list()
-        # print(f"VIPs list:{self.VIPs_list}")
-        await self.get_subscribers_list()
-        # print(f"Subscribers:{self.subscribers_list}")
-        await self.get_followers_list()
-        # print(f"Followers:{self.followers_list}")
+        if refresh_list.upper() == 'ALL' or refresh_list == 'MODS':
+            await self.get_MODs_list()
+            # print(f"MODs list:{self.MODs_list}")
 
-        self.make_cron_sorted_followers_list()
+        if  refresh_list.upper() == 'ALL' or refresh_list == 'VIPS':
+            await self.get_VIPs_list()
+            # print(f"VIPs list:{self.VIPs_list}")
+
+        if  refresh_list.upper() == 'ALL' or refresh_list == 'SUBSCRIBERS':
+            await self.get_subscribers_list()
+            # print(f"Subscribers:{self.subscribers_list}")
+
+        if  refresh_list.upper() == 'ALL' or refresh_list == 'FOLLOWERS':
+
+            await self.get_followers_list()
+            # print(f"Followers:{self.followers_list}")
+
+            self.make_cron_sorted_followers_list()
 
 
-        #For å test at alt er ok.
-        self.get_xfirst_follower(10)
+            #For å test at alt er ok.
+            self.get_xfirst_follower(10)
+
 
         self.logger.info(f"{current_log_prefix}Ferdig med å bygge lister!\n#################### BUILDING LISTS END   #########################\n\n")
 
@@ -68,6 +77,8 @@ class UserRoleManager:
 
     #Henter ut alle mods
     async def get_MODs_list(self):
+
+        self.MODs_list.clear()
 
         current_log_prefix = self.logger_prefix + "get_MODs_list:"
 
@@ -106,6 +117,8 @@ class UserRoleManager:
     #Henter ut alle VIPs
     async def get_VIPs_list(self):
 
+        self.VIPs_list.clear()
+
         current_log_prefix = self.logger_prefix + "get_VIPs_list:"
 
         self.logger.info(f"{current_log_prefix}Contacting server for logging in")
@@ -143,6 +156,8 @@ class UserRoleManager:
     #Henter ut alle subscribers vi har
     async def get_subscribers_list(self):
 
+        self.subscribers_list.clear()
+
         current_log_prefix = self.logger_prefix + "get_subscribers_list:"
 
         self.logger.info(f"{current_log_prefix}Contacting server for logging in")
@@ -171,6 +186,10 @@ class UserRoleManager:
 
     #Henter alle følgere vi har
     async def get_followers_list(self):
+
+        self.followers_list.clear()
+        self.followers_dict.clear()
+
         current_log_prefix = self.logger_prefix + "get_followers_list:"
         
         self.logger.info(f"{current_log_prefix}Getting followers for channel {config.CHANNEL}")

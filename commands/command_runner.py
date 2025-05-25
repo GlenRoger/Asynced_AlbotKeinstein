@@ -19,25 +19,33 @@ class Command_runner:
     def set_command_handler(self, cmd_handler):
         self.cmd_handler = cmd_handler
 
+    # def build_advanced_code(self, cmd_obj, sender):
+    #     current_log_prefix = self.logger_prefix + "build_advanced_code:"
+    #     self.logger.info(f"{current_log_prefix}Working with advanced code {self.isAwake}")
+
+    #     if cmd_obj.get_cmd_calling() == 'FOLLOWNUMER':
+    #         cmd = 
+    #         self.set_in_queue_normal_priority(cmd)
+
 
     def setAwake_status(self, bool_val):
         current_log_prefix = self.logger_prefix + "setAwake_status:"
-        self.logger.info(f"{self.logger_prefix}Awake-status set to: {self.isAwake}")
+        self.logger.info(f"{current_log_prefix}Awake-status set to: {self.isAwake}")
         self.isAwake = bool_val
 
     def set_in_queue_normal_priority(self, cmd):
         current_log_prefix = self.logger_prefix + "set_in_queue_normal_priority:"
-        self.logger.info(f"{self.logger_prefix}Added a normal priority command")
+        self.logger.info(f"{current_log_prefix}Added a normal priority command")
         self.queue.append(cmd)
 
     def set_in_queue_high_priority(self, cmd):
         current_log_prefix = self.logger_prefix + "set_in_queue_high_priority:"
-        self.logger.info(f"{self.logger_prefix}Added a high priority command")
+        self.logger.info(f"{current_log_prefix}Added a high priority command")
         self.queue.insert(0, cmd)
 
     async def run_commands_from_queue(self):
         current_log_prefix = self.logger_prefix + "run_commands_from_queue:"
-        self.logger.info(f"{self.logger_prefix}Starting up the while loop..")
+        self.logger.info(f"{current_log_prefix}Starting up the while loop..")
 
         while self.run_loop:
 
@@ -47,14 +55,14 @@ class Command_runner:
                 #Hvis det er noe i køen
                 if self.queue:
 
-                    self.logger.info(f"{self.logger_prefix}Found a command to be run!")
+                    self.logger.info(f"{current_log_prefix}Found a command to be run!")
                     cur_cmd_obj = self.queue.pop(0)  #If works bad, check out from collections import deque
 
                     if cur_cmd_obj.cmd_type == 'SO':
 
                         if self.so_cooldown == 0:
                             await self.cmd_handler.run_command(cur_cmd_obj)
-                            self.logger.info(f"{self.logger_prefix}Activating 60 seconds of SO-cooldown")
+                            self.logger.info(f"{current_log_prefix}Activating 60 seconds of SO-cooldown")
                             self.so_cooldown = 60
                         else:
                             self.set_in_queue_normal_priority(cur_cmd_obj)
