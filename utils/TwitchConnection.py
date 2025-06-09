@@ -514,7 +514,7 @@ class TwitchConnection:
     def check_oauth_token(self):
         # Remove 'oauth:' prefix if present
 
-        print("CHECKING TOKEN VALIDATION, time left and scopes:")
+        print("CHECKING Albot's TOKEN VALIDATION, time left and scopes:")
 
         token = self.access_token
         if token.startswith('oauth:'):
@@ -554,7 +554,7 @@ class TwitchConnection:
     def check_oauth_token_br(self):
         # Remove 'oauth:' prefix if present
 
-        print("CHECKING TOKEN VALIDATION, time left and scopes:")
+        print("CHECKING BR-TOKEN VALIDATION, time left and scopes:")
 
         token = self.access_token_br
         if token.startswith('oauth:'):

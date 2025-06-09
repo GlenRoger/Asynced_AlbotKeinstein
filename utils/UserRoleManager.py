@@ -54,8 +54,18 @@ class UserRoleManager:
             self.make_cron_sorted_followers_list()
 
 
+
+            #TEST
+            # teller = 1
+            # for fl in self.cron_sorted_followers:
+            #     self.logger.info(f"{teller}:{fl}")
+            #     print(f"{teller}:{fl}")
+            #     teller += 1
+
             #For å test at alt er ok.
             self.get_xfirst_follower(10)
+
+        # sys.exit()
 
 
         self.logger.info(f"{current_log_prefix}Ferdig med å bygge lister!\n#################### BUILDING LISTS END   #########################\n\n")
@@ -245,10 +255,17 @@ class UserRoleManager:
         
         # Each follower object contains follow date info
         for follower in followers:
-            follower_name = follower["user_name"]
+            # if follower['user_name'].upper() != follower['user_login'].upper():
+                # print(f"name: {follower['user_name'].upper()} != login: {follower['user_login'].upper()}")
+                # sys.exit()
+            # follower_name = follower["user_name"]  # => In chat we see the user_login name, not the user_name!
+            follower_name = follower["user_login"]
             followed_at = follower["followed_at"]  # ISO format date string
             # self.logger.info(f"{current_log_prefix}User {follower_name} following since {followed_at}")
             self.followers_dict[follower_name] = followed_at
+
+        # self.logger.info(followers)
+
 
         self.followers_list = followers
 
@@ -299,8 +316,8 @@ class UserRoleManager:
     #Henter ut hvilken nummer i rekken følgere en seer er, returnerer -1, dersom seeren ikke følger oss.
     def get_user_follower_nr(self, user):
 
-        if user in self.cron_sorted_followers_names_only:
-            return self.cron_sorted_followers_names_only.index(user) + 1
+        if user.lower() in self.cron_sorted_followers_names_only:
+            return self.cron_sorted_followers_names_only.index(user.lower()) + 1
         
         return -1
 

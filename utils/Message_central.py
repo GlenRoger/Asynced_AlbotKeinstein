@@ -139,6 +139,8 @@ class Message_central:
         #Format :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv - want the first coolingenwastaken
         username_sending_message = split_chat[0][1:].split('!')[0]
 
+        self.logger.info(f"{current_log_prefix}Detected sender: {username_sending_message}")
+
         if not is_PRIVMSG:
             self.logger.info(f"{current_log_prefix}Not a PRIVMSG-message - not for us:{chat_msg}")
             return[username_sending_message,""]
