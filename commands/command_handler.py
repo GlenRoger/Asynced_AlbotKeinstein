@@ -299,7 +299,7 @@ class Command_central:
                 self.gif_handler.build_gif_greetings()
                 updated_list = True
             elif cmd_obj.get_params().upper() == 'GIFS':
-                self.gif_handler.arrange_gifs()
+                await self.gif_handler.arrange_gifs()
                 updated_list = True
             else:
                 self.logger.info(f"{current_log_prefix}Don't know what to REFRESH? What is {cmd_obj.get_params().upper()}?")

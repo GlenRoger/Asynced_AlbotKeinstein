@@ -348,7 +348,7 @@ class UserRoleManager:
             
             # First get the user ID from username
             response = requests.get(
-                f"https://api.twitch.tv/helix/users?login={username}", 
+                f"https://api.twitch.tv/helix/users?login={username.lower()}", 
                 headers=headers
             )
             
