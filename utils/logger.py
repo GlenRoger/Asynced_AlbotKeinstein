@@ -13,7 +13,7 @@ class LogThis:
     def __init__(self):
 
         current_time = datetime.datetime.now()
-        log_filename = f"bog_{current_time.strftime('%Y%m%d_%H%M%S')}.log"
+        log_filename = f"log_{current_time.strftime('%Y%m%d_%H%M%S')}.log"
 
         #Set up file to log to
         logging.basicConfig(

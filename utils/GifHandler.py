@@ -4,7 +4,7 @@ import config
 import os
 import asyncio
 from PIL import Image
-
+import random
 
 class GifHandler:
 
@@ -18,10 +18,18 @@ class GifHandler:
         self.gif_owners_dict    = {}
         self.known_gifs_dict    = {}
 
+
+        self.list_pokemon_bits_gifs = []
+
+
     def print_all(self):
         print(f"{self.known_gifs_dict}")
 
+    #Called for refreshing gifs command, so refresh lists as well
     async def arrange_gifs(self):
+
+        self.list_pokemon_bits_gifs = []
+
         current_log_prefix = self.logger_prefix + "setup:"
         self.logger.info(f"{current_log_prefix}Setup running!")
         self.build_gif_owner_dicts()
@@ -128,6 +136,9 @@ class GifHandler:
                             "id": gif_id,
                             "owner": gif_owner}
 
+                        if gif_name.startswith("LIST_POKEMON_BITS_"):
+                            self.list_pokemon_bits_gifs.append(gif_name)
+
                     else:
                         self.logger.info(f"{current_log_prefix}Couldn't understand input from file{self.known_gifs}. Input gotten:/{line}/ - could not be split into gif_id, gif_owner and gif_name.")
                         continue
@@ -202,3 +213,7 @@ class GifHandler:
         else:
             print(f"Couldn't download gif: {gif_name}")
             return False
+        
+
+    def get_random_pokemon_bits_list(self):
+        return random.choice(self.list_pokemon_bits_gifs)

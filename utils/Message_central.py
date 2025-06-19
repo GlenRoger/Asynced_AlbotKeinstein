@@ -114,12 +114,40 @@ class Message_central:
         # :coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #coolingenwastaken :%hei
 
         #Returnerer alltid brukernavn :)
-        username = self.find_sender_and_msg(msg)[0]
+        username, main_command, params  = self.find_sender_and_msg(msg)
         self.logger.info(f"{current_log_prefix}Checking auto-so for username:{username}")
+        self.logger.info(f"{current_log_prefix}Got main_command:{main_command}")
+        self.logger.info(f"{current_log_prefix}Got params:{params}")
 
-        await self.cmd_handler.create_auto_shout_out(username, is_auto_so = True)
+        #SOUNDALERTS!!
+        #SOUNDALERT-POKEMON
+        #[':soundalerts!soundalerts@soundalerts.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':flayrestarr', 'played', 'Gotta', 'Catch', 'them', 'ALL!!', 'for', '50', 'Bits\r']
+        #username = soundalert, main_command = 'flayrestarr', params = 'played Gotta Catch them ALL!! for 50 Bits\r'
+        #SOUNDALERT-SUBSCRIPTION
+        #[':streamlabs!streamlabs@streamlabs.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':flayrestarr', 'just', 'subscribed', 'with', 'Tier', '1!\r']
+        #username = soundalert, main_command = 'flayrestarr', params = 'just subscribed with Tier 1!\r'
+        #SOUNDALERT-I'm in danger
+        #[':soundalerts!soundalerts@soundalerts.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Rhastaface', 'played', "I'm", 'in', 'danger!', 'for', '10', 'Bits\r']
+        #username = soundalert, main_command = 'Rhastaface', params = 'played I'm in danger! for 10 bits\r'
+        #SOUNDALERT-RUN!
+        #[':soundalerts!soundalerts@soundalerts.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Rhastaface', 'played', 'RUN', 'for', '50', 'Bits\r']
+        #username = soundalert, main_command = 'Rhastaface', params = 'played RUN for 50 bits\r'
 
-        await self.cmd_handler.check_auto_thanks_for_subscribers(username)
+        #STREAMELEMENTS can also be handled:
+        #[':streamelements!streamelements@streamelements.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':@verstoppel,','verstoppel', 'has', 'been', 'following', 'thestreamteamwastaken', 'for', '', '4', 'years', '6', 'months', '17', 'days', '21', 'hours\r']
+
+
+
+        self.logger.info(f"{current_log_prefix}Moment of truth:{username}=coolingenwastaken?({username=='coolingenwastaken'})")
+
+
+        if username == 'soundalerts'.lower() or username.lower() == 'coolingenwastaken':
+            self.logger.info(f"{current_log_prefix}Whoa! It's a soundalert! Check if we play a gif to this!")
+            await self.cmd_handler.soundalert_gif(main_command, params) #Sending main_command in this case is the user activating soundalert, params is the soundalert info
+        else:
+
+            await self.cmd_handler.create_auto_shout_out(username, is_auto_so = True)
+            await self.cmd_handler.check_auto_thanks_for_subscribers(username)
 
 
     #STEP 1 - Splitting the message into sender and message
@@ -143,13 +171,22 @@ class Message_central:
 
         if not is_PRIVMSG:
             self.logger.info(f"{current_log_prefix}Not a PRIVMSG-message - not for us:{chat_msg}")
-            return[username_sending_message,""]
+            return[username_sending_message,"", ""]
 
 
         is_command = split_chat[3][1].startswith(f"{config.PREFIX_FOR_BOT_TO_READ}")
 
-        if is_command:
-            split_chat[3]   = split_chat[3][2:]
+        if is_command or username_sending_message in ['soundalert', 'coolingenwastaken']:
+
+            #If soundalerts, then we don't remove the first letter, since it won't be a '%'
+            if is_command:
+                split_chat[3]   = split_chat[3][2:]
+            else:
+                self.logger.info(f"{current_log_prefix}Before split_chat[3]:/{split_chat[3]}/")
+                split_chat[3]   = split_chat[3][1:]
+                self.logger.info(f"{current_log_prefix}After split_chat[3]:/{split_chat[3]}/")
+
+
             split_chat[-1]  = split_chat[-1].rstrip()
             main_command    = split_chat[3]
 

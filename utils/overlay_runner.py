@@ -65,6 +65,7 @@ class Overlay_runner:
         command_built = self.build_command(cmd)
 
         if command_built:
+            self.logger.info(f"{current_log_prefix}Command added to queue:{command_built}")
             self.queue.append(command_built)
         else:
             self.logger.info(f"{current_log_prefix}Resultet in no commands!! {cmd}")
@@ -84,7 +85,9 @@ class Overlay_runner:
         current_log_prefix = self.logger_prefix + "build_command:"
         self.logger.info(f"{current_log_prefix}Incomming params: {cmd}")
 
-        username, cmd = cmd.split(':')
+        username, cmd = cmd.split(':', 1)
+
+        self.logger.info(f"{current_log_prefix}params split into username:{username}-and-cmd:{cmd}")
 
         if cmd.upper() == "THANK YOU":
             return {"text":f"Thank you, {username}! <3","gif":"THANK_YOU_FOR_SUPPORT","sound":""}
@@ -103,6 +106,12 @@ class Overlay_runner:
                 self.logger.info(f"{current_log_prefix}It's a greetings command!")
                 return {"text":f"How are you, {username}?","gif":gif_to_show,"sound":sound_to_play}
             return ""
+        #Already finished made for putting it in the queue!
+        elif cmd.startswith('{'):
+
+            cmd = eval(cmd)
+            self.logger.info(f"{current_log_prefix}It's already on the right format: {cmd}")
+            return cmd
 
         elif cmd.upper() == "ALBOTSTARTUP":
             return {"text":"Albot up and running!","gif":"MOOSE_WAVE_HI","sound":""}
@@ -110,8 +119,7 @@ class Overlay_runner:
     #For immidiate commands - like Sleep
     async def interrupt_run_visual_command(self, cmd_dict):
         current_log_prefix = self.logger_prefix + "interrupt_run_visual_command:"
-        self.logger.info(f"{current_log_prefix}Received command to run: {cmd_dict}")
-
+        self.logger.info(f"{current_log_prefix}Received interrupting command to run: {cmd_dict}")
 
         if not self.overlay.ready_to_show_more():
                     self.logger.info(f"{current_log_prefix}Interrupting current overlay show! Busy? {not self.overlay.ready_to_show_more()}")
@@ -134,6 +142,10 @@ class Overlay_runner:
         current_log_prefix = self.logger_prefix + "run_visual_command:"
         self.logger.info(f"{current_log_prefix}Received command to run: {cmd_dict}")
 
+
+        self.logger.info(f"{current_log_prefix}input param: cmd_dict is of type {type(cmd_dict).__name__}")
+
+
         # username = ""
 
         #If theres is a : , there will be a username connected to the command. Like a "Thank you, CoolingenWasTaken!"
@@ -141,8 +153,23 @@ class Overlay_runner:
         #     username, cmd = cmd.split(':')
 
         text_to_show    = cmd_dict['text']
+        self.logger.info(f"{current_log_prefix}Text ok: {text_to_show}")
+
+
         gif_to_show     = self.gif_handler.get_gif_path(cmd_dict['gif'])
-        gif_length      = self.gif_handler.get_gif_duration(cmd_dict['gif']) #+ 2000
+
+        self.logger.info(f"{current_log_prefix}Gif found: {gif_to_show}")
+
+
+
+        gif_length = 0
+
+        if "duration" in cmd_dict.keys():
+            gif_length = cmd_dict['duration']
+        else:
+            gif_length      = self.gif_handler.get_gif_duration(cmd_dict['gif']) #+ 2000
+
+
         sound_to_play   = cmd_dict['sound']
 
         print(f"Sound to play: {sound_to_play}")
@@ -155,6 +182,7 @@ class Overlay_runner:
 
         self.logger.info(f"{current_log_prefix}Text to show: {text_to_show}")
         self.logger.info(f"{current_log_prefix}Gif to show: {gif_to_show}")
+        self.logger.info(f"{current_log_prefix}Gif duration set to: {gif_length}")
         self.logger.info(f"{current_log_prefix}Sound to play: {sound_to_play}")
 
         self.overlay_bridge.play_message(text_to_show = text_to_show, gif_to_show = gif_to_show, sound_to_play = sound_to_play, duration=gif_length)

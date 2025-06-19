@@ -121,10 +121,10 @@ class Command_central:
 
         #Check if we can give automatic so and if hasn't been done earlier this stream
         if is_auto_so:
-            if username in self.gotten_auto_shout_outs:
+            if username.lower() in self.gotten_auto_shout_outs:
                 return
             
-            if username not in config.AUTOMATIC_SHOUTOUT_LIST:
+            if username.lower() not in config.AUTOMATIC_SHOUTOUT_LIST:
                 return
 
         message = ""
@@ -162,7 +162,7 @@ class Command_central:
 
         self.cmd_runner.set_in_queue_normal_priority(cmd_obj)
 
-        self.gotten_auto_shout_outs.append(username)
+        self.gotten_auto_shout_outs.append(username.lower())
 
 
 
@@ -256,6 +256,17 @@ class Command_central:
              print(f"{self.all_commands.keys()}")
 
 
+    #Sending main_command in this case is the user activating soundalert, params is the soundalert info
+    async def soundalert_gif(self, main_command, params):
+
+        if "gotta catch them all!!" in params.lower():
+            random_pokemon_gif = self.gif_handler.get_random_pokemon_bits_list()
+            make_dict_not_more = {"text":f"Let's catch them all, {main_command}! <3","gif":random_pokemon_gif,"sound":"",'duration':14000}
+            self.overlay_runner.set_in_queue(f"{main_command}:{make_dict_not_more}")
+
+
+
+
 
     #Her kjøres faktik kommandoene, som tidligere har blitt plassert i kø.
     async def run_command(self, cmd_obj):
@@ -293,7 +304,7 @@ class Command_central:
                 await self.usermanagement.buildlists('FOLLOWERS')
                 updated_list = True
             elif cmd_obj.get_params().upper() == 'CONFIG':
-                await self.logger.info(f"{current_log_prefix}REFRESH CONFIG: To be added!!")
+                await self.logger.info(f"{current_log_prefix}REFRESH CONFIG: To be added!! Or do we need it at all?")
                 updated_list = False
             elif cmd_obj.get_params().upper() == 'GREETINGS':
                 self.gif_handler.build_gif_greetings()
