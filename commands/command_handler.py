@@ -69,6 +69,7 @@ class Command_central:
 
         self.gotten_auto_shout_outs = []
         self.gotten_auto_thanks     = []
+        self.gotten_auto_greetings  = []
 
         self.read_commands_from_files()
 
@@ -96,6 +97,35 @@ class Command_central:
 
     def set_gifhandler(self, gif_handler):
         self.gif_handler = gif_handler
+
+
+    async def check_auto_greetings(self, username):
+
+        current_log_prefix = self.logger_prefix + "check_auto_greetings:"
+        self.logger.info(f"{current_log_prefix}Auto-greetings for /{username}/ if they don't have default gif.")
+
+        #Do the auto-greetings for everybody
+        # if not self.usermanagement.is_Subscriber(username):
+        #     return
+
+        if username in self.gotten_auto_greetings:
+            return
+        
+        # if username in config.TSTWTMEMBERS:
+        #     return
+
+
+        self.gotten_auto_greetings.append(username)
+
+        if self.gif_handler.got_default_gif(username):
+            return
+
+        self.overlay_runner.set_in_queue(f"{username}:GREETINGS")
+
+        #Just for my own example to look at. Delete later.
+        # self.overlay_runner.set_in_queue(f"{username}:Thank you")
+
+
 
     async def check_auto_thanks_for_subscribers(self, username):
 
@@ -258,11 +288,19 @@ class Command_central:
 
     #Sending main_command in this case is the user activating soundalert, params is the soundalert info
     async def soundalert_gif(self, main_command, params):
+        current_log_prefix = self.logger_prefix + "soundalert_gif:"
+        self.logger.info(f"{current_log_prefix}Can we play:/{params}/ played by /{main_command}/")
 
         if "gotta catch them all!!" in params.lower():
             random_pokemon_gif = self.gif_handler.get_random_pokemon_bits_list()
             make_dict_not_more = {"text":f"Let's catch them all, {main_command}! <3","gif":random_pokemon_gif,"sound":"",'duration':14000}
             self.overlay_runner.set_in_queue(f"{main_command}:{make_dict_not_more}")
+
+        elif "i seeeeee youuuu!" in params.lower():
+            random_scary_i_see_you_gif = self.gif_handler.get_random_scary_i_see_you_bits_list()
+            make_dict_not_more = {"text":f"You scared me, {main_command}! <3","gif":random_scary_i_see_you_gif,"sound":"",'duration':5000}
+            self.overlay_runner.set_in_queue(f"{main_command}:{make_dict_not_more}")
+
 
 
 

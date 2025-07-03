@@ -119,6 +119,13 @@ class Message_central:
         self.logger.info(f"{current_log_prefix}Got main_command:{main_command}")
         self.logger.info(f"{current_log_prefix}Got params:{params}")
 
+        username = username.rstrip()
+
+        if username.upper() == config.BOT_USERNAME.upper() or username.upper() == 'ALBOTKEINSTEIN' or username.upper() ==  'TMI.TWITCH.TV' or username.upper() == 'ALBOTKEINSTEIN.TMI.TWITCH.TV':
+            self.logger.info(f"{current_log_prefix}Not checking any furter when this user is typing to us (albot or twitch):{username}")
+            return
+
+
         #SOUNDALERTS!!
         #SOUNDALERT-POKEMON
         #[':soundalerts!soundalerts@soundalerts.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':flayrestarr', 'played', 'Gotta', 'Catch', 'them', 'ALL!!', 'for', '50', 'Bits\r']
@@ -137,6 +144,19 @@ class Message_central:
         #[':streamelements!streamelements@streamelements.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':@verstoppel,','verstoppel', 'has', 'been', 'following', 'thestreamteamwastaken', 'for', '', '4', 'years', '6', 'months', '17', 'days', '21', 'hours\r']
 
 
+        #FIXED:
+        #':flayrestarr', 'played', 'Scary!', '"I', 'seeeeee', 'youuuu!"', 'for', '200', 'Bits\r']
+        #params = 'played Scary! "I seeeeee youuuu!" for 200 Bits\r'
+
+        #TO BE DONE?
+#         utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:soundalerts!soundalerts@soundalerts.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Rhastaface played
+# I'm in danger! for 10 Bits
+# logs\bog_20250602_222317.log:239:2025-06-02 22:38:22,515 - twitch_bot - INFO -
+# utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:soundalerts!soundalerts@soundalerts.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Rhastaface played
+# RUN for 50 Bits
+# logs\bog_20250602_222317.log:343:2025-06-02 22:50:06,740 - twitch_bot - INFO -
+# utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:soundalerts!soundalerts@soundalerts.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Rhastaface played
+# GG  for 10 Bits
 
         self.logger.info(f"{current_log_prefix}Moment of truth:{username}=coolingenwastaken?({username=='coolingenwastaken'})")
 
@@ -145,7 +165,7 @@ class Message_central:
             self.logger.info(f"{current_log_prefix}Whoa! It's a soundalert! Check if we play a gif to this!")
             await self.cmd_handler.soundalert_gif(main_command, params) #Sending main_command in this case is the user activating soundalert, params is the soundalert info
         else:
-
+            await self.cmd_handler.check_auto_greetings(username)
             await self.cmd_handler.create_auto_shout_out(username, is_auto_so = True)
             await self.cmd_handler.check_auto_thanks_for_subscribers(username)
 

@@ -19,7 +19,8 @@ class GifHandler:
         self.known_gifs_dict    = {}
 
 
-        self.list_pokemon_bits_gifs = []
+        self.list_pokemon_bits_gifs         = []
+        self.list_scary_i_see_you_bits_gifs = []
 
 
     def print_all(self):
@@ -28,7 +29,8 @@ class GifHandler:
     #Called for refreshing gifs command, so refresh lists as well
     async def arrange_gifs(self):
 
-        self.list_pokemon_bits_gifs = []
+        self.list_pokemon_bits_gifs         = []
+        self.list_scary_i_see_you_bits_gifs = []
 
         current_log_prefix = self.logger_prefix + "setup:"
         self.logger.info(f"{current_log_prefix}Setup running!")
@@ -138,6 +140,8 @@ class GifHandler:
 
                         if gif_name.startswith("LIST_POKEMON_BITS_"):
                             self.list_pokemon_bits_gifs.append(gif_name)
+                        elif gif_name.startswith("LIST_SCARY_I_SEE_YOU_BITS_"):
+                            self.list_scary_i_see_you_bits_gifs.append(gif_name)
 
                     else:
                         self.logger.info(f"{current_log_prefix}Couldn't understand input from file{self.known_gifs}. Input gotten:/{line}/ - could not be split into gif_id, gif_owner and gif_name.")
@@ -153,6 +157,14 @@ class GifHandler:
             return self.sub_gif_greetings[sender]
         
         return self.sub_gif_greetings['default']
+
+    def got_default_gif(self, sender):
+
+        if sender in self.sub_gif_greetings.keys():
+            return False
+        
+        return True
+
 
 
     def build_gif_greetings(self):
@@ -217,3 +229,6 @@ class GifHandler:
 
     def get_random_pokemon_bits_list(self):
         return random.choice(self.list_pokemon_bits_gifs)
+    
+    def get_random_scary_i_see_you_bits_list(self):
+        return random.choice(self.list_scary_i_see_you_bits_gifs)
