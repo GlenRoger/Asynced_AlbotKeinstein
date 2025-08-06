@@ -6,7 +6,7 @@ class Overlay_runner:
 
     def __init__(self, logger):
         self.logger = logger
-        self.logger_prefix =  "commands/overlay_runner.Overlay_runner=>"
+        self.logger_prefix =  "utils/overlay_runner.Overlay_runner=>"
 
         self.run_loop   = True
         self.queue      = []
