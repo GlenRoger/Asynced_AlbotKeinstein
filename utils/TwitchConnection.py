@@ -3,6 +3,7 @@ import config
 import websockets
 import os
 import requests
+from datetime import datetime, timedelta
 
 
 
@@ -47,6 +48,12 @@ class TwitchConnection:
          # Reference to the Albotbrain - to be set by AlbotBrain, to be able
          # to shut down the program completely
         self.albot_brain = None
+
+        self.access_token_expiration_date    = ""
+        self.access_br_token_expiration_date = ""
+
+        self.expiration_time    = ""
+        self.expiration_time_br = ""
 
 
     #To be able to shut down the program completely
@@ -178,6 +185,14 @@ class TwitchConnection:
         #Sjekker tokens for Albot og kanal
         self.check_oauth_token()
         self.check_oauth_token_br()
+
+
+        print("#####################Expiration date#####################")
+        self.expiration_time    = self.get_access_token_expiration_date()
+        self.expiration_time_br = self.get_access_br_token_expiration_date()
+
+        print(f"A-expiration: {self.expiration_time}")
+        print(f"T-expiration: {self.expiration_time_br}")
 
 
     # Main loop checking Twitch chat for commands and changes in chat status and keeping ping to look alive.
@@ -542,6 +557,7 @@ class TwitchConnection:
             # Check for expiration
             if 'expires_in' in data:
                 print(f"Token expires in {data['expires_in']} seconds")
+                self.access_token_expiration_date = data['expires_in']
                 
             return True
         else:
@@ -582,6 +598,7 @@ class TwitchConnection:
             # Check for expiration
             if 'expires_in' in data:
                 print(f"Token expires in {data['expires_in']} seconds")
+                self.access_token_br_expiration_date = data['expires_in']
                 
             return True
         else:
@@ -589,3 +606,15 @@ class TwitchConnection:
             print(f"Response: {response.text}")
             return False
 
+
+    def get_access_token_expiration_date(self):
+        now = datetime.now()
+
+        return now + timedelta(seconds=self.access_token_expiration_date)
+        
+
+    def get_access_br_token_expiration_date(self):
+        now = datetime.now()
+
+        return now + timedelta(seconds=self.access_token_br_expiration_date)
+                

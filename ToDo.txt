@@ -1,3 +1,10 @@
+Hvis vi mister connection, så må vi prøve på nytt, ikke bare dø…
+Dashboard
+################################################
+
+
+
+
 Lagre til duration av gif til fil, deretter finne ut om den trenger å beregne lengde på gif når fila leses inn.
 Samme for lyd og verdien på lengden av gif bør sjekkes mot lyd, den som varer lengst bestemmer lengden på "duration".
 
