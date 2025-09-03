@@ -1,0 +1,54 @@
+## task_supervisor.py Implementation Checklist
+
+### **Core Classes & Data Structures**
+- [ ] TaskSupervisor main class
+- [ ] TaskMetadata class (stores task info, stats, policies)
+- [ ] Task state enum (RUNNING, FAILED, RESTARTING, STOPPED, etc.)
+- [ ] Restart policy enum (ALWAYS, NEVER, CONDITIONAL, MAX_ATTEMPTS)
+
+### **Core Methods**
+- [ ] `register_task(name, task_func, restart_policy, max_retries)`
+- [ ] `start_monitoring()` - main supervisor loop
+- [ ] `check_task_health()` - examine all registered tasks
+- [ ] `restart_task(name)` - manual restart capability
+- [ ] `stop_task(name)` - graceful shutdown
+- [ ] `get_task_status()` - status for dashboard/debugging
+
+### **Monitoring Logic**
+- [ ] Periodic task health checks (every 1-2 seconds)
+- [ ] Detect task completion vs failure
+- [ ] Apply restart policies based on failure type
+- [ ] Implement restart backoff (your squared delay approach)
+- [ ] Track restart attempts and failure reasons
+- [ ] Handle maximum retry limits
+
+### **Logging & Statistics**
+- [ ] Task lifecycle logging (started, stopped, failed, restarted)
+- [ ] Failure reason capture and storage
+- [ ] Restart count tracking per task
+- [ ] Performance metrics (uptime, failure rates)
+
+### **Self-Testing Framework**
+- [ ] Mock task functions (stable, crashy, random failure, infinite)
+- [ ] Test scenarios for each restart policy
+- [ ] Standalone test runner in `if __name__ == "__main__"`
+- [ ] Visual test output showing supervisor behavior
+- [ ] Edge case testing (immediate failures, restart loops)
+
+### **Integration Interfaces**
+- [ ] Clean API for AlbotBrain to register tasks
+- [ ] Dashboard status query methods
+- [ ] Graceful shutdown handling
+- [ ] Exception handling and error propagation
+
+### **Future Extensions (placeholders)**
+- [ ] Task dependency support
+- [ ] External communication hooks (for future REST API)
+- [ ] Configuration file support
+- [ ] Persistence for restart statistics
+
+This gives you a solid, testable foundation that can evolve with your needs!
+
+
+1st
+2000 hour on !watchtime - if we can see that?
