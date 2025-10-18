@@ -53,7 +53,9 @@ class TwitchConnection:
         self.access_br_token_expiration_date = ""
 
         self.expiration_time    = ""
+        self.expiration_time_datetime = ""
         self.expiration_time_br = ""
+        self.expiration_time_br_datetime = ""
 
 
     #To be able to shut down the program completely
@@ -187,12 +189,15 @@ class TwitchConnection:
         self.check_oauth_token_br()
 
 
-        print("#####################Expiration date#####################")
+        print("\n\t\t################# Tokens expiration date #################")
         self.expiration_time    = self.get_access_token_expiration_date()
         self.expiration_time_br = self.get_access_br_token_expiration_date()
 
-        print(f"A-expiration: {self.expiration_time}")
-        print(f"T-expiration: {self.expiration_time_br}")
+        print(f"\t\t#\t A-expiration: {self.expiration_time}        #")
+        print(f"\t\t#\t T-expiration: {self.expiration_time_br}        #")
+
+        print("\t\t##########################################################\n")
+
 
 
     # Main loop checking Twitch chat for commands and changes in chat status and keeping ping to look alive.
