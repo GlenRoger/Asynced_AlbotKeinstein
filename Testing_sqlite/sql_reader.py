@@ -28,10 +28,22 @@ class Database_Reader():
         return columns
 
     def get_latest_error(self):
+
+        print(f"Cursor: {cursor}")
         self.cursor.execute("SELECT * FROM Errors_register ORDER BY ID DESC LIMIT 1")
         result = self.cursor.fetchone()
 
         self.pretty_print("Errors_register", result)
+
+
+    def get_latest_error_as_touple(self):
+        self.cursor.execute("SELECT * FROM Errors_register ORDER BY ID DESC LIMIT 1")
+        result = self.cursor.fetchone()
+
+        return result
+
+#        self.pretty_print("Errors_register", result)
+
 
     def pretty_print(self, table_name, result):
         print("In pretty_print:")
@@ -51,8 +63,8 @@ class Database_Reader():
 
 
 
+if __name__ == "__main__":
+    db_reader = Database_Reader()
 
-db_reader = Database_Reader()
 
-
-db_reader.get_latest_error()
+    db_reader.get_latest_error()
