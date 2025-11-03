@@ -1,9 +1,14 @@
-Legge til SQLite funksjonalitet i Albot
+DONE! Legge til SQLite funksjonalitet i Albot
 Albot status (info-register-tabell)
-Error meldinger fra Albot inn I db
+DONE! Error meldinger fra Albot inn I db
 Info meldinger fra Albot inn I db
 token tid albot inn I db
 token tid tstwt inn I db
+
+STATUS ALBOT  & GIPHY og HALLOWEEN-knapp + liste
+ - Giphy done
+ - Halloween-list done
+
 
 
 Giphy-bruker
@@ -12,6 +17,11 @@ GIF-halloween-liste
 Dashboard-"gif-button"
 Db-funksjon som kjøres hver andre sekund -> Sjekker commando gif
 
+Error-register:
+timestamp, hostname, error_message, component, error_type, severity, bot_version, function_name
+
+Info-register:
+timestamp, action, invoked_by, function_name, parameters, bot_version
 
 
 Done! Skriver ikke riktig til databasen eller dataen hentes ut feil - satser på nummer en del => Yes! Case sensitive keys i dictionary!!

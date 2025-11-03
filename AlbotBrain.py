@@ -14,6 +14,9 @@ from commands.command_runner    import Command_runner
 from utils.overlay_runner       import Overlay_runner
 import utils.GifHandler as GH
 
+from utils.databasecontroller import DatabaseController
+
+import random
 
 # from commands.overlay_runner import 
 
@@ -23,9 +26,14 @@ class AlbotBrain:
 
         self.logger_prefix = "AlbotBrain:"
 
+        #Adding database
+        self.db = DatabaseController()
+
+
         #This logger is going to be passed on to other objects to be used for logging the full bot's life cycle
-        self.logger = logger.LogThis().get_logger()
+        self.logger = logger.LogThis(self.db).get_logger()
         self.logger.info("ALBOTKEINSTEIN INITIALIZING ANEW!\n###############################################################################")
+
 
         # Initialize Qt Application
         self.app = QApplication.instance() or QApplication(sys.argv)
@@ -91,6 +99,21 @@ class AlbotBrain:
 
         self.shutdown_requested = False  # Add this flag
 
+    async def get_commands_from_db(self):
+
+        while True:
+            
+
+
+            time_between_5_min_and_10_min = random.randint(5*60, 10*60)
+
+
+
+            gif_to_show = self.gif_handler.get_random_halloween_list()
+            print(gif_to_show)
+            await self.overlay_runner.make_halloween_message(gif_to_show)
+
+            await asyncio.sleep(time_between_5_min_and_10_min)
 
 
     async def start(self):
@@ -115,6 +138,7 @@ class AlbotBrain:
             self.message_task                   = asyncio.create_task(self.TwitchConnector.start_messsage_loop())
             self.run_commands                   = asyncio.create_task(self.cmd_runner.run_commands_from_queue())
             self.run_overlays                   = asyncio.create_task(self.overlay_runner.run_commands_from_queue())
+            self.get_db_cmds                    = asyncio.create_task(self.get_commands_from_db())
             # self.message_pile_queue_organizer   = asyncio.create_task(self.TwitchConnector.commands_to_check_list_divide_into_queues())
             # self.message_pile_queue_handler     = asyncio.create_task(self.TwitchConnector.run_commands_according_to_priority())
             # self.overlay_task_old                   = asyncio.create_task(self.overlay.start_server())
@@ -126,7 +150,7 @@ class AlbotBrain:
             #This is the complete one!
             # tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler, self.overlay_task]
 
-            tasks = [self.message_task, self.run_commands, self.run_overlays, self.overlay_task]
+            tasks = [self.message_task, self.run_commands, self.run_overlays, self.get_db_cmds, self.overlay_task]
 
             # tasks = [self.message_task, self.message_pile_queue_organizer, self.message_pile_queue_handler]
 

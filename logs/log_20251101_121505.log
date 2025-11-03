@@ -1,0 +1,139 @@
+2025-11-01 12:15:05,023 - twitch_bot - INFO - ALBOTKEINSTEIN INITIALIZING ANEW!
+###############################################################################
+2025-11-01 12:15:05,042 - twitch_bot - INFO - utils/OverlayBridge=>Initializing overlay bridge
+2025-11-01 12:15:05,042 - twitch_bot - INFO - AlbotBrain:Overlay bridge created
+2025-11-01 12:15:05,042 - twitch_bot - INFO - utils/OverlayWindow=>Initializing overlay window
+2025-11-01 12:15:05,044 - twitch_bot - INFO - utils/AnimationManager=>Initializing animation manager
+2025-11-01 12:15:05,100 - twitch_bot - INFO - utils/OverlayWindow=>Overlay window initialized at 480x350
+2025-11-01 12:15:05,100 - twitch_bot - INFO - utils/OverlayWindow=>Text area: 80px, GIF area: 270px
+2025-11-01 12:15:05,102 - twitch_bot - INFO - utils/OverlayWindow=>Bridge connected
+2025-11-01 12:15:05,102 - twitch_bot - INFO - AlbotBrain:Overlay window created and connected to bridge
+2025-11-01 12:15:05,102 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2025-11-01 12:15:05,102 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='HOWDY', type='RE', allprivileges_to_run=['EVERYBODY'], response='"Hi there! Hope you're having a great day! <3"', priority='NORMAL
+2025-11-01 12:15:05,104 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2025-11-01 12:15:05,104 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SLEEP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"I'll go and relax for now! Be back later! <3"', priority='HIGH
+2025-11-01 12:15:05,104 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SILENCE', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"I'll go and relax for now! Be back later! <3"', priority='HIGH
+2025-11-01 12:15:05,104 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='AWAKE', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2025-11-01 12:15:05,104 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='WAKEUP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2025-11-01 12:15:05,105 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='UNSLEEP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2025-11-01 12:15:05,105 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='ALBOTREST', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2025-11-01 12:15:05,105 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SHUTDOWN', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2025-11-01 12:15:05,105 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='QUIT', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2025-11-01 12:15:05,105 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SO', type='SO', allprivileges_to_run=['TSTWTMEMBERS', 'MODS'], response='"Will be made in command_handler"', priority='NORMAL
+2025-11-01 12:15:05,105 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='GREETINGS', type='OVERLAY', allprivileges_to_run=['TSTWTMEMBERS', 'MODS', 'SUBSCRIBERS'], response='""', priority='HIGH
+2025-11-01 12:15:05,105 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='FOLLOWNUMBER', type='ADVANCED', allprivileges_to_run=['EVERYONE'], response='"Will be made in command_handler"', priority='NORMAL
+2025-11-01 12:15:05,106 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='REFRESH', type='ADVANCED', allprivileges_to_run=['TSTWTMEMBERS'], response='"Will be made in command_handler"', priority='NORMAL
+2025-11-01 12:15:05,106 - twitch_bot - INFO - commands/command_handler.Command_central=>Command_central successfully initialized!
+2025-11-01 12:15:05,106 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>Command_central successfully initialized!
+2025-11-01 12:15:05,106 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2025-11-01 12:15:05,106 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='HOWDY', type='RE', allprivileges_to_run=['EVERYBODY'], response='"Hi there! Hope you're having a great day! <3"', priority='NORMAL
+2025-11-01 12:15:05,106 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2025-11-01 12:15:05,107 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SLEEP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"I'll go and relax for now! Be back later! <3"', priority='HIGH
+2025-11-01 12:15:05,107 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SILENCE', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"I'll go and relax for now! Be back later! <3"', priority='HIGH
+2025-11-01 12:15:05,107 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='AWAKE', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2025-11-01 12:15:05,107 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='WAKEUP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2025-11-01 12:15:05,107 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='UNSLEEP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2025-11-01 12:15:05,107 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='ALBOTREST', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2025-11-01 12:15:05,107 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SHUTDOWN', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2025-11-01 12:15:05,107 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='QUIT', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2025-11-01 12:15:05,108 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SO', type='SO', allprivileges_to_run=['TSTWTMEMBERS', 'MODS'], response='"Will be made in command_handler"', priority='NORMAL
+2025-11-01 12:15:05,108 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='GREETINGS', type='OVERLAY', allprivileges_to_run=['TSTWTMEMBERS', 'MODS', 'SUBSCRIBERS'], response='""', priority='HIGH
+2025-11-01 12:15:05,108 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='FOLLOWNUMBER', type='ADVANCED', allprivileges_to_run=['EVERYONE'], response='"Will be made in command_handler"', priority='NORMAL
+2025-11-01 12:15:05,108 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='REFRESH', type='ADVANCED', allprivileges_to_run=['TSTWTMEMBERS'], response='"Will be made in command_handler"', priority='NORMAL
+2025-11-01 12:15:05,109 - twitch_bot - INFO - AlbotBrain:start:Albot brain starting up!
+2025-11-01 12:15:05,109 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_gif_setup:Running GIF-setup.
+2025-11-01 12:15:05,109 - twitch_bot - INFO - utils/GifHandler=>setup:Setup running!
+2025-11-01 12:15:05,109 - twitch_bot - INFO - utils/GifHandler=>build_gif_owner_dicts:Building dictionaries for gif-owners
+2025-11-01 12:15:05,109 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:Checking known_gif.csv-file for gifs if we got them already
+2025-11-01 12:15:05,109 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/known_gifs.csv exists.
+2025-11-01 12:15:05,125 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SO_CUTE.gif exists already.
+2025-11-01 12:15:05,159 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/GIRL_IN_CAR_DOING_ROCK_SIGNS.gif exists already.
+2025-11-01 12:15:05,196 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/BABY-YODA_WATCHU_DOIN.gif exists already.
+2025-11-01 12:15:05,222 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FULL_HOUSE_BABY_BLOWING_KISS.gif exists already.
+2025-11-01 12:15:05,232 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOON_CAKE_CHAOS.gif exists already.
+2025-11-01 12:15:05,291 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SERIOUS_CONFETTI_GUY.gif exists already.
+2025-11-01 12:15:05,324 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MEANWHILE_IN_NORWAY.gif exists already.
+2025-11-01 12:15:05,405 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOOSE_GO_SLEEP.gif exists already.
+2025-11-01 12:15:05,486 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOOSE_AWAKE.gif exists already.
+2025-11-01 12:15:05,610 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/THANK_YOU_FOR_SUPPORT.gif exists already.
+2025-11-01 12:15:05,650 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/TV_NOISE.gif exists already.
+2025-11-01 12:15:05,664 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/POLL_MOOSE_OR_LAMB.gif exists already.
+2025-11-01 12:15:05,710 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOOSE_WAVE_HI.gif exists already.
+2025-11-01 12:15:05,715 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOOSE_CUDDLE.gif exists already.
+2025-11-01 12:15:05,738 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FREAKAZOID.gif exists already.
+2025-11-01 12:15:05,834 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/HAPPY_DANCE.gif exists already.
+2025-11-01 12:15:05,881 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/XCOM_MISSED_SHOTS.gif exists already.
+2025-11-01 12:15:05,997 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/RAT_DANCE.gif exists already.
+2025-11-01 12:15:06,026 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_POKEMON_BITS_DRAKE_DANCE.gif exists already.
+2025-11-01 12:15:06,144 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_FIRST_V_SIGN_FINGERS.gif exists already.
+2025-11-01 12:15:06,182 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_FIRST_STICKMAN_GOAL_FLAG_WAVE.gif exists already.
+2025-11-01 12:15:06,188 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/PRINCE_OF_PERSIA_AND_SHADOW_FALLS.gif exists already.
+2025-11-01 12:15:06,229 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FOOTBALL_SCORING_ASTA.gif exists already.
+2025-11-01 12:15:06,305 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/CAT_GO_HOWDY_HEY.gif exists already.
+2025-11-01 12:15:06,309 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/BABY_SHARK_DODODO.gif exists already.
+2025-11-01 12:15:06,319 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_SCARY_I_SEE_YOU_BITS_CATS_WITH_BIG_EYES.gif exists already.
+2025-11-01 12:15:06,569 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_SCARY_I_SEE_YOU_BITS_EYES_BLINK_BLACK_PUPILS.gif exists already.
+2025-11-01 12:15:06,580 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_SCARY_I_SEE_YOU_BITS_EYES_ON_TV_WE_ARE_WATCHING.gif exists already.
+2025-11-01 12:15:06,634 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_SCARY_I_SEE_YOU_BITS_CAT_RUNNING_IN_A_DARK_VENT.gif exists already.
+2025-11-01 12:15:06,702 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/THE_GOLDEN_GOD.gif exists already.
+2025-11-01 12:15:06,815 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/CAPTAIN_SALUTE.gif exists already.
+2025-11-01 12:15:06,876 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/NURSE_WITH_SHOTGUN.gif exists already.
+2025-11-01 12:15:07,157 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FINGER_PRESS_BUTTON_MUFFIN_APPEARS.gif exists already.
+2025-11-01 12:15:07,180 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/HI_HUNGRY_I_AM_DAD.gif exists already.
+2025-11-01 12:15:07,238 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MONKEY_PUPPET_DANCING.gif exists already.
+2025-11-01 12:15:07,378 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FLEXING_OWL.gif exists already.
+2025-11-01 12:15:07,470 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/BIG_PIGEON_WITH_ARMS_FEED_SMALL_HUMANS_BREAD.gif exists already.
+2025-11-01 12:15:07,589 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/ROBIN_HAASE_TENNIS_ARCHERY_MOVEMENT_WITH_TENNIS_RACKET.gif exists already.
+2025-11-01 12:15:07,661 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/VIKING_BLOWS_HORN.gif exists already.
+2025-11-01 12:15:07,684 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/VERSTOPPEL_KNOCK.gif exists already.
+2025-11-01 12:15:07,734 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SAKURA_PETALS_FALLING.gif exists already.
+2025-11-01 12:15:07,760 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/HERES_MOMMY.gif exists already.
+2025-11-01 12:15:07,823 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/IM_SO_EXCITED_PUPPY.gif exists already.
+2025-11-01 12:15:07,848 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/ICE_DRAGON_SNOW_STICKER.gif exists already.
+2025-11-01 12:15:07,856 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/WHITE_CAT_BLACK_CAT_CARTOON.gif exists already.
+2025-11-01 12:15:08,062 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SKULL_ON_LETTER.gif exists already.
+2025-11-01 12:15:08,067 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_DISSAPEARING_SCARED_GIRL_STICKER.gif does NOT exists. Getting it!
+2025-11-01 12:15:08,067 - twitch_bot - INFO - utils/GifHandler=>get_gif:Getting gif: 23199849 to name it LIST_HALLOWEEN_DISSAPEARING_SCARED_GIRL_STICKER from the TENOR
+2025-11-01 12:15:08,068 - twitch_bot - INFO - utils/GifHandler=>get_gif:Downloading gif:LIST_HALLOWEEN_DISSAPEARING_SCARED_GIRL_STICKER
+2025-11-01 12:15:08,068 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:LIST_HALLOWEEN_DISSAPEARING_SCARED_GIRL_STICKER, belonging to Tenor.
+2025-11-01 12:15:08,068 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Building up endpoint belonging to Tenor https://tenor.googleapis.com/v2/posts?ids=23199849&key=AIzaSyBf_xsisBxmq8QEIPD2feQ9uNJUS-TufbI
+2025-11-01 12:15:08,138 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:https://media.tenor.com/YnlVsrS2pVQAAAAC/dissapear.gif, belonging to Tenor.
+2025-11-01 12:15:09,000 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_MICHEAL_MYERS_STICKER.gif does NOT exists. Getting it!
+2025-11-01 12:15:09,000 - twitch_bot - INFO - utils/GifHandler=>get_gif:Getting gif: 2826561014621440603 to name it LIST_HALLOWEEN_MICHEAL_MYERS_STICKER from the TENOR
+2025-11-01 12:15:09,000 - twitch_bot - INFO - utils/GifHandler=>get_gif:Downloading gif:LIST_HALLOWEEN_MICHEAL_MYERS_STICKER
+2025-11-01 12:15:09,001 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:LIST_HALLOWEEN_MICHEAL_MYERS_STICKER, belonging to Tenor.
+2025-11-01 12:15:09,001 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Building up endpoint belonging to Tenor https://tenor.googleapis.com/v2/posts?ids=2826561014621440603&key=AIzaSyBf_xsisBxmq8QEIPD2feQ9uNJUS-TufbI
+2025-11-01 12:15:09,057 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:https://media.tenor.com/Jzn2RFx6ilsAAAAC/halloween-michael-myers.gif, belonging to Tenor.
+2025-11-01 12:15:09,519 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_THREE_CUTE_BATS_STICKER.gif does NOT exists. Getting it!
+2025-11-01 12:15:09,519 - twitch_bot - INFO - utils/GifHandler=>get_gif:Getting gif: 3934089619246977874 to name it LIST_HALLOWEEN_THREE_CUTE_BATS_STICKER from the TENOR
+2025-11-01 12:15:09,520 - twitch_bot - INFO - utils/GifHandler=>get_gif:Downloading gif:LIST_HALLOWEEN_THREE_CUTE_BATS_STICKER
+2025-11-01 12:15:09,520 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:LIST_HALLOWEEN_THREE_CUTE_BATS_STICKER, belonging to Tenor.
+2025-11-01 12:15:09,520 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Building up endpoint belonging to Tenor https://tenor.googleapis.com/v2/posts?ids=3934089619246977874&key=AIzaSyBf_xsisBxmq8QEIPD2feQ9uNJUS-TufbI
+2025-11-01 12:15:09,586 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:https://media.tenor.com/Npixqj3Ek1IAAAAC/sappy-seals.gif, belonging to Tenor.
+2025-11-01 12:15:09,738 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_BLACK_CAT_HIDES_INSIDE_PUMPKIN_STICKER.gif does NOT exists. Getting it!
+2025-11-01 12:15:09,738 - twitch_bot - INFO - utils/GifHandler=>get_gif:Getting gif: 16137104052489717772 to name it LIST_HALLOWEEN_BLACK_CAT_HIDES_INSIDE_PUMPKIN_STICKER from the TENOR
+2025-11-01 12:15:09,738 - twitch_bot - INFO - utils/GifHandler=>get_gif:Downloading gif:LIST_HALLOWEEN_BLACK_CAT_HIDES_INSIDE_PUMPKIN_STICKER
+2025-11-01 12:15:09,738 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:LIST_HALLOWEEN_BLACK_CAT_HIDES_INSIDE_PUMPKIN_STICKER, belonging to Tenor.
+2025-11-01 12:15:09,738 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Building up endpoint belonging to Tenor https://tenor.googleapis.com/v2/posts?ids=16137104052489717772&key=AIzaSyBf_xsisBxmq8QEIPD2feQ9uNJUS-TufbI
+2025-11-01 12:15:09,798 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:https://media.tenor.com/3_KCo0AqiAwAAAAC/shadowkitty-shadow.gif, belonging to Tenor.
+2025-11-01 12:15:10,198 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_CARROT_CARVE_PUMPKIN_STICKER.gif does NOT exists. Getting it!
+2025-11-01 12:15:10,200 - twitch_bot - INFO - utils/GifHandler=>get_gif:Getting gif: 27204240 to name it LIST_HALLOWEEN_CARROT_CARVE_PUMPKIN_STICKER from the TENOR
+2025-11-01 12:15:10,200 - twitch_bot - INFO - utils/GifHandler=>get_gif:Downloading gif:LIST_HALLOWEEN_CARROT_CARVE_PUMPKIN_STICKER
+2025-11-01 12:15:10,200 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:LIST_HALLOWEEN_CARROT_CARVE_PUMPKIN_STICKER, belonging to Tenor.
+2025-11-01 12:15:10,200 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Building up endpoint belonging to Tenor https://tenor.googleapis.com/v2/posts?ids=27204240&key=AIzaSyBf_xsisBxmq8QEIPD2feQ9uNJUS-TufbI
+2025-11-01 12:15:10,258 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:https://media.tenor.com/eOxLviom0XsAAAAC/dice-dreams.gif, belonging to Tenor.
+2025-11-01 12:15:10,756 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_MAGICUS_FLYING_BAT_WITH_APPLE_EYES_STICKER.gif does NOT exists. Getting it!
+2025-11-01 12:15:10,756 - twitch_bot - INFO - utils/GifHandler=>get_gif:Getting gif: 25798660 to name it LIST_HALLOWEEN_MAGICUS_FLYING_BAT_WITH_APPLE_EYES_STICKER from the TENOR
+2025-11-01 12:15:10,756 - twitch_bot - INFO - utils/GifHandler=>get_gif:Downloading gif:LIST_HALLOWEEN_MAGICUS_FLYING_BAT_WITH_APPLE_EYES_STICKER
+2025-11-01 12:15:10,756 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:LIST_HALLOWEEN_MAGICUS_FLYING_BAT_WITH_APPLE_EYES_STICKER, belonging to Tenor.
+2025-11-01 12:15:10,757 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Building up endpoint belonging to Tenor https://tenor.googleapis.com/v2/posts?ids=25798660&key=AIzaSyBf_xsisBxmq8QEIPD2feQ9uNJUS-TufbI
+2025-11-01 12:15:10,816 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:https://media.tenor.com/ODZ7RbM-io8AAAAC/magicus-magicusnft.gif, belonging to Tenor.
+2025-11-01 12:15:10,919 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_MONKEY_IN_SHARK_CUSTOME.gif does NOT exists. Getting it!
+2025-11-01 12:15:10,919 - twitch_bot - INFO - utils/GifHandler=>get_gif:Getting gif: 23412816 to name it LIST_HALLOWEEN_MONKEY_IN_SHARK_CUSTOME from the TENOR
+2025-11-01 12:15:10,919 - twitch_bot - INFO - utils/GifHandler=>get_gif:Downloading gif:LIST_HALLOWEEN_MONKEY_IN_SHARK_CUSTOME
+2025-11-01 12:15:10,919 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:LIST_HALLOWEEN_MONKEY_IN_SHARK_CUSTOME, belonging to Tenor.
+2025-11-01 12:15:10,920 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Building up endpoint belonging to Tenor https://tenor.googleapis.com/v2/posts?ids=23412816&key=AIzaSyBf_xsisBxmq8QEIPD2feQ9uNJUS-TufbI
+2025-11-01 12:15:10,974 - twitch_bot - INFO - utils/TwitchConnection=>get_gif:Downloading gif:https://media.tenor.com/cPQMFSPbedIAAAAC/sticker-giant-halloween.gif, belonging to Tenor.
+2025-11-01 12:15:11,350 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_PINK_BAT_FLYING_STICKER.gif does NOT exists. Getting it!
+2025-11-01 12:15:11,350 - twitch_bot - INFO - utils/GifHandler=>get_gif:Getting gif: 3jq7RU6PclsLBDEtnH to name it LIST_HALLOWEEN_PINK_BAT_FLYING_STICKER from the GIPHY
+2025-11-01 12:15:11,350 - twitch_bot - INFO - utils/GifHandler=>get_gif:Downloading gif:LIST_HALLOWEEN_PINK_BAT_FLYING_STICKER

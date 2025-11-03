@@ -9,7 +9,7 @@ class Database_Reader():
 
         #Bruker hostname til å bestemme navnet på db
         self.hostname = socket.gethostname()
-        self.db_path = f"./test_db/{self.hostname}.db"
+        self.db_path = f"./databases/{self.hostname}.db"
 
         #Denne skal ikke opprette databasen, så må sjekke fila finnes før den prøver 
         #å koble til. Koble til = lage db-fil hvis den ikke finnes.

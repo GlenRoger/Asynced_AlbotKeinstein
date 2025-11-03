@@ -18,6 +18,8 @@ class Overlay_runner:
 
         self.isAwake = True
 
+        self.use_this_halloween_gif = ""
+
         self.logger.info(f"{self.logger_prefix}Command_central successfully initialized!")
 
 
@@ -73,6 +75,19 @@ class Overlay_runner:
     async def make_thank_you_message(self, username):
         await self.set_in_queue({"text":"Thank you!!","gif":"THANK_YOU_FOR_SUPPORT","sound":""})
 
+    async def make_halloween_message(self, gif_to_show):
+        current_log_prefix = self.logger_prefix + "make_halloween_message:"
+        self.logger.info(f"{current_log_prefix}Added another visual command - Halloween!")
+
+        self.use_this_halloween_gif = gif_to_show
+
+        print(f"\n\n\n\tHalloween: {gif_to_show}\n\n\n")
+
+        # await self.set_in_queue({"text":"BOOOH!!","gif":gif_to_show,"sound":"PLAY_THIS_Halloween_sound.wav"})
+#        await self.set_in_queue({"text":"BOOOH!!","gif":gif_to_show,"sound":"PLAY_THIS_Halloween_sound.wav"})
+        self.set_in_queue(f"BOOOH!!:HALLOWEEN")
+
+
     #From recipes figure out what gifs to use, what sounds to use and what text to show and so on.
     #the end result should be thrown as trash or put in queue on this format:
     #"text='text_goes_here';gif_path="./overlay_media/gifs/MOON_CAKE_CHAOS.gif;sound_path='./overlay_media/sounds/Alarm01'"
@@ -115,6 +130,10 @@ class Overlay_runner:
 
         elif cmd.upper() == "ALBOTSTARTUP":
             return {"text":"Albot up and running!","gif":"MOOSE_WAVE_HI","sound":""}
+
+        elif cmd.upper() == "HALLOWEEN":
+            print("\n\n\n\tHALLLOOOOOWWWEEEEEEEN!\n\n\n\n")
+            return {"text":"BOOH!!","gif":self.use_this_halloween_gif,"sound":"PLAY_THIS_Halloween_sound.wav"}
 
     #For immidiate commands - like Sleep
     async def interrupt_run_visual_command(self, cmd_dict):

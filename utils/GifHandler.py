@@ -21,6 +21,7 @@ class GifHandler:
 
         self.list_pokemon_bits_gifs         = []
         self.list_scary_i_see_you_bits_gifs = []
+        self.list_halloween_gifs            = []
 
 
     def print_all(self):
@@ -31,6 +32,7 @@ class GifHandler:
 
         self.list_pokemon_bits_gifs         = []
         self.list_scary_i_see_you_bits_gifs = []
+        self.list_halloween_gifs            = []
 
         current_log_prefix = self.logger_prefix + "setup:"
         self.logger.info(f"{current_log_prefix}Setup running!")
@@ -142,7 +144,8 @@ class GifHandler:
                             self.list_pokemon_bits_gifs.append(gif_name)
                         elif gif_name.startswith("LIST_SCARY_I_SEE_YOU_BITS_"):
                             self.list_scary_i_see_you_bits_gifs.append(gif_name)
-
+                        elif gif_name.startswith("LIST_HALLOWEEN_"):
+                            self.list_halloween_gifs.append(gif_name)
                     else:
                         self.logger.info(f"{current_log_prefix}Couldn't understand input from file{self.known_gifs}. Input gotten:/{line}/ - could not be split into gif_id, gif_owner and gif_name.")
                         continue
@@ -232,3 +235,6 @@ class GifHandler:
     
     def get_random_scary_i_see_you_bits_list(self):
         return random.choice(self.list_scary_i_see_you_bits_gifs)
+    
+    def get_random_halloween_list(self):
+        return random.choice(self.list_halloween_gifs)

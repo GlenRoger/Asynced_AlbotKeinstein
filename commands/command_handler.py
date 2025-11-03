@@ -304,8 +304,6 @@ class Command_central:
 
 
 
-
-
     #Her kjøres faktik kommandoene, som tidligere har blitt plassert i kø.
     async def run_command(self, cmd_obj):
 

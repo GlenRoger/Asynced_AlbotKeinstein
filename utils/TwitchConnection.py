@@ -236,7 +236,7 @@ class TwitchConnection:
             self.logger.info(f"{current_log_prefix}Joined channel: #{config.CHANNEL}")
 
             await self.albot_msg_to_chat("TwitchConnection.start_message_loop", "AlbotKeinstein up and running! <3")
-            self.overlay_runner.set_in_queue(f"Albot up and running!:AlbotStartup")
+#            self.overlay_runner.set_in_queue(f"Albot up and running!:AlbotStartup")
 
             try:
                 while self.run_loop:
