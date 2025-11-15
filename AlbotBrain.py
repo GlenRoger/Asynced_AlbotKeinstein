@@ -105,13 +105,13 @@ class AlbotBrain:
             
 
 
-            min_min_wait = 1
-            max_min_wait = 1
+            min_min_wait = 10
+            max_min_wait = 10
 
 
             time_between_5_min_and_10_min = random.randint(min_min_wait*60, max_min_wait*60)
 
-            time_between_5_min_and_10_min = 15
+            # time_between_5_min_and_10_min = 15
 
 
             gif_to_show = self.gif_handler.get_random_TSTWTGIFS_list()
