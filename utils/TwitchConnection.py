@@ -549,7 +549,7 @@ class TwitchConnection:
         if response.status_code == 200:
             data = response.json()
             print("Token is valid!")
-            print(f"Client ID: {data.get('client_id')}")
+#            print(f"Client ID: {data.get('client_id')}")
             print(f"User ID: {data.get('user_id')}")
             print(f"Username: {data.get('login')}")
             
@@ -590,7 +590,7 @@ class TwitchConnection:
         if response.status_code == 200:
             data = response.json()
             print("Token is valid!")
-            print(f"Client ID: {data.get('client_id')}")
+#            print(f"Client ID: {data.get('client_id')}")
             print(f"User ID: {data.get('user_id')}")
             print(f"Username: {data.get('login')}")
             

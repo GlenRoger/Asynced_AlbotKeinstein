@@ -100,20 +100,25 @@ class AlbotBrain:
         self.shutdown_requested = False  # Add this flag
 
     async def get_commands_from_db(self):
-        pass
-        # while True:
+        # pass
+        while True:
             
 
 
-        #     time_between_5_min_and_10_min = random.randint(5*60, 10*60)
+            min_min_wait = 1
+            max_min_wait = 1
 
 
+            time_between_5_min_and_10_min = random.randint(min_min_wait*60, max_min_wait*60)
 
-        #     gif_to_show = self.gif_handler.get_random_halloween_list()
-        #     print(gif_to_show)
-        #     await self.overlay_runner.make_halloween_message(gif_to_show)
+            time_between_5_min_and_10_min = 15
 
-        #     await asyncio.sleep(time_between_5_min_and_10_min)
+
+            gif_to_show = self.gif_handler.get_random_TSTWTGIFS_list()
+            print(f"\n\n\n\tGifToShow:{gif_to_show}\n\n\n")
+            await self.overlay_runner.make_tstwtgif_message(gif_to_show)
+
+            await asyncio.sleep(time_between_5_min_and_10_min)
 
 
     async def start(self):

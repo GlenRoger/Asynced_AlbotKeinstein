@@ -19,6 +19,7 @@ class Overlay_runner:
         self.isAwake = True
 
         self.use_this_halloween_gif = ""
+        self.use_this_tstwtgif_gif  = ""
 
         self.logger.info(f"{self.logger_prefix}Command_central successfully initialized!")
 
@@ -88,6 +89,19 @@ class Overlay_runner:
         self.set_in_queue(f"BOOOH!!:HALLOWEEN")
 
 
+    async def make_tstwtgif_message(self, gif_to_show):
+        current_log_prefix = self.logger_prefix + "make_tstwtgif_message:"
+        self.logger.info(f"{current_log_prefix}Added another visual command - TSTWTGIF!")
+
+        self.use_this_tstwtgif_gif = gif_to_show
+
+        print(f"\n\n\n\tTSTWTGIF: {gif_to_show}\n\n\n")
+
+        # await self.set_in_queue({"text":"text":"Thank you for the support! <3","gif":gif_to_show,"sound":"set_sound_file_name_here.wav"})
+#        self.set_in_queue({"text":"Thank you for the support! <3","gif":gif_to_show})
+        # self.set_in_queue(f"Thank you for the support! <3")
+        self.set_in_queue(f"Thanks4support:TSTWTGIF")
+
     #From recipes figure out what gifs to use, what sounds to use and what text to show and so on.
     #the end result should be thrown as trash or put in queue on this format:
     #"text='text_goes_here';gif_path="./overlay_media/gifs/MOON_CAKE_CHAOS.gif;sound_path='./overlay_media/sounds/Alarm01'"
@@ -95,6 +109,8 @@ class Overlay_runner:
     #["text_to_be_shown","./overlay_media/gifs/MOON_CAKE_CHAOS.gif", './overlay_media/sounds/Alarm01']
     #{"text":"text_to_be_shown", "gif":./overlay_media/gif/"", "sound":"./overlay_media/sounds/.."}
 
+
+    #self.set_in_queue(f"BOOOH!!:HALLOWEEN")
     #Input parameter på foramt cmd = username:cmd
     def build_command(self, cmd):
         current_log_prefix = self.logger_prefix + "build_command:"
@@ -134,6 +150,10 @@ class Overlay_runner:
         elif cmd.upper() == "HALLOWEEN":
             print("\n\n\n\tHALLLOOOOOWWWEEEEEEEN!\n\n\n\n")
             return {"text":"BOOH!!","gif":self.use_this_halloween_gif,"sound":"PLAY_THIS_Halloween_sound.wav"}
+        
+        elif cmd.upper() == "TSTWTGIF":
+            print("\n\n\n\tTSTWTGIF!\n\n\n\n")
+            return {"text":"Thank you for the support! <3","gif":self.use_this_tstwtgif_gif,"sound":""}            
 
     #For immidiate commands - like Sleep
     async def interrupt_run_visual_command(self, cmd_dict):
