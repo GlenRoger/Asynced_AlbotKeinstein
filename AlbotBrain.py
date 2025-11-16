@@ -111,10 +111,12 @@ class AlbotBrain:
 
             time_between_5_min_and_10_min = random.randint(min_min_wait*60, max_min_wait*60)
 
-            # time_between_5_min_and_10_min = 15
+            time_between_5_min_and_10_min = 15
 
+            #XMAS_2025_GIFS
+            gif_to_show = self.gif_handler.get_random_gif_from_list("XMAS_2025_GIFS")
 
-            gif_to_show = self.gif_handler.get_random_TSTWTGIFS_list()
+            # gif_to_show = self.gif_handler.get_random_TSTWTGIFS_list()
             print(f"\n\n\n\tGifToShow:{gif_to_show}\n\n\n")
             await self.overlay_runner.make_tstwtgif_message(gif_to_show)
 

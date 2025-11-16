@@ -25,6 +25,10 @@ class GifHandler:
         self.list_TSTWTGIFS_gifs            = []
 
 
+        #Automagically store alle lists in a dictionary
+        self.gif_lists_dict = {}
+
+
     def print_all(self):
         print(f"{self.known_gifs_dict}")
 
@@ -90,10 +94,104 @@ class GifHandler:
         except Exception as e:
             self.logger.error(f"Error getting GIF duration: {e}")
             return 5000  # Default fallback duration
-        
+
+    async def read_known_gifs_into_dict(self):
+        current_log_prefix = self.logger_prefix + "read_known_gifs_into_dict:"
+        self.logger.info(f"{current_log_prefix}Checking known_gif.csv-file for gifs if we got them already")
+
+        if os.path.exists(self.known_gifs_file):
+            self.logger.info(f"{current_log_prefix}File:{self.known_gifs_file} exists.")
+
+            with open(self.known_gifs_file, 'r', encoding='utf8') as file:
+                for line in file.readlines():
+                    if line.startswith('#'):
+                        continue
+
+                    split_list = line.split(';')
+
+                    gif_id = ""
+                    gif_owner = ""
+                    gif_name = ""
+
+                    if len(split_list) == 3:
+
+                        gif_id      = split_list[0]
+                        gif_owner   = split_list[1]
+                        gif_name    = split_list[2].rstrip()
+
+                        #Sjekke om noen har kopiert med hele URL'en, da må vi clean'e litt.
+                        if gif_id[0] == 'h':
+                            gif_id = gif_id.split('-')[-1]
+
+
+                        got_gif_file = False
+
+                        gif_path = f"{config.MEDIA_FOLDER_GIF}{gif_name}.gif"
+
+
+                        if not os.path.exists(gif_path):
+                            self.logger.info(f"{current_log_prefix}File:{gif_path} does NOT exists. Getting it!")
+                            got_gif_file = await self.get_gif(gif_id, gif_owner, gif_name)
+                        else:
+                            self.logger.info(f"{current_log_prefix}File:{gif_path} exists already.")
+                            got_gif_file = True
+
+                        gif_duration = self.calculate_gif_duration(gif_path)
+
+                        self.known_gifs_dict[gif_name] = {
+                            "path":gif_path,
+                            "duration":gif_duration,
+                            "id": gif_id,
+                            "owner": gif_owner}
+
+
+
+                        #Build lists and set them into the dictionary of lists based on filename
+                        #filename should start with LIST__
+                        #The name of the wanted list should come after and end with double underscord e.g.:
+                        #LIST__XMAS_GIFS_2025__SANTA_LAUGHING
+                        #LIST__XMAS_GIFS_2025__REDNOSE_REINDEER_FARTING
+                        #LIST__XMAS_GIFS_2025__MRS_CLAUSE_MAKING_CAKES
+                        #This will generate a list called XMAS_GIFS_2025 with the three files, now a random gif-picker can
+                        #called with the XMAS_GIFS_2025 as parameter to get a random gif from the list.
+
+                        if gif_name.startswith("LIST__"):
+                            new_list_to_be_added_name = gif_name.split("__")[1].upper()
+                            self.logger.info(f"Creating a gif-list for the dicionary: {new_list_to_be_added_name}")
+
+                            if new_list_to_be_added_name not in self.gif_lists_dict.keys():
+                                self.logger.info(f"List not existing, creating it: {new_list_to_be_added_name}")
+                                self.gif_lists_dict[new_list_to_be_added_name] = []
+
+                            self.gif_lists_dict[new_list_to_be_added_name].append(gif_name)
+                            self.logger.info(f"List: {new_list_to_be_added_name} added {gif_name}")
+                            self.logger.info(f"LIST: {new_list_to_be_added_name} now contains: {self.gif_lists_dict[new_list_to_be_added_name]}")
+
+
+
+                        elif gif_name.startswith("LIST_POKEMON_BITS_"):
+                            self.list_pokemon_bits_gifs.append(gif_name)
+                        elif gif_name.startswith("LIST_SCARY_I_SEE_YOU_BITS_"):
+                            self.list_scary_i_see_you_bits_gifs.append(gif_name)
+                        elif gif_name.startswith("LIST_HALLOWEEN_"):
+                            self.list_halloween_gifs.append(gif_name)
+                        elif gif_name.startswith("LIST_TSTWTGIFS"):
+                            self.list_TSTWTGIFS_gifs.append(gif_name)
+
+
+
+                    else:
+                        self.logger.info(f"{current_log_prefix}Couldn't understand input from file{self.known_gifs}. Input gotten:/{line}/ - could not be split into gif_id, gif_owner and gif_name.")
+                        continue
+
+
+        else:
+            self.logger.info(f"{current_log_prefix}File:{self.known_gifs_file} does NOT exists.")        
+
 
     #Download if necessary, if the files in the known_gifs.csv-file isn't already downloaded.
-    async def read_known_gifs_into_dict(self):
+#DEPRECATED TO BE DELETED!    
+    async def read_known_gifs_into_dict_ORIGINAL(self):
         current_log_prefix = self.logger_prefix + "read_known_gifs_into_dict:"
         self.logger.info(f"{current_log_prefix}Checking known_gif.csv-file for gifs if we got them already")
 
@@ -234,6 +332,23 @@ class GifHandler:
             return False
         
 
+    def get_random_gif_from_list(self, list_name):
+
+        if list_name.upper() in self.gif_lists_dict.keys():
+            print(f"Choosing from this list: {list_name} having these gifs: {self.gif_lists_dict[list_name]}")
+
+            if len(self.gif_lists_dict[list_name]) == 0:
+                self.logger.warning(f"Gif list {list_name} is empty!")
+                return ""
+            
+            return random.choice(self.gif_lists_dict[list_name])
+
+        else:
+            self.logger.warning(f"Couldn't find list named {list_name} in {self.gif_lists_dict.keys()}")
+            return ""
+
+
+#DEPRECATED TO BE DELETED!
     def get_random_pokemon_bits_list(self):
         return random.choice(self.list_pokemon_bits_gifs)
     
