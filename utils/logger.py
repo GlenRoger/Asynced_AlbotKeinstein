@@ -21,6 +21,7 @@ class DatebaseLogger(logging.Logger):
         # Call parent logger
         super().info(message, *args, **kwargs)
 
+
     def warning(self, message, *args, **kwargs):
         self._write_to_errors_register("WARNING", message)
         self.logger.warning(message, *args, **kwargs)
@@ -38,7 +39,7 @@ class DatebaseLogger(logging.Logger):
         # print(f"Får inn level:{level} og message {message}")
         pass
 
-
+#"BOT_VERSION": self.ALBOTVERSION, 
         # #timestamp, action, invoked_by, function_name, parameters, bot_version
 
         # action = ""
@@ -99,9 +100,7 @@ class DatebaseLogger(logging.Logger):
             print(f"error_message fixed: {error_message}")
 
 
-
-
-            value_dict = {"COMPONENT": component_name, "FUNCTION_NAME": function_name, "SEVERITY": severity, "ERROR_MESSAGE": error_message}
+            value_dict = {"BOT_VERSION": self.ALBOTVERSION, "COMPONENT": component_name, "FUNCTION_NAME": function_name, "SEVERITY": severity, "ERROR_MESSAGE": error_message}
             self.db.insert_into(table_name, value_dict)
         except Exception as e:
             print(f"\n\n\n\t\tError logger.py: Couldn't write to database!!!\n\t\t{e}\n\n\n")
@@ -110,7 +109,8 @@ class DatebaseLogger(logging.Logger):
 
 class LogThis():
 
-    def __init__(self, db):
+    def __init__(self, db, ALBOTVERSION):
+        self.ALBOTVERSION = ALBOTVERSION
 
         self.db = db
 

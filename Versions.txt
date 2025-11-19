@@ -1,0 +1,3 @@
+
+
+Albot 1.0   - Albot has automagic list created based on gif file names in the overlay_media folder. It has a dashboard, it shows greetings and auto shout out. It connects to Twitch and yadayadayada

@@ -1,13 +1,23 @@
 import sqlite3
 import socket
 import sys
+import os
 
 class DatabaseController():
 
-    def __init__(self):
+    def __init__(self, test_run=False):
         #Bruker hostname til å bestemme navnet på db
         self.hostname = socket.gethostname()
         self.db_path = f"./databases/{self.hostname}.db"
+
+        if test_run:
+            self.db_path = f"../databases/{self.hostname}.db"
+
+
+
+        if not os.path.exists(self.db_path):
+            print("\n\nCouldn't fint the folder './databases' - please check it exists!")
+
 
         self.conn = sqlite3.connect(self.db_path)
         self.cursor = self.conn.cursor()
@@ -17,6 +27,7 @@ class DatabaseController():
         self.create_error_register_table()
         self.create_info_register_table()
         self.create_tokens_register_table()
+
 
     def create_table(self, table_name, columns_list):
 
@@ -216,12 +227,12 @@ if __name__ == "__main__":
 
 
     #Script starting
-    database_controller = DatabaseController()
+    database_controller = DatabaseController(True)
     database_controller.show_db_content()
 
 
     #Error_register
-    # if True:
+ #   if True:
         # database_controller.create_table("Errors_register" ,["timestamp DATETIME DEFAULT CURRENT_TIMESTAMP", "hostname NVARCHAR(255)", "error_message TEXT", "component  NVARCHAR(100)", "error_type NVARCHAR(50)", "severity NVARCHAR(20)", "bot_version NVARCHAR(20)", "function_name NVARCHAR(100)"])
         # database_controller.show_table("Errors_register")
         # database_controller.easy_select_from("Errors_register", "select count(*)")
@@ -242,7 +253,7 @@ if __name__ == "__main__":
 
 
     #Token_register
-    # if False:
+#    if False:
         # database_controller.create_table("Tokens_register", ["timestamp DATETIME DEFAULT CURRENT_TIMESTAMP", "token_for NVARCHAR(100)", "expiration_date datetime2", "last_updated datetime2"])
         # database_controller.show_table("Tokens_register")
         # database_controller.easy_select_from("Tokens_register", "select count(*)")
@@ -258,7 +269,7 @@ if __name__ == "__main__":
     database_controller.select_from("select * from Tokens_register")
 
 
-    # if False:
+    # if True:
         # database_controller.create_table("Info_register" ,["timestamp DATETIME DEFAULT CURRENT_TIMESTAMP", "action NVARCHAR(255)", "invoked_by NVARCHAR(100)", "function_name NVARCHAR(100)", "parameters NVARCHAR(255)", "bot_version NVARCHAR(20)"])
         # database_controller.show_table("Info_register")
         # database_controller.easy_select_from("Info_register", "select count(*)")
@@ -272,6 +283,27 @@ if __name__ == "__main__":
         # values_dict = {"action": "Shout out", "invoked_by": "Albert autofunction"}
         # database_controller.insert_into("Info_register", values_dict)
 
-        # database_controller.drop_table("Info_register", 333)
+#        database_controller.drop_table("Info_register", 333)
 
     database_controller.select_from("select * from Info_register")
+
+
+    # if True:
+        # database_controller.create_table("Dashboard_cmd_register" ,["timestamp DATETIME DEFAULT CURRENT_TIMESTAMP", "invoked_by NVARCHAR(100)", "action NVARCHAR(255)", "parameters NVARCHAR(255)", "bot_version NVARCHAR(20)"])
+        # database_controller.show_table("Dashboard_cmd_register")
+        # database_controller.easy_select_from("Dashboard_cmd_register", "select count(*)")
+
+        # values_dict_1 = {"ACTION": "REFRESH", "INVOKED_BY": "DASHBOARD", "PARAMETERS": "GIFS"}
+        # database_controller.insert_into("Dashboard_cmd_register", values_dict_1)
+
+        # values_dict_2 = {"ACTION": "REFRESH", "INVOKED_BY": "DASHBOARD", "PARAMETERS": "GREETINGS"}
+        # database_controller.insert_into("Dashboard_cmd_register", values_dict_2)
+
+        # values_dict = {"action": "Shout out", "invoked_by": "Albert autofunction"}
+        # database_controller.insert_into("Dashboard_cmd_register", values_dict)
+
+        # database_controller.drop_table("Dashboard_cmd_register", 333)
+
+    database_controller.select_from("select * from Dashboard_cmd_register")
+
+

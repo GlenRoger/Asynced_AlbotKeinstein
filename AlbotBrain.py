@@ -24,6 +24,9 @@ class AlbotBrain:
 
     def __init__(self):
 
+
+        self.ALBOTVERSION = "1.0"
+
         self.logger_prefix = "AlbotBrain:"
 
         #Adding database
@@ -31,8 +34,9 @@ class AlbotBrain:
 
 
         #This logger is going to be passed on to other objects to be used for logging the full bot's life cycle
-        self.logger = logger.LogThis(self.db).get_logger()
+        self.logger = logger.LogThis(self.db, self.ALBOTVERSION).get_logger()
         self.logger.info("ALBOTKEINSTEIN INITIALIZING ANEW!\n###############################################################################")
+
 
 
         # Initialize Qt Application
@@ -100,27 +104,27 @@ class AlbotBrain:
         self.shutdown_requested = False  # Add this flag
 
     async def get_commands_from_db(self):
-        # pass
-        while True:
+        pass
+        # while True:
             
 
 
-            min_min_wait = 10
-            max_min_wait = 10
+        #     min_min_wait = 10
+        #     max_min_wait = 10
 
 
-            time_between_5_min_and_10_min = random.randint(min_min_wait*60, max_min_wait*60)
+        #     time_between_5_min_and_10_min = random.randint(min_min_wait*60, max_min_wait*60)
 
-            time_between_5_min_and_10_min = 15
+        #     time_between_5_min_and_10_min = 15
 
-            #XMAS_2025_GIFS
-            gif_to_show = self.gif_handler.get_random_gif_from_list("XMAS_2025_GIFS")
+        #     #XMAS_2025_GIFS
+        #     gif_to_show = self.gif_handler.get_random_gif_from_list("XMAS_2025_GIFS")
 
-            # gif_to_show = self.gif_handler.get_random_TSTWTGIFS_list()
-            print(f"\n\n\n\tGifToShow:{gif_to_show}\n\n\n")
-            await self.overlay_runner.make_tstwtgif_message(gif_to_show)
+        #     # gif_to_show = self.gif_handler.get_random_TSTWTGIFS_list()
+        #     print(f"\n\n\n\tGifToShow:{gif_to_show}\n\n\n")
+        #     await self.overlay_runner.make_tstwtgif_message(gif_to_show)
 
-            await asyncio.sleep(time_between_5_min_and_10_min)
+        #     await asyncio.sleep(time_between_5_min_and_10_min)
 
 
     async def start(self):

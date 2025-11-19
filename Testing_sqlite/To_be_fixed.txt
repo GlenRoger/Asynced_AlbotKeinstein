@@ -1,3 +1,7 @@
+Button to refresh gifs
+Button to refresh greetings
+
+
 DONE! Legge til SQLite funksjonalitet i Albot
 Albot status (info-register-tabell)
 DONE! Error meldinger fra Albot inn I db
@@ -11,9 +15,9 @@ STATUS ALBOT  & GIPHY og HALLOWEEN-knapp + liste
 
 
 
-Giphy-bruker
+Done! Giphy-bruker
 Giphy-api
-GIF-halloween-liste
+Done! GIF-halloween-liste
 Dashboard-"gif-button"
 Db-funksjon som kjøres hver andre sekund -> Sjekker commando gif
 

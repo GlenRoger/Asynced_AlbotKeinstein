@@ -4,34 +4,8 @@ from datetime import datetime
 from Testing_sqlite.sql_reader_halloween import Database_Reader
 
 
-#db-connection
-db_reader = Database_Reader()
-
-# Create the main window
-window = tk.Tk()
-window.title("Albot Keinstein Dashboard")
-window.geometry("600x300")
-
-# Add a label to show some data
-error_title_label = tk.Label(window, text="Last error message:", font=("Arial", 14), justify="left")
-error_title_label.pack()
-
-error_label = tk.Label(window, text="No new errors found!", font=("Arial", 12), justify="left")
-error_label.pack()
-
-info_title_label = tk.Label(window, text="Recent info messages:", font=("Arial", 14), justify="left")
-info_title_label.pack()
-
-info_label = tk.Label(window, text="No new info found!", font=("Arial", 12), justify="left")
-info_label.pack()
-
-
-label_albot_token = tk.Label(window, text="Wait for albot's token age...", font=("Arial", 14), justify="left")
-label_albot_token.pack()
-
-label_TSTWT_token = tk.Label(window, text="Wait for albot's TSTWT token age...", font=("Arial", 14), justify="left")
-label_TSTWT_token.pack()
-
+def refresh_button_command():
+    print(f"Refresh {selected_option.get()}")
 
 
 def calculate_message_age(message_timestamp):
@@ -184,6 +158,51 @@ def change_text():
 
     # Schedule next change in 5 seconds (5000 milliseconds)
     window.after(5000, change_text)
+
+
+#db-connection
+db_reader = Database_Reader()
+
+# Create the main window
+window = tk.Tk()
+window.title("Albot Keinstein Dashboard")
+window.geometry("600x300")
+
+# Add a label to show some data
+error_title_label = tk.Label(window, text="Last error message:", font=("Arial", 14), justify="left")
+error_title_label.pack()
+
+error_label = tk.Label(window, text="No new errors found!", font=("Arial", 12), justify="left")
+error_label.pack()
+
+info_title_label = tk.Label(window, text="Recent info messages:", font=("Arial", 14), justify="left")
+info_title_label.pack()
+
+info_label = tk.Label(window, text="No new info found!", font=("Arial", 12), justify="left")
+info_label.pack()
+
+
+label_albot_token = tk.Label(window, text="Wait for albot's token age...", font=("Arial", 14), justify="left")
+label_albot_token.pack()
+
+label_TSTWT_token = tk.Label(window, text="Wait for albot's TSTWT token age...", font=("Arial", 14), justify="left")
+label_TSTWT_token.pack()
+
+selected_option = tk.StringVar()
+selected_option.set("Apple")
+
+menu = tk.OptionMenu(window, selected_option, "Apple", "Banana", "Orange")
+menu.pack(pady=20)
+
+
+#REFRESH BUTTON
+go_button = tk.Button(window, text="Refresh", command=refresh_button_command, 
+                      font=("Arial", 14), bg="green", fg="white")
+go_button.pack()
+
+
+
+
 
 # Start the timer (first change after 5 seconds)
 window.after(5000, change_text)
