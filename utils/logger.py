@@ -12,9 +12,10 @@ import datetime
 
 class DatebaseLogger(logging.Logger):
 
-    def set_db(self, db):
+    def set_db(self, db, albotversion):
         self.db = db
-
+        self.ALBOTVERSION = albotversion
+        
     def info(self, message, *args, **kwargs):
         # Write to database
         self._write_to_info_register("INFO", message)
@@ -131,10 +132,13 @@ class LogThis():
 
         logging.setLoggerClass(DatebaseLogger)
 
+
 #        self.logger = super().logging.__init__("twitch_bot")
         self.logger  = logging.getLogger("twitch_bot")
 
-        self.logger.set_db(self.db)
+        self.logger.set_db(self.db, self.ALBOTVERSION)
+
+#        self.logger.set_db(self.db)
 
 
     def get_logger(self):

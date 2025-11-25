@@ -232,7 +232,7 @@ if __name__ == "__main__":
 
 
     #Error_register
- #   if True:
+    # if True:
         # database_controller.create_table("Errors_register" ,["timestamp DATETIME DEFAULT CURRENT_TIMESTAMP", "hostname NVARCHAR(255)", "error_message TEXT", "component  NVARCHAR(100)", "error_type NVARCHAR(50)", "severity NVARCHAR(20)", "bot_version NVARCHAR(20)", "function_name NVARCHAR(100)"])
         # database_controller.show_table("Errors_register")
         # database_controller.easy_select_from("Errors_register", "select count(*)")
@@ -253,7 +253,7 @@ if __name__ == "__main__":
 
 
     #Token_register
-#    if False:
+    # if True:
         # database_controller.create_table("Tokens_register", ["timestamp DATETIME DEFAULT CURRENT_TIMESTAMP", "token_for NVARCHAR(100)", "expiration_date datetime2", "last_updated datetime2"])
         # database_controller.show_table("Tokens_register")
         # database_controller.easy_select_from("Tokens_register", "select count(*)")
@@ -283,7 +283,7 @@ if __name__ == "__main__":
         # values_dict = {"action": "Shout out", "invoked_by": "Albert autofunction"}
         # database_controller.insert_into("Info_register", values_dict)
 
-#        database_controller.drop_table("Info_register", 333)
+        # database_controller.drop_table("Info_register", 333)
 
     database_controller.select_from("select * from Info_register")
 
