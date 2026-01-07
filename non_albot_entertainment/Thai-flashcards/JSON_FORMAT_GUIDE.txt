@@ -1,0 +1,54 @@
+# JSON Format Guide for Thai Words
+
+## Basic Format
+
+The JSON file is a list of word pairs. Each word needs:
+- `thai`: The Thai word/phrase
+- `english`: The English translation
+
+## Example Structure
+
+```json
+[
+  {"thai": "สวัสดี", "english": "hello"},
+  {"thai": "ขอบคุณ", "english": "thank you"},
+  {"thai": "ไม่", "english": "no"}
+]
+```
+
+## Important Rules
+
+1. **Start with `[` and end with `]`** - This makes it a list
+2. **Each entry is wrapped in `{ }`** - Curly braces for each word pair
+3. **Use commas between entries** - But NOT after the last one
+4. **Use quotes `" "` around all text** - Both Thai and English
+5. **File must be UTF-8 encoded** - So Thai characters display correctly
+
+## Multiple Translations
+
+You can provide multiple English translations separated by commas:
+
+```json
+{"thai": "สวัสดี", "english": "hello, hi, greetings"}
+```
+
+The app will accept any of these as correct answers.
+
+## Tips
+
+- Use a text editor that supports UTF-8 (like VS Code, Notepad++, or even Windows Notepad)
+- You can copy-paste Thai words from online dictionaries
+- Test with a small file first (5-10 words) before adding hundreds
+- If you get an error, check for missing commas or quotes
+
+## Template to Copy
+
+```json
+[
+  {"thai": "THAI_WORD_1", "english": "english translation 1"},
+  {"thai": "THAI_WORD_2", "english": "english translation 2"},
+  {"thai": "THAI_WORD_3", "english": "english translation 3"}
+]
+```
+
+Just replace the text and add as many entries as you want!
