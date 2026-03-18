@@ -4,5 +4,6 @@ __pycache__/config.cpython-311.pyc
 /__pycache__
 /__pycache__/
 /__pycache__/*.*
+*/__pycache__
 /database/*.db
 *.db
