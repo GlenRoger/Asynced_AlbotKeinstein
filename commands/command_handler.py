@@ -250,13 +250,20 @@ class Command_central:
 
     async def check_command(self, sender, cmd, params):
         current_log_prefix = self.logger_prefix + "check_command:"
-        self.logger.info(f"{current_log_prefix}Time to check if this a valid command: /{cmd}/")
+        self.logger.info(f"{current_log_prefix}Time to check if this a valid command: /{cmd}/ also getting param /{params}/")
 
 
         if cmd.upper() in self.all_commands.keys():
 
             #Visual commands are handled elsewhere
             if self.all_commands[cmd.upper()].get_cmd_type() == "OVERLAY":
+
+                if sender == 'thestreamteamwastaken' and cmd.upper() == 'GREETINGS' and params != "" and params.upper() == 'PHEXTHEFLEX':
+                    self.logger.info(f"{current_log_prefix}Passing command {cmd} to Overlay-runner (set_in_queue_tstwt_msg)")
+                    self.overlay_runner.set_in_queue_tstwt_msg(params)
+                    return
+
+
                 self.logger.info(f"{current_log_prefix}Passing command {cmd} to Overlay-runner")
                 self.overlay_runner.set_in_queue(f"{sender}:{cmd}")
                 return

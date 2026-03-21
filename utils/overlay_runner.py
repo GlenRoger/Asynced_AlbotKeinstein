@@ -60,6 +60,21 @@ class Overlay_runner:
         self.logger.info(f"{current_log_prefix}Awake-status set to: {self.isAwake}")
         self.isAwake = bool_val
 
+    def set_in_queue_tstwt_msg(self, greetings_to):
+        current_log_prefix = self.logger_prefix + "set_in_queue_tstwt_msg:"
+        self.logger.info(f"{current_log_prefix}Added another visual command - this for tstwt greetings_to:{greetings_to}")
+
+        if greetings_to.upper() == 'PHEXTHEFLEX':
+            command_built = self.build_command("PHEXTHEFLEX:GREETINGSPHEX")
+
+            print(f"\n\n\n\n\n\n{command_built}\n\n\n\n")
+
+            if command_built:
+                self.logger.info(f"{current_log_prefix}Command added to queue:{command_built}")
+                self.queue.append(command_built)
+            else:
+                self.logger.info(f"{current_log_prefix}Resultet in no commands!! {cmd}")
+
     #Hva er cmd her? username:cmd?
     def set_in_queue(self, cmd):
         current_log_prefix = self.logger_prefix + "set_in_queue:"
@@ -122,7 +137,7 @@ class Overlay_runner:
 
         if cmd.upper() == "THANK YOU":
             return {"text":f"Thank you, {username}! <3","gif":"THANK_YOU_FOR_SUPPORT","sound":""}
-        
+
         elif cmd.upper() == "GREETINGS":
             self.logger.info(f"{current_log_prefix}It's a greetings command!")
 
@@ -135,8 +150,26 @@ class Overlay_runner:
             if sub_greetings_info:
                 gif_to_show, sound_to_play = sub_greetings_info.split(':')
                 self.logger.info(f"{current_log_prefix}It's a greetings command!")
-                return {"text":f"How are you, {username}?","gif":gif_to_show,"sound":sound_to_play}
+                return {"text":f"How are you, {username}?","gif":gif_to_show,"sound":""}
             return ""
+
+        elif cmd.upper() == "GREETINGSPHEX":
+            username = username.lower()
+            self.logger.info(f"{current_log_prefix}It's a greetings command to PhexTheFlex!")
+
+            #Get back this => f"{gif_to_show};{sound_to_play}" or just ""
+            sub_greetings_info  = self.gif_handler.get_sub_gif_greetings("phextheflex")
+
+            self.logger.info(f"{current_log_prefix}It's a greetings command for PhexTheFlex! For {username} we got {sub_greetings_info}")
+
+
+            if sub_greetings_info:
+                gif_to_show, sound_to_play = sub_greetings_info.split(':')
+                self.logger.info(f"{current_log_prefix}It's a greetings command!")
+                return {"text":f"How are you, {username}?","gif":gif_to_show,"sound":sound_to_play}
+            return ""        
+
+
         #Already finished made for putting it in the queue!
         elif cmd.startswith('{'):
 
