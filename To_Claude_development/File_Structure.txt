@@ -1,0 +1,4 @@
+The files included in this project is in the git repo structured in this way:
+folder .\  contains the files   main.py, albotbrain.py, config.py, auth.py
+folder .\commands\ contains the files  command_handler.py, command_runner.py
+folder .\utils\  contains the files __overlay_system.py, databasecontroller.py, GifHandler.py, logger.py, Message_central.py, overlay.py, overlay_animations.py, overlay_bridge.py, overlay_runner.py, task_supervisor.py, TenorConnection.py, TwitchConnection.py, UserRoleManager.py

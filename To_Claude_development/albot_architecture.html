@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Albot — Bot Architecture</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;600;800&display=swap');
+
+  :root {
+    --bg: #0e0f11;
+    --surface: #16181c;
+    --border: #2a2d35;
+    --text: #e8e9ec;
+    --muted: #6b7280;
+    --purple-fill: #1e1a3a;
+    --purple-stroke: #7c6fd4;
+    --purple-text: #c4b8f5;
+    --teal-fill: #0d2a26;
+    --teal-stroke: #2eb89a;
+    --teal-text: #7eecd8;
+    --blue-fill: #0d1f38;
+    --blue-stroke: #3b82f6;
+    --blue-text: #93c5fd;
+    --coral-fill: #2d1510;
+    --coral-stroke: #e05a3a;
+    --coral-text: #fca58a;
+    --amber-fill: #261a07;
+    --amber-stroke: #d97706;
+    --amber-text: #fcd34d;
+    --gray-fill: #1a1c20;
+    --gray-stroke: #4b5563;
+    --gray-text: #9ca3af;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    padding: 40px 24px 60px;
+  }
+
+  header {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+  }
+
+  header .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  header h1 span {
+    color: var(--purple-stroke);
+  }
+
+  header p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1.6;
+  }
+
+  .diagram-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 24px;
+    overflow-x: auto;
+  }
+
+  svg text { font-family: 'JetBrains Mono', monospace; }
+
+  .node { cursor: pointer; }
+  .node:hover rect { opacity: 0.85; }
+
+  /* Legend */
+  .legend {
+    max-width: 900px;
+    margin: 32px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* File descriptions section */
+  .descriptions {
+    max-width: 900px;
+    margin: 40px auto 0;
+  }
+
+  .descriptions h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .file-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 10px;
+  }
+
+  .file-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    border-left-width: 3px;
+  }
+
+  .file-card .filename {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .file-card .desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .purple { border-left-color: var(--purple-stroke); }
+  .purple .filename { color: var(--purple-text); }
+  .teal   { border-left-color: var(--teal-stroke); }
+  .teal   .filename { color: var(--teal-text); }
+  .blue   { border-left-color: var(--blue-stroke); }
+  .blue   .filename { color: var(--blue-text); }
+  .coral  { border-left-color: var(--coral-stroke); }
+  .coral  .filename { color: var(--coral-text); }
+  .amber  { border-left-color: var(--amber-stroke); }
+  .amber  .filename { color: var(--amber-text); }
+  .gray   { border-left-color: var(--gray-stroke); }
+  .gray   .filename { color: var(--gray-text); }
+
+  footer {
+    max-width: 900px;
+    margin: 40px auto 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="label">Twitch Bot · File Architecture</div>
+  <h1>Albot<span>Keinstein</span></h1>
+  <p>Overview of active source files and how they connect. Unused files: auth.py, __overlay_system.py, task_supervisor.py</p>
+</header>
+
+<div class="diagram-wrapper">
+<svg width="100%" viewBox="0 0 840 820" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- ENTRY -->
+  <g class="node" onclick="highlight('main')">
+    <rect id="main" x="320" y="20" width="200" height="50" rx="8" fill="#1a1c20" stroke="#4b5563" stroke-width="1"/>
+    <text x="420" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="#9ca3af">main.py</text>
+    <text x="420" y="57" text-anchor="middle" font-size="10" fill="#6b7280">Entry point · starts asyncio loop</text>
+  </g>
+
+  <line x1="420" y1="70" x2="420" y2="100" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- ALBOTBRAIN -->
+  <g class="node" onclick="highlight('brain')">
+    <rect id="brain" x="270" y="100" width="300" height="56" rx="8" fill="#1e1a3a" stroke="#7c6fd4" stroke-width="1.5"/>
+    <text x="420" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#c4b8f5">AlbotBrain.py</text>
+    <text x="420" y="140" text-anchor="middle" font-size="10" fill="#9985e8">Central hub — wires all parts together</text>
+  </g>
+
+  <!-- Arrows to columns -->
+  <line x1="330" y1="156" x2="155" y2="230" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="420" y1="156" x2="420" y2="230" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="510" y1="156" x2="665" y2="230" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- ===== LEFT: Twitch/Messaging ===== -->
+  <g class="node" onclick="highlight('twitch')">
+    <rect id="twitch" x="40" y="230" width="230" height="56" rx="8" fill="#0d2a26" stroke="#2eb89a" stroke-width="1"/>
+    <text x="155" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#7eecd8">TwitchConnection.py</text>
+    <text x="155" y="269" text-anchor="middle" font-size="10" fill="#3ecfb0">IRC websocket · chat send/receive</text>
+  </g>
+  <line x1="155" y1="286" x2="155" y2="316" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <g class="node" onclick="highlight('msgcentral')">
+    <rect id="msgcentral" x="40" y="316" width="230" height="56" rx="8" fill="#0d2a26" stroke="#2eb89a" stroke-width="1"/>
+    <text x="155" y="338" text-anchor="middle" font-size="12" font-weight="700" fill="#7eecd8">Message_central.py</text>
+    <text x="155" y="355" text-anchor="middle" font-size="10" fill="#3ecfb0">Parses chat · safety checks cmds</text>
+  </g>
+  <line x1="155" y1="372" x2="155" y2="402" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <g class="node" onclick="highlight('userrole')">
+    <rect id="userrole" x="40" y="402" width="230" height="56" rx="8" fill="#0d2a26" stroke="#2eb89a" stroke-width="1"/>
+    <text x="155" y="424" text-anchor="middle" font-size="12" font-weight="700" fill="#7eecd8">UserRoleManager.py</text>
+    <text x="155" y="441" text-anchor="middle" font-size="10" fill="#3ecfb0">MODs · VIPs · followers · subs</text>
+  </g>
+
+  <!-- ===== MIDDLE: Commands ===== -->
+  <g class="node" onclick="highlight('cmdhandler')">
+    <rect id="cmdhandler" x="305" y="230" width="230" height="56" rx="8" fill="#0d1f38" stroke="#3b82f6" stroke-width="1"/>
+    <text x="420" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#93c5fd">command_handler.py</text>
+    <text x="420" y="269" text-anchor="middle" font-size="10" fill="#60a5fa">Validates cmds · checks privileges</text>
+  </g>
+  <line x1="420" y1="286" x2="420" y2="316" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <g class="node" onclick="highlight('cmdrunner')">
+    <rect id="cmdrunner" x="305" y="316" width="230" height="56" rx="8" fill="#0d1f38" stroke="#3b82f6" stroke-width="1"/>
+    <text x="420" y="338" text-anchor="middle" font-size="12" font-weight="700" fill="#93c5fd">command_runner.py</text>
+    <text x="420" y="355" text-anchor="middle" font-size="10" fill="#60a5fa">Runs queued text/chat commands</text>
+  </g>
+
+  <!-- ===== RIGHT: Overlay ===== -->
+  <g class="node" onclick="highlight('ovrunner')">
+    <rect id="ovrunner" x="565" y="230" width="230" height="56" rx="8" fill="#2d1510" stroke="#e05a3a" stroke-width="1"/>
+    <text x="680" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#fca58a">overlay_runner.py</text>
+    <text x="680" y="269" text-anchor="middle" font-size="10" fill="#f87c5a">Queues and triggers visual events</text>
+  </g>
+  <line x1="680" y1="286" x2="680" y2="316" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <g class="node" onclick="highlight('ovbridge')">
+    <rect id="ovbridge" x="565" y="316" width="230" height="56" rx="8" fill="#2d1510" stroke="#e05a3a" stroke-width="1"/>
+    <text x="680" y="338" text-anchor="middle" font-size="12" font-weight="700" fill="#fca58a">overlay_bridge.py</text>
+    <text x="680" y="355" text-anchor="middle" font-size="10" fill="#f87c5a">Qt signals between bot and UI</text>
+  </g>
+  <line x1="680" y1="372" x2="680" y2="402" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <g class="node" onclick="highlight('overlay')">
+    <rect id="overlay" x="565" y="402" width="230" height="56" rx="8" fill="#2d1510" stroke="#e05a3a" stroke-width="1"/>
+    <text x="680" y="424" text-anchor="middle" font-size="12" font-weight="700" fill="#fca58a">overlay.py</text>
+    <text x="680" y="441" text-anchor="middle" font-size="10" fill="#f87c5a">PySide6 window — shows gifs/text</text>
+  </g>
+  <line x1="680" y1="458" x2="680" y2="488" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <g class="node" onclick="highlight('ovanim')">
+    <rect id="ovanim" x="565" y="488" width="230" height="56" rx="8" fill="#2d1510" stroke="#e05a3a" stroke-width="1"/>
+    <text x="680" y="510" text-anchor="middle" font-size="12" font-weight="700" fill="#fca58a">overlay_animations.py</text>
+    <text x="680" y="527" text-anchor="middle" font-size="10" fill="#f87c5a">Animation helpers for the overlay</text>
+  </g>
+
+  <!-- ===== SHARED INFRA ===== -->
+  <!-- Arrows down to infra row -->
+  <line x1="155" y1="458" x2="155" y2="620" stroke="#4b5563" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <line x1="420" y1="372" x2="265" y2="620" stroke="#4b5563" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <line x1="420" y1="372" x2="420" y2="620" stroke="#4b5563" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <line x1="420" y1="372" x2="575" y2="620" stroke="#4b5563" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+  <g class="node" onclick="highlight('gifhandler')">
+    <rect id="gifhandler" x="40" y="620" width="190" height="56" rx="8" fill="#261a07" stroke="#d97706" stroke-width="1"/>
+    <text x="135" y="642" text-anchor="middle" font-size="12" font-weight="700" fill="#fcd34d">GifHandler.py</text>
+    <text x="135" y="659" text-anchor="middle" font-size="10" fill="#f59e0b">Gif catalogue and lookups</text>
+  </g>
+
+  <g class="node" onclick="highlight('tenor')">
+    <rect id="tenor" x="245" y="620" width="190" height="56" rx="8" fill="#261a07" stroke="#d97706" stroke-width="1"/>
+    <text x="340" y="642" text-anchor="middle" font-size="12" font-weight="700" fill="#fcd34d">TenorConnection.py</text>
+    <text x="340" y="659" text-anchor="middle" font-size="10" fill="#f59e0b">Downloads gifs from Tenor API</text>
+  </g>
+
+  <g class="node" onclick="highlight('db')">
+    <rect id="db" x="450" y="620" width="190" height="56" rx="8" fill="#261a07" stroke="#d97706" stroke-width="1"/>
+    <text x="545" y="642" text-anchor="middle" font-size="12" font-weight="700" fill="#fcd34d">databasecontroller.py</text>
+    <text x="545" y="659" text-anchor="middle" font-size="10" fill="#f59e0b">SQLite read/write for bot data</text>
+  </g>
+
+  <!-- Logger -->
+  <line x1="420" y1="676" x2="420" y2="736" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <g class="node" onclick="highlight('logger')">
+    <rect id="logger" x="270" y="736" width="300" height="56" rx="8" fill="#1a1c20" stroke="#4b5563" stroke-width="1"/>
+    <text x="420" y="758" text-anchor="middle" font-size="13" font-weight="700" fill="#9ca3af">logger.py</text>
+    <text x="420" y="775" text-anchor="middle" font-size="10" fill="#6b7280">File + DB logging · passed to all components</text>
+  </g>
+
+</svg>
+</div>
+
+<!-- Legend -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#7c6fd4"></div> Brain / orchestration</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#2eb89a"></div> Twitch / messaging</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div> Commands</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e05a3a"></div> Overlay / visuals</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#d97706"></div> Shared infrastructure</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#4b5563"></div> Entry / logging</div>
+</div>
+
+<!-- File descriptions -->
+<div class="descriptions">
+  <h2>File reference</h2>
+  <div class="file-grid">
+
+    <div class="file-card gray">
+      <div class="filename">main.py</div>
+      <div class="desc">Entry point. Starts the asyncio event loop, instantiates AlbotBrain, and awaits all tasks.</div>
+    </div>
+
+    <div class="file-card purple">
+      <div class="filename">AlbotBrain.py</div>
+      <div class="desc">Central hub. Constructs every component, wires their references together, launches the five async tasks, and handles graceful shutdown.</div>
+    </div>
+
+    <div class="file-card teal">
+      <div class="filename">TwitchConnection.py</div>
+      <div class="desc">Manages the IRC websocket connection to Twitch. Handles login, chat send/receive, OAuth token loading and expiry checks.</div>
+    </div>
+
+    <div class="file-card teal">
+      <div class="filename">Message_central.py</div>
+      <div class="desc">Parses raw IRC messages into sender + command, safety-checks input for injection characters, and forwards valid commands to Command_central.</div>
+    </div>
+
+    <div class="file-card teal">
+      <div class="filename">UserRoleManager.py</div>
+      <div class="desc">Builds and caches lists of MODs, VIPs, subscribers, and followers via the Twitch API. Used for privilege checking.</div>
+    </div>
+
+    <div class="file-card blue">
+      <div class="filename">command_handler.py</div>
+      <div class="desc">Reads command definitions from CSV files, validates commands, checks user privileges, and routes them to the appropriate queue.</div>
+    </div>
+
+    <div class="file-card blue">
+      <div class="filename">command_runner.py</div>
+      <div class="desc">Consumes the command queues and executes text/chat-based commands (replies, shout-outs, etc.).</div>
+    </div>
+
+    <div class="file-card coral">
+      <div class="filename">overlay_runner.py</div>
+      <div class="desc">Maintains the visual command queue. Builds the gif/text/sound payload for each event and sends it to the overlay bridge.</div>
+    </div>
+
+    <div class="file-card coral">
+      <div class="filename">overlay_bridge.py</div>
+      <div class="desc">Qt signal bridge. Translates bot-side method calls into PySide6 signals that the UI thread can safely receive.</div>
+    </div>
+
+    <div class="file-card coral">
+      <div class="filename">overlay.py</div>
+      <div class="desc">The PySide6 overlay window. Frameless, always-on-top, transparent background. Renders gif animations and greeting text on stream.</div>
+    </div>
+
+    <div class="file-card coral">
+      <div class="filename">overlay_animations.py</div>
+      <div class="desc">AnimatedLabel and AnimationManager helpers — bounce, fade, and other effects used by the overlay window.</div>
+    </div>
+
+    <div class="file-card amber">
+      <div class="filename">GifHandler.py</div>
+      <div class="desc">Loads known_gifs.csv, maps usernames to their gif, organises themed gif lists, and provides path/duration lookups.</div>
+    </div>
+
+    <div class="file-card amber">
+      <div class="filename">TenorConnection.py</div>
+      <div class="desc">Downloads gif files from the Tenor API by ID and saves them locally. Skips download if file already exists.</div>
+    </div>
+
+    <div class="file-card amber">
+      <div class="filename">databasecontroller.py</div>
+      <div class="desc">SQLite wrapper. Manages the errors register and tokens register tables. Named per hostname so each machine gets its own DB.</div>
+    </div>
+
+    <div class="file-card gray">
+      <div class="filename">logger.py</div>
+      <div class="desc">Custom logging setup. Writes INFO to file, errors/warnings also to the SQLite errors register. Passed to every component at init.</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  Generated from Albot source code · Files safe to delete: auth.py · __overlay_system.py · task_supervisor.py
+</footer>
+
+<script>
+  function highlight(id) {
+    document.querySelectorAll('rect').forEach(r => r.style.opacity = '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.style.opacity = '1';
+      el.style.filter = 'brightness(1.4)';
+      setTimeout(() => { el.style.filter = ''; }, 800);
+    }
+  }
+</script>
+
+</body>
+</html>

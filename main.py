@@ -1,6 +1,5 @@
 import asyncio
 import AlbotBrain as AB
-import utils.TwitchConnection as TC
 
 
 async def main():

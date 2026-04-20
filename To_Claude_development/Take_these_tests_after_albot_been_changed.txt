@@ -1,0 +1,53 @@
+================================================================================
+  ALBOT — POST-CHANGE SMOKE TEST CHECKLIST
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  1. STARTUP
+--------------------------------------------------------------------------------
+
+  [ ] Bot starts without errors in the terminal
+      - No import errors
+      - No crash during AlbotBrain.__init__
+
+  [ ] The overlay window appears on screen
+
+  [ ] "AlbotKeinstein up and running! <3" appears in Twitch chat
+      - Confirms websocket connected and authenticated
+
+
+--------------------------------------------------------------------------------
+  2. CORE VIEWER FLOW
+--------------------------------------------------------------------------------
+
+  [ ] Type %greetings in chat
+      - A gif plays on the overlay
+
+  [ ] A new viewer types anything in chat (first time this session)
+      - Their auto-greeting gif triggers on the overlay
+
+
+--------------------------------------------------------------------------------
+  3. COMMANDS
+--------------------------------------------------------------------------------
+
+  [ ] Type a basic % command (e.g. %howdy or similar)
+      - Bot replies correctly in chat
+
+  [ ] Type a command a regular viewer should NOT have access to
+      - Bot stays silent (privilege check is working)
+
+
+--------------------------------------------------------------------------------
+  4. SHUTDOWN
+--------------------------------------------------------------------------------
+
+  [ ] Trigger %shutdown / %quit command OR press Ctrl+C
+      - Bot sends goodbye message in chat
+      - Program closes cleanly without hanging
+
+
+================================================================================
+  ALL 8 CHECKS PASSED = safe to go live
+================================================================================
