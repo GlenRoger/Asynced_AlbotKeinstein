@@ -1,0 +1,795 @@
+2026-07-20 21:48:07,389 - twitch_bot - INFO - ALBOTKEINSTEIN INITIALIZING ANEW!
+###############################################################################
+2026-07-20 21:48:07,413 - twitch_bot - INFO - utils/OverlayBridge=>Initializing overlay bridge
+2026-07-20 21:48:07,413 - twitch_bot - INFO - AlbotBrain:Overlay bridge created
+2026-07-20 21:48:07,414 - twitch_bot - INFO - utils/OverlayWindow=>Initializing overlay window
+2026-07-20 21:48:07,414 - twitch_bot - INFO - utils/AnimationManager=>Initializing animation manager
+2026-07-20 21:48:07,469 - twitch_bot - INFO - utils/OverlayWindow=>Overlay window initialized at 480x350
+2026-07-20 21:48:07,469 - twitch_bot - INFO - utils/OverlayWindow=>Text area: 80px, GIF area: 270px
+2026-07-20 21:48:07,470 - twitch_bot - INFO - utils/OverlayWindow=>Bridge connected
+2026-07-20 21:48:07,470 - twitch_bot - INFO - AlbotBrain:Overlay window created and connected to bridge
+2026-07-20 21:48:07,470 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2026-07-20 21:48:07,477 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='HOWDY', type='RE', allprivileges_to_run=['EVERYBODY'], response='"Hi there! Hope you're having a great day! <3"', priority='NORMAL
+2026-07-20 21:48:07,478 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2026-07-20 21:48:07,484 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SLEEP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"I'll go and relax for now! Be back later! <3"', priority='HIGH
+2026-07-20 21:48:07,484 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SILENCE', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"I'll go and relax for now! Be back later! <3"', priority='HIGH
+2026-07-20 21:48:07,484 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='AWAKE', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2026-07-20 21:48:07,484 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='WAKEUP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2026-07-20 21:48:07,484 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='UNSLEEP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2026-07-20 21:48:07,484 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='ALBOTREST', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2026-07-20 21:48:07,484 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SHUTDOWN', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2026-07-20 21:48:07,484 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='QUIT', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2026-07-20 21:48:07,484 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SO', type='SO', allprivileges_to_run=['TSTWTMEMBERS', 'MODS'], response='"Will be made in command_handler"', priority='NORMAL
+2026-07-20 21:48:07,485 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='GREETINGS', type='OVERLAY', allprivileges_to_run=['TSTWTMEMBERS', 'MODS', 'SUBSCRIBERS'], response='""', priority='HIGH
+2026-07-20 21:48:07,485 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='FOLLOWNUMBER', type='ADVANCED', allprivileges_to_run=['EVERYONE'], response='"Will be made in command_handler"', priority='NORMAL
+2026-07-20 21:48:07,485 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='REFRESH', type='ADVANCED', allprivileges_to_run=['TSTWTMEMBERS'], response='"Will be made in command_handler"', priority='NORMAL
+2026-07-20 21:48:07,485 - twitch_bot - INFO - commands/command_handler.Command_central=>Command_central successfully initialized!
+2026-07-20 21:48:07,485 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>Command_central successfully initialized!
+2026-07-20 21:48:07,485 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Normal_commands.csv
+2026-07-20 21:48:07,485 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='HOWDY', type='RE', allprivileges_to_run=['EVERYBODY'], response='"Hi there! Hope you're having a great day! <3"', priority='NORMAL
+2026-07-20 21:48:07,486 - twitch_bot - INFO - commands/command_handler.Command_central=>Reading ./commands/command_files/Advanced_commands.csv
+2026-07-20 21:48:07,486 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SLEEP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"I'll go and relax for now! Be back later! <3"', priority='HIGH
+2026-07-20 21:48:07,486 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SILENCE', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"I'll go and relax for now! Be back later! <3"', priority='HIGH
+2026-07-20 21:48:07,486 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='AWAKE', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2026-07-20 21:48:07,486 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='WAKEUP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2026-07-20 21:48:07,486 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='UNSLEEP', type='cmd', allprivileges_to_run=['TSTWTMEMBERS'], response='"Ah! I'm back again. Missed me? :D"', priority='HIGH
+2026-07-20 21:48:07,486 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='ALBOTREST', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2026-07-20 21:48:07,486 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SHUTDOWN', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2026-07-20 21:48:07,486 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='QUIT', type='CMD', allprivileges_to_run=['TSTWTMEMBERS'], response='"Alright, I'm outta here! Have a great time everyone! Miss you! <3"', priority='HIGH
+2026-07-20 21:48:07,487 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='SO', type='SO', allprivileges_to_run=['TSTWTMEMBERS', 'MODS'], response='"Will be made in command_handler"', priority='NORMAL
+2026-07-20 21:48:07,487 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='GREETINGS', type='OVERLAY', allprivileges_to_run=['TSTWTMEMBERS', 'MODS', 'SUBSCRIBERS'], response='""', priority='HIGH
+2026-07-20 21:48:07,487 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='FOLLOWNUMBER', type='ADVANCED', allprivileges_to_run=['EVERYONE'], response='"Will be made in command_handler"', priority='NORMAL
+2026-07-20 21:48:07,487 - twitch_bot - INFO - commands/command_handler.Command_central=>New command added: calling='REFRESH', type='ADVANCED', allprivileges_to_run=['TSTWTMEMBERS'], response='"Will be made in command_handler"', priority='NORMAL
+2026-07-20 21:48:07,487 - twitch_bot - INFO - AlbotBrain:start:Albot brain starting up!
+2026-07-20 21:48:07,487 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_gif_setup:Running GIF-setup.
+2026-07-20 21:48:07,487 - twitch_bot - INFO - utils/GifHandler=>setup:Setup running!
+2026-07-20 21:48:07,488 - twitch_bot - INFO - utils/GifHandler=>build_gif_owner_dicts:Building dictionaries for gif-owners
+2026-07-20 21:48:07,495 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:Checking known_gif.csv-file for gifs if we got them already
+2026-07-20 21:48:07,495 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/known_gifs.csv exists.
+2026-07-20 21:48:07,518 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SO_CUTE.gif exists already.
+2026-07-20 21:48:07,596 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/GIRL_IN_CAR_DOING_ROCK_SIGNS.gif exists already.
+2026-07-20 21:48:07,634 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/BABY-YODA_WATCHU_DOIN.gif exists already.
+2026-07-20 21:48:07,662 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FULL_HOUSE_BABY_BLOWING_KISS.gif exists already.
+2026-07-20 21:48:07,674 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOON_CAKE_CHAOS.gif exists already.
+2026-07-20 21:48:07,735 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SERIOUS_CONFETTI_GUY.gif exists already.
+2026-07-20 21:48:07,769 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MEANWHILE_IN_NORWAY.gif exists already.
+2026-07-20 21:48:07,850 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOOSE_GO_SLEEP.gif exists already.
+2026-07-20 21:48:07,933 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOOSE_AWAKE.gif exists already.
+2026-07-20 21:48:08,056 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/THANK_YOU_FOR_SUPPORT.gif exists already.
+2026-07-20 21:48:08,099 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/TV_NOISE.gif exists already.
+2026-07-20 21:48:08,116 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/POLL_MOOSE_OR_LAMB.gif exists already.
+2026-07-20 21:48:08,177 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOOSE_WAVE_HI.gif exists already.
+2026-07-20 21:48:08,183 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOOSE_CUDDLE.gif exists already.
+2026-07-20 21:48:08,214 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FREAKAZOID.gif exists already.
+2026-07-20 21:48:08,327 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/HAPPY_DANCE.gif exists already.
+2026-07-20 21:48:08,381 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/XCOM_MISSED_SHOTS.gif exists already.
+2026-07-20 21:48:08,513 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/RAT_DANCE.gif exists already.
+2026-07-20 21:48:08,550 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_POKEMON_BITS_DRAKE_DANCE.gif exists already.
+2026-07-20 21:48:08,690 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_FIRST_V_SIGN_FINGERS.gif exists already.
+2026-07-20 21:48:08,734 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_FIRST_STICKMAN_GOAL_FLAG_WAVE.gif exists already.
+2026-07-20 21:48:08,742 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/PRINCE_OF_PERSIA_AND_SHADOW_FALLS.gif exists already.
+2026-07-20 21:48:08,788 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FOOTBALL_SCORING_ASTA.gif exists already.
+2026-07-20 21:48:08,878 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/CAT_GO_HOWDY_HEY.gif exists already.
+2026-07-20 21:48:08,881 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/BABY_SHARK_DODODO.gif exists already.
+2026-07-20 21:48:08,894 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_SCARY_I_SEE_YOU_BITS_CATS_WITH_BIG_EYES.gif exists already.
+2026-07-20 21:48:09,170 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_SCARY_I_SEE_YOU_BITS_EYES_BLINK_BLACK_PUPILS.gif exists already.
+2026-07-20 21:48:09,183 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_SCARY_I_SEE_YOU_BITS_EYES_ON_TV_WE_ARE_WATCHING.gif exists already.
+2026-07-20 21:48:09,242 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_SCARY_I_SEE_YOU_BITS_CAT_RUNNING_IN_A_DARK_VENT.gif exists already.
+2026-07-20 21:48:09,319 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/THE_GOLDEN_GOD.gif exists already.
+2026-07-20 21:48:09,441 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/CAPTAIN_SALUTE.gif exists already.
+2026-07-20 21:48:09,509 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/NURSE_WITH_SHOTGUN.gif exists already.
+2026-07-20 21:48:09,809 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FINGER_PRESS_BUTTON_MUFFIN_APPEARS.gif exists already.
+2026-07-20 21:48:09,837 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/HI_HUNGRY_I_AM_DAD.gif exists already.
+2026-07-20 21:48:09,899 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MONKEY_PUPPET_DANCING.gif exists already.
+2026-07-20 21:48:10,050 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/FLEXING_OWL.gif exists already.
+2026-07-20 21:48:10,155 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/BIG_PIGEON_WITH_ARMS_FEED_SMALL_HUMANS_BREAD.gif exists already.
+2026-07-20 21:48:10,294 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/ROBIN_HAASE_TENNIS_ARCHERY_MOVEMENT_WITH_TENNIS_RACKET.gif exists already.
+2026-07-20 21:48:10,377 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/VIKING_BLOWS_HORN.gif exists already.
+2026-07-20 21:48:10,405 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/VERSTOPPEL_KNOCK.gif exists already.
+2026-07-20 21:48:10,468 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SAKURA_PETALS_FALLING.gif exists already.
+2026-07-20 21:48:10,505 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/HERES_MOMMY.gif exists already.
+2026-07-20 21:48:10,599 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/IM_SO_EXCITED_PUPPY.gif exists already.
+2026-07-20 21:48:10,630 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/ICE_DRAGON_SNOW_STICKER.gif exists already.
+2026-07-20 21:48:10,638 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/WHITE_CAT_BLACK_CAT_CARTOON.gif exists already.
+2026-07-20 21:48:10,814 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SKULL_ON_LETTER.gif exists already.
+2026-07-20 21:48:10,821 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_DISSAPEARING_SCARED_GIRL_STICKER.gif exists already.
+2026-07-20 21:48:10,951 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_MICHEAL_MYERS_STICKER.gif exists already.
+2026-07-20 21:48:11,043 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_THREE_CUTE_BATS_STICKER.gif exists already.
+2026-07-20 21:48:11,076 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_BLACK_CAT_HIDES_INSIDE_PUMPKIN_STICKER.gif exists already.
+2026-07-20 21:48:11,227 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_CARROT_CARVE_PUMPKIN_STICKER.gif exists already.
+2026-07-20 21:48:11,332 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_MAGICUS_FLYING_BAT_WITH_APPLE_EYES_STICKER.gif exists already.
+2026-07-20 21:48:11,344 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_MONKEY_IN_SHARK_CUSTOME.gif exists already.
+2026-07-20 21:48:11,511 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_PINK_BAT_FLYING_STICKER.gif exists already.
+2026-07-20 21:48:11,528 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_BATS_FLYING_BY_STICKER.gif exists already.
+2026-07-20 21:48:11,584 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_CREEPY_SPIDER_WALKING_RIGHT_STICKER.gif exists already.
+2026-07-20 21:48:11,611 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_CUTE_SPIDER_BOUNCING_STICKER.gif exists already.
+2026-07-20 21:48:11,664 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_NOT_CUTE_SPIDER_WITH_WEB_BOUNCING_STICKER.gif exists already.
+2026-07-20 21:48:11,701 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_CREEPY_SPIDER_WALKING_LEFT_STICKER.gif exists already.
+2026-07-20 21:48:11,717 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_HALLOWEEN_CREEPY_SPIDER_GOING_DOWNWARDS_STICKER.gif exists already.
+2026-07-20 21:48:11,744 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/WOMAN_ENTERS_DOOR_TADA.gif exists already.
+2026-07-20 21:48:11,768 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_TSTWTGIFS_MONKEY_DANCE.gif exists already.
+2026-07-20 21:48:11,929 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_TSTWTGIFS_MOOSE_CUDDLE.gif exists already.
+2026-07-20 21:48:11,955 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST_TSTWTGIFS_CONFETTI_THROWN.gif exists already.
+2026-07-20 21:48:11,992 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MOCHI_DEAL_WITH_IT.gif exists already.
+2026-07-20 21:48:12,016 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST__XMAS_2025_GIFS__SURFING_SANTA_CAT.gif exists already.
+2026-07-20 21:48:12,088 - twitch_bot - INFO - Creating a gif-list for the dicionary: XMAS_2025_GIFS
+2026-07-20 21:48:12,088 - twitch_bot - INFO - List not existing, creating it: XMAS_2025_GIFS
+2026-07-20 21:48:12,088 - twitch_bot - INFO - List: XMAS_2025_GIFS added LIST__XMAS_2025_GIFS__SURFING_SANTA_CAT
+2026-07-20 21:48:12,088 - twitch_bot - INFO - LIST: XMAS_2025_GIFS now contains: ['LIST__XMAS_2025_GIFS__SURFING_SANTA_CAT']
+2026-07-20 21:48:12,089 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST__XMAS_2025_GIFS__CATS_BEHIND_XMAS_TREE.gif exists already.
+2026-07-20 21:48:12,107 - twitch_bot - INFO - Creating a gif-list for the dicionary: XMAS_2025_GIFS
+2026-07-20 21:48:12,107 - twitch_bot - INFO - List: XMAS_2025_GIFS added LIST__XMAS_2025_GIFS__CATS_BEHIND_XMAS_TREE
+2026-07-20 21:48:12,107 - twitch_bot - INFO - LIST: XMAS_2025_GIFS now contains: ['LIST__XMAS_2025_GIFS__SURFING_SANTA_CAT', 'LIST__XMAS_2025_GIFS__CATS_BEHIND_XMAS_TREE']
+2026-07-20 21:48:12,107 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST__XMAS_2025_GIFS__PENGUIN_SANTA_ON_PHONE_RIDING_RUDOLPH_SLEIGH.gif exists already.
+2026-07-20 21:48:12,140 - twitch_bot - INFO - Creating a gif-list for the dicionary: XMAS_2025_GIFS
+2026-07-20 21:48:12,140 - twitch_bot - INFO - List: XMAS_2025_GIFS added LIST__XMAS_2025_GIFS__PENGUIN_SANTA_ON_PHONE_RIDING_RUDOLPH_SLEIGH
+2026-07-20 21:48:12,140 - twitch_bot - INFO - LIST: XMAS_2025_GIFS now contains: ['LIST__XMAS_2025_GIFS__SURFING_SANTA_CAT', 'LIST__XMAS_2025_GIFS__CATS_BEHIND_XMAS_TREE', 'LIST__XMAS_2025_GIFS__PENGUIN_SANTA_ON_PHONE_RIDING_RUDOLPH_SLEIGH']
+2026-07-20 21:48:12,140 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/LIST__XMAS_2025_GIFS__DANCING_XMAS_ORNAMENTS.gif exists already.
+2026-07-20 21:48:12,177 - twitch_bot - INFO - Creating a gif-list for the dicionary: XMAS_2025_GIFS
+2026-07-20 21:48:12,178 - twitch_bot - INFO - List: XMAS_2025_GIFS added LIST__XMAS_2025_GIFS__DANCING_XMAS_ORNAMENTS
+2026-07-20 21:48:12,178 - twitch_bot - INFO - LIST: XMAS_2025_GIFS now contains: ['LIST__XMAS_2025_GIFS__SURFING_SANTA_CAT', 'LIST__XMAS_2025_GIFS__CATS_BEHIND_XMAS_TREE', 'LIST__XMAS_2025_GIFS__PENGUIN_SANTA_ON_PHONE_RIDING_RUDOLPH_SLEIGH', 'LIST__XMAS_2025_GIFS__DANCING_XMAS_ORNAMENTS']
+2026-07-20 21:48:12,179 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MAN_JUMPING_OFF_BIKE_FLYING_INTO_CITY_BACK_TO_REALITY.gif exists already.
+2026-07-20 21:48:12,331 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/ANGRY_CAT_DRINK_COFFEE_HAPPY.gif exists already.
+2026-07-20 21:48:12,344 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/MINI_GROOT_YOU_ARE_AWESOME.gif exists already.
+2026-07-20 21:48:12,381 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/BILBO_YOU_ARE_LATE.gif exists already.
+2026-07-20 21:48:12,394 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/DOG_ON_PHONE_HELLO.gif exists already.
+2026-07-20 21:48:12,445 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/SUPERFOOD_AMERICAN_DAD.gif exists already.
+2026-07-20 21:48:12,492 - twitch_bot - INFO - utils/GifHandler=>read_known_gifs_into_dict:File:overlay_media/gifs/UWU_DANCE.gif exists already.
+2026-07-20 21:48:12,618 - twitch_bot - INFO - utils/GifHandler=>build_gif_greetings:Building special greetings
+2026-07-20 21:48:12,631 - twitch_bot - INFO - utils/GifHandler=>build_gif_greetings:Reading file overlay_media/subs_greetings.csv
+2026-07-20 21:48:12,634 - twitch_bot - INFO - utils/GifHandler=>build_gif_greetings:
+
+
+FINAL RESULT SUB GREETINGS {'coolingenwastaken': "MOCHI_DEAL_WITH_IT:   <== Dreper bot'ens muligheter til å vise gifs!?", 'nurseiplier': 'SERIOUS_CONFETTI_GUY:', 'rhastaface': 'FREAKAZOID:', 'syrinvakyrie02': 'FULL_HOUSE_BABY_BLOWING_KISS:', 'kyllingpews': 'HAPPY_DANCE:', 'thestreamteamwastaken': 'MOON_CAKE_CHAOS:', 'slavezero': 'BABY-YODA_WATCHU_DOIN:', 'gleacer': 'XCOM_MISSED_SHOTS:', 'themonkeytea': 'MONKEY_PUPPET_DANCING:', 'uvq3tsa': 'PRINCE_OF_PERSIA_AND_SHADOW_FALLS:', 'astalarin78': 'FOOTBALL_SCORING_ASTA:', 'phextheflex': 'THE_GOLDEN_GOD:TheGoldenGod.wav', 'mattking1993': 'CAPTAIN_SALUTE:', 'ectovibs': 'NURSE_WITH_SHOTGUN:', 'muffin_no': 'FINGER_PRESS_BUTTON_MUFFIN_APPEARS:', 'dad__76': 'HI_HUNGRY_I_AM_DAD:', 'krishli': 'FLEXING_OWL:', 'raivdaiv': 'ROBIN_HAASE_TENNIS_ARCHERY_MOVEMENT_WITH_TENNIS_RACKET:', 'jarlspock': 'VIKING_BLOWS_HORN:', 'verstoppel': 'VERSTOPPEL_KNOCK:', 'sakurayayauwu': 'SAKURA_PETALS_FALLING:', 'mammaronning': 'HERES_MOMMY:', 'lowkeykevzy': 'IM_SO_EXCITED_PUPPY:', 'nordicstudio_official': 'IM_SO_EXCITED_PUPPY:', 'ladycrimson21495': 'ICE_DRAGON_SNOW_STICKER:', 'saltybooze': 'WHITE_CAT_BLACK_CAT_CARTOON:', 'eyn4r': 'SKULL_ON_LETTER:', 'corpsecreator77': 'MAN_JUMPING_OFF_BIKE_FLYING_INTO_CITY_BACK_TO_REALITY:', 'katerinokappuccino': 'ANGRY_CAT_DRINK_COFFEE_HAPPY:', 'raeasakura': 'WOMAN_ENTERS_DOOR_TADA:', 'sayanythinggg': 'MINI_GROOT_YOU_ARE_AWESOME:', 'iamash39': 'MINI_GROOT_YOU_ARE_AWESOME:', 'gandulfdablue': 'BILBO_YOU_ARE_LATE:', 'f1ct1ve': 'DOG_ON_PHONE_HELLO:', 'sistnor': 'SUPERFOOD_AMERICAN_DAD:', 'kaizokusoli': 'UWU_DANCE:', 'default': 'POLL_MOOSE_OR_LAMB:'}
+
+
+
+2026-07-20 21:48:12,635 - twitch_bot - INFO - AlbotBrain:start:Albot brain starting up!
+2026-07-20 21:48:12,635 - twitch_bot - INFO - AlbotBrain:start:Created 5 tasks
+2026-07-20 21:48:12,636 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:OAuth check complete!
+2026-07-20 21:48:12,636 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Connecting to Twitch IRC: wss://irc-ws.chat.twitch.tv:443
+2026-07-20 21:48:12,644 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded successfully!
+2026-07-20 21:48:12,644 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:Getting the ClientID...
+2026-07-20 21:48:12,644 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:File found...
+2026-07-20 21:48:12,652 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:File opened...
+2026-07-20 21:48:12,653 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id:ClientID loaded from file. Ok!
+2026-07-20 21:48:12,660 - twitch_bot - INFO - utils/TwitchConnection=>get_oauth_token:OAuth token loaded successfully!
+2026-07-20 21:48:14,211 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:Getting the ClientID_br...
+2026-07-20 21:48:14,212 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:File found...
+2026-07-20 21:48:14,218 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:File opened...
+2026-07-20 21:48:14,218 - twitch_bot - INFO - utils/TwitchConnection=>get_client_id_br:ClientID loaded from file. Ok!
+2026-07-20 21:48:14,218 - twitch_bot - INFO - 
+
+#################### BUILDING LISTS START #########################
+utils/UserRoleManager=>buildlists:Bygger lister over MODs, VIPs, subscribers og followers.
+2026-07-20 21:48:14,218 - twitch_bot - INFO - utils/UserRoleManager=>get_MODs_list:Contacting server for logging in
+2026-07-20 21:48:14,398 - twitch_bot - INFO - utils/UserRoleManager=>get_MODs_list:Got channel ID: 180242719 for TheStreamTeamWasTaken
+2026-07-20 21:48:14,581 - twitch_bot - INFO - utils/UserRoleManager=>get_MODs_list:Found 20 MODs.
+
+2026-07-20 21:48:14,581 - twitch_bot - INFO - utils/UserRoleManager=>get_VIPs_list:Contacting server for logging in
+2026-07-20 21:48:14,754 - twitch_bot - INFO - utils/UserRoleManager=>get_VIPs_list:Got channel ID: 180242719 for TheStreamTeamWasTaken
+2026-07-20 21:48:14,944 - twitch_bot - INFO - utils/UserRoleManager=>get_VIPs_list:Found 20 VIPs.
+
+2026-07-20 21:48:14,945 - twitch_bot - INFO - utils/UserRoleManager=>get_subscribers_list:Contacting server for logging in
+2026-07-20 21:48:15,122 - twitch_bot - INFO - utils/UserRoleManager=>get_subscribers_list:Gotten the 180242719 for TheStreamTeamWasTaken
+2026-07-20 21:48:15,358 - twitch_bot - INFO - utils/UserRoleManager=>get_subscribers_list:Found 9 subscribers.
+
+2026-07-20 21:48:15,358 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting followers for channel TheStreamTeamWasTaken
+2026-07-20 21:48:15,729 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...1
+2026-07-20 21:48:16,241 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...2
+2026-07-20 21:48:16,448 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...3
+2026-07-20 21:48:16,644 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...4
+2026-07-20 21:48:16,858 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...5
+2026-07-20 21:48:17,065 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...6
+2026-07-20 21:48:17,274 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...7
+2026-07-20 21:48:17,476 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...8
+2026-07-20 21:48:17,674 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...9
+2026-07-20 21:48:17,877 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...10
+2026-07-20 21:48:18,082 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...11
+2026-07-20 21:48:18,286 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...12
+2026-07-20 21:48:18,488 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...13
+2026-07-20 21:48:18,693 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...14
+2026-07-20 21:48:18,894 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...15
+2026-07-20 21:48:19,100 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...16
+2026-07-20 21:48:19,301 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Getting next page of followers...17
+2026-07-20 21:48:19,502 - twitch_bot - INFO - utils/UserRoleManager=>get_followers_list:Found 1713 followers.
+
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>buildlists:Ferdig med å bygge lister!
+#################### BUILDING LISTS END   #########################
+
+
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:Checking roles for coolingenwastaken
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:User:coolingenwastaken have the following roles:['TSTWTMEMBERS', 'MODS', 'SUBSCRIBERS', 'FOLLOWERS']
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:Checking roles for nurseiplier
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:User:nurseiplier have the following roles:['TSTWTMEMBERS', 'MODS', 'FOLLOWERS']
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:Checking roles for mammaronning
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:User:mammaronning have the following roles:['FOLLOWERS']
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:Checking roles for syrinvakyrie02
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:User:syrinvakyrie02 have the following roles:['VIPS', 'FOLLOWERS']
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:Checking roles for verstoppel
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:User:verstoppel have the following roles:['VIPS', 'SUBSCRIBERS', 'FOLLOWERS']
+2026-07-20 21:48:19,504 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:Checking roles for flayrestarr
+2026-07-20 21:48:19,505 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:User:flayrestarr have the following roles:['FOLLOWERS']
+2026-07-20 21:48:19,505 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:Checking roles for VillandTV
+2026-07-20 21:48:19,505 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:User:VillandTV have the following roles:[]
+2026-07-20 21:48:19,505 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:Checking roles for PhexTheFlex
+2026-07-20 21:48:19,505 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:User:PhexTheFlex have the following roles:['MODS']
+2026-07-20 21:48:19,505 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:Checking roles for Prompeten
+2026-07-20 21:48:19,505 - twitch_bot - INFO - utils/UserRoleManager=>get_all_user_roles:User:Prompeten have the following roles:[]
+2026-07-20 21:48:19,580 - twitch_bot - INFO - commands/command_runner.Command_runner=>run_commands_from_queue:Starting up the while loop..
+2026-07-20 21:48:19,580 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_commands_from_queue:Starting up the while loop..
+2026-07-20 21:48:19,581 - twitch_bot - INFO - AlbotBrain:process_qt_events:Starting Qt event processing
+2026-07-20 21:48:20,310 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Joined channel: #TheStreamTeamWasTaken
+2026-07-20 21:48:20,310 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Going to send AlbotKeinstein up and running! <3, on behalf or (called_by_function)
+2026-07-20 21:48:20,310 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Going to send 33 characters.
+2026-07-20 21:48:20,310 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:Received AlbotKeinstein up and running! <3 characters.
+2026-07-20 21:48:20,310 - twitch_bot - INFO - utils/TwitchConnection=>albot_msg_to_chat:AlbotKeinstein sending chat message:AlbotKeinstein up and running! <3
+2026-07-20 21:48:20,310 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>set_in_queue:Added another visual command
+2026-07-20 21:48:20,311 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:Incomming params: Albot up and running!:AlbotStartup
+2026-07-20 21:48:20,311 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:params split into username:Albot up and running!-and-cmd:AlbotStartup
+2026-07-20 21:48:20,311 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>set_in_queue:Command added to queue:{'text': 'Albot up and running!', 'gif': 'MOOSE_WAVE_HI', 'sound': ''}
+2026-07-20 21:48:20,583 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_commands_from_queue:Found a command to be run:{'text': 'Albot up and running!', 'gif': 'MOOSE_WAVE_HI', 'sound': ''}
+2026-07-20 21:48:20,583 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Received command to run: {'text': 'Albot up and running!', 'gif': 'MOOSE_WAVE_HI', 'sound': ''}
+2026-07-20 21:48:20,583 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:input param: cmd_dict is of type dict
+2026-07-20 21:48:20,584 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Text ok: Albot up and running!
+2026-07-20 21:48:20,584 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Gif found: overlay_media/gifs/MOOSE_WAVE_HI.gif
+2026-07-20 21:48:20,584 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Text to show: Albot up and running!
+2026-07-20 21:48:20,584 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Gif to show: overlay_media/gifs/MOOSE_WAVE_HI.gif
+2026-07-20 21:48:20,584 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Gif duration set to: 3000
+2026-07-20 21:48:20,584 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Sound to play: 
+2026-07-20 21:48:20,584 - twitch_bot - INFO - utils/OverlayBridge=>play_messageGoing to play: text:Albot up and running!, gif:overlay_media/gifs/MOOSE_WAVE_HI.gif, sound:
+2026-07-20 21:48:20,585 - twitch_bot - INFO - utils/OverlayBridge=>play_messageText sent!
+2026-07-20 21:48:20,585 - twitch_bot - INFO - utils/OverlayWindow=>Showing message: Albot up and running!
+2026-07-20 21:48:20,602 - twitch_bot - INFO - utils/OverlayWindow=>Available-width:440. Font size tried 24 Got 21 => '340'
+2026-07-20 21:48:20,603 - twitch_bot - INFO - utils/OverlayWindow=>Font size 24 fits text: 'Albot up and running!'
+2026-07-20 21:48:20,603 - twitch_bot - INFO - utils/OverlayWindow=>Showing message: Albot up and running!
+2026-07-20 21:48:20,656 - twitch_bot - INFO - utils/OverlayBridge=>play_message Gif sent:overlay_media/gifs/MOOSE_WAVE_HI.gif
+2026-07-20 21:48:20,656 - twitch_bot - INFO - utils/OverlayWindow=>Showing GIF: overlay_media/gifs/MOOSE_WAVE_HI.gif
+2026-07-20 21:48:20,670 - twitch_bot - INFO - GIF background color: PySide6.QtGui.QColor()
+2026-07-20 21:48:20,741 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>/
+2026-07-20 21:48:20,741 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':tmi.twitch.tv', '001', 'albotkeinstein', ':Welcome,', 'GLHF!\r\n:tmi.twitch.tv', '002', 'albotkeinstein', ':Your', 'host', 'is', 'tmi.twitch.tv\r\n:tmi.twitch.tv', '003', 'albotkeinstein', ':This', 'server', 'is', 'rather', 'new\r\n:tmi.twitch.tv', '004', 'albotkeinstein', ':-\r\n:tmi.twitch.tv', '375', 'albotkeinstein', ':-\r\n:tmi.twitch.tv', '372', 'albotkeinstein', ':You', 'are', 'in', 'a', 'maze', 'of', 'twisty', 'passages,', 'all', 'alike.\r\n:tmi.twitch.tv', '376', 'albotkeinstein', ':>\r']
+2026-07-20 21:48:20,741 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: tmi.twitch.tv
+2026-07-20 21:48:20,742 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Not a PRIVMSG-message - not for us::tmi.twitch.tv 001 albotkeinstein :Welcome, GLHF!
+:tmi.twitch.tv 002 albotkeinstein :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 albotkeinstein :This server is rather new
+:tmi.twitch.tv 004 albotkeinstein :-
+:tmi.twitch.tv 375 albotkeinstein :-
+:tmi.twitch.tv 372 albotkeinstein :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 albotkeinstein :>
+2026-07-20 21:48:20,742 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:tmi.twitch.tv
+2026-07-20 21:48:20,742 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:48:20,742 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:48:20,742 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Not checking any furter when this user is typing to us (albot or twitch):tmi.twitch.tv
+2026-07-20 21:48:20,742 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:48:20,788 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list/
+2026-07-20 21:48:20,789 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv', 'JOIN', '#thestreamteamwastaken\r\n:albotkeinstein.tmi.twitch.tv', '353', 'albotkeinstein', '=', '#thestreamteamwastaken', ':albotkeinstein\r\n:albotkeinstein.tmi.twitch.tv', '366', 'albotkeinstein', '#thestreamteamwastaken', ':End', 'of', '/NAMES', 'list\r']
+2026-07-20 21:48:20,789 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: albotkeinstein
+2026-07-20 21:48:20,789 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Not a PRIVMSG-message - not for us::albotkeinstein!albotkeinstein@albotkeinstein.tmi.twitch.tv JOIN #thestreamteamwastaken
+:albotkeinstein.tmi.twitch.tv 353 albotkeinstein = #thestreamteamwastaken :albotkeinstein
+:albotkeinstein.tmi.twitch.tv 366 albotkeinstein #thestreamteamwastaken :End of /NAMES list
+2026-07-20 21:48:20,789 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:albotkeinstein
+2026-07-20 21:48:20,789 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:48:20,789 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:48:20,789 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Not checking any furter when this user is typing to us (albot or twitch):albotkeinstein
+2026-07-20 21:48:20,789 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:49:37,018 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:noskillz90!noskillz90@noskillz90.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :HypeHai/
+2026-07-20 21:49:37,018 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':noskillz90!noskillz90@noskillz90.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':HypeHai\r']
+2026-07-20 21:49:37,018 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: noskillz90
+2026-07-20 21:49:37,018 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:H
+2026-07-20 21:49:37,018 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:noskillz90
+2026-07-20 21:49:37,018 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:49:37,019 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:49:37,019 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:noskillz90=coolingenwastaken?(False)
+2026-07-20 21:49:37,019 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /noskillz90/ if they don't have default gif.
+2026-07-20 21:49:37,019 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /noskillz90/
+2026-07-20 21:49:37,019 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:52:08,722 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Hello 👋/
+2026-07-20 21:52:08,723 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Hello', '👋\r']
+2026-07-20 21:52:08,724 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 21:52:08,724 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:H
+2026-07-20 21:52:08,724 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 21:52:08,724 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:52:08,724 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:52:08,724 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 21:52:08,725 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 21:52:08,725 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>set_in_queue:Added another visual command
+2026-07-20 21:52:08,725 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:Incomming params: slavezero:GREETINGS
+2026-07-20 21:52:08,725 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:params split into username:slavezero-and-cmd:GREETINGS
+2026-07-20 21:52:08,725 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:It's a greetings command!
+2026-07-20 21:52:08,725 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:It's a greetings command! For slavezero we got BABY-YODA_WATCHU_DOIN:
+2026-07-20 21:52:08,725 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:It's a greetings command!
+2026-07-20 21:52:08,725 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>set_in_queue:Command added to queue:{'text': 'How are you, slavezero?', 'gif': 'BABY-YODA_WATCHU_DOIN', 'sound': ''}
+2026-07-20 21:52:08,726 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 21:52:08,726 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:52:09,682 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_commands_from_queue:Found a command to be run:{'text': 'How are you, slavezero?', 'gif': 'BABY-YODA_WATCHU_DOIN', 'sound': ''}
+2026-07-20 21:52:09,682 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Received command to run: {'text': 'How are you, slavezero?', 'gif': 'BABY-YODA_WATCHU_DOIN', 'sound': ''}
+2026-07-20 21:52:09,682 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:input param: cmd_dict is of type dict
+2026-07-20 21:52:09,683 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Text ok: How are you, slavezero?
+2026-07-20 21:52:09,683 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Gif found: overlay_media/gifs/BABY-YODA_WATCHU_DOIN.gif
+2026-07-20 21:52:09,683 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Text to show: How are you, slavezero?
+2026-07-20 21:52:09,683 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Gif to show: overlay_media/gifs/BABY-YODA_WATCHU_DOIN.gif
+2026-07-20 21:52:09,683 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Gif duration set to: 3000
+2026-07-20 21:52:09,683 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Sound to play: 
+2026-07-20 21:52:09,683 - twitch_bot - INFO - utils/OverlayBridge=>play_messageGoing to play: text:How are you, slavezero?, gif:overlay_media/gifs/BABY-YODA_WATCHU_DOIN.gif, sound:
+2026-07-20 21:52:09,683 - twitch_bot - INFO - utils/OverlayBridge=>play_messageText sent!
+2026-07-20 21:52:09,683 - twitch_bot - INFO - utils/OverlayWindow=>Showing message: How are you, slavezero?
+2026-07-20 21:52:09,684 - twitch_bot - INFO - utils/OverlayWindow=>Available-width:440. Font size tried 24 Got 23 => '377'
+2026-07-20 21:52:09,684 - twitch_bot - INFO - utils/OverlayWindow=>Font size 24 fits text: 'How are you, slavezero?'
+2026-07-20 21:52:09,684 - twitch_bot - INFO - utils/OverlayWindow=>Showing message: How are you, slavezero?
+2026-07-20 21:52:09,685 - twitch_bot - INFO - utils/OverlayBridge=>play_message Gif sent:overlay_media/gifs/BABY-YODA_WATCHU_DOIN.gif
+2026-07-20 21:52:09,685 - twitch_bot - INFO - utils/OverlayWindow=>Showing GIF: overlay_media/gifs/BABY-YODA_WATCHU_DOIN.gif
+2026-07-20 21:52:09,685 - twitch_bot - INFO - GIF background color: PySide6.QtGui.QColor()
+2026-07-20 21:53:14,841 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 21:53:14,841 - twitch_bot - INFO - Responded to PING
+2026-07-20 21:53:27,425 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Hi there, @noskillz90 !! thestr88Dihyhi  How's the summer going?/
+2026-07-20 21:53:27,426 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Hi', 'there,', '@noskillz90', '!!', 'thestr88Dihyhi', '', "How's", 'the', 'summer', 'going?\r']
+2026-07-20 21:53:27,426 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: coolingenwastaken
+2026-07-20 21:53:27,426 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Before split_chat[3]:/:Hi/
+2026-07-20 21:53:27,426 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:After split_chat[3]:/Hi/
+2026-07-20 21:53:27,426 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Command rebuilt! Let's get it up and running: /Hi/ with params:there, @noskillz90 !! thestr88Dihyhi  How's the summer going?
+2026-07-20 21:53:27,426 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:coolingenwastaken
+2026-07-20 21:53:27,427 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:Hi
+2026-07-20 21:53:27,427 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:there, @noskillz90 !! thestr88Dihyhi  How's the summer going?
+2026-07-20 21:53:27,427 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:coolingenwastaken=coolingenwastaken?(True)
+2026-07-20 21:53:27,427 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Whoa! It's a soundalert! Check if we play a gif to this!
+2026-07-20 21:53:27,427 - twitch_bot - INFO - commands/command_handler.Command_central=>soundalert_gif:Can we play:/there, @noskillz90 !! thestr88Dihyhi  How's the summer going?/ played by /Hi/
+2026-07-20 21:53:27,427 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:53:40,443 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :@SlaveZero Howdy! Trip going well? thestr88Dihyhi/
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':@SlaveZero', 'Howdy!', 'Trip', 'going', 'well?', 'thestr88Dihyhi\r']
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: coolingenwastaken
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Before split_chat[3]:/:@SlaveZero/
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:After split_chat[3]:/@SlaveZero/
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Command rebuilt! Let's get it up and running: /@SlaveZero/ with params:Howdy! Trip going well? thestr88Dihyhi
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:coolingenwastaken
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:@SlaveZero
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:Howdy! Trip going well? thestr88Dihyhi
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:coolingenwastaken=coolingenwastaken?(True)
+2026-07-20 21:53:40,444 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Whoa! It's a soundalert! Check if we play a gif to this!
+2026-07-20 21:53:40,445 - twitch_bot - INFO - commands/command_handler.Command_central=>soundalert_gif:Can we play:/Howdy! Trip going well? thestr88Dihyhi/ played by /@SlaveZero/
+2026-07-20 21:53:40,445 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:53:45,727 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :🌸🌸/
+2026-07-20 21:53:45,728 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':🌸🌸\r']
+2026-07-20 21:53:45,728 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 21:53:45,728 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:🌸
+2026-07-20 21:53:45,728 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 21:53:45,728 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:53:45,728 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:53:45,728 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 21:53:45,728 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 21:53:45,728 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>set_in_queue:Added another visual command
+2026-07-20 21:53:45,729 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:Incomming params: nurseiplier:GREETINGS
+2026-07-20 21:53:45,729 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:params split into username:nurseiplier-and-cmd:GREETINGS
+2026-07-20 21:53:45,729 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:It's a greetings command!
+2026-07-20 21:53:45,729 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:It's a greetings command! For nurseiplier we got SERIOUS_CONFETTI_GUY:
+2026-07-20 21:53:45,729 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>build_command:It's a greetings command!
+2026-07-20 21:53:45,729 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>set_in_queue:Command added to queue:{'text': 'How are you, nurseiplier?', 'gif': 'SERIOUS_CONFETTI_GUY', 'sound': ''}
+2026-07-20 21:53:45,729 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 21:53:45,729 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:53:46,674 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_commands_from_queue:Found a command to be run:{'text': 'How are you, nurseiplier?', 'gif': 'SERIOUS_CONFETTI_GUY', 'sound': ''}
+2026-07-20 21:53:46,674 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Received command to run: {'text': 'How are you, nurseiplier?', 'gif': 'SERIOUS_CONFETTI_GUY', 'sound': ''}
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:input param: cmd_dict is of type dict
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Text ok: How are you, nurseiplier?
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Gif found: overlay_media/gifs/SERIOUS_CONFETTI_GUY.gif
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Text to show: How are you, nurseiplier?
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Gif to show: overlay_media/gifs/SERIOUS_CONFETTI_GUY.gif
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Gif duration set to: 3000
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_visual_command:Sound to play: 
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/OverlayBridge=>play_messageGoing to play: text:How are you, nurseiplier?, gif:overlay_media/gifs/SERIOUS_CONFETTI_GUY.gif, sound:
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/OverlayBridge=>play_messageText sent!
+2026-07-20 21:53:46,675 - twitch_bot - INFO - utils/OverlayWindow=>Showing message: How are you, nurseiplier?
+2026-07-20 21:53:46,676 - twitch_bot - INFO - utils/OverlayWindow=>Available-width:440. Font size tried 24 Got 25 => '395'
+2026-07-20 21:53:46,676 - twitch_bot - INFO - utils/OverlayWindow=>Font size 24 fits text: 'How are you, nurseiplier?'
+2026-07-20 21:53:46,676 - twitch_bot - INFO - utils/OverlayWindow=>Showing message: How are you, nurseiplier?
+2026-07-20 21:53:46,676 - twitch_bot - INFO - utils/OverlayBridge=>play_message Gif sent:overlay_media/gifs/SERIOUS_CONFETTI_GUY.gif
+2026-07-20 21:53:46,676 - twitch_bot - INFO - utils/OverlayWindow=>Showing GIF: overlay_media/gifs/SERIOUS_CONFETTI_GUY.gif
+2026-07-20 21:53:46,677 - twitch_bot - INFO - GIF background color: PySide6.QtGui.QColor()
+2026-07-20 21:54:02,682 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :@nurseiplier thestr88Dihyhi ! Long time no talk! :P/
+2026-07-20 21:54:02,682 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':coolingenwastaken!coolingenwastaken@coolingenwastaken.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':@nurseiplier', 'thestr88Dihyhi', '!', 'Long', 'time', 'no', 'talk!', ':P\r']
+2026-07-20 21:54:02,682 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: coolingenwastaken
+2026-07-20 21:54:02,682 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Before split_chat[3]:/:@nurseiplier/
+2026-07-20 21:54:02,682 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:After split_chat[3]:/@nurseiplier/
+2026-07-20 21:54:02,682 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Command rebuilt! Let's get it up and running: /@nurseiplier/ with params:thestr88Dihyhi ! Long time no talk! :P
+2026-07-20 21:54:02,682 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:coolingenwastaken
+2026-07-20 21:54:02,682 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:@nurseiplier
+2026-07-20 21:54:02,683 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:thestr88Dihyhi ! Long time no talk! :P
+2026-07-20 21:54:02,683 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:coolingenwastaken=coolingenwastaken?(True)
+2026-07-20 21:54:02,683 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Whoa! It's a soundalert! Check if we play a gif to this!
+2026-07-20 21:54:02,683 - twitch_bot - INFO - commands/command_handler.Command_central=>soundalert_gif:Can we play:/thestr88Dihyhi ! Long time no talk! :P/ played by /@nurseiplier/
+2026-07-20 21:54:02,683 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:54:51,108 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :@coolingenwastaken I can't wait to be back home in Norway/
+2026-07-20 21:54:51,108 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':@coolingenwastaken', 'I', "can't", 'wait', 'to', 'be', 'back', 'home', 'in', 'Norway\r']
+2026-07-20 21:54:51,109 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 21:54:51,109 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:@
+2026-07-20 21:54:51,109 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 21:54:51,109 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:54:51,109 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:54:51,109 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 21:54:51,109 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 21:54:51,109 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 21:54:51,109 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:55:56,013 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :@coolingenwastaken 😅/
+2026-07-20 21:55:56,013 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':@coolingenwastaken', '😅\r']
+2026-07-20 21:55:56,013 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 21:55:56,013 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:@
+2026-07-20 21:55:56,014 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 21:55:56,014 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:55:56,014 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:55:56,014 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 21:55:56,014 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 21:55:56,014 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 21:55:56,014 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:56:45,928 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I like my life in Norway more. LUL/
+2026-07-20 21:56:45,928 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':I', 'like', 'my', 'life', 'in', 'Norway', 'more.', 'LUL\r']
+2026-07-20 21:56:45,928 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 21:56:45,929 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 21:56:45,929 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 21:56:45,929 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:56:45,929 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:56:45,929 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 21:56:45,929 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 21:56:45,929 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 21:56:45,929 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:57:14,579 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:streamlabs!streamlabs@streamlabs.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Consider joining our amazing community VoHiYo https://discord.com/invite/GER7KhdRpD/
+2026-07-20 21:57:14,580 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':streamlabs!streamlabs@streamlabs.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Consider', 'joining', 'our', 'amazing', 'community', 'VoHiYo', 'https://discord.com/invite/GER7KhdRpD\r']
+2026-07-20 21:57:14,580 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: streamlabs
+2026-07-20 21:57:14,580 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:C
+2026-07-20 21:57:14,580 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:streamlabs
+2026-07-20 21:57:14,580 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:57:14,580 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:57:14,580 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:streamlabs=coolingenwastaken?(False)
+2026-07-20 21:57:14,580 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /streamlabs/ if they don't have default gif.
+2026-07-20 21:57:14,580 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /streamlabs/
+2026-07-20 21:57:14,581 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 21:57:55,417 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 21:57:55,418 - twitch_bot - INFO - Responded to PING
+2026-07-20 21:59:11,543 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :It wasn't too enjoyable. I wasn't able to relax or sleep here. But I did see family, friends../
+2026-07-20 21:59:11,543 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':It', "wasn't", 'too', 'enjoyable.', 'I', "wasn't", 'able', 'to', 'relax', 'or', 'sleep', 'here.', 'But', 'I', 'did', 'see', 'family,', 'friends..\r']
+2026-07-20 21:59:11,543 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 21:59:11,543 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 21:59:11,543 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 21:59:11,544 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 21:59:11,544 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 21:59:11,544 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 21:59:11,544 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 21:59:11,544 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 21:59:11,544 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:00:45,751 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :It's because of my mom, she wakes up at 6 am and is a very loud person so I'm sleeping on average around 6h per day/
+2026-07-20 22:00:45,751 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ":It's", 'because', 'of', 'my', 'mom,', 'she', 'wakes', 'up', 'at', '6', 'am', 'and', 'is', 'a', 'very', 'loud', 'person', 'so', "I'm", 'sleeping', 'on', 'average', 'around', '6h', 'per', 'day\r']
+2026-07-20 22:00:45,751 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:00:45,751 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:00:45,751 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:00:45,751 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:00:45,751 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:00:45,752 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:00:45,752 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:00:45,752 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:00:45,752 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:02:19,129 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 22:02:19,129 - twitch_bot - INFO - Responded to PING
+2026-07-20 22:03:26,306 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I need to survive 15ish more days and I'm going back/
+2026-07-20 22:03:26,306 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':I', 'need', 'to', 'survive', '15ish', 'more', 'days', 'and', "I'm", 'going', 'back\r']
+2026-07-20 22:03:26,306 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:03:26,306 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:03:26,306 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:03:26,306 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:03:26,307 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:03:26,307 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:03:26,307 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:03:26,307 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:03:26,307 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:05:02,286 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Sometimes, but I'm not a nappy person usually/
+2026-07-20 22:05:02,286 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Sometimes,', 'but', "I'm", 'not', 'a', 'nappy', 'person', 'usually\r']
+2026-07-20 22:05:02,287 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:05:02,287 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:S
+2026-07-20 22:05:02,287 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:05:02,287 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:05:02,287 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:05:02,287 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:05:02,287 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:05:02,287 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:05:02,288 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:06:55,213 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 22:06:55,213 - twitch_bot - INFO - Responded to PING
+2026-07-20 22:07:15,923 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I am currently painting, so I am rarely bored 😅/
+2026-07-20 22:07:15,923 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':I', 'am', 'currently', 'painting,', 'so', 'I', 'am', 'rarely', 'bored', '😅\r']
+2026-07-20 22:07:15,923 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:07:15,924 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:07:15,924 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:07:15,924 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:07:15,924 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:07:15,924 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:07:15,925 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:07:15,925 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:07:15,925 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:08:02,732 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Started.. I am just painting here 🙈 It will not be a new hobby, but I am enjoying it/
+2026-07-20 22:08:02,733 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Started..', 'I', 'am', 'just', 'painting', 'here', '🙈', 'It', 'will', 'not', 'be', 'a', 'new', 'hobby,', 'but', 'I', 'am', 'enjoying', 'it\r']
+2026-07-20 22:08:02,733 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:08:02,733 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:S
+2026-07-20 22:08:02,733 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:08:02,733 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:08:02,733 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:08:02,733 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:08:02,733 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:08:02,734 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:08:02,734 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:08:09,523 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :True 🌸❤️/
+2026-07-20 22:08:09,524 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':True', '🌸❤️\r']
+2026-07-20 22:08:09,524 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:08:09,524 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:T
+2026-07-20 22:08:09,524 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:08:09,524 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:08:09,524 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:08:09,525 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:08:09,525 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:08:09,525 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:08:09,525 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:08:12,923 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Do furry art, you can become rich/
+2026-07-20 22:08:12,924 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Do', 'furry', 'art,', 'you', 'can', 'become', 'rich\r']
+2026-07-20 22:08:12,924 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:08:12,924 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:D
+2026-07-20 22:08:12,924 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:08:12,924 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:08:12,924 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:08:12,924 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:08:12,924 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:08:12,924 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:08:12,925 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:09:31,279 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :It's making commissioned art usually requested by furries haha/
+2026-07-20 22:09:31,279 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ":It's", 'making', 'commissioned', 'art', 'usually', 'requested', 'by', 'furries', 'haha\r']
+2026-07-20 22:09:31,280 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:09:31,280 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:09:31,280 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:09:31,280 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:09:31,280 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:09:31,280 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:09:31,280 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:09:31,280 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:09:31,280 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:10:07,468 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I've watched some yt video and girl said that's how she paid her college LUL/
+2026-07-20 22:10:07,468 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ":I've", 'watched', 'some', 'yt', 'video', 'and', 'girl', 'said', "that's", 'how', 'she', 'paid', 'her', 'college', 'LUL\r']
+2026-07-20 22:10:07,468 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:10:07,468 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:10:07,468 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:10:07,468 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:10:07,468 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:10:07,468 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:10:07,469 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:10:07,469 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:10:07,469 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:10:36,229 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Well damn LUL/
+2026-07-20 22:10:36,229 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Well', 'damn', 'LUL\r']
+2026-07-20 22:10:36,229 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:10:36,229 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:W
+2026-07-20 22:10:36,229 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:10:36,229 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:10:36,229 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:10:36,230 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:10:36,230 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:10:36,230 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:10:36,230 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:10:49,785 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Most furries in the US are basically IT people so they have money/
+2026-07-20 22:10:49,785 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Most', 'furries', 'in', 'the', 'US', 'are', 'basically', 'IT', 'people', 'so', 'they', 'have', 'money\r']
+2026-07-20 22:10:49,786 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:10:49,786 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:M
+2026-07-20 22:10:49,786 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:10:49,786 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:10:49,786 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:10:49,786 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:10:49,787 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:10:49,787 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:10:49,787 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:11:19,910 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 22:11:19,911 - twitch_bot - INFO - Responded to PING
+2026-07-20 22:11:27,696 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :No clue/
+2026-07-20 22:11:27,696 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':No', 'clue\r']
+2026-07-20 22:11:27,696 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:11:27,696 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:N
+2026-07-20 22:11:27,696 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:11:27,696 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:11:27,696 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:11:27,697 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:11:27,697 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:11:27,697 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:11:27,697 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:13:15,141 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Interesting concept, maybe even some dried fruit/
+2026-07-20 22:13:15,141 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Interesting', 'concept,', 'maybe', 'even', 'some', 'dried', 'fruit\r']
+2026-07-20 22:13:15,142 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:13:15,142 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:13:15,142 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:13:15,142 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:13:15,142 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:13:15,142 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:13:15,142 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:13:15,142 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:13:15,143 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:13:44,630 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I don't think Mochi would mind 😄/
+2026-07-20 22:13:44,630 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':I', "don't", 'think', 'Mochi', 'would', 'mind', '😄\r']
+2026-07-20 22:13:44,631 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:13:44,631 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:13:44,631 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:13:44,631 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:13:44,631 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:13:44,631 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:13:44,631 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:13:44,631 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:13:44,631 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:13:55,264 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I am very good at not being bored/
+2026-07-20 22:13:55,264 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':I', 'am', 'very', 'good', 'at', 'not', 'being', 'bored\r']
+2026-07-20 22:13:55,264 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:13:55,264 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:13:55,265 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:13:55,265 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:13:55,265 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:13:55,265 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:13:55,265 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:13:55,265 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:13:55,265 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:14:11,907 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :You could just use mochi's tail as a brush/
+2026-07-20 22:14:11,907 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':You', 'could', 'just', 'use', "mochi's", 'tail', 'as', 'a', 'brush\r']
+2026-07-20 22:14:11,907 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:14:11,907 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:Y
+2026-07-20 22:14:11,907 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:14:11,907 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:14:11,907 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:14:11,907 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:14:11,908 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:14:11,908 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:14:11,908 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:16:08,979 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 22:16:08,979 - twitch_bot - INFO - Responded to PING
+2026-07-20 22:20:10,948 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 22:20:10,948 - twitch_bot - INFO - Responded to PING
+2026-07-20 22:21:52,434 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I would probably love the picture and hate the clean up, yeah LUL/
+2026-07-20 22:21:52,435 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':I', 'would', 'probably', 'love', 'the', 'picture', 'and', 'hate', 'the', 'clean', 'up,', 'yeah', 'LUL\r']
+2026-07-20 22:21:52,435 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:21:52,435 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:21:52,435 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:21:52,435 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:21:52,435 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:21:52,435 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:21:52,435 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:21:52,435 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:21:52,435 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:23:45,905 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Added the Mochi art in discord 🥰/
+2026-07-20 22:23:45,905 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Added', 'the', 'Mochi', 'art', 'in', 'discord', '🥰\r']
+2026-07-20 22:23:45,905 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:23:45,905 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:A
+2026-07-20 22:23:45,905 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:23:45,905 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:23:45,905 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:23:45,906 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:23:45,906 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:23:45,906 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:23:45,906 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:23:50,607 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Be present/
+2026-07-20 22:23:50,607 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Be', 'present\r']
+2026-07-20 22:23:50,608 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:23:50,608 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:B
+2026-07-20 22:23:50,608 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:23:50,608 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:23:50,608 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:23:50,608 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:23:50,608 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:23:50,608 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:23:50,609 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:24:29,992 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 22:24:29,993 - twitch_bot - INFO - Responded to PING
+2026-07-20 22:24:47,125 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :How did you make the paws? 🐾/
+2026-07-20 22:24:47,125 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':How', 'did', 'you', 'make', 'the', 'paws?', '🐾\r']
+2026-07-20 22:24:47,126 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:24:47,126 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:H
+2026-07-20 22:24:47,126 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:24:47,126 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:24:47,126 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:24:47,126 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:24:47,126 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:24:47,126 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:24:47,127 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:25:04,740 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I like the greens that you're using/
+2026-07-20 22:25:04,740 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':I', 'like', 'the', 'greens', 'that', "you're", 'using\r']
+2026-07-20 22:25:04,740 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:25:04,740 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:25:04,740 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:25:04,740 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:25:04,740 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:25:04,741 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:25:04,741 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:25:04,741 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:25:04,741 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:26:09,226 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I put something in between LUL/
+2026-07-20 22:26:09,226 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':I', 'put', 'something', 'in', 'between', 'LUL\r']
+2026-07-20 22:26:09,226 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:26:09,226 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:26:09,226 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:26:09,226 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:26:09,226 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:26:09,227 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:26:09,227 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:26:09,227 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:26:09,227 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:26:16,751 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :But it is his paw prints ❤️❤️/
+2026-07-20 22:26:16,752 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':But', 'it', 'is', 'his', 'paw', 'prints', '❤️❤️\r']
+2026-07-20 22:26:16,752 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:26:16,752 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:B
+2026-07-20 22:26:16,752 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:26:16,752 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:26:16,752 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:26:16,752 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:26:16,752 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:26:16,752 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:26:16,753 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:26:25,141 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:slavezero!slavezero@slavezero.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :For me workingout in the gym is being present. I don't use my phone and my brain is detoxing/
+2026-07-20 22:26:25,141 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':slavezero!slavezero@slavezero.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':For', 'me', 'workingout', 'in', 'the', 'gym', 'is', 'being', 'present.', 'I', "don't", 'use', 'my', 'phone', 'and', 'my', 'brain', 'is', 'detoxing\r']
+2026-07-20 22:26:25,141 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: slavezero
+2026-07-20 22:26:25,141 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:F
+2026-07-20 22:26:25,141 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:slavezero
+2026-07-20 22:26:25,142 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:26:25,142 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:26:25,142 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:slavezero=coolingenwastaken?(False)
+2026-07-20 22:26:25,142 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /slavezero/ if they don't have default gif.
+2026-07-20 22:26:25,142 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /slavezero/
+2026-07-20 22:26:25,142 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:26:53,078 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Work outs are a great way to be present 😊/
+2026-07-20 22:26:53,079 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Work', 'outs', 'are', 'a', 'great', 'way', 'to', 'be', 'present', '😊\r']
+2026-07-20 22:26:53,079 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:26:53,079 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:W
+2026-07-20 22:26:53,079 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:26:53,079 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:26:53,079 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:26:53,079 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:26:53,079 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:26:53,080 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:26:53,080 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:27:07,703 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :That was exactly it LUL/
+2026-07-20 22:27:07,704 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':That', 'was', 'exactly', 'it', 'LUL\r']
+2026-07-20 22:27:07,704 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:27:07,704 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:T
+2026-07-20 22:27:07,704 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:27:07,704 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:27:07,704 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:27:07,704 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:27:07,704 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:27:07,704 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:27:07,704 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:28:46,008 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 22:28:46,008 - twitch_bot - INFO - Responded to PING
+2026-07-20 22:33:38,998 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 22:33:38,998 - twitch_bot - INFO - Responded to PING
+2026-07-20 22:37:39,491 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/PING :tmi.twitch.tv/
+2026-07-20 22:37:39,492 - twitch_bot - INFO - Responded to PING
+2026-07-20 22:37:53,403 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :I hate listening to my body, it's always like "hey I'm stressed", so I'm like "ok, let's do something else then! Wee!"/
+2026-07-20 22:37:53,403 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':I', 'hate', 'listening', 'to', 'my', 'body,', "it's", 'always', 'like', '"hey', "I'm", 'stressed",', 'so', "I'm", 'like', '"ok,', "let's", 'do', 'something', 'else', 'then!', 'Wee!"\r']
+2026-07-20 22:37:53,403 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:37:53,403 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:I
+2026-07-20 22:37:53,403 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:37:53,403 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:37:53,404 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:37:53,404 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:37:53,404 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:37:53,404 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:37:53,404 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:39:02,657 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Catch-all-messages:/:nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv PRIVMSG #thestreamteamwastaken :Well... LUL/
+2026-07-20 22:39:02,658 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Message split: [':nurseiplier!nurseiplier@nurseiplier.tmi.twitch.tv', 'PRIVMSG', '#thestreamteamwastaken', ':Well...', 'LUL\r']
+2026-07-20 22:39:02,658 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Detected sender: nurseiplier
+2026-07-20 22:39:02,658 - twitch_bot - INFO - utils/Message_central.Message_central=>find_sender_and_msg:Doesn't start with:/%/, starts with:W
+2026-07-20 22:39:02,658 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Checking auto-so for username:nurseiplier
+2026-07-20 22:39:02,658 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got main_command:
+2026-07-20 22:39:02,658 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Got params:
+2026-07-20 22:39:02,658 - twitch_bot - INFO - utils/Message_central.Message_central=>check_for_automatic_shout_out:Moment of truth:nurseiplier=coolingenwastaken?(False)
+2026-07-20 22:39:02,658 - twitch_bot - INFO - commands/command_handler.Command_central=>check_auto_greetings:Auto-greetings for /nurseiplier/ if they don't have default gif.
+2026-07-20 22:39:02,658 - twitch_bot - INFO - commands/command_handler.Command_central=>create_auto_shout_out:Try to create shout out for /nurseiplier/
+2026-07-20 22:39:02,659 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop: - Ignoring message, not a command, missing %!
+2026-07-20 22:39:36,717 - twitch_bot - ERROR - utils/TwitchConnection=>start_messsage_loop:Connection closed
+2026-07-20 22:39:36,717 - twitch_bot - INFO - utils/TwitchConnection=>start_messsage_loop:Twitch-chat-loop terminated.
+2026-07-20 22:39:36,717 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Shutting down Twitch-chat-loop
+2026-07-20 22:39:36,717 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Disconnecting from Twitch chat..
+2026-07-20 22:39:36,717 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Cleaning up message-tasks-lists
+2026-07-20 22:39:36,718 - twitch_bot - INFO - utils/TwitchConnection=>disconnect:Successfully disconnected from Twitch

@@ -1,0 +1,12 @@
+Debugging ends with:
+#################### BUILDING LISTS START #########################
+utils/UserRoleManager=>buildlists:Bygger lister over MODs, VIPs, subscribers og followers.
+2026-07-19 12:03:33,299 - twitch_bot - INFO - utils/UserRoleManager=>get_MODs_list:Contacting server for logging in
+2026-07-19 12:03:33,482 - twitch_bot - INFO - commands/command_runner.Command_runner=>run_commands_from_queue:Starting up the while loop..
+2026-07-19 12:03:33,482 - twitch_bot - INFO - utils/overlay_runner.Overlay_runner=>run_commands_from_queue:Starting up the while loop..
+2026-07-19 12:03:33,482 - twitch_bot - INFO - AlbotBrain:process_qt_events:Starting Qt event processing
+Bot stopped unexpectedly.. Did you remember to start the virtual environment? Exception saying: /'data'/
+Bot has shut down completely.
+
+==> Solution: Get new token for TSTWT! Probably done a mix-up with using Albot's URL to get token, in stead of TSTWT's on TSWT-account or vica versa. 
+    Now you can't get the info the bot want, since you don't have the credentials you need for it.
