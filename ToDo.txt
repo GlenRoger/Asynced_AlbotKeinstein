@@ -77,8 +77,27 @@ I've examined the code files you've shared, and there are several issues that sh
 
 These issues could affect the stability and functionality of your bot, especially related to command permissions and response handling. Would you like me to elaborate on any specific issue in more detail?
 
+9. Delete log files/don't bring them into rep
 
+10. FIX GIFS: From Claud char earlier:
+243 MB isn't a problem yet, but it will keep growing. GitHub only blocks single files over 100 MB, and it suggests keeping a repo under about 1 GB. Git also keeps every version of every gif forever, so a gif you delete or replace later still counts in the history. Here's what I found and what I'd do.
 
+What I found
+95 gifs take 232 MB, and 42 of them are over 2 MB each. The biggest is 11 MB (CATS_WITH_BIG_EYES.gif). A gif shown in a stream overlay rarely needs to be that big.
+22 files are exact copies of others (53 MB). For example, CATS_WITH_BIG_EYES.gif and LIST_SCARY_I_SEE_YOU_BITS_CATS_WITH_BIG_EYES.gif are the same file. It looks like the LIST_..._ filename is how a gif gets put into a list, so the gif has to be copied to join one. Git stores identical files only once, so this mostly wastes disk space, not repo size. It is still a fragile setup.
+Ideas, from easiest to biggest
+1. Shrink the big gifs (I recommend starting here). Most of the size comes from the resolution and number of colours. If a gif is shown at, say, 400 px wide on stream but stored at 1000+ px, resizing it to the size it's shown at often makes it 50–80% smaller, and viewers won't see a difference. A free tool like gifsicle or ezgif.com can do this. Only the 42 large ones are worth the effort. You don't have to change any code.
+
+2. Stop copying gifs to put them in lists. Store list membership as data, e.g. a column in a CSV or the Gif_register table already planned in DASHBOARD_PLAN.md, so each gif exists once and can be in several lists. This saves the 53 MB on disk, avoids copies drifting apart, and the dashboard can later show and edit the lists. It's a code change in the GifHandler, so it's best done as part of the gif part of the dashboard.
+
+3. Take the media out of git, if it keeps growing. The gifs are content rather than code, so they could live outside the repo, like your token files already do:
+
+Git LFS: git only keeps a small pointer per gif and the real files are stored separately. It's easy to set up, but GitHub's free plan only includes 1 GB of storage and 1 GB of download per month.
+A media folder outside the repo, synced with OneDrive or Google Drive and pointed to from config.py. It's free and simple, but a fresh install needs an extra "copy the media folder" step.
+Removing the gifs from git now doesn't shrink the history: old commits still contain them. Clearing those out means rewriting history, which is a bigger and riskier job. I'd only do that if the repo gets really slow to clone.
+
+My suggestion
+Do 1 now: it's a quick win with no code changes. Plan 2 together with the gif features of the dashboard. Keep 3 in mind for when the media gets near 1 GB. If you like, I can list the 42 large gifs with their current pixel sizes, so you can see which ones are oversized compared to how big they appear on stream.
 
 
 

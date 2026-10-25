@@ -27,6 +27,8 @@ class DatabaseController():
         self.create_error_register_table()
         self.create_info_register_table()
         self.create_tokens_register_table()
+        self.create_dashboard_cmd_register_table()
+        self.create_status_register_table()
 
 
     def create_table(self, table_name, columns_list):
@@ -217,6 +219,32 @@ class DatabaseController():
         #Columns:
         #timestamp, action, invoked_by, function_name, parameters, bot_version
         self.create_table("Info_register" ,["timestamp DATETIME DEFAULT CURRENT_TIMESTAMP", "action NVARCHAR(255)", "invoked_by NVARCHAR(100)", "function_name NVARCHAR(100)", "parameters NVARCHAR(255)", "bot_version NVARCHAR(20)"])
+
+    def create_dashboard_cmd_register_table(self):
+        #Columns:
+        #timestamp, invoked_by, action, parameters, bot_version
+        self.create_table("Dashboard_cmd_register" ,["timestamp DATETIME DEFAULT CURRENT_TIMESTAMP", "invoked_by NVARCHAR(100)", "action NVARCHAR(255)", "parameters NVARCHAR(255)", "bot_version NVARCHAR(20)"])
+
+    def create_status_register_table(self):
+        #Columns:
+        #name, value, last_updated - én rad per innstilling, f.eks. HALLOWEEN_MODE = ON
+        self.create_table("Status_register", ["name NVARCHAR(100)", "value NVARCHAR(255)", "last_updated DATETIME DEFAULT CURRENT_TIMESTAMP"])
+
+    def set_status(self, name, value):
+        #Oppdaterer raden hvis den finnes, ellers lages den
+        self.cursor.execute("UPDATE Status_register SET value = ?, last_updated = CURRENT_TIMESTAMP WHERE name = ?", (value, name))
+        if self.cursor.rowcount == 0:
+            self.cursor.execute("INSERT INTO Status_register (name, value) VALUES (?, ?)", (name, value))
+        self.conn.commit()
+
+    def get_last_dashboard_cmd_id(self):
+        self.cursor.execute("SELECT MAX(id) FROM Dashboard_cmd_register")
+        return self.cursor.fetchone()[0] or 0
+
+    def get_dashboard_cmds_after(self, last_id):
+        #Returnerer (id, action, parameters) for kommandoer nyere enn last_id
+        self.cursor.execute("SELECT id, action, parameters FROM Dashboard_cmd_register WHERE id > ? ORDER BY id ASC", (last_id,))
+        return self.cursor.fetchall()
 
     def __delete__(self):
         self.ro_conn.close()

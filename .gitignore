@@ -1,3 +1,21 @@
+# Python
 __pycache__/
 *.pyc
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Secrets - the token/key files live outside the repo (see config.py), this is a safety net
+.env
+*token*.txt
+*apikey*.txt
+
+# Local data created while Albot runs
 *.db
+cache/
+
+# Written by main.py while Albot runs
+albot.pid

@@ -46,9 +46,23 @@ class Database_Reader():
 
     def get_latest_info_as_touple(self):
         self.cursor.execute("SELECT * FROM Info_register ORDER BY ID DESC LIMIT 5")
-        result = self.cursor.fetchone()
+        result = self.cursor.fetchall()
 
         return result
+
+    def get_status(self):
+        #Innstillinger boten har lagret, f.eks. {"HALLOWEEN_MODE": "ON", "HALLOWEEN_SOUND": "OFF"}
+        try:
+            self.cursor.execute("SELECT name, value FROM Status_register")
+        except sqlite3.OperationalError:
+            #Tabellen lages første gang boten starter med ny kode
+            return {}
+        return dict(self.cursor.fetchall())
+
+    def get_latest_token_expirations(self):
+        #Siste utløpsdato per token, f.eks. {"albot": "2026-11-01 12:00:00"}
+        self.cursor.execute("SELECT token_for, expiration_date FROM Tokens_register ORDER BY ID ASC")
+        return dict(self.cursor.fetchall())
 
 
     def pretty_print(self, table_name, result):

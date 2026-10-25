@@ -198,6 +198,23 @@ class TwitchConnection:
 
         print("\t\t##########################################################\n")
 
+        #Lagrer utløpsdatoene i databasen, så dashboardet kan vise dem
+        self.save_token_expiration_dates()
+
+
+    def save_token_expiration_dates(self):
+        current_log_prefix = self.logger_prefix + "save_token_expiration_dates:"
+
+        #Skal ikke stoppe boten om lagringen feiler
+        try:
+            now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+            for token_for, expiration_time in [("albot", self.expiration_time), ("TSTWT", self.expiration_time_br)]:
+                values_dict = {"TOKEN_FOR": token_for, "EXPIRATION_DATE": expiration_time.strftime("%Y-%m-%d %H:%M:%S"), "LAST_UPDATED": now}
+                self.albot_brain.db.insert_into("Tokens_register", values_dict)
+        except Exception as e:
+            self.logger.error(f"{current_log_prefix}Could not save token expiration dates to the database -> /{e}/")
+
 
 
     # Main loop checking Twitch chat for commands and changes in chat status and keeping ping to look alive.

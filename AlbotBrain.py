@@ -32,6 +32,9 @@ class AlbotBrain:
         #Adding database
         self.db = DatabaseController()
 
+        #Dashboard-kommandoer fra før boten startet skal ignoreres
+        self.last_dashboard_cmd_id = self.db.get_last_dashboard_cmd_id()
+
 
         #This logger is going to be passed on to other objects to be used for logging the full bot's life cycle
         self.logger = logger.LogThis(self.db, self.ALBOTVERSION).get_logger()
@@ -103,8 +106,36 @@ class AlbotBrain:
 
         self.shutdown_requested = False  # Add this flag
 
+        #Halloween starter alltid av (med lyd på) - forteller dashboardet det
+        self.cmd_central.save_halloween_status()
+
     async def get_commands_from_db(self):
-        pass
+        """Poll Dashboard_cmd_register for commands sent from the dashboard"""
+        current_log_prefix = self.logger_prefix + "get_commands_from_db:"
+
+        while not self.shutdown_requested:
+            try:
+                for cmd_id, action, parameters in self.db.get_dashboard_cmds_after(self.last_dashboard_cmd_id):
+                    self.last_dashboard_cmd_id = cmd_id
+
+                    if action.upper() == 'SHUTDOWN':
+                        self.logger.info(f"{current_log_prefix}Shutdown requested from the dashboard")
+                        await self.shutdown()
+                        return
+
+                    elif action.upper() == 'HALLOWEEN':
+                        await self.cmd_central.halloween_command("dashboard", parameters)
+
+                    elif action.upper() == 'HALLOWEEN_SOUND':
+                        self.cmd_central.set_halloween_sound(parameters.upper() == 'ON', "dashboard")
+
+                    elif action.upper() == 'HALLOWEEN_GIF':
+                        await self.cmd_central.fire_halloween_gif("dashboard")
+            except Exception as e:
+                self.logger.error(f"{current_log_prefix}Could not read dashboard commands -> /{e}/")
+
+            await asyncio.sleep(2)
+
         # while True:
             
 

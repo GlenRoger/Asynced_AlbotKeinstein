@@ -2,6 +2,7 @@
 import importlib
 import config
 import asyncio
+import random
 
 
 class Albot_Command:
@@ -70,6 +71,9 @@ class Command_central:
         self.gotten_auto_shout_outs = []
         self.gotten_auto_thanks     = []
         self.gotten_auto_greetings  = []
+
+        #%halloween on/off - bakgrunnsoppgaven som viser halloween-gifs, None når av
+        self.halloween_gifs_task = None
 
         self.read_commands_from_files()
 
@@ -240,6 +244,14 @@ class Command_central:
             return True
                 
 
+        elif cmd.upper() == 'HALLOWEEN':
+            if self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
+                await self.halloween_command(sender, params)
+            else:
+                self.logger.info(f"{current_log_prefix}User:{sender} doesn't have necessary role (MODS, TSTWTMEMBERS) to run this command:/{cmd}/")
+            return True
+
+
         elif cmd.upper() == 'SO':
             if self.check_user_match_privileges_to_run_command(sender, ["MODS", "TSTWTMEMBERS"]):
                 await self.create_auto_shout_out(params, is_auto_so = False)
@@ -247,6 +259,97 @@ class Command_central:
                 self.logger.info(f"{self.logger_prefix}Does not have the right privileges to run the SO-command..")
             return True
         return False
+
+    #%halloween on, %halloween off, %halloween (status)
+    async def halloween_command(self, sender, params):
+        current_log_prefix = self.logger_prefix + "halloween_command:"
+
+        option = params.strip().lower() if params else ""
+        is_on = self.halloween_gifs_task is not None
+
+        if option == "on":
+            if is_on:
+                await self.msg_central.albot_to_say("command_central.halloween_command", "Halloween mode is already on! 👻")
+                return
+
+            self.logger.info(f"{current_log_prefix}Halloween gifs turned ON by {sender}")
+            self.halloween_gifs_task = asyncio.create_task(self.halloween_gifs_loop())
+            self.save_halloween_status()
+
+            if self.isAwake:
+                await self.msg_central.albot_to_say("command_central.halloween_command", "Spooky season activated! 🎃 Watch out...")
+            else:
+                await self.msg_central.albot_to_say("command_central.halloween_command", "Halloween mode is on! 🎃 The scares start when I wake up...")
+
+        elif option == "off":
+            if not is_on:
+                await self.msg_central.albot_to_say("command_central.halloween_command", "Halloween mode is already off.")
+                return
+
+            self.logger.info(f"{current_log_prefix}Halloween gifs turned OFF by {sender}")
+            self.halloween_gifs_task.cancel()
+            self.halloween_gifs_task = None
+            self.save_halloween_status()
+            await self.msg_central.albot_to_say("command_central.halloween_command", "Halloween mode off. No more scares... for now! 👻")
+
+        else:
+            status = "ON 🎃" if is_on else "OFF"
+            await self.msg_central.albot_to_say("command_central.halloween_command", f"Halloween mode is {status}. Use {config.PREFIX_FOR_BOT_TO_READ}halloween on / {config.PREFIX_FOR_BOT_TO_READ}halloween off")
+
+
+    #Fra dashboardet - skrur av/på lyden til halloween-gifene, ingen melding i chatten
+    def set_halloween_sound(self, sound_on, sender):
+        current_log_prefix = self.logger_prefix + "set_halloween_sound:"
+        self.logger.info(f"{current_log_prefix}Halloween sound turned {'ON' if sound_on else 'OFF'} by {sender}")
+
+        self.overlay_runner.halloween_sound_on = sound_on
+        self.save_halloween_status()
+
+
+    #Lagrer halloween-innstillingene i databasen, så dashboardet kan vise dem
+    def save_halloween_status(self):
+        current_log_prefix = self.logger_prefix + "save_halloween_status:"
+
+        try:
+            self.albot_brain.db.set_status("HALLOWEEN_MODE", "ON" if self.halloween_gifs_task else "OFF")
+            self.albot_brain.db.set_status("HALLOWEEN_SOUND", "ON" if self.overlay_runner.halloween_sound_on else "OFF")
+        except Exception as e:
+            self.logger.error(f"{current_log_prefix}Could not save halloween status to the database -> /{e}/")
+
+
+    #Viser en tilfeldig halloween-gif med en gang, og deretter hvert 5. til 10. minutt
+    async def halloween_gifs_loop(self):
+        current_log_prefix = self.logger_prefix + "halloween_gifs_loop:"
+
+        while True:
+            #Når Albot sover skal det ikke legges gifs i køen, ellers spilles alle av på rad når han våkner
+            if self.isAwake:
+                await self.show_halloween_gif()
+
+            await asyncio.sleep(random.randint(5*60, 10*60))
+
+
+    #Fra dashboardets spøkelse-knapp - én halloween-gif med en gang, uavhengig av halloween-modus
+    async def fire_halloween_gif(self, sender):
+        current_log_prefix = self.logger_prefix + "fire_halloween_gif:"
+
+        if not self.isAwake:
+            self.logger.info(f"{current_log_prefix}Albot is asleep - not showing the halloween gif {sender} asked for")
+            return
+
+        self.logger.info(f"{current_log_prefix}Halloween gif fired by {sender}")
+        await self.show_halloween_gif()
+
+
+    async def show_halloween_gif(self):
+        current_log_prefix = self.logger_prefix + "show_halloween_gif:"
+
+        try:
+            gif_to_show = self.gif_handler.get_random_halloween_list()
+            await self.overlay_runner.make_halloween_message(gif_to_show)
+        except IndexError:
+            self.logger.warning(f"{current_log_prefix}No halloween gifs found - add gifs named LIST_HALLOWEEN_... to known_gifs.csv")
+
 
     async def check_command(self, sender, cmd, params):
         current_log_prefix = self.logger_prefix + "check_command:"

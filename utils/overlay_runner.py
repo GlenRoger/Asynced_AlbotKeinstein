@@ -21,6 +21,9 @@ class Overlay_runner:
         self.use_this_halloween_gif = ""
         self.use_this_tstwtgif_gif  = ""
 
+        #Kan skrus av fra dashboardet - gjelder kun lyden til halloween-gifene
+        self.halloween_sound_on = True
+
         self.logger.info(f"{self.logger_prefix}Command_central successfully initialized!")
 
 
@@ -182,7 +185,8 @@ class Overlay_runner:
 
         elif cmd.upper() == "HALLOWEEN":
             print("\n\n\n\tHALLLOOOOOWWWEEEEEEEN!\n\n\n\n")
-            return {"text":"BOOH!!","gif":self.use_this_halloween_gif,"sound":"PLAY_THIS_Halloween_sound.wav"}
+            sound = "PLAY_THIS_Halloween_sound.wav" if self.halloween_sound_on else ""
+            return {"text":"BOOH!!","gif":self.use_this_halloween_gif,"sound":sound}
         
         elif cmd.upper() == "TSTWTGIF":
             print("\n\n\n\tTSTWTGIF!\n\n\n\n")

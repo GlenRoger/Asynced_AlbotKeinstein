@@ -108,17 +108,13 @@ class UserRoleManager:
         self.logger.info(f"{current_log_prefix}Got channel ID: {channel_id} for {config.CHANNEL}")
     
         # Now get the MODs
-        mods_response = requests.get(
-            f"https://api.twitch.tv/helix/moderation/moderators?broadcaster_id={channel_id}", 
-            headers=headers
-        )
-        
-        if mods_response.status_code != 200:
-            self.logger.error(f"{current_log_prefix}Failed to get MODs: {mods_response.text}")
+        mods_data = self.get_all_pages(f"https://api.twitch.tv/helix/moderation/moderators?broadcaster_id={channel_id}", headers, "MODs")
+
+        if mods_data is None:
             return
-        
-        mods_data = mods_response.json()["data"]
-        mods_usernames = [mod["user_name"] for mod in mods_data]
+
+        # user_login (always lowercase) is the name we see in chat, user_name can have capital letters
+        mods_usernames = [mod["user_login"] for mod in mods_data]
         
         self.logger.info(f"{current_log_prefix}Found {len(mods_usernames)} MODs.\n")
         self.MODs_list =  mods_usernames
@@ -148,17 +144,13 @@ class UserRoleManager:
         self.logger.info(f"{current_log_prefix}Got channel ID: {channel_id} for {config.CHANNEL}")
     
         # Now get the VIPs
-        vip_response = requests.get(
-            f"https://api.twitch.tv/helix/channels/vips?broadcaster_id={channel_id}", 
-            headers=headers
-        )
-        
-        if vip_response.status_code != 200:
-            self.logger.error(f"{current_log_prefix}Failed to get VIPs: {vip_response.text}")
+        vips_data = self.get_all_pages(f"https://api.twitch.tv/helix/channels/vips?broadcaster_id={channel_id}", headers, "VIPs")
+
+        if vips_data is None:
             return
-        
-        vips_data = vip_response.json()["data"]
-        vip_usernames = [vip["user_name"] for vip in vips_data]
+
+        # user_login (always lowercase) is the name we see in chat, user_name can have capital letters
+        vip_usernames = [vip["user_login"] for vip in vips_data]
         
         self.logger.info(f"{current_log_prefix}Found {len(vip_usernames)} VIPs.\n")
         self.VIPs_list =  vip_usernames
@@ -180,18 +172,41 @@ class UserRoleManager:
 
         self.logger.info(f"{current_log_prefix}Gotten the {channel_id} for {config.CHANNEL}")
 
-        headers = {"Authorization": f"Bearer {token}", "Client-ID": self.client_id_br}
-        sub_response = requests.get(f"https://api.twitch.tv/helix/subscriptions?broadcaster_id={channel_id}", headers=headers)
+        subs_data = self.get_all_pages(f"https://api.twitch.tv/helix/subscriptions?broadcaster_id={channel_id}", headers, "subscribers")
 
-        if sub_response.status_code != 200:
-            self.logger.error(f"{current_log_prefix}Failed to get subscribers: {sub_response.text}")
+        if subs_data is None:
             return
-        
-        subs_data = sub_response.json()["data"]
-        subs_usernames = [sub["user_name"] for sub in subs_data]
+
+        # user_login (always lowercase) is the name we see in chat, user_name can have capital letters
+        subs_usernames = [sub["user_login"] for sub in subs_data]
         
         self.logger.info(f"{current_log_prefix}Found {len(subs_usernames)} subscribers.\n")
         self.subscribers_list =  subs_usernames
+
+
+    #Twitch gir bare 20 om gangen som standard - henter 100 per side og blar gjennom alle sidene.
+    #Returnerer None hvis noe feiler, ellers en liste med alle radene.
+    def get_all_pages(self, url, headers, what):
+        current_log_prefix = self.logger_prefix + "get_all_pages:"
+
+        all_data = []
+        pagination = ""
+
+        while True:
+            pagination_query = f"&after={pagination}" if pagination else ""
+            response = requests.get(f"{url}&first=100{pagination_query}", headers=headers)
+
+            if response.status_code != 200:
+                self.logger.error(f"{current_log_prefix}Failed to get {what}: {response.text}")
+                return None
+
+            result = response.json()
+            all_data.extend(result["data"])
+
+            if "pagination" in result and "cursor" in result["pagination"]:
+                pagination = result["pagination"]["cursor"]
+            else:
+                return all_data
 
 
     #Henter alle følgere vi har
