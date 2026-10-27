@@ -6,9 +6,9 @@ import sys
 if sys.prefix == sys.base_prefix:
     print("\n" + "#" * 70)
     print("#  ERROR: No virtual environment is activated!")
-    print("#  Activate it first, then start the dashboard again, e.g.:")
-    print("#      <path to your venv>\\Scripts\\activate")
-    print("#      python dashboard.py")
+    print("#  Kjør koden under:")
+    print("#  1.    ..\\venv\\Scripts\\activate")
+    print("#  2.    python dashboard.py")
     print("#" * 70 + "\n")
     sys.exit(1)
 
